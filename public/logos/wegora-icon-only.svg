@@ -1,0 +1,26 @@
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified Icon-Only Logomark -->
+  <g id="logomark" transform="translate(1, 2)">
+    <!-- Simple House Base -->
+    <rect x="2" y="16" width="14" height="12" rx="1" fill="#2563EB"/>
+    
+    <!-- Simple House Roof -->
+    <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="#2563EB"/>
+    
+    <!-- Single Window -->
+    <rect x="6" y="20" width="2" height="2" rx="0.5" fill="white"/>
+    
+    <!-- Minimal Document/Checkmark Element -->
+    <g transform="translate(18, 14)">
+      <!-- Simple Document -->
+      <rect x="0" y="0" width="8" height="10" rx="1" fill="white" stroke="#F97316" stroke-width="1.2"/>
+      
+      <!-- Single Checkmark -->
+      <circle cx="2.5" cy="4" r="1.2" fill="#F97316"/>
+      <path d="M2 4 L2.3 4.3 L3 3.6" stroke="white" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+      
+      <!-- Simple line indicator -->
+      <rect x="4.5" y="3.5" width="2.5" height="1" rx="0.5" fill="#F97316" opacity="0.4"/>
+    </g>
+  </g>
+</svg>

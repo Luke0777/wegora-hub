@@ -1,0 +1,20 @@
+<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ultra-simplified logomark for 16px -->
+  <g id="logomark">
+    <!-- Simple House Base -->
+    <rect x="1" y="8" width="7" height="6" rx="0.5" fill="#2563EB"/>
+    
+    <!-- Simple House Roof -->
+    <path d="M0.5 8.5 L4.5 4.5 L8.5 8.5 L7.5 8.5 L4.5 5.5 L1.5 8.5 Z" fill="#2563EB"/>
+    
+    <!-- Minimal Document Element -->
+    <g transform="translate(9, 7)">
+      <!-- Simple Document -->
+      <rect x="0" y="0" width="4" height="5" rx="0.5" fill="white" stroke="#F97316" stroke-width="0.6"/>
+      
+      <!-- Single Checkmark -->
+      <circle cx="1.2" cy="2" r="0.6" fill="#F97316"/>
+      <path d="M0.9 2 L1.05 2.15 L1.5 1.7" stroke="white" stroke-width="0.3" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
