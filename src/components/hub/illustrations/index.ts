@@ -4,5 +4,6 @@ export { AllInOneProblemsIllustration } from './AllInOneProblemsIllustration';
 export { WegoraModularIllustration } from './WegoraModularIllustration';
 export { ServiceAccountingIllustration } from './ServiceAccountingIllustration';
 export { ServiceNebenkostenIllustration } from './ServiceNebenkostenIllustration';
+export { ServiceNebenkostenCheckIllustration } from './ServiceNebenkostenCheckIllustration';
 export { ServiceWEGIllustration } from './ServiceWEGIllustration';
 export { DataIntegrationIllustration } from './DataIntegrationIllustration';

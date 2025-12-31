@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,6 +28,7 @@ import {
   WegoraModularIllustration,
   ServiceAccountingIllustration,
   ServiceNebenkostenIllustration,
+  ServiceNebenkostenCheckIllustration,
   ServiceWEGIllustration,
   DataIntegrationIllustration,
 } from "./illustrations";
@@ -70,48 +72,68 @@ export function WegoraHubPage() {
 
   const services = [
     {
-      id: "weg",
+      id: "versammlungen",
       icon: ServiceWEGIllustration,
-      title: "WEG-Versammlungen",
+      title: "Wegora Versammlungen",
       description:
-        "Digitale Vorbereitung, Live-Abstimmungen und automatische Protokolle für Eigentümerversammlungen.",
+        "Versammlungen vorbereiten, digital durchführen und sauber dokumentieren.",
       features: [
         "Tagesordnung erstellen",
         "Digitale Abstimmungen",
-        "Automatisches Protokoll",
-        "Einladungsversand",
+        "Protokoll erstellen",
+        "Einladungen versenden",
       ],
+      availability: ["Web-App"],
       color: "#3182CE",
     },
     {
-      id: "accounting",
+      id: "finanzen",
       icon: ServiceAccountingIllustration,
-      title: "Accounting & Immobilienfinanzen",
+      title: "Wegora Finanzen",
       description:
-        "Buchhaltung, Wirtschaftspläne und Hausgeldabrechnungen für Verwalter und Selbstverwalter.",
+        "Finanzen übersichtlich verwalten – pro Objekt, jederzeit nachvollziehbar.",
       features: [
         "Buchungen & Abrechnungen",
-        "Wirtschaftspläne erstellen",
+        "Wirtschaftspläne",
         "Hausgeldabrechnungen",
-        "Strukturierte Finanzdaten",
+        "Finanzdaten pro Objekt",
       ],
+      availability: ["Web-App"],
       color: "#10B981",
     },
     {
-      id: "nebenkosten",
+      id: "nebenkostenmanager",
       icon: ServiceNebenkostenIllustration,
-      title: "Nebenkosten & Dokumenten-Intelligenz",
+      title: "Wegora NK Manager",
       description:
-        "AI-gestützte Analyse von Abrechnungen mit automatischer Klassifizierung und Plausibilitätsprüfung.",
+        "Nebenkosten erfassen, strukturieren und für Abrechnungen vorbereiten.",
       features: [
-        "AI-Dokumentenanalyse",
-        "Umlagefähigkeit prüfen",
-        "Plausibilitätschecks",
-        "Transparenz für Mieter",
+        "Kosten verwalten",
+        "Belege zuordnen",
+        "Verteilung vorbereiten",
+        "Übersicht pro Zeitraum",
       ],
+      availability: ["Mobile App", "Web-App (bald)"],
+      recommended: true,
       color: "#8B5CF6",
     },
+    {
+      id: "kostenanalyse",
+      icon: ServiceNebenkostenCheckIllustration,
+      title: "Wegora Kostenanalyse",
+      description:
+        "Kostenpotenziale in Abrechnungen erkennen – mit passenden Alternativen.",
+      features: [
+        "Kosten einordnen",
+        "Potenziale erkennen",
+        "Angebote vergleichen",
+        "Wirtschaftsplan optimieren",
+      ],
+      availability: ["Mobile App"],
+      color: "#F97316",
+    },
   ];
+
 
   const userTypes = [
     {
@@ -138,88 +160,120 @@ export function WegoraHubPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
-      {/* Simple Header for standalone version */}
+      {/* Navigation Header */}
       <header className="fixed top-4 left-4 right-4 z-50">
-        <div className="h-16 px-6 border-0 shadow-lg bg-background/95 backdrop-blur-sm mx-auto max-w-screen-lg rounded-lg">
-          <div className="flex items-center h-full w-full">
+        <div className="h-16 px-6 border-0 shadow-lg bg-background/95 backdrop-blur-sm mx-auto max-w-screen-xl rounded-lg">
+          <div className="flex items-center h-full w-full gap-8">
             <WegoraLogo variant="horizontal" size="md" />
-            <div className="flex-1"></div>
-            <Button
-              size="sm"
-              className="h-9 text-sm px-4"
-            >
-              Kontakt
-            </Button>
+            <nav className="flex-1 flex items-center gap-2">
+              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Start</Link>
+              <Link to="/ueber-uns" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Über uns</Link>
+              <Link to="/vision" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Vision</Link>
+              <Link to="/unser-angebot" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Unser Angebot</Link>
+              <Link to="/services" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Services</Link>
+              <Link to="/ai-technologie" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">AI & Technologie</Link>
+            </nav>
+            <Link to="/kontakt">
+              <Button
+                size="sm"
+                className="h-9 text-sm px-4"
+              >
+                Kontakt
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
 
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section - Apple-Inspired */}
       <section
-        id="hero"
+        id="start"
         style={{ "--nav-h": "72px" } as React.CSSProperties}
-        className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] grid items-center relative"
+        className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] grid items-center relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
       >
-        <div
-          className="max-w-[clamp(1200px,90vw,1440px)] mx-auto grid items-center px-[clamp(16px,4vw,48px)]"
-          style={
-            {
-              gridTemplateColumns: "minmax(620px, 740px) 1fr",
-              columnGap: "clamp(48px, 6vw, 96px)",
-            } as React.CSSProperties
-          }
-        >
-          {/* Left Column - Text Content */}
-          <div>
-            <h1
-              className="text-left text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-8 lg:mb-10 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
-              style={
-                {
-                  maxWidth: "none",
-                  wordBreak: "normal",
-                  overflowWrap: "normal",
-                  hyphens: "none",
-                  lineHeight: "1.2",
-                } as React.CSSProperties
-              }
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+          {/* Centered Content */}
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+            {/* Brand Name */}
+            <div className="mb-4 animate-fade-in"
+              style={{
+                animationDelay: "0s",
+                opacity: 0,
+                animationFillMode: "forwards",
+              }}
             >
-              Eigentümerversammlungen selbst durchführen – digital, einfach,
-              transparent
-            </h1>
-
-            <div className="hero-support text-left space-y-4 lg:space-y-5">
-              <p className="text-base sm:text-lg text-foreground leading-[1.6] mt-4 max-w-[60ch]">
-                Für Selbstverwaltungen und kleine Hausverwaltungen: Einladungen
-                verschicken, Live-Abstimmungen durchführen und Protokolle
-                automatisch erstellen – alles in einem Tool.
-              </p>
-
-              <div className="flex justify-start items-center mt-6">
-                <Button
-                  size="lg"
-                  className="text-sm sm:text-base px-6 sm:px-8 py-4 sm:py-6 h-auto bg-blue-600 hover:bg-blue-700 text-white"
-                >
-                  <FileText className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  Versammlung starten
-                </Button>
-              </div>
-
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Speziell entwickelt für Selbstverwaltungen und kleine
-                Hausverwaltungen
+              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+                Wegora
               </p>
             </div>
-          </div>
 
-          {/* Right Column - Illustration */}
-          <div className="order-first lg:order-last">
-            <HubHeroIllustration className="w-full h-64 sm:h-80 lg:h-96" />
+            {/* Headline */}
+            <h1
+              className="text-[clamp(36px,4.5vw,64px)] font-semibold tracking-tight text-[#1A1A1A] animate-fade-in"
+              style={{
+                lineHeight: "1.15",
+                fontWeight: 600,
+                animationDelay: "0.1s",
+                opacity: 0,
+                animationFillMode: "forwards",
+              }}
+            >
+              Die Plattform zur Verwaltung Ihrer Immobilien
+            </h1>
+
+            {/* Subheadline */}
+            <p
+              className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto animate-fade-in"
+              style={{
+                opacity: 0.6,
+                color: "#1A1A1A",
+                animationDelay: "0.3s",
+                animationFillMode: "forwards",
+              }}
+            >
+              Für kleine Wohnungseigentümergemeinschaften (WEGs), Selbstverwalter und kleine Immobilienverwaltungen – modular und ohne komplexe All-in-One-Systeme.
+            </p>
+
+            {/* Partner Microline */}
+            <p
+              className="text-sm leading-relaxed max-w-2xl mx-auto animate-fade-in text-gray-500"
+              style={{
+                animationDelay: "0.4s",
+                animationFillMode: "forwards",
+                opacity: 0,
+              }}
+            >
+              Für Verwaltungen: Eine Lösung für Eigentümer, die Sie nicht mehr aufnehmen können.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
+              <Button
+                size="lg"
+                className="h-auto px-8 py-4 text-base font-medium rounded-xl bg-[#2463eb] hover:bg-[#1d4ed8] text-white transition-all duration-200"
+                style={{ fontWeight: 500 }}
+              >
+                Jetzt registrieren
+              </Button>
+              <a
+                href="#services"
+                className="text-base font-medium text-[#2463eb] hover:text-[#1d4ed8] transition-colors flex items-center gap-1"
+              >
+                Unsere Services
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            {/* Illustration - Reduced size with more whitespace */}
+            <div className="pt-12">
+              <HubHeroIllustration className="w-full max-w-2xl h-auto mx-auto" />
+            </div>
           </div>
         </div>
 
         {/* Scroll Affordance Chevron */}
         {showScrollIndicator && (
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-pulse">
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
             <div className="flex flex-col items-center text-muted-foreground">
               <span className="text-xs mb-2 opacity-60">Mehr erfahren</span>
               <ArrowRight className="h-5 w-5 rotate-90 opacity-60" />
@@ -227,40 +281,142 @@ export function WegoraHubPage() {
           </div>
         )}
 
-        {/* Responsive Styles */}
+        {/* Apple-Style Animations */}
         <style>{`
-          @media (max-width: 1439px) {
-            #hero > div {
-              grid-template-columns: minmax(600px, 680px) 1fr !important;
+          @keyframes fade-in {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
             }
           }
-          @media (max-width: 1023px) {
-            #hero > div {
-              grid-template-columns: minmax(520px, 1fr) minmax(0, 1fr) !important;
+          
+          @keyframes fade-in-scale {
+            from {
+              opacity: 0;
+              transform: scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1);
             }
           }
-          @media (max-width: 767px) {
-            #hero > div {
-              grid-template-columns: 1fr !important;
-              row-gap: 24px !important;
-            }
+          
+          .animate-fade-in {
+            animation: fade-in 0.8s ease-out;
+          }
+          
+          .animate-fade-in-scale {
+            animation: fade-in-scale 1s ease-out;
           }
         `}</style>
       </section>
 
-      {/* 2. Product Vision Section */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* 2. Services Section */}
+      <section className="py-16 sm:py-24 bg-white" id="services">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8 sm:mb-12">
+          <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Die Plattform für automatisierte und AI-assistierte
-              Immobilienprozesse
+              Unsere Services
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              WEGORA entwickelt sich zur AI-assistierten Plattform für zentrale
-              Prozesse der Immobilienverwaltung. Unser Fokus liegt auf
-              End-to-End Automatisierung, hoher Qualität und
-              Nachvollziehbarkeit – ohne überladene All-in-One-Systeme.
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Vier spezialisierte Anwendungen – einzeln nutzbar, gemeinsam stärker.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {services.map((service) => {
+              const IllustrationComponent = service.icon;
+              return (
+                <Card
+                  key={service.id}
+                  className="border-2 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col relative"
+                  style={{ borderColor: `${service.color}20` }}
+                >
+                  {/* Empfohlener Einstieg Badge - positioned on top edge */}
+                  {service.recommended && (
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] px-3 py-1 bg-[#DDD6FE] text-[#7C3AED] border-[#C4B5FD] shadow-sm"
+                      >
+                        Empfohlener Einstieg
+                      </Badge>
+                    </div>
+                  )}
+                  
+                  <CardHeader className="text-center pb-3">
+                    {/* Illustration */}
+                    <div className="mx-auto mb-6 h-[160px] flex items-center justify-center">
+                      <IllustrationComponent className="w-full max-w-[180px] h-auto" />
+                    </div>
+                    
+                    {/* Title - fixed height for alignment */}
+                    <div className="min-h-[48px] flex items-center justify-center mb-3">
+                      <CardTitle className="text-lg font-bold leading-tight tracking-tight">
+                        {service.title}
+                      </CardTitle>
+                    </div>
+                    
+                    {/* Description - directly under heading */}
+                    <div className="min-h-[48px]">
+                      <CardDescription className="text-sm leading-relaxed">
+                        {service.description}
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="flex-1 flex flex-col pt-0 pb-4">
+                    {/* Features list - reduced spacing to description */}
+                    <ul className="space-y-2 mb-3">
+                      {service.features.map((feature, i) => (
+                        <li
+                          key={i}
+                          className="flex items-center gap-2 text-xs text-foreground"
+                        >
+                          <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
+                            <CheckCircle
+                              className="w-4 h-4"
+                              style={{ color: service.color }}
+                            />
+                          </div>
+                          <span className="leading-tight">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {/* Platform chips at bottom */}
+                    <div className="flex flex-wrap gap-1.5 justify-center mt-auto pt-6">
+                      {service.availability?.map((platform, idx) => (
+                        <Badge
+                          key={idx}
+                          variant="outline"
+                          className="text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                        >
+                          {platform}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Platform Overview Section */}
+      <section className="py-20 sm:py-28" id="unser-angebot">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-[clamp(32px,3.5vw,48px)] font-semibold mb-4 text-[#1A1A1A]" style={{ fontWeight: 600 }}>
+              Ein System. Mehrere Services.
+            </h2>
+            <p className="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" style={{ opacity: 0.6, color: "#1A1A1A" }}>
+              Starten Sie mit dem Service, den Sie heute brauchen.
             </p>
           </div>
 
@@ -313,7 +469,7 @@ export function WegoraHubPage() {
         </div>
       </section>
 
-      {/* 3. Problem/Solution Comparison */}
+      {/* 4. Problem/Solution Comparison */}
       <section
         ref={compareRef}
         id="compare"
@@ -326,83 +482,94 @@ export function WegoraHubPage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Warum WEGORA?
+              Warum Wegora?
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Der Unterschied zwischen teuren All-in-One-Systemen und unserem
-              fokussierten, modularen Ansatz.
+              Der Unterschied zwischen klassischen Verwaltungssystemen und unserem modularen, nutzerfreundlichen Ansatz.
             </p>
           </div>
 
-          {/* Desktop Layout */}
-          <div className="hidden md:block max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 gap-8 lg:gap-12">
+          {/* Desktop Layout - 2 Column: Bullets Left, Graphics Right */}
+          <div className="hidden md:block max-w-6xl mx-auto mb-16">
+            <div className="grid grid-cols-2 gap-12 lg:gap-16">
               {/* Bestehende Lösungen */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <Badge
-                    className="px-4 py-2 text-sm font-bold uppercase tracking-wide rounded-full"
-                    style={{ backgroundColor: "#F97316", color: "#FFFFFF" }}
-                  >
-                    Bestehende Lösungen
-                  </Badge>
-                  <p className="text-gray-600 text-sm font-semibold mt-2">
-                    teuer und komplex
-                  </p>
+              <div className="grid grid-cols-2 gap-8">
+                {/* Left: Header + Bullets */}
+                <div className="space-y-4">
+                  <div>
+                    <Badge
+                      className="px-4 py-2 text-sm font-bold uppercase tracking-wide rounded-full"
+                      style={{ backgroundColor: "#F97316", color: "#FFFFFF" }}
+                    >
+                      Bestehende Lösungen
+                    </Badge>
+                    <p className="text-gray-600 text-sm font-semibold mt-2">
+                      teuer und komplex
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 pt-2">
+                    {[
+                      "Sehr kostenintensiv",
+                      "Große All-in-One-Systeme",
+                      "Wenig flexibel bei Sonderfällen",
+                      "Aufwendig in Einrichtung",
+                    ].map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-sm text-foreground"
+                      >
+                        <div className="w-2 h-2 bg-orange-500 rounded-full mt-1.5"></div>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <AllInOneProblemsIllustration className="w-full max-w-sm mx-auto" />
-
-                <ul className="space-y-3">
-                  {[
-                    "Sehr kostenintensiv",
-                    "Große All-in-One-Systeme",
-                    "Wenig flexibel bei Sonderfällen",
-                    "Aufwendig in Einrichtung",
-                  ].map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-sm text-foreground"
-                    >
-                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-1.5"></div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Right: Illustration */}
+                <div className="flex items-start pt-12">
+                  <AllInOneProblemsIllustration className="w-full h-auto" />
+                </div>
               </div>
 
-              {/* WEGORA Ansatz */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <Badge
-                    className="px-4 py-2 text-sm font-bold uppercase tracking-wide rounded-full"
-                    style={{ backgroundColor: "#3182CE", color: "#FFFFFF" }}
-                  >
-                    WEGORA Ansatz
-                  </Badge>
-                  <p className="text-gray-600 text-sm font-semibold mt-2">
-                    modular und effizient
-                  </p>
+              {/* Wegora Ansatz */}
+              <div className="grid grid-cols-2 gap-8">
+                {/* Left: Header + Bullets */}
+                <div className="space-y-4">
+                  <div>
+                    <Badge
+                      className="px-4 py-2 text-sm font-bold uppercase tracking-wide rounded-full"
+                      style={{ backgroundColor: "#3182CE", color: "#FFFFFF" }}
+                    >
+                      Wegora Ansatz
+                    </Badge>
+                    <p className="text-gray-600 text-sm font-semibold mt-2">
+                      modular und effizient
+                    </p>
+                  </div>
+
+                  <ul className="space-y-3 pt-2">
+                    {[
+                      "Kosteneffizient & transparent",
+                      "Fokussierte Services",
+                      "Berücksichtigung von Edge Cases",
+                      "Einfache Nutzung",
+                    ].map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-sm text-foreground"
+                      >
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <WegoraModularIllustration className="w-full max-w-sm mx-auto" />
-
-                <ul className="space-y-3">
-                  {[
-                    "Kosteneffizient & transparent",
-                    "Fokussierte Services",
-                    "Berücksichtigung von Edge Cases",
-                    "Einfache Nutzung",
-                  ].map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-sm text-foreground"
-                    >
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Right: Illustration */}
+                <div className="flex items-start pt-12">
+                  <WegoraModularIllustration className="w-full h-auto" />
+                </div>
               </div>
             </div>
           </div>
@@ -439,7 +606,7 @@ export function WegoraHubPage() {
                   className="px-4 py-2 text-sm font-bold uppercase rounded-full"
                   style={{ backgroundColor: "#3182CE", color: "#FFFFFF" }}
                 >
-                  WEGORA Ansatz
+                  Wegora Ansatz
                 </Badge>
               </div>
               <WegoraModularIllustration className="w-full" />
@@ -456,62 +623,6 @@ export function WegoraHubPage() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Three Services Section */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Unsere Services
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Drei spezialisierte Services, die zusammenarbeiten – jeder für
-              sich nutzbar, gemeinsam noch stärker.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {services.map((service) => {
-              const IllustrationComponent = service.icon;
-              return (
-                <Card
-                  key={service.id}
-                  className="border-2 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-                  style={{ borderColor: `${service.color}20` }}
-                >
-                  <CardHeader className="text-center">
-                    <div className="mx-auto mb-4">
-                      <IllustrationComponent className="w-full max-w-[200px] h-auto" />
-                    </div>
-                    <CardTitle className="text-xl font-bold">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sm mb-4 leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-xs text-foreground"
-                        >
-                          <CheckCircle
-                            className="h-4 w-4 flex-shrink-0 mt-0.5"
-                            style={{ color: service.color }}
-                          />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -577,11 +688,11 @@ export function WegoraHubPage() {
       </section>
 
       {/* 6. User Types Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white" id="ueber-uns">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Für wen ist WEGORA?
+              Für wen ist Wegora?
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
               Unterschiedliche Nutzer – ein System
@@ -616,23 +727,37 @@ export function WegoraHubPage() {
         </div>
       </section>
 
-      {/* 7. Vision & CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-muted/30">
+      {/* 7. AI & Technologie Section (Placeholder) */}
+      <section className="py-16 sm:py-24" id="ai-technologie">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
+              AI & Technologie
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
+              Erfahren Sie mehr über die Technologie hinter Wegora und wie künstliche Intelligenz unsere Services unterstützt.
+            </p>
+            <div className="p-8 bg-muted/30 rounded-xl border-2 border-dashed border-muted-foreground/20">
+              <p className="text-sm text-muted-foreground italic">
+                Dieser Bereich wird in Kürze mit detaillierten Informationen über unsere AI-Features und technische Architektur ergänzt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Vision & CTA Section */}
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-muted/30" id="vision">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
               Unsere Vision
             </h2>
             <p className="text-base sm:text-lg text-foreground leading-relaxed mb-4">
-              WEGORA entwickelt sich zur AI-assistierten Plattform für zentrale
-              Prozesse der Immobilienverwaltung.
+              Wegora entwickelt Software, die Immobilienverwaltung vereinfacht und optimiert.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-              Wir fokussieren uns bewusst auf klar definierte Services statt
-              auf überladene All-in-One-Systeme. Unser Ziel: Immobilienprozesse
-              End-to-End zu automatisieren, AI dort einzusetzen, wo sie echte
-              Entscheidungen unterstützt, und Komplexität für Nutzer zu
-              reduzieren.
+              Unser Ziel: Prozesse transparenter machen, Nutzer dort unterstützen, wo Verwaltung heute unnötig kompliziert ist, und digitale Werkzeuge bieten, die helfen – nicht überfordern.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
