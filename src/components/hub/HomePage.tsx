@@ -50,10 +50,10 @@ export function HomePage() {
       {/* Hero Section */}
       <section
         style={{ "--nav-h": "72px" } as React.CSSProperties}
-        className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] grid items-center relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
+        className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
       >
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="max-w-5xl mx-auto text-center space-y-8">
+          <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
             {/* Brand Name */}
             <div className="mb-4 animate-fade-in" style={{ animationDelay: "0s", opacity: 0, animationFillMode: "forwards" }}>
               <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
@@ -74,7 +74,7 @@ export function HomePage() {
               className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto animate-fade-in"
               style={{ opacity: 0.6, color: "#1A1A1A", animationDelay: "0.3s", animationFillMode: "forwards" }}
             >
-              Für kleine Wohnungseigentümergemeinschaften (WEGs), Selbstverwalter und kleine Immobilienverwaltungen – modular und ohne komplexe All-in-One-Systeme.
+              Für kleine Wohnungseigentümergemeinschaften (WEGs), Selbstverwalter und kleine Immobilienverwaltungen – modular, verständlich und ohne komplexe All-in-One-Systeme.
             </p>
 
             {/* Partner Microline */}

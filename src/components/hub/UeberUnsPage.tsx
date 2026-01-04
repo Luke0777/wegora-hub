@@ -76,6 +76,147 @@ export function UeberUnsPage() {
         </div>
       </section>
 
+      {/* Systemische Realität - Why Current System Struggles */}
+      <section className="py-20 sm:py-28 bg-gray-50/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="max-w-6xl mx-auto">
+            {/* Headline + Subline */}
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-[#1A1A1A]">
+                Warum Verwaltung heute an ihre Grenzen stößt
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-[640px] mx-auto">
+                Nicht durch fehlendes Engagement – sondern durch wachsende Komplexität.
+              </p>
+            </div>
+
+            {/* 4 System-Realitäten als Card Grid */}
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              
+              {/* Card 1: Komplexität */}
+              <Card className="border-2 border-gray-200/60 bg-gray-50/30 rounded-xl hover:shadow-lg transition-all duration-300 relative">
+                <CardContent className="p-6">
+                  {/* Icon + Headline */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-6 h-6 text-[#2463eb] flex-shrink-0 mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M230.91,172A8,8,0,0,1,228,182.91l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,36,169.09l92,53.65,92-53.65A8,8,0,0,1,230.91,172ZM220,121.09l-92,53.65L36,121.09A8,8,0,0,0,27.94,134l96,56a8,8,0,0,0,8.12,0l96-56A8,8,0,1,0,220,121.09ZM24,80a8,8,0,0,1,4-6.91l96-56a8,8,0,0,1,8.06,0l96,56a8,8,0,0,1,0,13.82l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,24,80Zm23.88,0L128,126.74,208.12,80,128,33.26Z"></path>
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-lg text-[#1A1A1A]">
+                      Komplexität wächst schneller als Struktur
+                    </h3>
+                  </div>
+                  
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                    <li>Mehr Vorgänge pro Objekt</li>
+                    <li>Steigende regulatorische Anforderungen</li>
+                    <li>Zunehmender Abstimmungsaufwand zwischen Beteiligten</li>
+                  </ul>
+                  
+                  <p className="text-sm text-gray-600 italic pt-3 border-t border-gray-100">
+                    → Verwaltung wird reaktiv statt steuernd.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Card 2: Rollen */}
+              <Card className="border-2 border-gray-200/60 bg-gray-50/30 rounded-xl hover:shadow-lg transition-all duration-300 relative">
+                <CardContent className="p-6">
+                  {/* Icon + Headline */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-6 h-6 text-[#2463eb] flex-shrink-0 mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1,0-16,24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"></path>
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-lg text-[#1A1A1A]">
+                      Verantwortung ohne klare Rollen
+                    </h3>
+                  </div>
+                  
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                    <li>Entscheidungen verteilen sich auf viele Beteiligte</li>
+                    <li>Zuständigkeiten wechseln je nach Thema</li>
+                    <li>Wissen liegt bei Einzelpersonen</li>
+                  </ul>
+                  
+                  <p className="text-sm text-gray-600 italic pt-3 border-t border-gray-100">
+                    → Prozesse hängen von Menschen ab – nicht von Systemen.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Card 3: Transparenz */}
+              <Card className="border-2 border-gray-200/60 bg-gray-50/30 rounded-xl hover:shadow-lg transition-all duration-300 relative">
+                <CardContent className="p-6">
+                  {/* Icon + Headline */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-6 h-6 text-[#2463eb] flex-shrink-0 mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-lg text-[#1A1A1A]">
+                      Transparenz entsteht nur mit Aufwand
+                    </h3>
+                  </div>
+                  
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                    <li>Informationen sind vorhanden, aber verteilt</li>
+                    <li>Überblick erfordert aktives Nachfragen</li>
+                    <li>Status und Kontext fehlen oft im Zusammenhang</li>
+                  </ul>
+                  
+                  <p className="text-sm text-gray-600 italic pt-3 border-t border-gray-100">
+                    → Überblick entsteht erst durch zusätzlichen Aufwand.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Card 4: Zeit */}
+              <Card className="border-2 border-gray-200/60 bg-gray-50/30 rounded-xl hover:shadow-lg transition-all duration-300 relative">
+                <CardContent className="p-6">
+                  {/* Icon + Headline */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-6 h-6 text-[#2463eb] flex-shrink-0 mt-0.5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path>
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-lg text-[#1A1A1A]">
+                      Zeit fließt in Koordination
+                    </h3>
+                  </div>
+                  
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                    <li>Abstimmungen dauern länger als die Umsetzung</li>
+                    <li>Informationen müssen manuell gesammelt werden</li>
+                    <li>Entscheidungen verzögern sich dadurch</li>
+                  </ul>
+                  
+                  <p className="text-sm text-gray-600 italic pt-3 border-t border-gray-100">
+                    → Verwaltung kostet Zeit – selbst mit Verwalter.
+                  </p>
+                </CardContent>
+              </Card>
+
+            </div>
+
+            {/* Bridge Text with decorative line */}
+            <div className="max-w-3xl mx-auto mt-16 text-center">
+              {/* Decorative accent line */}
+              <div className="w-6 h-px bg-gray-300 mx-auto mb-8"></div>
+              
+              <p className="text-base sm:text-lg text-foreground leading-relaxed">
+                Verwaltung scheitert heute nicht an Menschen.<br />
+                Sie scheitert an fehlenden, durchgängigen Strukturen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* User Types Section */}
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6">

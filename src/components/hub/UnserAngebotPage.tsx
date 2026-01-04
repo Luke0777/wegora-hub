@@ -8,7 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Brain, Database } from "@phosphor-icons/react";
 import {
-  HubHeroIllustration,
+  ServiceFlowDiagram,
   ServiceWEGIllustration,
   ServiceAccountingIllustration,
   ServiceNebenkostenIllustration,
@@ -22,12 +22,12 @@ export function UnserAngebotPage() {
       icon: ServiceWEGIllustration,
       title: "Wegora Versammlungen",
       description:
-        "Versammlungen vorbereiten, digital durchführen und sauber dokumentieren.",
+        "Versammlungen vorbereiten, durchführen, dokumentieren und digital versenden.",
       features: [
-        "Tagesordnung erstellen",
-        "Digitale Abstimmungen",
-        "Protokoll erstellen",
         "Einladungen versenden",
+        "Tagesordnung vorbereiten",
+        "Digital abstimmen",
+        "Protokolle erstellen",
       ],
       availability: ["Web-App"],
       color: "#3182CE",
@@ -37,12 +37,12 @@ export function UnserAngebotPage() {
       icon: ServiceAccountingIllustration,
       title: "Wegora Finanzen",
       description:
-        "Finanzen übersichtlich verwalten – pro Objekt, jederzeit nachvollziehbar.",
+        "Finanzen übersichtlich verwalten – klar strukturiert pro Objekt und Gemeinschaft.",
       features: [
-        "Buchungen & Abrechnungen",
-        "Wirtschaftspläne",
-        "Hausgeldabrechnungen",
-        "Finanzdaten pro Objekt",
+        "Einnahmen überblicken",
+        "Ausgaben kontrollieren",
+        "Abrechnungen erstellen",
+        "Wirtschaftspläne entwerfen",
       ],
       availability: ["Web-App"],
       color: "#10B981",
@@ -52,12 +52,12 @@ export function UnserAngebotPage() {
       icon: ServiceNebenkostenIllustration,
       title: "Wegora NK Manager",
       description:
-        "Nebenkosten erfassen, strukturieren und für Abrechnungen vorbereiten.",
+        "Nebenkostenabrechnungen in wenigen Schritten erstellen und versenden.",
       features: [
-        "Kosten verwalten",
-        "Belege zuordnen",
-        "Verteilung vorbereiten",
-        "Übersicht pro Zeitraum",
+        "Hausgeld hochladen",
+        "Kostenpunkte bestätigen",
+        "NK-Abrechnung vorbereiten",
+        "NK-Abrechnung versenden",
       ],
       availability: ["Mobile App", "Web-App (bald)"],
       recommended: true,
@@ -68,12 +68,12 @@ export function UnserAngebotPage() {
       icon: ServiceNebenkostenCheckIllustration,
       title: "Wegora Kostenanalyse",
       description:
-        "Kostenpotenziale in Abrechnungen erkennen – mit passenden Alternativen.",
+        "Kosten verstehen, Einsparpotenziale erkennen und fundiert entscheiden.",
       features: [
-        "Kosten einordnen",
+        "Kosten analysieren",
         "Potenziale erkennen",
         "Angebote vergleichen",
-        "Wirtschaftsplan optimieren",
+        "Planung optimieren",
       ],
       availability: ["Mobile App"],
       color: "#F97316",
@@ -82,45 +82,53 @@ export function UnserAngebotPage() {
 
   return (
     <>
-      {/* Merged Hero: Unser Angebot */}
-      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* H1 - Main Headline */}
-            <h1 className="text-[clamp(36px,4vw,56px)] font-semibold tracking-tight text-[#1A1A1A] mb-3" style={{ fontWeight: 600, lineHeight: "1.15" }}>
-              Unser Angebot
-            </h1>
-            
-            {/* H2 - Core Concept (bigger, more prominent) */}
-            <h2 className="text-[clamp(28px,3vw,40px)] font-semibold text-[#1A1A1A] mb-4" style={{ fontWeight: 600, lineHeight: "1.3" }}>
-              Ein Objekt. Mehrere Services.
-            </h2>
-            
-            {/* Compact Intro (1-2 lines max) */}
-            <p className="text-base sm:text-lg text-muted-foreground max-w-[680px] mx-auto leading-relaxed mb-8 sm:mb-10">
-              Alle Services greifen auf dasselbe zentrale Objekt zu – einmal erfasst, überall verfügbar.
-            </p>
-            
-            {/* Central Illustration */}
-            <div className="mb-10 sm:mb-12">
-              <HubHeroIllustration className="w-full max-w-[620px] h-auto mx-auto" />
+      {/* Hero Section - Aligned with HomePage */}
+      <section
+        style={{ "--nav-h": "72px" } as React.CSSProperties}
+        className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
+      >
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
+            {/* Label "Unser Angebot" (small, not dominant) */}
+            <div className="mb-4">
+              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+                Unser Angebot
+              </p>
             </div>
-            
-            {/* Explanation BELOW graphic - Clean, no box */}
+
+            {/* Main Headline - matches Home H1 exactly */}
+            <h1
+              className="text-[clamp(36px,4.5vw,64px)] font-semibold tracking-tight text-[#1A1A1A]"
+              style={{ lineHeight: "1.15", fontWeight: 600 }}
+            >
+              Ein Objekt. Alles im Griff.
+            </h1>
+
+            {/* Subline - matches Home subline exactly */}
+            <p
+              className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto"
+              style={{ opacity: 0.6, color: "#1A1A1A" }}
+            >
+              Alle Services greifen ineinander – für weniger Aufwand im Alltag und volle Kontrolle über Ihr Objekt.
+            </p>
+
+            {/* Central Illustration - caption belongs visually to graphic */}
+            <div className="pt-16 pb-7">
+              <ServiceFlowDiagram className="w-full max-w-[900px] h-auto mx-auto" />
+            </div>
+
+            {/* Explanation BELOW graphic */}
             <div className="max-w-[680px] mx-auto text-center">
-              <h3 className="text-lg font-semibold text-[#1A1A1A] mb-3">
-                Das zentrale Objekt
-              </h3>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Stammdaten, Eigentümer und Einheiten werden einmal gepflegt – und stehen in Finanzen, NK Manager, Versammlungen und Kostenanalyse sofort bereit.
+                Alle Services greifen auf dasselbe zentrale Objekt zu. Stammdaten, Eigentümer und Einheiten werden einmal erfasst und stehen für Finanzen, Versammlungen, Nebenkosten und Auswertungen jederzeit zur Verfügung.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 sm:py-24">
+      {/* Services Section - clear section break from above */}
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
@@ -220,7 +228,7 @@ export function UnserAngebotPage() {
               Modularität & Zusammenspiel
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-              Jeder Service ist eigenständig nutzbar. Gemeinsam bilden sie ein leistungsstarkes Ökosystem für Ihre Immobilienverwaltung.
+              Jeder Service ist eigenständig nutzbar. Gemeinsam wachsen sie mit Ihren Anforderungen.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-8 text-left">
@@ -237,15 +245,15 @@ export function UnserAngebotPage() {
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Nutzen Sie nur die Services, die Sie brauchen</span>
+                      <span>Nutzen Sie nur, was Sie brauchen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Keine Verpflichtung zu teuren All-in-One-Paketen</span>
+                      <span>Keine Verpflichtung zu großen Paketen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Transparente, faire Preisgestaltung</span>
+                      <span>Einfacher Einstieg, überschaubare Kosten</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -264,15 +272,15 @@ export function UnserAngebotPage() {
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                      <span>Daten fließen nahtlos zwischen Services</span>
+                      <span>Services arbeiten nahtlos zusammen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                      <span>Erweitern Sie Ihr System bei Bedarf</span>
+                      <span>System wächst mit Ihren Anforderungen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                      <span>Maximale Effizienz durch Integration</span>
+                      <span>Einmal erfasst, überall verfügbar</span>
                     </li>
                   </ul>
                 </CardContent>
