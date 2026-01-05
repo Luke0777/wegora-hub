@@ -1,17 +1,65 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb, CheckCircle, Path, FileText, Rocket, CaretDown } from "@phosphor-icons/react";
-import { ServiceFlowDiagram } from "./illustrations";
 import { AnimatedWordReplacement } from "./AnimatedWordReplacement";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export function VisionPage() {
   const [showScrollArrow, setShowScrollArrow] = useState(true);
+  const [stepsVisible, setStepsVisible] = useState(false);
+  const stepsRef = useRef<HTMLDivElement>(null);
+
+  // Centralized workflow step data
+  const WORKFLOW_STEPS = [
+    {
+      title: "Finanzen sind vorbereitet",
+      desc: "Vollständig erfasst, geprüft und strukturiert.",
+      chip: "Wegora Finanzen",
+      chipSub: null,
+      actionText: null,
+    },
+    {
+      title: "Abrechnung & Planung liegen vor",
+      desc: "Klar vorbereitet – als Entscheidungsgrundlage belastbar.",
+      chip: "Wegora Finanzen",
+      chipSub: null,
+      actionText: "Finanzen bestätigen",
+    },
+    {
+      title: "Eigentümer entscheiden digital",
+      desc: "Vergleichbar, nachvollziehbar und kontextualisiert.",
+      chip: "Wegora Versammlungen",
+      chipSub: null,
+      actionText: "Beschlüsse treffen",
+    },
+    {
+      title: "Beschlüsse sind jederzeit verfügbar",
+      desc: "Mit Status, Verantwortlichkeiten und Historie.",
+      chip: "Wegora Portal",
+      chipSub: null,
+      actionText: "Dokumente prüfen",
+    },
+    {
+      title: "NK-Abrechnungen sind bereit",
+      desc: "Automatisch aufbereitet – pro Eigentümer.",
+      chip: "NK Manager",
+      chipSub: null,
+      actionText: "NK bestätigen",
+    },
+    {
+      title: "Versand läuft automatisch",
+      desc: "Nach Freigabe – ohne weiteren Aufwand.",
+      chip: "Wegora Portal",
+      chipSub: null,
+      actionText: null,
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       // Handle scroll arrow visibility
-      if (window.scrollY > 100) {
+      const hasEnoughHeight = window.innerHeight >= 700;
+      if (window.scrollY > 100 || !hasEnoughHeight) {
         setShowScrollArrow(false);
       } else {
         setShowScrollArrow(true);
@@ -19,9 +67,33 @@ export function VisionPage() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
     handleScroll(); // Initial calculation
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStepsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (stepsRef.current) {
+      observer.observe(stepsRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -57,8 +129,8 @@ export function VisionPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 0.6, y: 0 }}
                 transition={{
-                  delay: 2.9,
-                  duration: 0.8,
+                  delay: 1.7,
+                  duration: 0.6,
                   ease: "easeOut",
                 }}
               >
@@ -72,8 +144,8 @@ export function VisionPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 0.6, y: 0 }}
                 transition={{
-                  delay: 3.1,
-                  duration: 0.8,
+                  delay: 1.9,
+                  duration: 0.6,
                   ease: "easeOut",
                 }}
               >
@@ -87,10 +159,11 @@ export function VisionPage() {
         <AnimatePresence>
           {showScrollArrow && (
             <motion.div
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
+              className="fixed left-1/2 -translate-x-1/2 cursor-pointer z-20"
+              style={{ bottom: "2rem" }}
               initial={{ opacity: 0, y: -10 }}
-              animate={{ 
-                opacity: 1, 
+              animate={{
+                opacity: 1,
                 y: 0,
               }}
               exit={{ opacity: 0, y: -10 }}
@@ -106,7 +179,7 @@ export function VisionPage() {
               }}
             >
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, 8, 0],
                 }}
                 transition={{
@@ -115,8 +188,8 @@ export function VisionPage() {
                   ease: "easeInOut"
                 }}
               >
-                <CaretDown 
-                  className="w-10 h-10 text-[#2463eb]/70 hover:text-[#2463eb] transition-colors" 
+                <CaretDown
+                  className="w-10 h-10 text-[#2463eb]/70 hover:text-[#2463eb] transition-colors"
                   weight="bold"
                 />
               </motion.div>
@@ -129,14 +202,20 @@ export function VisionPage() {
       <section className="relative py-16 sm:py-20 pb-12">
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1A1A1A]">
               Wie sich die Zukunft mit Wegora anfühlt
             </h2>
             <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Stellen Sie sich vor: Sie öffnen ein Portal – und sehen sofort, was wichtig ist.
             </p>
-          </div>
+          </motion.div>
 
           {/* 5-Card Display - Uniform, hover-focused design */}
           {/* Desktop View */}
@@ -159,45 +238,56 @@ export function VisionPage() {
               },
               {
                 icon: Path,
-                title: "Prioritäten statt To-dos",
+                title: "Priorisierung",
                 text: "To-do-Listen zeigen, was ansteht – nicht alles auf einmal. Termine, Fristen und Entscheidungen sind <strong>geführt</strong>."
               },
               {
                 icon: Rocket,
-                title: "Entscheiden statt Verwalten",
+                title: "Entscheidungsfreiheit",
                 text: "Wenn eine Entscheidung nötig ist, treffen Sie sie digital – <strong>klar vorbereitet</strong>, vergleichbar, nachvollziehbar."
               }
             ].map((card, idx) => {
               const IconComponent = card.icon;
 
               return (
-                <Card 
+                <motion.div
                   key={idx}
-                  className="flex-none w-[220px] bg-[#F8FAFF] border border-[rgba(47,102,255,0.25)] shadow-sm hover:bg-[rgba(47,102,255,0.06)] hover:border-[rgba(47,102,255,0.4)] hover:shadow-md hover:-translate-y-1 transition-all duration-200 ease-out"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: idx * 0.1
+                  }}
                 >
-                  <CardContent className="p-5 pt-8 text-center h-full flex flex-col min-h-[380px]">
-                    {/* Fixed height icon area - icons aligned at same height */}
-                    <div className="h-[50px] mb-10 flex items-center justify-center">
-                      <IconComponent 
-                        className="w-11 h-11 text-[#2463eb]"
-                        weight="regular" 
+                  <Card
+                    className="flex-none w-[220px] bg-[#F8FAFF] border border-[rgba(47,102,255,0.25)] shadow-sm hover:bg-[rgba(47,102,255,0.06)] hover:border-[rgba(47,102,255,0.4)] hover:shadow-md hover:-translate-y-1 transition-all duration-200 ease-out"
+                  >
+                    <CardContent className="p-5 pt-8 text-center h-full flex flex-col min-h-[380px]">
+                      {/* Fixed height icon area - icons aligned at same height */}
+                      <div className="h-[50px] mb-10 flex items-center justify-center">
+                        <IconComponent
+                          className="w-11 h-11 text-[#2463eb]"
+                          weight="regular"
+                        />
+                      </div>
+
+                      {/* Fixed height title area - headings top-aligned even when wrapped */}
+                      <h3 className="h-[44px] flex items-start justify-center font-bold text-base mb-4 text-[#1A1A1A]">
+                        {card.title}
+                      </h3>
+
+                      {/* Body text - first line aligned across all cards */}
+                      <p
+                        className="text-sm leading-relaxed text-muted-foreground text-center"
+                        dangerouslySetInnerHTML={{
+                          __html: card.text.replace(/<strong>/g, '<span class="text-[#1A1A1A] font-medium">').replace(/<\/strong>/g, '</span>')
+                        }}
                       />
-                    </div>
-                    
-                    {/* Fixed height title area - headings top-aligned even when wrapped */}
-                    <h3 className="h-[44px] flex items-start justify-center font-bold text-base mb-4 text-[#1A1A1A]">
-                      {card.title}
-                    </h3>
-                    
-                    {/* Body text - first line aligned across all cards */}
-                    <p 
-                      className="text-sm leading-relaxed text-muted-foreground text-center"
-                      dangerouslySetInnerHTML={{ 
-                        __html: card.text.replace(/<strong>/g, '<span class="text-[#1A1A1A] font-medium">').replace(/<\/strong>/g, '</span>') 
-                      }}
-                    />
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               );
             })}
           </div>
@@ -223,12 +313,12 @@ export function VisionPage() {
                 },
                 {
                   icon: Path,
-                  title: "Prioritäten statt To-dos",
+                  title: "Priorisierung",
                   text: "To-do-Listen zeigen, was ansteht – nicht alles auf einmal. Termine, Fristen und Entscheidungen sind <strong>geführt</strong>."
                 },
                 {
                   icon: Rocket,
-                  title: "Entscheiden statt Verwalten",
+                  title: "Entscheidungsfreiheit",
                   text: "Wenn eine Entscheidung nötig ist, treffen Sie sie digital – <strong>klar vorbereitet</strong>, vergleichbar, nachvollziehbar."
                 }
               ].map((card, idx) => {
@@ -268,15 +358,22 @@ export function VisionPage() {
           </div>
 
           {/* Transitional Text - Invites continued reading */}
-          <div className="text-center mt-12 mb-16">
-            <h3 className="text-xl sm:text-2xl font-medium text-gray-600 mb-4">
-              So fühlt sich Immobiliensteuerung im Alltag an
+          <motion.div
+            className="text-center mt-32 mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h3 className="text-xl sm:text-2xl font-medium text-gray-900 mb-6">
+              Immobiliensteuerung im Alltag
             </h3>
-            <p className="text-base sm:text-lg text-gray-700">
-              WEGs verwalten nicht mehr.<br />
-              Sie behalten den Überblick und entscheiden.
-            </p>
-          </div>
+            <div className="text-base sm:text-lg text-muted-foreground leading-relaxed space-y-1">
+              <p>Überblick behalten.</p>
+              <p>Entscheidungen treffen.</p>
+              <p>Der Rest läuft im Hintergrund.</p>
+            </div>
+          </motion.div>
         </div>
 
         {/* Subtle Fade Gradient - Scroll Continuation Cue */}
@@ -285,266 +382,304 @@ export function VisionPage() {
 
       {/* 5️⃣ So entsteht dieser Überblick im Hintergrund - Technical Flow */}
       <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28 bg-gradient-to-b from-white to-gray-50/30">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1A1A1A]">
-            So entsteht dieser Überblick im Hintergrund
+            So sieht die Zukunft der Immobiliensteuerung aus – Schritt für Schritt
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground">Stellen Sie sich vor:</p>
-        </div>
+          <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Von der Wirtschaftsplanung bis zum Versand der Nebenkostenabrechnung.
+          </p>
+        </motion.div>
 
         {/* Desktop Flow */}
-        <div className="mt-12 hidden md:block">
-          <div className="relative rounded-2xl border bg-white/60 px-10 py-12">
-            {/* connector line */}
-            <div className="absolute left-10 right-10 top-10 h-px bg-border" />
+        <div ref={stepsRef} className="mt-12 hidden md:block">
+          <div className="grid grid-cols-6 gap-8 max-w-7xl mx-auto">
+            {WORKFLOW_STEPS.map((s, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 8 }}
+                animate={stepsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: idx * 0.2
+                }}
+                className="relative"
+              >
+                {/* node - light background with blue border like cards */}
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#2463eb] bg-[#F8FAFF] shadow-sm">
+                  <span className="text-sm font-bold text-[#2463eb]">{idx + 1}</span>
+                </div>
 
-            <div className="grid grid-cols-5 gap-6">
-              {[
-                { title: "Rechnung geht ein", desc: "Automatisch erfasst & zugeordnet." },
-                { title: "Wird geprüft", desc: "Plausibilisiert und vorbereitet." },
-                { title: "Abweichungen werden sichtbar", desc: "Früh erkannt – bevor sie Probleme werden." },
-                { title: "Entscheidung wird vorbereitet", desc: "Klarer Vorschlag mit Kontext & Kosten." },
-                { title: "Umsetzung läuft strukturiert", desc: "Status, nächste Schritte, Verantwortlichkeit." },
-              ].map((s, idx) => (
-                <div key={idx} className="relative pt-6">
-                  {/* node */}
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border bg-white shadow-sm">
-                    <span className="text-xs font-medium text-muted-foreground">{idx + 1}</span>
-                  </div>
+                {/* small tick below circle */}
+                <div className="mx-auto mt-3 h-4 w-px bg-[#2463eb]/20" />
 
-                  {/* small tick to line */}
-                  <div className="mx-auto mt-2 h-3 w-px bg-border" />
-
-                  <div className="mt-5 text-center">
-                    <div className="text-sm font-semibold">{s.title}</div>
-                    <div className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                      {s.desc}
+                <div className="mt-6 text-center px-2">
+                  {/* Title with fixed height and max 2 lines */}
+                  <div className="h-[48px] flex items-start justify-center mb-3">
+                    <div className="text-[15px] font-semibold leading-snug text-[#1A1A1A] line-clamp-2">
+                      {s.title}
                     </div>
                   </div>
+                  {/* Description - all start at same vertical position */}
+                  <div className="text-[13px] leading-relaxed text-muted-foreground min-h-[66px]">
+                    {s.desc}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Divider 1 - Human Actions Layer */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={stepsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 1.6
+            }}
+            className="relative mt-12 max-w-7xl mx-auto"
+          >
+            <div className="h-px bg-border" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4">
+              <span className="text-xs font-medium text-muted-foreground">Eigentümer</span>
+            </div>
+            <div className="grid grid-cols-6 gap-8 mt-9">
+              {WORKFLOW_STEPS.map((s, idx) => (
+                <div key={idx} className="flex justify-center">
+                  {s.actionText && (
+                    <span className="inline-flex items-center justify-center rounded-full bg-blue-50 px-3 py-1 text-xs text-blue-600 border border-blue-200">
+                      {s.actionText}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
+          </motion.div>
 
-            {/* subtle accent */}
-            <div className="pointer-events-none absolute inset-x-10 top-10 h-px bg-blue-600/30" />
-          </div>
+          {/* Divider 2 - Wegora Systems Layer */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={stepsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              delay: 1.8
+            }}
+            className="relative mt-9 max-w-7xl mx-auto"
+          >
+            <div className="h-px bg-border" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4">
+              <span className="text-xs font-medium text-muted-foreground">Wegora</span>
+            </div>
+            <div className="grid grid-cols-6 gap-8 mt-9">
+              {WORKFLOW_STEPS.map((s, idx) => (
+                <div key={idx} className="flex flex-col items-center gap-0.5">
+                  <span className="inline-block rounded-full border px-3 py-1 text-xs whitespace-nowrap bg-blue-50 border-blue-200 text-blue-600">
+                    {s.chip}
+                  </span>
+                  {s.chipSub && (
+                    <span className="text-[10px] text-muted-foreground leading-tight">
+                      {s.chipSub}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Mobile Flow */}
-        <div className="mt-12 md:hidden">
-          <div className="rounded-2xl border bg-white/60 px-6 py-8">
-            <ol className="relative space-y-6">
-              {/* vertical connector */}
-              <div className="absolute left-5 top-3 bottom-3 w-px bg-border" />
-
-              {[
-                { title: "Rechnung geht ein", desc: "Automatisch erfasst & zugeordnet." },
-                { title: "Wird geprüft", desc: "Plausibilisiert und vorbereitet." },
-                { title: "Abweichungen werden sichtbar", desc: "Früh erkannt – bevor sie Probleme werden." },
-                { title: "Entscheidung wird vorbereitet", desc: "Klarer Vorschlag mit Kontext & Kosten." },
-                { title: "Umsetzung läuft strukturiert", desc: "Status, nächste Schritte, Verantwortlichkeit." },
-              ].map((s, idx) => (
-                <li key={idx} className="relative flex gap-4">
-                  <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border bg-white shadow-sm">
-                    <span className="text-xs font-medium text-muted-foreground">{idx + 1}</span>
-                  </div>
-                  <div className="pt-1">
-                    <div className="text-sm font-semibold">{s.title}</div>
-                    <div className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                      {s.desc}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-
-        <div className="mt-10 text-center">
-          <p className="text-sm text-muted-foreground">
-            WEGs behalten die Kontrolle – ohne im Detail zu versinken.
-          </p>
-        </div>
-      </section>
-
-      {/* 5️⃣ 2-Layer Architecture - Menschen → Wegora */}
-      <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1A1A1A]">
-            Menschen im Mittelpunkt. Wegora im Hintergrund.
-          </h2>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Klare Rollen ermöglichen Struktur – damit Menschen entscheiden können.
-          </p>
-        </div>
-
-        <div className="mt-14 rounded-2xl border bg-white/60 px-8 py-10">
-          {/* Layer 1: Menschen / WEGs */}
-          <div className="relative">
-            <div className="flex items-center justify-between gap-6">
-              <div>
-                <div className="text-sm font-semibold">WEGs / Menschen</div>
-                <div className="mt-2 text-xs text-muted-foreground">
-                  Entscheiden · Priorisieren · Überblick behalten
+        <div className="mt-12 md:hidden px-6">
+          <ol className="space-y-8">
+            {WORKFLOW_STEPS.map((s, idx) => (
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, y: 8 }}
+                animate={stepsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                  delay: idx * 0.2
+                }}
+                className="flex gap-4"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#2463eb] bg-[#F8FAFF] shadow-sm">
+                  <span className="text-sm font-bold text-[#2463eb]">{idx + 1}</span>
                 </div>
-              </div>
-
-              <div className="flex flex-wrap justify-end gap-2">
-                {["Bestätigen", "Rückfragen", "Ablehnen"].map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border bg-white px-3 py-1 text-xs text-muted-foreground"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* connector */}
-            <div className="mt-8 h-px bg-border" />
-          </div>
-
-          {/* Layer 2: Wegora */}
-          <div className="relative mt-8">
-            <div className="flex items-center justify-between gap-6">
-              <div>
-                <div className="text-sm font-semibold text-blue-700">Wegora</div>
-                <div className="mt-2 text-xs text-muted-foreground">
-                  Strukturiert Abläufe · Bereitet Entscheidungen vor · Führt Umsetzung nach
+                <div className="pt-1 flex-1">
+                  {s.actionText && (
+                    <span className="inline-flex items-center justify-center rounded-full bg-blue-50 px-3 py-1 text-xs text-blue-600 border border-blue-200 mb-2">
+                      ✓ Ihre Aktion
+                    </span>
+                  )}
+                  <div className="text-[15px] font-semibold leading-snug text-[#1A1A1A] mb-2 line-clamp-2">
+                    {s.title}
+                  </div>
+                  <div className="text-[13px] leading-relaxed text-muted-foreground mb-2">
+                    {s.desc}
+                  </div>
+                  <div className="flex flex-col items-start gap-0.5">
+                    <span className="inline-block rounded-full border px-3 py-1 text-xs whitespace-nowrap bg-blue-50 border-blue-200 text-blue-600">
+                      {s.chip}
+                    </span>
+                    {s.chipSub && (
+                      <span className="text-[10px] text-muted-foreground ml-3 leading-tight">
+                        {s.chipSub}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex flex-wrap justify-end gap-2">
-                {["Kontext bündeln", "Vorschläge erzeugen", "Status & Verantwortlichkeit"].map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border bg-blue-50 px-3 py-1 text-xs text-blue-700"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+              </motion.li>
+            ))}
+          </ol>
         </div>
 
-        {/* small kicker */}
-        <div className="mt-10 text-center text-sm text-muted-foreground">
-          Wegora schafft Raum für Entscheidungen – weil Routine im Hintergrund zuverlässig erledigt wird.
-        </div>
+        <motion.div
+          className="mt-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 1.8 }}
+        >
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Eigentümer priorisieren, monitoren und entscheiden.
+          </p>
+        </motion.div>
       </section>
 
       {/* 7️⃣ Wegoras Rolle - Editorial - Positioning */}
-      <section className="py-20 sm:py-28">
+      <section className="py-16 sm:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-center text-[#1A1A1A]">
-              Welche Rolle Wegora in dieser Zukunft spielt
+          <motion.div
+            className="max-w-5xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-[#1A1A1A]">
+              Wegora schafft die Struktur, in der Immobiliensteuerung funktioniert
             </h2>
-            
-            {/* Central Graphic */}
-            <div className="mb-16">
-              <ServiceFlowDiagram className="w-full max-w-[700px] h-auto mx-auto" />
-            </div>
-            
+
             {/* Positioning Text */}
-            <div className="space-y-8 text-base sm:text-lg leading-relaxed max-w-[600px] mx-auto text-center">
+            <div className="space-y-4 text-base sm:text-lg leading-relaxed max-w-[600px] mx-auto text-center">
               <p className="font-semibold">
                 Wegora ist kein weiteres Verwaltungstool.
               </p>
               <p>
-                Wegora ist die Struktur, auf der Verwaltung wieder möglich wird.
-              </p>
-              <p className="text-muted-foreground">
-                Wir schaffen klare Abläufe, die Verwaltung kontinuierlich weiterlaufen lassen.
+                Wegora ist die Struktur, auf der Immobiliensteuerung möglich wird.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 8️⃣ Services - Building Blocks */}
-      <section className="py-20 sm:py-28 bg-white">
+      {/* 8️⃣ Prinzipien - Abschluss (Principles - Summary) */}
+      <section className="py-24 sm:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-xl font-semibold mb-12 text-center text-[#1A1A1A]">
-              So bauen wir diese Zukunft — Schritt für Schritt
-            </h3>
-            
-            <div className="grid sm:grid-cols-2 gap-8">
-              {/* Service 1 */}
-              <div className="space-y-3 pt-4 border-t border-[#2463eb]">
-                <h4 className="font-semibold text-base text-[#1A1A1A]">
-                  Abrechnung & Umlagen (End-to-End)
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-[#1A1A1A]">
+                Immobiliensteuerung folgt klaren Prinzipien
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground text-center mb-16">
+                Fünf Prinzipien, die Immobiliensteuerung möglich machen:
+              </p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 gap-x-12 gap-y-16 max-w-4xl mx-auto">
+              {/* Principle 1 */}
+              <motion.div
+                className="space-y-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
+              >
+                <h4 className="font-semibold text-lg text-[#1A1A1A]">
+                  Verständlich
                 </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Von Belegen bis zur fertigen Abrechnung — nachvollziehbar vorbereitet, Entscheidungen klar sichtbar.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  WEGs verstehen, was passiert – ohne Fachsprache.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* Service 2 */}
-              <div className="space-y-3 pt-4 border-t border-[#2463eb]">
-                <h4 className="font-semibold text-base text-[#1A1A1A]">
-                  Beschluss & Umsetzung
+              {/* Principle 2 */}
+              <motion.div
+                className="space-y-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              >
+                <h4 className="font-semibold text-lg text-[#1A1A1A]">
+                  Modular
                 </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Von der Vorlage bis zur Dokumentation — damit Beschlüsse nicht liegen bleiben.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Nur nutzen, was wirklich gebraucht wird – ohne All-in-One-Zwang.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* Service 3 */}
-              <div className="space-y-3 pt-4 border-t border-[#2463eb]">
-                <h4 className="font-semibold text-base text-[#1A1A1A]">
-                  Dokumente & Kommunikation
+              {/* Principle 3 */}
+              <motion.div
+                className="space-y-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              >
+                <h4 className="font-semibold text-lg text-[#1A1A1A]">
+                  Transparent
                 </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Informationen werden strukturiert, Anfragen werden geordnet — weniger Nachfragen, mehr Überblick.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Schritte und Entscheidungen sind nachvollziehbar – ohne Ratespiel.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* Service 4 */}
-              <div className="space-y-3 pt-4 border-t border-[#2463eb]">
-                <h4 className="font-semibold text-base text-[#1A1A1A]">
-                  Auffälligkeiten & Kontrolle
+              {/* Principle 4 */}
+              <motion.div
+                className="space-y-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+              >
+                <h4 className="font-semibold text-lg text-[#1A1A1A]">
+                  Entlastend
                 </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Abweichungen werden früh sichtbar — WEGs entscheiden rechtzeitig statt im Nachhinein.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Routine ist vorbereitet – Zeit bleibt für Betreuung.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              </motion.div>
 
-      {/* 9️⃣ Prinzipien - Abschluss (Principles - Summary) */}
-      <section className="py-20 sm:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-20 text-center text-[#1A1A1A]">
-              Die Verwaltung der Zukunft folgt klaren Prinzipien
-            </h2>
-            
-            <div className="space-y-10 max-w-3xl mx-auto">
-              <p className="text-base sm:text-lg text-foreground leading-relaxed">
-                <strong className="font-semibold">Verständlich</strong> — WEGs verstehen, was passiert – ohne Fachsprache.
-              </p>
-
-              <p className="text-base sm:text-lg text-foreground leading-relaxed">
-                <strong className="font-semibold">Modular</strong> — Nutzen, was wirklich gebraucht wird – ohne All-in-One-Zwang.
-              </p>
-
-              <p className="text-base sm:text-lg text-foreground leading-relaxed">
-                <strong className="font-semibold">Transparent</strong> — Leistungen und Schritte sind nachvollziehbar – ohne Ratespiel.
-              </p>
-
-              <p className="text-base sm:text-lg text-foreground leading-relaxed">
-                <strong className="font-semibold">Entlastend</strong> — Routine wird vorbereitet – Zeit bleibt für Betreuung.
-              </p>
-
-              <p className="text-base sm:text-lg text-foreground leading-relaxed">
-                <strong className="font-semibold">Kontrollierbar</strong> — Technologie unterstützt Entscheidungen – WEGs behalten die Kontrolle.
-              </p>
+              {/* Principle 5 - Centered across both columns */}
+              <motion.div
+                className="space-y-3 sm:col-span-2 max-w-md mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+              >
+                <h4 className="font-semibold text-lg text-[#1A1A1A]">
+                  Kontrollierbar
+                </h4>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  WEGs behalten die Kontrolle – Technologie unterstützt.
+                </p>
+              </motion.div>
             </div>
           </div>
         </div>

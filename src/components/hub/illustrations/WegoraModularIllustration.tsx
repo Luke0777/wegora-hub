@@ -9,15 +9,10 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
     <div className={`w-full h-full flex items-center justify-center ${className}`}>
       <svg
         viewBox="0 0 300 200"
-        className="w-full h-full max-w-sm max-h-48"
+        className="w-full h-full max-w-xl max-h-96"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Background circles for depth */}
-        <circle cx="80" cy="50" r="35" fill="#3182CE" opacity="0.1" />
-        <circle cx="200" cy="120" r="40" fill="#3182CE" opacity="0.1" />
-        <circle cx="250" cy="60" r="25" fill="#3182CE" opacity="0.1" />
-
         {/* Three Clean, Separated Service Modules */}
         
         {/* Module 1: Accounting */}
@@ -110,13 +105,13 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
           />
           {/* Module header */}
           <rect x="-30" y="-25" width="60" height="6" rx="3" fill="#3182CE" opacity="0.2" />
-          {/* Meeting icon */}
-          <rect x="-15" y="-10" width="24" height="16" rx="2" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.5" />
-          <circle cx="-8" cy="-4" r="2" fill="#3182CE" />
-          <circle cx="0" cy="-4" r="2" fill="#3182CE" />
-          <circle cx="8" cy="-4" r="2" fill="#3182CE" />
-          {/* Voting checkmark */}
-          <path d="M-5,4 L-2,7 L4,0" stroke="#3182CE" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+          {/* Meeting icon - centered dots */}
+          <rect x="-20" y="-10" width="26" height="16" rx="2" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.5" />
+          <circle cx="-14" cy="-2" r="2" fill="#3182CE" />
+          <circle cx="-7" cy="-2" r="2" fill="#3182CE" />
+          <circle cx="0" cy="-2" r="2" fill="#3182CE" />
+          {/* Voting checkmark - right of box */}
+          <path d="M12,-2 L16,2 L24,-6" stroke="#3182CE" strokeWidth="1.5" fill="none" strokeLinecap="round" />
           {/* Success indicator */}
           <circle cx="22" cy="-22" r="6" fill="#3182CE" />
           <path d="M19,-22 L21,-20 L25,-24" stroke="#FFFFFF" strokeWidth="1.5" fill="none" strokeLinecap="round" />
@@ -129,7 +124,7 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
             fontSize="10"
             fontWeight="600"
           >
-            WEG-Service
+            Versammlungen
           </text>
         </g>
 
@@ -151,7 +146,7 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
             y="40"
             textAnchor="middle"
             fill="#3182CE"
-            fontSize="9"
+            fontSize="10"
             fontWeight="600"
           >
             Gemeinsame Datenbasis
@@ -170,24 +165,6 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
           <path d="M225,130 L228,127 L225,125" fill="#3182CE" />
         </g>
 
-        {/* Happy user */}
-        <g transform="translate(40, 165)">
-          {/* User head */}
-          <circle cx="0" cy="0" r="12" fill="#FFFFFF" stroke="#3182CE" strokeWidth="2" />
-          {/* Happy face */}
-          <circle cx="-4" cy="-2" r="1.5" fill="#3182CE" />
-          <circle cx="4" cy="-2" r="1.5" fill="#3182CE" />
-          <path d="M-4,3 Q0,6 4,3" stroke="#3182CE" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          {/* User body */}
-          <rect x="-8" y="12" width="16" height="12" rx="4" fill="#FFFFFF" stroke="#3182CE" strokeWidth="2" />
-          
-          {/* Success indicators around user */}
-          <g opacity="0.6">
-            <circle cx="-18" cy="-5" r="2" fill="#10B981" />
-            <circle cx="18" cy="-5" r="2" fill="#3182CE" />
-          </g>
-        </g>
-
         {/* Efficiency indicators */}
         <g transform="translate(260, 150)">
           {/* Speed lines */}
@@ -195,27 +172,6 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
           <path d="M0,5 L12,5" stroke="#3182CE" strokeWidth="2" opacity="0.4" strokeLinecap="round" />
           <path d="M0,10 L8,10" stroke="#3182CE" strokeWidth="2" opacity="0.3" strokeLinecap="round" />
         </g>
-
-        {/* "Modular" label effect */}
-        <g transform="translate(150, 190)">
-          <text
-            x="0"
-            y="0"
-            textAnchor="middle"
-            fill="#3182CE"
-            fontSize="11"
-            fontWeight="600"
-            opacity="0.7"
-          >
-            modular • flexibel • kosteneffizient
-          </text>
-        </g>
-
-        {/* Floating success elements */}
-        <circle cx="30" cy="30" r="2" fill="#3182CE" opacity="0.6" />
-        <circle cx="270" cy="35" r="1.5" fill="#10B981" opacity="0.6" />
-        <circle cx="270" cy="180" r="2.5" fill="#8B5CF6" opacity="0.6" />
-        <circle cx="20" cy="120" r="2" fill="#3182CE" opacity="0.6" />
 
         {/* Clean connecting flow lines in background */}
         <g opacity="0.15">

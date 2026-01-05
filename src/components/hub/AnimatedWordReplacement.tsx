@@ -16,25 +16,25 @@ export function AnimatedWordReplacement({ from, to, className = "" }: AnimatedWo
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Step 1: Initial pause (600ms) - User reads "verwaltung"
+    // Step 1: Initial pause (400ms) - User reads "verwaltung"
     const initialTimer = setTimeout(() => {
       setAnimationState("strikethrough");
-    }, 600);
+    }, 400);
 
-    // Step 2: Strikethrough animation completes (600ms + 900ms animation)
+    // Step 2: Strikethrough animation completes (400ms + 500ms animation)
     const strikethroughTimer = setTimeout(() => {
       setAnimationState("strikethrough-hold");
-    }, 1500);
+    }, 900);
 
-    // Step 3: Hold strikethrough visible (1500ms + 800ms hold)
+    // Step 3: Hold strikethrough visible (900ms + 300ms hold)
     const holdTimer = setTimeout(() => {
       setAnimationState("replacing");
-    }, 2300);
+    }, 1200);
 
-    // Step 4: Replacement completes → Final (2300ms + 400ms wipe-in)
+    // Step 4: Replacement completes → Final (1200ms + 400ms wipe-in)
     const replacingTimer = setTimeout(() => {
       setAnimationState("final");
-    }, 2700);
+    }, 1600);
 
     return () => {
       clearTimeout(initialTimer);
@@ -66,7 +66,7 @@ export function AnimatedWordReplacement({ from, to, className = "" }: AnimatedWo
           }}
         >
           {from}
-          {/* Strikethrough line - Wegora blue, bold, slow */}
+          {/* Strikethrough line - Wegora blue, bold, snappier */}
           {(animationState === "strikethrough" || animationState === "strikethrough-hold" || animationState === "replacing") && (
             <motion.span
               className="absolute left-0 top-1/2 w-full h-[5px] bg-[#2463eb] shadow-md"
@@ -77,7 +77,7 @@ export function AnimatedWordReplacement({ from, to, className = "" }: AnimatedWo
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{
-                duration: 0.9,
+                duration: 0.5,
                 ease: "easeInOut",
               }}
             />
@@ -94,11 +94,11 @@ export function AnimatedWordReplacement({ from, to, className = "" }: AnimatedWo
             left: animationState === "replacing" ? 0 : "auto",
             top: animationState === "replacing" ? 0 : "auto",
           }}
-          initial={{ 
+          initial={{
             clipPath: "inset(0 100% 0 0)",
             opacity: 0,
           }}
-          animate={{ 
+          animate={{
             clipPath: "inset(0 0% 0 0)",
             opacity: 1,
           }}
@@ -108,7 +108,7 @@ export function AnimatedWordReplacement({ from, to, className = "" }: AnimatedWo
               ease: "easeInOut",
             },
             opacity: {
-              duration: 0.2,
+              duration: 0.15,
               ease: "easeOut",
             }
           }}

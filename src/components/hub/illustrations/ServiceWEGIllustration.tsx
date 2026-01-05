@@ -46,52 +46,46 @@ export function ServiceWEGIllustration({ className = "" }: ServiceWEGIllustratio
           <rect x="-26" y="1" width="20" height="1" rx="0.5" fill="#3182CE" opacity="0.2" />
         </g>
 
-        {/* Meeting participants (simplified avatars) */}
+        {/* Meeting participants (simplified circles without faces) */}
         <g transform="translate(60, 75)">
-          {/* Participant 1 */}
-          <circle cx="0" cy="0" r="8" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.5" />
-          <circle cx="-2" cy="-1" r="1" fill="#3182CE" />
-          <circle cx="2" cy="-1" r="1" fill="#3182CE" />
-          <path d="M-2,2 Q0,3 2,2" stroke="#3182CE" strokeWidth="1" fill="none" strokeLinecap="round" />
+          <circle cx="0" cy="0" r="8" fill="#3182CE" opacity="0.3" stroke="#3182CE" strokeWidth="1.5" />
         </g>
 
         <g transform="translate(100, 70)">
-          {/* Participant 2 */}
-          <circle cx="0" cy="0" r="8" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.5" />
-          <circle cx="-2" cy="-1" r="1" fill="#3182CE" />
-          <circle cx="2" cy="-1" r="1" fill="#3182CE" />
-          <path d="M-2,2 Q0,3 2,2" stroke="#3182CE" strokeWidth="1" fill="none" strokeLinecap="round" />
+          <circle cx="0" cy="0" r="8" fill="#3182CE" opacity="0.3" stroke="#3182CE" strokeWidth="1.5" />
         </g>
 
         <g transform="translate(140, 75)">
-          {/* Participant 3 */}
-          <circle cx="0" cy="0" r="8" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.5" />
-          <circle cx="-2" cy="-1" r="1" fill="#3182CE" />
-          <circle cx="2" cy="-1" r="1" fill="#3182CE" />
-          <path d="M-2,2 Q0,3 2,2" stroke="#3182CE" strokeWidth="1" fill="none" strokeLinecap="round" />
+          <circle cx="0" cy="0" r="8" fill="#3182CE" opacity="0.3" stroke="#3182CE" strokeWidth="1.5" />
         </g>
 
         {/* Digital voting interface */}
         <g transform="translate(50, 140)">
-          {/* Voting device/tablet */}
-          <rect x="-20" y="-25" width="40" height="50" rx="4" fill="#FFFFFF" stroke="#3182CE" strokeWidth="2" />
-          
-          {/* Screen header */}
-          <rect x="-15" y="-20" width="30" height="4" rx="2" fill="#3182CE" opacity="0.2" />
-          
-          {/* Voting options */}
-          <g transform="translate(0, -8)">
-            {/* Option 1: Dafür (thumbs up) */}
-            <rect x="-15" y="0" width="30" height="12" rx="3" fill="#10B981" opacity="0.2" stroke="#10B981" strokeWidth="1.5" />
-            <circle cx="-8" cy="6" r="3" fill="#10B981" />
-            <path d="M-8,9 L-8,5 L-6,3 L-6,5 L-4,5 L-4,9 L-8,9" fill="#FFFFFF" strokeWidth="0.5" />
-            <text x="3" y="8" fill="#10B981" fontSize="6" fontWeight="600">Dafür</text>
-            
-            {/* Option 2: Dagegen (thumbs down) */}
-            <rect x="-15" y="16" width="30" height="12" rx="3" fill="#E53E3E" opacity="0.2" stroke="#E53E3E" strokeWidth="1.5" />
-            <circle cx="-8" cy="22" r="3" fill="#E53E3E" />
-            <path d="M-8,19 L-8,23 L-6,25 L-6,23 L-4,23 L-4,19 L-8,19" fill="#FFFFFF" strokeWidth="0.5" />
-            <text x="0" y="24" fill="#E53E3E" fontSize="6" fontWeight="600">Dagegen</text>
+          {/* Voting device/tablet - same height as Protokoll (60px) */}
+          <rect x="-20" y="-30" width="40" height="60" rx="4" fill="#FFFFFF" stroke="#3182CE" strokeWidth="2" />
+
+          {/* Abstimmung label - same height as Protokoll */}
+          <text x="0" y="-35" textAnchor="middle" fill="#3182CE" fontSize="7" fontWeight="600">Abstimmung</text>
+
+          {/* Voting options - two rows of small badges */}
+          <g transform="translate(0, -12)">
+            {/* Row 1 */}
+            <rect x="-16" y="0" width="14" height="6" rx="3" fill="#10B981" opacity="0.2" stroke="#10B981" strokeWidth="1" />
+            <text x="-9" y="3" textAnchor="middle" fill="#10B981" fontSize="4" fontWeight="600" dominantBaseline="middle">Dafür</text>
+            <rect x="2" y="0" width="16" height="6" rx="3" fill="#E53E3E" opacity="0.2" stroke="#E53E3E" strokeWidth="1" />
+            <text x="10" y="3" textAnchor="middle" fill="#E53E3E" fontSize="3.5" fontWeight="600" dominantBaseline="middle">Dagegen</text>
+
+            {/* Row 2 */}
+            <rect x="-16" y="10" width="14" height="6" rx="3" fill="#10B981" opacity="0.2" stroke="#10B981" strokeWidth="1" />
+            <text x="-9" y="13" textAnchor="middle" fill="#10B981" fontSize="4" fontWeight="600" dominantBaseline="middle">Dafür</text>
+            <rect x="2" y="10" width="16" height="6" rx="3" fill="#E53E3E" opacity="0.2" stroke="#E53E3E" strokeWidth="1" />
+            <text x="10" y="13" textAnchor="middle" fill="#E53E3E" fontSize="3.5" fontWeight="600" dominantBaseline="middle">Dagegen</text>
+
+            {/* Row 3 */}
+            <rect x="-16" y="20" width="14" height="6" rx="3" fill="#10B981" opacity="0.2" stroke="#10B981" strokeWidth="1" />
+            <text x="-9" y="23" textAnchor="middle" fill="#10B981" fontSize="4" fontWeight="600" dominantBaseline="middle">Dafür</text>
+            <rect x="2" y="20" width="16" height="6" rx="3" fill="#E53E3E" opacity="0.2" stroke="#E53E3E" strokeWidth="1" />
+            <text x="10" y="23" textAnchor="middle" fill="#E53E3E" fontSize="3.5" fontWeight="600" dominantBaseline="middle">Dagegen</text>
           </g>
         </g>
 
@@ -113,8 +107,8 @@ export function ServiceWEGIllustration({ className = "" }: ServiceWEGIllustratio
           <rect x="-15" y="10" width="24" height="2" rx="1" fill="#3182CE" opacity="0.15" />
           
           {/* Checkmark for completed */}
-          <circle cx="10" cy="20" r="6" fill="#10B981" opacity="0.2" />
-          <path d="M7,20 L9,22 L13,18" stroke="#10B981" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+          <circle cx="10" cy="25" r="6" fill="#10B981" opacity="0.2" />
+          <path d="M7,25 L9,27 L13,23" stroke="#10B981" strokeWidth="1.5" fill="none" strokeLinecap="round" />
           
           {/* "Protokoll" label */}
           <text x="0" y="-35" textAnchor="middle" fill="#3182CE" fontSize="7" fontWeight="600">Protokoll</text>

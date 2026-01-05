@@ -15,7 +15,7 @@ export function ServiceNebenkostenIllustration({ className = "" }: ServiceNebenk
       >
         {/* Background circles */}
         <circle cx="50" cy="50" r="30" fill="#8B5CF6" opacity="0.1" />
-        <circle cx="150" cy="150" r="35" fill="#8B5CF6" opacity="0.1" />
+        <circle cx="155" cy="145" r="50" fill="#8B5CF6" opacity="0.1" />
 
         {/* Invoice/Document being scanned */}
         <g transform="translate(100, 80)">
@@ -94,14 +94,14 @@ export function ServiceNebenkostenIllustration({ className = "" }: ServiceNebenk
         </g>
 
         {/* Classification tags */}
-        <g transform="translate(155, 140)">
+        <g transform="translate(155, 150)">
           {/* Umlagefähig tag */}
-          <rect x="-25" y="-15" width="50" height="12" rx="6" fill="#10B981" opacity="0.2" stroke="#10B981" strokeWidth="1.5" />
-          <text x="0" y="-7" textAnchor="middle" fill="#10B981" fontSize="7" fontWeight="600">umlagefähig</text>
-          
+          <rect x="-35" y="-15" width="70" height="14" rx="7" fill="#10B981" opacity="0.2" stroke="#10B981" strokeWidth="1.5" />
+          <text x="0" y="-8" textAnchor="middle" fill="#10B981" fontSize="7" fontWeight="600" dominantBaseline="middle">umlagefähig</text>
+
           {/* Nicht umlagefähig tag */}
-          <rect x="-30" y="5" width="60" height="12" rx="6" fill="#E53E3E" opacity="0.2" stroke="#E53E3E" strokeWidth="1.5" />
-          <text x="0" y="13" textAnchor="middle" fill="#E53E3E" fontSize="7" fontWeight="600">nicht umlagefähig</text>
+          <rect x="-35" y="5" width="70" height="14" rx="7" fill="#E53E3E" opacity="0.2" stroke="#E53E3E" strokeWidth="1.5" />
+          <text x="0" y="12" textAnchor="middle" fill="#E53E3E" fontSize="7" fontWeight="600" dominantBaseline="middle">nicht umlagefähig</text>
         </g>
 
         {/* Magnifying glass icon (analysis) */}
@@ -139,7 +139,7 @@ export function ServiceNebenkostenIllustration({ className = "" }: ServiceNebenk
         </g>
 
         {/* Success indicator */}
-        <g transform="translate(170, 175)">
+        <g transform="translate(170, 185)">
           <circle cx="0" cy="0" r="12" fill="#8B5CF6" opacity="0.2" />
           <circle cx="0" cy="0" r="8" fill="#8B5CF6" />
           <path d="M-3,0 L-1,2 L4,-3" stroke="#FFFFFF" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />

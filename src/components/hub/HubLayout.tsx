@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { WegoraLogo } from "@/components/ui/WegoraLogo";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +21,11 @@ export function HubLayout({ children }: HubLayoutProps) {
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+
+  // Scroll to top when navigating to a new page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const navLinkClass = (path: string) => {
     return `text-sm font-medium transition-all px-3 py-2 rounded-md ${
