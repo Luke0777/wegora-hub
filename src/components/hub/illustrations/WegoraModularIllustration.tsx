@@ -5,13 +5,18 @@ interface WegoraModularIllustrationProps {
 export function WegoraModularIllustration({ className = "" }: WegoraModularIllustrationProps) {
   // Farbpalette
   const wegBlue = '#3182CE';      // Blau für WEG
-  const eigenGreen = '#14B8A6';   // Teal-500 für Eigentümer (wie Wegora Eigentümer)
+  const eigenGreen = '#10B981';   // Eigentümer-Grün (einheitlich)
 
+  // WICHTIG: Feste Mindestgrößen (400x200) sind erforderlich, damit die Illustration
+  // nicht durch CSS-Vererbung oder Flex-Container geschrumpft wird.
+  // Diese Werte NICHT entfernen oder auf w-full/h-full ändern!
   return (
-    <div className={`w-full h-full flex items-center justify-center ${className}`}>
+    <div className={`flex items-center justify-center ${className}`} style={{ minWidth: '400px', minHeight: '200px' }}>
       <svg
         viewBox="-20 0 380 200"
-        className="w-full h-full"
+        width="400"
+        height="200"
+        style={{ minWidth: '400px', minHeight: '200px' }}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -85,24 +90,23 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
           <rect x="-62" y="-52" width="124" height="7" rx="3" fill={eigenGreen} opacity="0.15" />
 
           {/* Service Icons - Eigentümer - vertikal verteilt */}
-          {/* Zeile 1: Euro (Nebenkosten) */}
+          {/* Zeile 1: Euro (Nebenkosten Manager) */}
           <g transform="translate(0, -18)">
             <g transform="translate(-40, 0)">
               <circle cx="0" cy="0" r="6" fill="none" stroke={eigenGreen} strokeWidth="1" />
               <text x="0" y="3" textAnchor="middle" fill={eigenGreen} fontSize="8" fontWeight="600">€</text>
             </g>
-            <text x="-24" y="3" fill={eigenGreen} fontSize="9" fontWeight="500">Nebenkosten</text>
+            <text x="-24" y="3" fill={eigenGreen} fontSize="7" fontWeight="500">NK Manager</text>
           </g>
 
-          {/* Zeile 2: Dashboard (Übersicht) */}
+          {/* Zeile 2: Chart (Finanzen) */}
           <g transform="translate(0, 10)">
             <g transform="translate(-40, 0)">
-              <rect x="-5" y="-5" width="4.5" height="4.5" rx="0.8" fill="none" stroke={eigenGreen} strokeWidth="1" />
-              <rect x="0.5" y="-5" width="4.5" height="4.5" rx="0.8" fill="none" stroke={eigenGreen} strokeWidth="1" />
-              <rect x="-5" y="0.5" width="4.5" height="4.5" rx="0.8" fill="none" stroke={eigenGreen} strokeWidth="1" />
-              <rect x="0.5" y="0.5" width="4.5" height="4.5" rx="0.8" fill="none" stroke={eigenGreen} strokeWidth="1" />
+              <rect x="-4" y="-1" width="2.5" height="5" rx="0.5" fill={eigenGreen} />
+              <rect x="-0.5" y="-4" width="2.5" height="8" rx="0.5" fill={eigenGreen} />
+              <rect x="2.5" y="-2.5" width="2.5" height="6.5" rx="0.5" fill={eigenGreen} />
             </g>
-            <text x="-24" y="3" fill={eigenGreen} fontSize="9" fontWeight="500">Übersicht</text>
+            <text x="-24" y="3" fill={eigenGreen} fontSize="9" fontWeight="500">Finanzen</text>
           </g>
 
           {/* Zeile 3: Dokument (Dokumente) */}

@@ -4,14 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, House, CaretDown, WarningCircle, CheckCircle, Buildings } from "@phosphor-icons/react";
-import {
-  AllInOneProblemsIllustration,
-  WegoraModularIllustration,
-  ServiceWEGIllustration,
-  ServiceAccountingIllustration,
-  ServiceNebenkostenIllustration,
-  ServiceNebenkostenCheckIllustration,
-} from "./illustrations";
+// Illustrations removed from "Warum Wegora?" section - now using simple card-based comparison
 import { motion, AnimatePresence } from "framer-motion";
 
 export function HomePage() {
@@ -32,41 +25,6 @@ export function HomePage() {
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
-
-  // Services grouped by product line
-  const wegServicesWEG = [
-    {
-      id: "versammlungen",
-      icon: ServiceWEGIllustration,
-      title: "Wegora Versammlungen",
-      description: "Versammlungen digital durchführen und dokumentieren.",
-      color: "#3182CE",
-    },
-    {
-      id: "finanzen",
-      icon: ServiceAccountingIllustration,
-      title: "Wegora Finanzen",
-      description: "Finanzen übersichtlich verwalten – pro Objekt.",
-      color: "#10B981",
-    },
-  ];
-
-  const wegServicesEigentuemer = [
-    {
-      id: "nebenkostenmanager",
-      icon: ServiceNebenkostenIllustration,
-      title: "Wegora NK Manager",
-      description: "Nebenkosten erfassen und strukturieren.",
-      color: "#8B5CF6",
-    },
-    {
-      id: "kostenanalyse",
-      icon: ServiceNebenkostenCheckIllustration,
-      title: "Wegora Kostenanalyse",
-      description: "Kostenpotenziale in Abrechnungen erkennen.",
-      color: "#F97316",
-    },
-  ];
 
   return (
     <>
@@ -335,245 +293,113 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-16 sm:py-24 bg-white">
+      {/* Warum Wegora? - Clean Comparison */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50/80">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="text-center mb-12 sm:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Unsere Services
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Vier spezialisierte Anwendungen – einzeln nutzbar, gemeinsam stärker.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Wegora WEGs Column */}
+          {/* Soft container wrapper */}
+          <div className="max-w-4xl mx-auto bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-3xl p-8 sm:p-12">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              className="text-center mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-[#2463eb]/10 rounded-xl flex items-center justify-center">
-                  <Buildings className="h-5 w-5 text-[#2463eb]" weight="duotone" />
-                </div>
-                <h3 className="text-xl font-bold text-[#2463eb]">Wegora WEG</h3>
-              </div>
-              <div className="space-y-4">
-                {wegServicesWEG.map((service) => {
-                  const IllustrationComponent = service.icon;
-                  return (
-                    <div
-                      key={service.id}
-                      className="border-2 border-[#2463eb]/20 rounded-lg p-5 hover:shadow-lg transition-all duration-300 bg-white flex items-center gap-5"
-                    >
-                      <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center">
-                        <IllustrationComponent className="w-full h-auto" />
-                      </div>
-                      <div>
-                        <h4 className="text-base font-bold mb-1">{service.title}</h4>
-                        <p className="text-sm text-muted-foreground">{service.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="mt-6">
-                <Link to="/angebot-weg">
-                  <Button
-                    variant="outline"
-                    className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb] hover:text-white"
-                  >
-                    Mehr zu Wegora WEG
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3">
+                Warum Wegora?
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+                Ein anderer Ansatz für die Immobilienverwaltung.
+              </p>
             </motion.div>
 
-            {/* Wegora Eigentümer Column */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-teal-500/10 rounded-xl flex items-center justify-center">
-                  <House className="h-5 w-5 text-teal-500" weight="duotone" />
-                </div>
-                <h3 className="text-xl font-bold text-teal-500">Wegora Eigentümer</h3>
-              </div>
-              <div className="space-y-4">
-                {wegServicesEigentuemer.map((service) => {
-                  const IllustrationComponent = service.icon;
-                  return (
-                    <div
-                      key={service.id}
-                      className="border-2 border-teal-500/20 rounded-lg p-5 hover:shadow-lg transition-all duration-300 bg-white flex items-center gap-5"
-                    >
-                      <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center">
-                        <IllustrationComponent className="w-full h-auto" />
+            {/* Two Cards Comparison */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Klassische Lösungen Card */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <Card className="h-full border border-slate-200 bg-slate-50/50 shadow-none">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center">
+                        <WarningCircle className="w-5 h-5 text-orange-500" weight="duotone" />
                       </div>
                       <div>
-                        <h4 className="text-base font-bold mb-1">{service.title}</h4>
-                        <p className="text-sm text-muted-foreground">{service.description}</p>
+                        <h3 className="font-semibold text-slate-700">Klassische Lösungen</h3>
+                        <p className="text-xs text-muted-foreground">teuer und komplex</p>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-              <div className="mt-6">
-                <Link to="/angebot-eigentuemer">
-                  <Button
-                    variant="outline"
-                    className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white"
-                  >
-                    Mehr zu Wegora Eigentümer
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
+                    <ul className="space-y-3">
+                      {[
+                        "Hohe Kosten für Komplettsysteme",
+                        "Starre All-in-One-Pakete",
+                        "Wenig flexibel bei Sonderfällen",
+                        "Lange Einarbeitungszeit"
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Wegora Ansatz Card */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              >
+                <Card className="h-full border-2 border-[#2463eb]/20 bg-gradient-to-br from-blue-50/50 to-teal-50/30 shadow-none">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2463eb]/10 to-teal-500/10 flex items-center justify-center">
+                        <CheckCircle className="w-5 h-5 text-[#2463eb]" weight="duotone" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-[#1A1A1A]">Wegora Ansatz</h3>
+                        <p className="text-xs text-muted-foreground">modular und effizient</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-3">
+                      {[
+                        "Eine Plattform, zwei Perspektiven",
+                        "Modulare Services nach Bedarf",
+                        "Gemeinsame Datenbasis",
+                        "Schneller Einstieg möglich"
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-sm text-slate-700">
+                          <CheckCircle className="w-4 h-4 text-[#2463eb] mt-0.5 flex-shrink-0" weight="fill" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Mini visual: WEG + Eigentümer split */}
+                    <div className="mt-6 pt-5 border-t border-slate-200/60">
+                      <div className="flex gap-2">
+                        <div className="flex-1 bg-[#2463eb]/10 rounded-lg p-3 text-center">
+                          <Buildings className="w-5 h-5 text-[#2463eb] mx-auto mb-1" weight="duotone" />
+                          <span className="text-xs font-medium text-[#2463eb]">WEG</span>
+                        </div>
+                        <div className="flex-1 bg-teal-500/10 rounded-lg p-3 text-center">
+                          <House className="w-5 h-5 text-teal-500 mx-auto mb-1" weight="duotone" />
+                          <span className="text-xs font-medium text-teal-600">Eigentümer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Problem/Solution Comparison */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="text-center mb-12 sm:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Warum Wegora?
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Der Unterschied zwischen klassischen Verwaltungssystemen und unserem modularen Ansatz.
-            </p>
-          </motion.div>
-
-          {/* Desktop Layout */}
-          <motion.div
-            className="hidden md:block max-w-6xl mx-auto mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <div className="flex justify-center gap-0">
-              {/* Bestehende Lösungen */}
-              <div className="flex gap-0 items-start">
-                <div className="space-y-4 flex-shrink-0 w-[220px]">
-                  <div>
-                    <Badge
-                      className="px-4 py-2 text-sm font-medium tracking-wide rounded-full"
-                      style={{ backgroundColor: "#FEF3E2", color: "#9A5B2C" }}
-                    >
-                      Bestehende Lösungen
-                    </Badge>
-                    <p className="text-gray-600 text-sm font-semibold mt-2">
-                      teuer und komplex
-                    </p>
-                  </div>
-                  <div className="space-y-2 pt-2">
-                    {["Sehr kostenintensiv", "Große All-in-One-Systeme", "Wenig flexibel bei Sonderfällen", "Aufwendig in Einrichtung"].map((item, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <WarningCircle className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground whitespace-nowrap">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center pt-2">
-                  <AllInOneProblemsIllustration className="w-[280px] h-auto" />
-                </div>
-              </div>
-
-              {/* Wegora Ansatz */}
-              <div className="flex gap-4 items-start">
-                <div className="space-y-4 flex-shrink-0 w-[160px]">
-                  <div>
-                    <Badge
-                      className="px-4 py-2 text-sm font-medium tracking-wide rounded-full"
-                      style={{ backgroundColor: "#E8F4FD", color: "#2D5F8B" }}
-                    >
-                      Wegora Ansatz
-                    </Badge>
-                    <p className="text-gray-600 text-sm font-semibold mt-2">
-                      modular und effizient
-                    </p>
-                  </div>
-                  <div className="space-y-2 pt-2">
-                    {["Kosteneffizient & transparent", "Fokussierte Services", "Einfache Nutzung", "Berücksichtigung von Edge Cases"].map((item, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground whitespace-nowrap">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center justify-start pt-4">
-                  <WegoraModularIllustration className="w-[400px] h-auto" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Mobile Layout */}
-          <motion.div
-            className="md:hidden space-y-12 max-w-md mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <div className="space-y-6">
-              <div className="text-center">
-                <Badge className="px-4 py-2 text-sm font-medium rounded-full" style={{ backgroundColor: "#FEF3E2", color: "#9A5B2C" }}>
-                  Bestehende Lösungen
-                </Badge>
-              </div>
-              <AllInOneProblemsIllustration className="w-full" />
-              <div className="space-y-2 px-2">
-                {["Sehr kostenintensiv", "Große All-in-One-Systeme", "Wenig flexibel"].map((item, i) => (
-                  <div key={i} className="flex items-center justify-center gap-2">
-                    <WarningCircle className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="text-center">
-                <Badge className="px-4 py-2 text-sm font-medium rounded-full" style={{ backgroundColor: "#E8F4FD", color: "#2D5F8B" }}>
-                  Wegora Ansatz
-                </Badge>
-              </div>
-              <WegoraModularIllustration className="w-full" />
-              <div className="space-y-2 px-2">
-                {["Kosteneffizient", "Fokussierte Services", "Einfache Nutzung"].map((item, i) => (
-                  <div key={i} className="flex items-center justify-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

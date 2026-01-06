@@ -5,6 +5,8 @@ import { HubLayout } from './components/hub/HubLayout'
 import { HomePage } from './components/hub/HomePage'
 import { AngebotWEGPage } from './components/hub/AngebotWEGPage'
 import { AngebotEigentuemerPage } from './components/hub/AngebotEigentuemerPage'
+import { ServiceDetailWEGPage } from './components/hub/ServiceDetailWEGPage'
+import { ServiceDetailEigentuemerPage } from './components/hub/ServiceDetailEigentuemerPage'
 import { VisionPage } from './components/hub/VisionPage'
 import { NeuigkeitenPage } from './components/hub/NeuigkeitenPage'
 import { UeberUnsPage } from './components/hub/UeberUnsPage'
@@ -26,7 +28,9 @@ function App() {
           {/* Marketing Site Routes */}
           <Route path="/" element={<HubLayout><HomePage /></HubLayout>} />
           <Route path="/angebot-weg" element={<HubLayout><AngebotWEGPage /></HubLayout>} />
+          <Route path="/angebot-weg/:serviceId" element={<HubLayout><ServiceDetailWEGPage /></HubLayout>} />
           <Route path="/angebot-eigentuemer" element={<HubLayout><AngebotEigentuemerPage /></HubLayout>} />
+          <Route path="/angebot-eigentuemer/:serviceId" element={<HubLayout><ServiceDetailEigentuemerPage /></HubLayout>} />
           {/* Redirect old route for compatibility */}
           <Route path="/unser-angebot" element={<Navigate to="/angebot-weg" replace />} />
           <Route path="/vision" element={<HubLayout><VisionPage /></HubLayout>} />

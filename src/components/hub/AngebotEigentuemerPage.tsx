@@ -6,21 +6,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Database, Wallet, FolderOpen } from "@phosphor-icons/react";
+import { CheckCircle, Database, Wallet } from "@phosphor-icons/react";
 import {
   EigentuemerFlowDiagram,
   ServiceAccountingIllustration,
   ServiceNebenkostenIllustration,
-  ServiceNebenkostenCheckIllustration,
+  ServiceDokumenteIllustration,
 } from "./illustrations";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export function AngebotEigentuemerPage() {
   const services = [
     {
-      id: "nk-manager",
+      id: "nebenkosten-manager",
       icon: ServiceNebenkostenIllustration,
-      title: "Wegora NK Manager",
+      title: "Nebenkosten Manager",
       description:
         "Nebenkostenabrechnungen in wenigen Schritten erstellen und versenden.",
       features: [
@@ -29,47 +30,16 @@ export function AngebotEigentuemerPage() {
         "NK-Abrechnung vorbereiten",
         "NK-Abrechnung versenden",
       ],
-      availability: ["Mobile App", "Web-App (bald)"],
-      recommended: true,
-      color: "#8B5CF6",
-    },
-    {
-      id: "finanzen",
-      icon: ServiceAccountingIllustration,
-      title: "Wegora Finanzen",
-      description:
-        "Miete, Kosten und Rendite Ihrer Wohnung im Blick.",
-      features: [
-        "Mieteinnahmen tracken",
-        "Kosten erfassen",
-        "Rendite berechnen",
-        "Steuerdaten exportieren",
-      ],
-      availability: ["Web-App"],
-      color: "#10B981",
-    },
-    {
-      id: "kostenanalyse",
-      icon: ServiceNebenkostenCheckIllustration,
-      title: "Wegora Kostenanalyse",
-      description:
-        "Kosten verstehen,\nEinsparpotenziale erkennen\nund fundiert entscheiden.",
-      features: [
-        "Kosten analysieren",
-        "Potenziale erkennen",
-        "Angebote vergleichen",
-        "Planung optimieren",
-      ],
-      availability: ["Mobile App"],
-      color: "#F97316",
+      availability: ["Mobile App", "Web-App"],
+      badge: "Coming Soon",
+      color: "#14B8A6",
     },
     {
       id: "dokumente",
-      icon: null,
-      iconElement: FolderOpen,
-      title: "Wegora Dokumente",
+      icon: ServiceDokumenteIllustration,
+      title: "Dokumente",
       description:
-        "Alle wichtigen Unterlagen zentral und sicher.",
+        "Alle wichtigen Unterlagen\nzentral und sicher.",
       features: [
         "Dokumente ablegen",
         "Automatisch sortieren",
@@ -77,6 +47,23 @@ export function AngebotEigentuemerPage() {
         "Sicher teilen",
       ],
       availability: ["Web-App"],
+      badge: "Coming Soon",
+      color: "#14B8A6",
+    },
+    {
+      id: "finanzen",
+      icon: ServiceAccountingIllustration,
+      title: "Finanzen",
+      description:
+        "Miete, Kosten und Rendite\nIhrer Wohnung im Blick.",
+      features: [
+        "Mieteinnahmen tracken",
+        "Kosten erfassen",
+        "Rendite berechnen",
+        "Steuerdaten exportieren",
+      ],
+      availability: ["Web-App"],
+      badge: "Geplant",
       color: "#14B8A6",
     },
   ];
@@ -88,7 +75,14 @@ export function AngebotEigentuemerPage() {
         style={{ "--nav-h": "72px" } as React.CSSProperties}
         className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
       >
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Subtle atmospheric green gradient - from top-right, fading to center */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse 80% 70% at 90% 15%, rgba(20, 184, 166, 0.11) 0%, transparent 70%)"
+          }}
+        />
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative">
           <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
             {/* Label */}
             <motion.div
@@ -110,7 +104,7 @@ export function AngebotEigentuemerPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              Ihre Wohnung. Ihre Finanzen. Ihr Überblick.
+              Ihre Wohnung. Ihre Finanzen.<br />Ihr Überblick.
             </motion.h1>
 
             {/* Subline */}
@@ -121,7 +115,7 @@ export function AngebotEigentuemerPage() {
               animate={{ opacity: 0.6, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Behalten Sie den Überblick über Ihre Immobilie – von Nebenkosten bis zur Rendite.
+              Behalten Sie den Überblick über Ihre Immobilie – von Nebenkosten bis Rendite.
             </motion.p>
 
             {/* Flow Diagram */}
@@ -163,14 +157,13 @@ export function AngebotEigentuemerPage() {
               Unsere Services für Eigentümer
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Vier spezialisierte Anwendungen für die individuelle Verwaltung Ihrer Wohnung.
+              Drei spezialisierte Anwendungen für die individuelle Verwaltung Ihrer Wohnung.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {services.map((service, idx) => {
               const IllustrationComponent = service.icon;
-              const IconComponent = service.iconElement;
               return (
                 <motion.div
                   key={service.id}
@@ -187,46 +180,54 @@ export function AngebotEigentuemerPage() {
                     className="border-2 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col relative"
                     style={{ borderColor: `${service.color}20` }}
                   >
-                  {/* Empfohlener Einstieg Badge */}
-                  {service.recommended && (
+                  {/* Service Badge */}
+                  {service.badge && (
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                       <Badge
                         variant="outline"
-                        className="text-[10px] px-3 py-1 bg-[#DDD6FE] text-[#7C3AED] border-[#C4B5FD] shadow-sm"
+                        className="text-[10px] px-3 py-1 bg-teal-100 text-teal-600 border-teal-200 shadow-sm"
                       >
-                        Empfohlener Einstieg
+                        {service.badge}
                       </Badge>
                     </div>
                   )}
 
                   <CardHeader className="text-center pb-3">
-                    {/* Illustration or Icon */}
+                    {/* Illustration - desaturiert (grau) bei Geplant */}
                     <div className="mx-auto mb-6 h-[160px] flex items-center justify-center">
-                      {IllustrationComponent ? (
-                        <IllustrationComponent className="w-full max-w-[180px] h-auto" />
-                      ) : IconComponent ? (
-                        <div
-                          className="w-24 h-24 rounded-2xl flex items-center justify-center"
-                          style={{ backgroundColor: `${service.color}15` }}
-                        >
-                          <IconComponent
-                            className="w-12 h-12"
-                            style={{ color: service.color }}
-                            weight="duotone"
-                          />
-                        </div>
-                      ) : null}
+                      {IllustrationComponent && (
+                        <IllustrationComponent
+                          className="w-full max-w-[180px] h-auto"
+                          color={service.badge === "Geplant" ? "#9CA3AF" : service.color}
+                        />
+                      )}
                     </div>
 
-                    {/* Title */}
-                    <div className="min-h-[48px] flex items-center justify-center mb-3">
+                    {/* Title - opacity-85 bei Geplant */}
+                    <div className={`min-h-[48px] flex items-center justify-center mb-2 ${service.badge === "Geplant" ? "opacity-85" : ""}`}>
                       <CardTitle className="text-lg font-bold leading-tight tracking-tight">
                         {service.title}
                       </CardTitle>
                     </div>
 
-                    {/* Description */}
-                    <div className="min-h-[48px]">
+                    {/* Platform Badges - ausgegraut bei Geplant */}
+                    <div className={`flex flex-wrap gap-1.5 justify-center mb-3 ${service.badge === "Geplant" ? "opacity-50" : ""}`}>
+                      {service.availability?.map((platform, i) => (
+                        <Badge
+                          key={i}
+                          variant="outline"
+                          className={service.badge === "Geplant"
+                            ? "text-[10px] px-2 py-0.5 bg-gray-100 text-gray-400 border-gray-200"
+                            : "text-[10px] px-2 py-0.5 bg-teal-500/10 text-teal-500 border-teal-500/20"
+                          }
+                        >
+                          {platform}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* Description - opacity-85 bei Geplant */}
+                    <div className={`min-h-[48px] ${service.badge === "Geplant" ? "opacity-85" : ""}`}>
                       <CardDescription className="text-sm leading-relaxed whitespace-pre-line">
                         {service.description}
                       </CardDescription>
@@ -234,8 +235,8 @@ export function AngebotEigentuemerPage() {
                   </CardHeader>
 
                   <CardContent className="flex-1 flex flex-col pt-0 pb-4">
-                    {/* Features list */}
-                    <ul className="space-y-2 mb-3">
+                    {/* Features list - opacity-80 bei Geplant, graue Icons */}
+                    <ul className={`space-y-2 mb-3 ${service.badge === "Geplant" ? "opacity-80" : ""}`}>
                       {service.features.map((feature, i) => (
                         <li
                           key={i}
@@ -244,7 +245,7 @@ export function AngebotEigentuemerPage() {
                           <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                             <CheckCircle
                               className="w-4 h-4"
-                              style={{ color: service.color }}
+                              style={{ color: service.badge === "Geplant" ? "#9CA3AF" : service.color }}
                             />
                           </div>
                           <span className="leading-tight">{feature}</span>
@@ -252,17 +253,20 @@ export function AngebotEigentuemerPage() {
                       ))}
                     </ul>
 
-                    {/* Platform chips */}
-                    <div className="flex flex-wrap gap-1.5 justify-center mt-auto pt-6">
-                      {service.availability?.map((platform, idx) => (
-                        <Badge
-                          key={idx}
-                          variant="outline"
-                          className="text-[10px] px-2 py-0.5 bg-teal-500/10 text-teal-600 border-teal-500/20"
+                    {/* CTA */}
+                    <div className={`mt-auto pt-4 ${service.badge === "Geplant" ? "text-center" : ""}`}>
+                      {service.badge === "Geplant" ? (
+                        <span className="text-sm text-muted-foreground">
+                          Demnächst verfügbar
+                        </span>
+                      ) : (
+                        <Link
+                          to={`/angebot-eigentuemer/${service.id}`}
+                          className="text-sm font-medium text-teal-500 hover:text-teal-600 transition-colors"
                         >
-                          {platform}
-                        </Badge>
-                      ))}
+                          Mehr erfahren →
+                        </Link>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -332,11 +336,11 @@ export function AngebotEigentuemerPage() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
               >
-                <Card className="border-2 border-[#10B981]/20 shadow-lg">
+                <Card className="border-2 border-teal-500/20 shadow-lg">
                 <CardHeader>
                   <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#10B981]/10 rounded-lg flex items-center justify-center">
-                      <Wallet className="h-5 w-5 text-[#10B981]" />
+                    <div className="w-8 h-8 bg-teal-500/10 rounded-lg flex items-center justify-center">
+                      <Wallet className="h-5 w-5 text-teal-500" />
                     </div>
                     Für Ihre Finanzen
                   </CardTitle>
@@ -344,15 +348,15 @@ export function AngebotEigentuemerPage() {
                 <CardContent>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
                       <span>Alle Kosten im Überblick</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
                       <span>Rendite transparent berechnet</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
                       <span>Steuerdaten jederzeit exportierbar</span>
                     </li>
                   </ul>

@@ -6,22 +6,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Database, UsersThree, Gavel, ClipboardText } from "@phosphor-icons/react";
+import { CheckCircle, Database, UsersThree } from "@phosphor-icons/react";
 import {
   ServiceFlowDiagram,
   ServiceWEGIllustration,
   ServiceAccountingIllustration,
+  ServiceDokumenteIllustration,
+  ServiceVorgaengeIllustration,
 } from "./illustrations";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export function AngebotWEGPage() {
   const services = [
     {
       id: "versammlungen",
       icon: ServiceWEGIllustration,
-      title: "Wegora Versammlungen",
+      title: "Versammlungen",
       description:
-        "Versammlungen vorbereiten, durchführen, dokumentieren und digital versenden.",
+        "Versammlungen vorbereiten,\ndurchführen, dokumentieren\nund digital versenden.",
       features: [
         "Einladungen versenden",
         "Tagesordnung vorbereiten",
@@ -29,14 +32,15 @@ export function AngebotWEGPage() {
         "Protokolle erstellen",
       ],
       availability: ["Web-App"],
+      badge: "Coming Soon",
       color: "#3182CE",
     },
     {
       id: "finanzen",
       icon: ServiceAccountingIllustration,
-      title: "Wegora Finanzen",
+      title: "Finanzen",
       description:
-        "Hausgeld, Wirtschaftsplan und Gemeinschaftsfinanzen übersichtlich verwalten.",
+        "Hausgeld, Wirtschaftsplan\nund Gemeinschaftsfinanzen\nübersichtlich verwalten.",
       features: [
         "Hausgeld verwalten",
         "Wirtschaftsplan erstellen",
@@ -44,31 +48,31 @@ export function AngebotWEGPage() {
         "Abrechnungen generieren",
       ],
       availability: ["Web-App"],
-      color: "#10B981",
+      badge: "Coming Soon",
+      color: "#3182CE",
     },
     {
-      id: "beschluesse",
-      icon: null,
-      iconElement: Gavel,
-      title: "Wegora Beschlüsse",
+      id: "dokumente",
+      icon: ServiceDokumenteIllustration,
+      title: "Dokumente",
       description:
-        "Beschlüsse erfassen, verfolgen und umsetzen.",
+        "Alle Dokumente der\nGemeinschaft zentral\nund sicher verwalten.",
       features: [
-        "Beschlüsse dokumentieren",
-        "Umsetzung tracken",
-        "Fristen überwachen",
-        "Historie einsehen",
+        "Dokumente ablegen",
+        "Automatisch sortieren",
+        "Schnell finden",
+        "Sicher teilen",
       ],
       availability: ["Web-App"],
-      color: "#F97316",
+      badge: "Coming Soon",
+      color: "#3182CE",
     },
     {
       id: "vorgaenge",
-      icon: null,
-      iconElement: ClipboardText,
-      title: "Wegora Vorgänge",
+      icon: ServiceVorgaengeIllustration,
+      title: "Vorgänge",
       description:
-        "Alle Vorgänge der Gemeinschaft zentral verwalten.",
+        "Alle Vorgänge der\nGemeinschaft zentral\nverwalten und verfolgen.",
       features: [
         "Vorgänge erstellen",
         "Status verfolgen",
@@ -76,7 +80,8 @@ export function AngebotWEGPage() {
         "Kommunikation bündeln",
       ],
       availability: ["Web-App"],
-      color: "#8B5CF6",
+      badge: "Geplant",
+      color: "#3182CE",
     },
   ];
 
@@ -87,7 +92,14 @@ export function AngebotWEGPage() {
         style={{ "--nav-h": "72px" } as React.CSSProperties}
         className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
       >
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Subtle atmospheric blue gradient - from top-left, fading to center */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse 80% 70% at 10% 15%, rgba(36, 99, 235, 0.09) 0%, transparent 70%)"
+          }}
+        />
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative">
           <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
             {/* Label */}
             <motion.div
@@ -141,7 +153,7 @@ export function AngebotWEGPage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
             >
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Alle Services greifen auf dasselbe zentrale Objekt zu. Stammdaten, Eigentümer und Einheiten werden einmal erfasst und stehen für Finanzen, Versammlungen, Beschlüsse und Vorgänge jederzeit zur Verfügung.
+                Alle Services greifen auf dasselbe zentrale Objekt zu. Stammdaten, Eigentümer und Einheiten werden einmal erfasst und stehen für Versammlungen, Finanzen, Dokumente und Vorgänge jederzeit zur Verfügung.
               </p>
             </motion.div>
           </div>
@@ -169,7 +181,6 @@ export function AngebotWEGPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {services.map((service, idx) => {
               const IllustrationComponent = service.icon;
-              const IconComponent = service.iconElement;
               return (
                 <motion.div
                   key={service.id}
@@ -186,34 +197,54 @@ export function AngebotWEGPage() {
                     className="border-2 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col relative"
                     style={{ borderColor: `${service.color}20` }}
                   >
+                  {/* Service Badge */}
+                  {service.badge && (
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] px-3 py-1 bg-blue-100 text-blue-600 border-blue-200 shadow-sm"
+                      >
+                        {service.badge}
+                      </Badge>
+                    </div>
+                  )}
+
                   <CardHeader className="text-center pb-3">
-                    {/* Illustration or Icon */}
+                    {/* Illustration - desaturiert (grau) bei Geplant */}
                     <div className="mx-auto mb-6 h-[160px] flex items-center justify-center">
-                      {IllustrationComponent ? (
-                        <IllustrationComponent className="w-full max-w-[180px] h-auto" />
-                      ) : IconComponent ? (
-                        <div
-                          className="w-24 h-24 rounded-2xl flex items-center justify-center"
-                          style={{ backgroundColor: `${service.color}15` }}
-                        >
-                          <IconComponent
-                            className="w-12 h-12"
-                            style={{ color: service.color }}
-                            weight="duotone"
-                          />
-                        </div>
-                      ) : null}
+                      {IllustrationComponent && (
+                        <IllustrationComponent
+                          className="w-full max-w-[180px] h-auto"
+                          color={service.badge === "Geplant" ? "#9CA3AF" : service.color}
+                        />
+                      )}
                     </div>
 
-                    {/* Title */}
-                    <div className="min-h-[48px] flex items-center justify-center mb-3">
+                    {/* Title - opacity-85 bei Geplant */}
+                    <div className={`min-h-[48px] flex items-center justify-center mb-2 ${service.badge === "Geplant" ? "opacity-85" : ""}`}>
                       <CardTitle className="text-lg font-bold leading-tight tracking-tight">
                         {service.title}
                       </CardTitle>
                     </div>
 
-                    {/* Description */}
-                    <div className="min-h-[48px]">
+                    {/* Platform Badges - ausgegraut bei Geplant */}
+                    <div className={`flex flex-wrap gap-1.5 justify-center mb-3 ${service.badge === "Geplant" ? "opacity-50" : ""}`}>
+                      {service.availability?.map((platform, i) => (
+                        <Badge
+                          key={i}
+                          variant="outline"
+                          className={service.badge === "Geplant"
+                            ? "text-[10px] px-2 py-0.5 bg-gray-100 text-gray-400 border-gray-200"
+                            : "text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                          }
+                        >
+                          {platform}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* Description - opacity-85 bei Geplant */}
+                    <div className={`min-h-[48px] ${service.badge === "Geplant" ? "opacity-85" : ""}`}>
                       <CardDescription className="text-sm leading-relaxed whitespace-pre-line">
                         {service.description}
                       </CardDescription>
@@ -221,8 +252,8 @@ export function AngebotWEGPage() {
                   </CardHeader>
 
                   <CardContent className="flex-1 flex flex-col pt-0 pb-4">
-                    {/* Features list */}
-                    <ul className="space-y-2 mb-3">
+                    {/* Features list - opacity-80 bei Geplant, graue Icons */}
+                    <ul className={`space-y-2 mb-3 ${service.badge === "Geplant" ? "opacity-80" : ""}`}>
                       {service.features.map((feature, i) => (
                         <li
                           key={i}
@@ -231,7 +262,7 @@ export function AngebotWEGPage() {
                           <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                             <CheckCircle
                               className="w-4 h-4"
-                              style={{ color: service.color }}
+                              style={{ color: service.badge === "Geplant" ? "#9CA3AF" : service.color }}
                             />
                           </div>
                           <span className="leading-tight">{feature}</span>
@@ -239,17 +270,20 @@ export function AngebotWEGPage() {
                       ))}
                     </ul>
 
-                    {/* Platform chips */}
-                    <div className="flex flex-wrap gap-1.5 justify-center mt-auto pt-6">
-                      {service.availability?.map((platform, idx) => (
-                        <Badge
-                          key={idx}
-                          variant="outline"
-                          className="text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                    {/* CTA */}
+                    <div className={`mt-auto pt-4 ${service.badge === "Geplant" ? "text-center" : ""}`}>
+                      {service.badge === "Geplant" ? (
+                        <span className="text-sm text-muted-foreground">
+                          Demnächst verfügbar
+                        </span>
+                      ) : (
+                        <Link
+                          to={`/angebot-weg/${service.id}`}
+                          className="text-sm font-medium text-[#2463eb] hover:text-blue-700 transition-colors"
                         >
-                          {platform}
-                        </Badge>
-                      ))}
+                          Mehr erfahren →
+                        </Link>
+                      )}
                     </div>
                   </CardContent>
                 </Card>

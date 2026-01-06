@@ -73,7 +73,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
           />
 
-          {/* NK Manager (center-right) */}
+          {/* Dokumente (center-right) */}
           <motion.path
             d="M 500 200 C 500 255, 650 245, 650 306"
             initial={{ pathLength: 0 }}
@@ -81,7 +81,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
             transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
           />
 
-          {/* Kostenanalyse (far right) */}
+          {/* Vorgänge (far right) */}
           <motion.path
             d="M 500 200 C 500 245, 950 235, 950 306"
             initial={{ pathLength: 0 }}
@@ -95,14 +95,14 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           {/* Circle for OBJEKT - scaled up proportionally */}
           <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="#2563EB" strokeWidth="4.5" />
 
-          {/* Wegora house icon - centered in circle - scaled proportionally */}
+          {/* Wegora house icon - unified branding */}
           <g transform="scale(3.15) translate(-9, -18.5)">
-            {/* Simple House Base */}
-            <rect x="2" y="16" width="14" height="12" rx="1" fill="#2563EB"/>
-            {/* Simple House Roof */}
+            {/* Haus-Basis */}
+            <rect x="2" y="16" width="14" height="12" rx="2" fill="#2563EB"/>
+            {/* Dach */}
             <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="#2563EB"/>
             {/* Single Window */}
-            <rect x="6" y="20" width="2" height="2" rx="0.5" fill="white"/>
+            <rect x="5.75" y="19.75" width="2.5" height="2.5" rx="1" fill="white"/>
           </g>
         </g>
 
@@ -168,7 +168,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           </text>
         </motion.g>
 
-        {/* Service 3: NK Manager (Center-Right) */}
+        {/* Service 3: Dokumente (Center-Right) */}
         <motion.g
           transform="translate(650, 360)"
           initial={{ opacity: 0 }}
@@ -178,14 +178,13 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           {/* Background circle */}
           <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
           <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
-          {/* Document scanning icon - scaled proportionally */}
+          {/* Ordner Icon - with inner lines */}
           <g transform="scale(2.25)">
-            <rect x="-8" y="-8.7" width="16" height="19.2" rx="1.6" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.3" />
-            <rect x="-5.6" y="-5.6" width="11.2" height="1.6" rx="0.8" fill="#3182CE" opacity="0.4" />
-            <rect x="-5.6" y="-2.4" width="8" height="1.6" rx="0.8" fill="#3182CE" opacity="0.4" />
-            <rect x="-5.6" y="0.8" width="9.6" height="1.6" rx="0.8" fill="#3182CE" opacity="0.4" />
-            <path d="M-12,-3.2 L-6.4,-3.2" stroke="#3182CE" strokeWidth="1.3" opacity="0.6" />
-            <path d="M-12,0.8 L-6.4,0.8" stroke="#3182CE" strokeWidth="1.3" opacity="0.6" />
+            <path d="M-9,-3 L-9,7 Q-9,8 -8,8 L8,8 Q9,8 9,7 L9,-3 Q9,-4 8,-4 L2,-4 L0.5,-6.5 L-7,-6.5 Q-9,-6.5 -9,-5 Z" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.2" />
+            {/* Inner lines */}
+            <rect x="-6" y="-1" width="12" height="1.1" rx="0.5" fill="#3182CE" opacity="0.4" />
+            <rect x="-6" y="2" width="8" height="1.1" rx="0.5" fill="#3182CE" opacity="0.4" />
+            <rect x="-6" y="5" width="10" height="1.1" rx="0.5" fill="#3182CE" opacity="0.4" />
           </g>
           {/* Label */}
           <text
@@ -196,11 +195,11 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
             fontSize="20"
             fontWeight="600"
           >
-            NK Manager
+            Dokumente
           </text>
         </motion.g>
 
-        {/* Service 4: Kostenanalyse (Right) */}
+        {/* Service 4: Vorgänge (Right) */}
         <motion.g
           transform="translate(950, 360)"
           initial={{ opacity: 0 }}
@@ -210,12 +209,19 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           {/* Background circle */}
           <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
           <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
-          {/* Magnifying glass icon - scaled proportionally */}
+          {/* Clipboard/Task icon - scaled proportionally */}
           <g transform="scale(2.25)">
-            <circle cx="-1.6" cy="-1.6" r="6.4" fill="none" stroke="#3182CE" strokeWidth="1.6" />
-            <circle cx="-1.6" cy="-1.6" r="4" fill="#3182CE" opacity="0.1" />
-            <path d="M3.2,3.2 L6.4,6.4" stroke="#3182CE" strokeWidth="1.6" strokeLinecap="round" />
-            <text x="-1.6" y="0.8" textAnchor="middle" fill="#3182CE" fontSize="5.5" fontWeight="bold">€</text>
+            {/* Clipboard base */}
+            <rect x="-7" y="-8" width="14" height="18" rx="1.5" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.3" />
+            {/* Clipboard clip */}
+            <rect x="-3.5" y="-10" width="7" height="4" rx="1" fill="#3182CE" />
+            {/* Checklist lines */}
+            <rect x="-4" y="-3" width="2" height="2" rx="0.4" fill="#3182CE" />
+            <rect x="0" y="-3" width="6" height="1.5" rx="0.5" fill="#3182CE" opacity="0.5" />
+            <rect x="-4" y="1" width="2" height="2" rx="0.4" fill="#3182CE" />
+            <rect x="0" y="1" width="5" height="1.5" rx="0.5" fill="#3182CE" opacity="0.5" />
+            <rect x="-4" y="5" width="2" height="2" rx="0.4" fill="#3182CE" />
+            <rect x="0" y="5" width="4" height="1.5" rx="0.5" fill="#3182CE" opacity="0.5" />
           </g>
           {/* Label */}
           <text
@@ -226,7 +232,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
             fontSize="20"
             fontWeight="600"
           >
-            Kostenanalyse
+            Vorgänge
           </text>
         </motion.g>
       </svg>

@@ -5,6 +5,16 @@ interface EigentuemerFlowDiagramProps {
   className?: string;
 }
 
+// Eigentümer-Teal als einzige Farbe (matching teal-500)
+const EIGENTUEMER_TEAL = '#14B8A6';
+
+// Feste Positionen - organisch angeordnet (kein perfektes Dreieck)
+const CENTER = { x: 500, y: 300 };
+// Bewusst asymmetrische Positionen für organisches "Cockpit"-Gefühl
+const NEBENKOSTEN_POS = { x: 395, y: 115 };      // oben-links (etwas höher)
+const DOKUMENTE_POS = { x: 340, y: 450 };        // unten-links (etwas mehr rechts)
+const FINANZEN_POS = { x: 685, y: 335 };         // rechts (etwas tiefer und näher)
+
 export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagramProps) {
   const [isVisible, setIsVisible] = useState(false);
   const svgRef = useRef<HTMLDivElement>(null);
@@ -29,7 +39,7 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
   return (
     <div ref={svgRef} className={`w-full h-full flex items-center justify-center ${className}`}>
       <svg
-        viewBox="-50 50 1100 520"
+        viewBox="-50 50 1100 550"
         className="w-full h-full wegora-flow-eigentuemer"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -42,181 +52,136 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
           }
         `}</style>
 
-        {/* Connection lines - Teal color scheme */}
-        <g opacity="0.22" stroke="#14B8A6" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          {/* Trunk */}
-          <motion.path
-            d="M 500 192 C 500 194, 500 197, 500 200"
-            initial={{ pathLength: 0 }}
-            animate={isVisible ? { pathLength: 1 } : { pathLength: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: 0 }}
-          />
-
-          {/* NK Manager (far left) */}
-          <motion.path
-            d="M 500 200 C 500 245, 50 235, 50 306"
-            initial={{ pathLength: 0 }}
-            animate={isVisible ? { pathLength: 1 } : { pathLength: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-          />
-
-          {/* Finanzen (center-left) */}
-          <motion.path
-            d="M 500 200 C 500 255, 350 245, 350 306"
-            initial={{ pathLength: 0 }}
-            animate={isVisible ? { pathLength: 1 } : { pathLength: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
-          />
-
-          {/* Kostenanalyse (center-right) */}
-          <motion.path
-            d="M 500 200 C 500 255, 650 245, 650 306"
-            initial={{ pathLength: 0 }}
-            animate={isVisible ? { pathLength: 1 } : { pathLength: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
-          />
-
-          {/* Dokumente (far right) */}
-          <motion.path
-            d="M 500 200 C 500 245, 950 235, 950 306"
-            initial={{ pathLength: 0 }}
-            animate={isVisible ? { pathLength: 1 } : { pathLength: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.25 }}
+        {/* Dezenter innerer Kreis - sehr subtil für organisches Gefühl */}
+        <g fill="none" strokeLinecap="round">
+          <circle
+            cx={CENTER.x}
+            cy={CENTER.y}
+            r={115}
+            stroke={EIGENTUEMER_TEAL}
+            strokeWidth="1.5"
+            strokeDasharray="6 5"
+            opacity="0.1"
           />
         </g>
 
-        {/* Central WOHNUNG - teal styling */}
-        <g transform="translate(500, 125)">
-          <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="4.5" />
+        {/* Zentrum: Haus-Icon */}
+        <g transform={`translate(${CENTER.x}, ${CENTER.y})`}>
+          <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke={EIGENTUEMER_TEAL} strokeWidth="4.5" />
 
-          {/* Single apartment/unit icon */}
+          {/* Wohnungs-Icon - unified branding */}
           <g transform="scale(3.15) translate(-9, -18.5)">
-            {/* House Base */}
-            <rect x="2" y="16" width="14" height="12" rx="1" fill="#14B8A6"/>
-            {/* House Roof */}
-            <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="#14B8A6"/>
-            {/* Window - single larger window for "individual" feel */}
-            <rect x="5" y="19" width="4" height="4" rx="0.5" fill="white"/>
-            {/* Door */}
-            <rect x="10" y="21" width="3" height="5" rx="0.5" fill="white"/>
+            {/* Haus-Basis */}
+            <rect x="2" y="16" width="14" height="12" rx="2" fill={EIGENTUEMER_TEAL}/>
+            {/* Dach */}
+            <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill={EIGENTUEMER_TEAL}/>
+            {/* Single Window */}
+            <rect x="5.75" y="19.75" width="2.5" height="2.5" rx="1" fill="white"/>
           </g>
         </g>
 
-        {/* Service 1: NK Manager (Left) - Green */}
+        {/* Service 1: Nebenkosten (oben-links) */}
         <motion.g
-          transform="translate(50, 360)"
+          transform={`translate(${NEBENKOSTEN_POS.x}, ${NEBENKOSTEN_POS.y})`}
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.5 }}
         >
-          <circle cx="0" cy="0" r="60" fill="#10B981" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#10B981" strokeWidth="3" />
-          {/* Document scanning icon */}
-          <g transform="scale(2.25)">
-            <rect x="-8" y="-8.7" width="16" height="19.2" rx="1.6" fill="#FFFFFF" stroke="#10B981" strokeWidth="1.3" />
-            <rect x="-5.6" y="-5.6" width="11.2" height="1.6" rx="0.8" fill="#10B981" opacity="0.4" />
-            <rect x="-5.6" y="-2.4" width="8" height="1.6" rx="0.8" fill="#10B981" opacity="0.4" />
-            <rect x="-5.6" y="0.8" width="9.6" height="1.6" rx="0.8" fill="#10B981" opacity="0.4" />
-            <path d="M-12,-3.2 L-6.4,-3.2" stroke="#10B981" strokeWidth="1.3" opacity="0.6" />
-            <path d="M-12,0.8 L-6.4,0.8" stroke="#10B981" strokeWidth="1.3" opacity="0.6" />
+          <circle cx="0" cy="0" r="60" fill={EIGENTUEMER_TEAL} opacity="0.15" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke={EIGENTUEMER_TEAL} strokeWidth="3" />
+          {/* Dokument-Scan Icon - slightly bigger */}
+          <g transform="scale(2.5)">
+            <rect x="-6" y="-7" width="12" height="14" rx="1.2" fill="#FFFFFF" stroke={EIGENTUEMER_TEAL} strokeWidth="1.1" />
+            <rect x="-4" y="-4.5" width="8" height="1.2" rx="0.5" fill={EIGENTUEMER_TEAL} opacity="0.5" />
+            <rect x="-4" y="-2" width="5.5" height="1.2" rx="0.5" fill={EIGENTUEMER_TEAL} opacity="0.5" />
+            <rect x="-4" y="0.5" width="7" height="1.2" rx="0.5" fill={EIGENTUEMER_TEAL} opacity="0.5" />
+            <path d="M-8.5,-2 L-5,-2" stroke={EIGENTUEMER_TEAL} strokeWidth="1" opacity="0.5" />
+            <path d="M-8.5,0.8 L-5,0.8" stroke={EIGENTUEMER_TEAL} strokeWidth="1" opacity="0.5" />
           </g>
           <text
             x="0"
-            y="90"
+            y="78"
             textAnchor="middle"
-            fill="#10B981"
-            fontSize="20"
+            fill={EIGENTUEMER_TEAL}
+            fontSize="16"
             fontWeight="600"
           >
-            NK Manager
+            Nebenkosten
           </text>
         </motion.g>
 
-        {/* Service 2: Finanzen (Center-Left) - Green */}
+        {/* Service 2: Finanzen (rechts unten) */}
         <motion.g
-          transform="translate(350, 360)"
+          transform={`translate(${FINANZEN_POS.x}, ${FINANZEN_POS.y})`}
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.55 }}
         >
-          <circle cx="0" cy="0" r="60" fill="#10B981" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#10B981" strokeWidth="3" />
-          {/* Chart icon */}
+          <circle cx="0" cy="0" r="60" fill={EIGENTUEMER_TEAL} opacity="0.15" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke={EIGENTUEMER_TEAL} strokeWidth="3" />
+          {/* Balkendiagramm Icon - softer */}
           <g transform="scale(2.25)">
-            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="#10B981" />
-            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="#10B981" />
-            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="#10B981" />
-            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="#10B981" />
+            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill={EIGENTUEMER_TEAL} opacity="0.7" />
+            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill={EIGENTUEMER_TEAL} opacity="0.7" />
+            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill={EIGENTUEMER_TEAL} opacity="0.7" />
+            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill={EIGENTUEMER_TEAL} opacity="0.7" />
           </g>
           <text
             x="0"
-            y="90"
+            y="78"
             textAnchor="middle"
-            fill="#10B981"
-            fontSize="20"
+            fill={EIGENTUEMER_TEAL}
+            fontSize="16"
             fontWeight="600"
           >
             Finanzen
           </text>
         </motion.g>
 
-        {/* Service 3: Kostenanalyse (Center-Right) - Green */}
+        {/* Service 3: Dokumente (links unten) */}
         <motion.g
-          transform="translate(650, 360)"
+          transform={`translate(${DOKUMENTE_POS.x}, ${DOKUMENTE_POS.y})`}
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut", delay: 0.65 }}
+          transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
         >
-          <circle cx="0" cy="0" r="60" fill="#10B981" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#10B981" strokeWidth="3" />
-          {/* Magnifying glass icon */}
+          <circle cx="0" cy="0" r="60" fill={EIGENTUEMER_TEAL} opacity="0.15" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke={EIGENTUEMER_TEAL} strokeWidth="3" />
+          {/* Ordner Icon - with inner lines */}
           <g transform="scale(2.25)">
-            <circle cx="-1.6" cy="-1.6" r="6.4" fill="none" stroke="#10B981" strokeWidth="1.6" />
-            <circle cx="-1.6" cy="-1.6" r="4" fill="#10B981" opacity="0.1" />
-            <path d="M3.2,3.2 L6.4,6.4" stroke="#10B981" strokeWidth="1.6" strokeLinecap="round" />
-            <text x="-1.6" y="0.8" textAnchor="middle" fill="#10B981" fontSize="5.5" fontWeight="bold">€</text>
+            <path d="M-9,-3 L-9,7 Q-9,8 -8,8 L8,8 Q9,8 9,7 L9,-3 Q9,-4 8,-4 L2,-4 L0.5,-6.5 L-7,-6.5 Q-9,-6.5 -9,-5 Z" fill="#FFFFFF" stroke={EIGENTUEMER_TEAL} strokeWidth="1.2" />
+            {/* Inner lines */}
+            <rect x="-6" y="-1" width="12" height="1.1" rx="0.5" fill={EIGENTUEMER_TEAL} opacity="0.4" />
+            <rect x="-6" y="2" width="8" height="1.1" rx="0.5" fill={EIGENTUEMER_TEAL} opacity="0.4" />
+            <rect x="-6" y="5" width="10" height="1.1" rx="0.5" fill={EIGENTUEMER_TEAL} opacity="0.4" />
           </g>
           <text
             x="0"
-            y="90"
+            y="78"
             textAnchor="middle"
-            fill="#10B981"
-            fontSize="20"
-            fontWeight="600"
-          >
-            Kostenanalyse
-          </text>
-        </motion.g>
-
-        {/* Service 4: Dokumente (Right) - Teal */}
-        <motion.g
-          transform="translate(950, 360)"
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut", delay: 0.7 }}
-        >
-          <circle cx="0" cy="0" r="60" fill="#14B8A6" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="3" />
-          {/* Folder/Documents icon */}
-          <g transform="scale(2.25)">
-            {/* Folder back */}
-            <rect x="-10" y="-4" width="20" height="14" rx="1.5" fill="#14B8A6" opacity="0.3" />
-            {/* Folder front */}
-            <path d="M-10,-4 L-10,10 Q-10,11.5 -8.5,11.5 L8.5,11.5 Q10,11.5 10,10 L10,-4 Q10,-5.5 8.5,-5.5 L2,-5.5 L0,-8 L-8.5,-8 Q-10,-8 -10,-6.5 Z" fill="#14B8A6" />
-            {/* Document lines */}
-            <rect x="-6" y="0" width="12" height="1.2" rx="0.6" fill="white" opacity="0.6" />
-            <rect x="-6" y="3" width="8" height="1.2" rx="0.6" fill="white" opacity="0.6" />
-            <rect x="-6" y="6" width="10" height="1.2" rx="0.6" fill="white" opacity="0.6" />
-          </g>
-          <text
-            x="0"
-            y="90"
-            textAnchor="middle"
-            fill="#14B8A6"
-            fontSize="20"
+            fill={EIGENTUEMER_TEAL}
+            fontSize="16"
             fontWeight="600"
           >
             Dokumente
+          </text>
+        </motion.g>
+
+        {/* Dezente Andeutung: "Weitere Module folgen" */}
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
+        >
+          <text
+            x="500"
+            y="595"
+            textAnchor="middle"
+            fill="#9CA3AF"
+            fontSize="14"
+            fontStyle="italic"
+          >
+            Weitere Services folgen
           </text>
         </motion.g>
       </svg>
