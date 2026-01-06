@@ -5,7 +5,12 @@ import { EnvelopeSimple, MapPin } from "@phosphor-icons/react";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-muted/30 to-muted/50 border-t">
+    <footer
+      className="border-t border-[#2463eb]/[0.06]"
+      style={{
+        background: "linear-gradient(to bottom, rgba(36, 99, 235, 0.04) 0%, rgba(36, 99, 235, 0.06) 100%)"
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="flex items-center min-h-[280px] mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 w-full">

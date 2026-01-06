@@ -347,9 +347,6 @@ export function HubLayout({ children }: HubLayoutProps) {
                 <Link to="/vision" className={navLinkClass("/vision")}>
                   Vision
                 </Link>
-                <Link to="/neuigkeiten" className={navLinkClass("/neuigkeiten")}>
-                  Neuigkeiten
-                </Link>
                 <Link to="/ueber-uns" className={navLinkClass("/ueber-uns")}>
                   Über uns
                 </Link>
