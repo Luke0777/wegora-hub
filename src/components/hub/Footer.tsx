@@ -25,10 +25,18 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/unser-angebot"
+                  to="/angebot-weg"
                   className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
                 >
-                  Unser Angebot
+                  Angebot für WEGs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/angebot-eigentuemer"
+                  className="text-sm text-muted-foreground hover:text-teal-500 transition-colors"
+                >
+                  Angebot für Eigentümer
                 </Link>
               </li>
               <li>

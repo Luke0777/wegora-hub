@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import {
   CaretDown,
   FileText,
-  Lightbulb,
   CheckCircle,
   ChartBar,
   Path,
-  Rocket
+  Rocket,
+  Layout
 } from "@phosphor-icons/react";
 
 export function NeuigkeitenPage() {
@@ -36,21 +36,21 @@ export function NeuigkeitenPage() {
   const updatesData = [
     {
       title: "Nebenkosten einfacher vorbereiten – auch mobil",
-      subtitle: "Neu · Dezember 2024 · Produkt-Update",
-      description: "Erfassen Sie Kosten unterwegs und bereiten Sie alles für Ihre Abrechnungen vor. Der NK Manager ist jetzt als Mobile App verfügbar – damit Nebenkosten dort erfasst werden können, wo sie anfallen.",
+      subtitle: "Beta · Januar 2026 · Produkt-Update",
+      description: "Nebenkosten unterwegs erfassen und zentral bündeln – für eine strukturierte Vorbereitung der Abrechnung.",
       icon: FileText,
     },
     {
-      title: "Rechnungen automatisch zuordnen – ohne manuelle Eingabe",
-      subtitle: "Beta · November 2024 · Feature",
-      description: "Laden Sie Rechnungen hoch – unsere AI erkennt automatisch Kategorien, Beträge und Zuordnungen. Sparen Sie Zeit bei der Dateneingabe und behalten Sie den Überblick.",
-      icon: Lightbulb,
+      title: "Beschlüsse digital treffen",
+      subtitle: "Beta · November 2025 · Produkt-Update",
+      description: "Beschlüsse digital vorbereiten, abstimmen und klar dokumentieren – inklusive Protokoll-Überblick und Status.",
+      icon: CheckCircle,
     },
     {
-      title: "Beschlüsse digital treffen – rechtssicher und nachvollziehbar",
-      subtitle: "Update · Oktober 2024 · Produkt-Update",
-      description: "Stimmen Sie über Beschlüsse digital ab – mit automatischer Protokollerstellung und rechtssicherer Dokumentation. Alle Entscheidungen bleiben nachvollziehbar und verfügbar.",
-      icon: CheckCircle,
+      title: "Finanzen übersichtlich verwalten – klar strukturiert",
+      subtitle: "Beta · Januar 2026 · Produkt-Update",
+      description: "Einnahmen und Ausgaben geordnet im Blick behalten – mit einer klaren Struktur pro Objekt.",
+      icon: ChartBar,
     },
   ];
 
@@ -97,27 +97,21 @@ export function NeuigkeitenPage() {
               Updates, Verbesserungen und neue Möglichkeiten – Schritt für Schritt.
             </motion.p>
 
-            {/* Currently Working On - Lightweight momentum signal */}
+            {/* Preview-Anker - Latest Update */}
             <motion.div
               className="mt-28 max-w-lg mx-auto text-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
             >
-              {/* Label */}
-              <p className="text-sm text-muted-foreground/70 mb-5 tracking-wide font-medium">
-                Aktuell in Arbeit
+              {/* Badge line */}
+              <p className="text-sm text-muted-foreground/70 mb-4 tracking-wide font-medium">
+                Beta · Januar 2026 · Produkt-Update
               </p>
 
-              {/* Current focus items - plain text, no bullets */}
-              <div className="space-y-3 text-[16px] text-[#1A1A1A]/70 leading-relaxed">
-                <p>Mobile Nebenkosten-Erfassung</p>
-                <p>Verbesserte Abrechnungsübersicht</p>
-              </div>
-
-              {/* Continuity line */}
-              <p className="text-sm text-muted-foreground/60 mt-6 italic">
-                Weitere Updates folgen kontinuierlich.
+              {/* Latest update title */}
+              <p className="text-[18px] text-[#1A1A1A]/80 font-medium leading-relaxed">
+                Nebenkosten einfacher vorbereiten – auch mobil
               </p>
             </motion.div>
           </div>
@@ -246,7 +240,7 @@ export function NeuigkeitenPage() {
                 Was wir als Nächstes möglich machen
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Wir entwickeln Wegora kontinuierlich weiter – entlang echter Entscheidungsprozesse.
+                Wir entwickeln Wegora Schritt für Schritt weiter – entlang echter Entscheidungsprozesse.
               </p>
             </motion.div>
 
@@ -254,21 +248,21 @@ export function NeuigkeitenPage() {
             <div className="space-y-12 max-w-3xl mx-auto">
               {[
                 {
-                  direction: "Mehr Überblick über Finanzen",
-                  description: "Vollständige, nachvollziehbare Finanzsicht pro Objekt – mit Historie, Status und Kontext.",
-                  timeline: "in Entwicklung",
-                  icon: ChartBar,
+                  direction: "Mehr Überblick im Portal (Dashboard)",
+                  description: "Mehr Überblick über Objekte im Dashboard – Status, Vorgänge und nächste Schritte auf einen Blick.",
+                  timeline: null,
+                  icon: Layout,
                 },
                 {
                   direction: "Offene Schnittstellen",
-                  description: "Integration in bestehende Systeme – ohne Medienbrüche. APIs für Buchhaltung, Verwaltung und Dokumentation.",
-                  timeline: "geplant 2025",
+                  description: "Integration in bestehende Systeme – weniger Medienbrüche, mehr Struktur.",
+                  timeline: "geplant 2026",
                   icon: Path,
                 },
                 {
                   direction: "Wegora überall nutzen",
-                  description: "Alle Services auch mobil verfügbar – Übersicht, Entscheidungen und Freigaben von unterwegs.",
-                  timeline: "geplant 2025",
+                  description: "Alle Services auch mobil verfügbar.",
+                  timeline: null,
                   icon: Rocket,
                 },
               ].map((item, idx) => {
@@ -303,9 +297,11 @@ export function NeuigkeitenPage() {
                           {item.description}
                         </p>
                         {/* Timeline - small, gray, de-emphasized */}
-                        <p className="text-sm text-muted-foreground/60 mt-2 italic">
-                          ({item.timeline})
-                        </p>
+                        {item.timeline && (
+                          <p className="text-sm text-muted-foreground/60 mt-2 italic">
+                            ({item.timeline})
+                          </p>
+                        )}
                       </div>
                     </div>
                   </motion.div>

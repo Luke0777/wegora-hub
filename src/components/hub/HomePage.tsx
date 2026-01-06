@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, FileText, House, Users, ChartBar, UserCircle, CaretDown, WarningCircle, CheckCircle } from "@phosphor-icons/react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, House, CaretDown, WarningCircle, CheckCircle, Buildings } from "@phosphor-icons/react";
 import {
-  HubHeroIllustration,
   AllInOneProblemsIllustration,
   WegoraModularIllustration,
   ServiceWEGIllustration,
@@ -34,7 +33,8 @@ export function HomePage() {
     };
   }, []);
 
-  const services = [
+  // Services grouped by product line
+  const wegServicesWEG = [
     {
       id: "versammlungen",
       icon: ServiceWEGIllustration,
@@ -49,6 +49,9 @@ export function HomePage() {
       description: "Finanzen übersichtlich verwalten – pro Objekt.",
       color: "#10B981",
     },
+  ];
+
+  const wegServicesEigentuemer = [
     {
       id: "nebenkostenmanager",
       icon: ServiceNebenkostenIllustration,
@@ -94,7 +97,7 @@ export function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              Die Plattform zur Verwaltung Ihrer Immobilien
+              Eine Plattform. Zwei Perspektiven.
             </motion.h1>
 
             {/* Subheadline */}
@@ -105,43 +108,26 @@ export function HomePage() {
               animate={{ opacity: 0.6, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Für kleine Wohnungseigentümergemeinschaften (WEGs), Selbstverwalter und kleine Immobilienverwaltungen – modular, verständlich und ohne komplexe All-in-One-Systeme.
-            </motion.p>
-
-            {/* Partner Microline */}
-            <motion.p
-              className="text-sm leading-relaxed max-w-2xl mx-auto text-gray-500"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-            >
-              Für Verwaltungen: Eine Lösung für Eigentümer, die Sie nicht mehr aufnehmen können.
+              Eine modulare Plattform für die digitale Immobilienverwaltung – flexibel nutzbar auf Gemeinschafts- und Wohnungsebene.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6"
+              className="flex flex-col items-center pt-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
             >
               <Button
                 size="lg"
-                className="h-auto px-8 py-4 text-base font-medium rounded-xl bg-[#2463eb] hover:bg-[#1d4ed8] text-white transition-all duration-200"
+                className="h-auto px-8 py-4 text-base font-medium rounded-xl bg-[#2463eb] hover:bg-[#1d4ed8] hover:text-blue-50 text-white transition-all duration-200"
                 style={{ fontWeight: 500 }}
               >
                 Jetzt registrieren
               </Button>
-              <Link to="/unser-angebot">
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="text-base font-medium text-[#2463eb] hover:text-[#1d4ed8] hover:bg-[#2463eb]/10 transition-colors"
-                >
-                  Unsere Services
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+              <p className="text-sm text-muted-foreground mt-5">
+                Perspektive wählen im nächsten Schritt
+              </p>
             </motion.div>
 
           </div>
@@ -190,6 +176,165 @@ export function HomePage() {
         </AnimatePresence>
       </section>
 
+      {/* Service Split - WEGs vs. Eigentümer */}
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-muted/20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            className="text-center mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+              Für wen ist Wegora?
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              Wählen Sie Ihre Perspektive
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* WEG Card - Left (Blue) */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="flex flex-col"
+            >
+              {/* Zielgruppe Badge ÜBER der Card */}
+              <div className="flex items-center gap-2 mb-3">
+                <Badge
+                  variant="outline"
+                  className="px-3 py-1.5 text-xs font-medium bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                >
+                  <Buildings className="h-3.5 w-3.5 mr-1.5" weight="duotone" />
+                  Für WEGs, Selbstverwalter & kleine Verwaltungen
+                </Badge>
+              </div>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-[#2463eb]/20 bg-gradient-to-br from-blue-50 to-white p-8 hover:shadow-xl transition-all duration-300 flex-1 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#2463eb]/5 rounded-full -mr-16 -mt-16" />
+
+                <div className="relative flex flex-col flex-1">
+                  <div className="w-14 h-14 bg-[#2463eb]/10 rounded-xl flex items-center justify-center mb-6">
+                    <Buildings className="h-7 w-7 text-[#2463eb]" weight="duotone" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-[#2463eb] mb-4">
+                    Wegora WEG
+                  </h3>
+                  {/* Feste Höhe für Claim-Bereich damit beide Cards aligned sind */}
+                  <div className="min-h-[100px] sm:min-h-[80px] flex items-start">
+                    <p className="text-2xl sm:text-3xl font-semibold text-[#1A1A1A]">
+                      Ein Objekt. Alles im Griff.
+                    </p>
+                  </div>
+                  {/* Feste Höhe für Subtext damit beide Cards aligned sind */}
+                  <div className="min-h-[72px] mb-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Gemeinschaft, Beschlüsse, Hausgeld, Wirtschaftsplan und Dokumente – klar strukturiert an einem Ort.
+                    </p>
+                  </div>
+
+                  <div className="mt-auto">
+                    <Link to="/angebot-weg">
+                      <Button className="bg-[#2463eb] hover:bg-[#1d4ed8] hover:text-blue-50 text-white">
+                        Mehr erfahren
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Eigentümer Card - Right (Teal) */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              className="flex flex-col"
+            >
+              {/* Zielgruppe Badge ÜBER der Card */}
+              <div className="flex items-center gap-2 mb-3">
+                <Badge
+                  variant="outline"
+                  className="px-3 py-1.5 text-xs font-medium bg-teal-500/10 text-teal-600 border-teal-500/20"
+                >
+                  <House className="h-3.5 w-3.5 mr-1.5" weight="duotone" />
+                  Für Eigentümer & Vermieter
+                </Badge>
+              </div>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-teal-500/20 bg-gradient-to-br from-teal-50 to-white p-8 hover:shadow-xl transition-all duration-300 flex-1 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full -mr-16 -mt-16" />
+
+                <div className="relative flex flex-col flex-1">
+                  <div className="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <House className="h-7 w-7 text-teal-500" weight="duotone" />
+                  </div>
+
+                  <h3 className="text-xl font-bold text-teal-500 mb-4">
+                    Wegora Eigentümer
+                  </h3>
+                  {/* Feste Höhe für Claim-Bereich damit beide Cards aligned sind */}
+                  <div className="min-h-[100px] sm:min-h-[80px] flex items-start">
+                    <p className="text-2xl sm:text-3xl font-semibold text-[#1A1A1A]">
+                      Ihre Wohnung. Ihre Finanzen. Ihr Überblick.
+                    </p>
+                  </div>
+                  {/* Feste Höhe für Subtext damit beide Cards aligned sind */}
+                  <div className="min-h-[72px] mb-6">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Nebenkostenabrechnung, Miete, Kosten und Vorgänge – verständlich und übersichtlich.
+                    </p>
+                  </div>
+
+                  <div className="mt-auto">
+                    <Link to="/angebot-eigentuemer">
+                      <Button className="bg-teal-500 hover:bg-teal-600 hover:text-teal-50 text-white">
+                        Mehr erfahren
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Auch für Verwaltungen gedacht - Callout */}
+      <section className="py-12 sm:py-16 bg-gradient-to-b from-muted/20 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 sm:p-10 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#2463eb]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Buildings className="h-6 w-6 text-[#2463eb]" weight="duotone" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                    Auch für Verwaltungen gedacht
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Viele Verwaltungen stoßen an Kapazitätsgrenzen. Wegora schafft klare Strukturen für Eigentümer und entlastet Ihr Team – auch dort, wo eine vollständige Verwaltung nicht mehr möglich oder sinnvoll ist.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Services Preview */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
@@ -208,129 +353,96 @@ export function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {services.map((service, idx) => {
-              const IllustrationComponent = service.icon;
-              return (
-                <motion.div
-                  key={service.id}
-                  className="border-2 rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white"
-                  style={{ borderColor: `${service.color}20` }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
-                    delay: idx * 0.1
-                  }}
-                >
-                  <div className="mx-auto mb-4 h-[120px] flex items-center justify-center">
-                    <IllustrationComponent className="w-full max-w-[140px] h-auto" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 text-center">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground text-center">{service.description}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <Link to="/unser-angebot">
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 h-auto border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb] hover:text-white"
-              >
-                Alle Services entdecken
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Für wen ist Wegora gemacht? */}
-      <section className="py-16 sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            className="text-center mb-12 sm:mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-              Für wen ist Wegora gemacht?
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Entwickelt für reale Anforderungen in der Immobilienverwaltung.
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                icon: House,
-                title: "Kleine WEGs",
-                description: "Selbst organisieren statt teuer verwalten lassen",
-                detail: "Transparente Prozesse für Eigentümer",
-              },
-              {
-                icon: Users,
-                title: "Selbstverwalter",
-                description: "Weniger manuelle Arbeit",
-                detail: "Strukturierte Abrechnung & Versammlungen",
-              },
-              {
-                icon: ChartBar,
-                title: "Kleine Verwaltungen",
-                description: "Skalieren ohne neue Kunden aufnehmen zu müssen",
-                detail: "Eigentümer digital entlasten",
-              },
-              {
-                icon: UserCircle,
-                title: "Private Vermieter",
-                description: "Klarheit über Finanzen & Nebenkosten",
-                detail: "Professionelle Abrechnungen erstellen",
-              },
-            ].map((userType, index) => {
-              const Icon = userType.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeOut",
-                    delay: index * 0.1
-                  }}
-                >
-                  <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow text-center">
-                    <CardHeader className="px-4 sm:px-6">
-                      <div className="mx-auto w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
-                        <Icon className="h-6 w-6 text-primary" />
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Wegora WEGs Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-[#2463eb]/10 rounded-xl flex items-center justify-center">
+                  <Buildings className="h-5 w-5 text-[#2463eb]" weight="duotone" />
+                </div>
+                <h3 className="text-xl font-bold text-[#2463eb]">Wegora WEG</h3>
+              </div>
+              <div className="space-y-4">
+                {wegServicesWEG.map((service) => {
+                  const IllustrationComponent = service.icon;
+                  return (
+                    <div
+                      key={service.id}
+                      className="border-2 border-[#2463eb]/20 rounded-lg p-5 hover:shadow-lg transition-all duration-300 bg-white flex items-center gap-5"
+                    >
+                      <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center">
+                        <IllustrationComponent className="w-full h-auto" />
                       </div>
-                      <CardTitle className="text-base sm:text-lg mb-2">
-                        {userType.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="px-4 sm:px-6">
-                      <p className="text-sm text-foreground mb-2">{userType.description}</p>
-                      <p className="text-xs text-muted-foreground">{userType.detail}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
+                      <div>
+                        <h4 className="text-base font-bold mb-1">{service.title}</h4>
+                        <p className="text-sm text-muted-foreground">{service.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-6">
+                <Link to="/angebot-weg">
+                  <Button
+                    variant="outline"
+                    className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb] hover:text-white"
+                  >
+                    Mehr zu Wegora WEG
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Wegora Eigentümer Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-teal-500/10 rounded-xl flex items-center justify-center">
+                  <House className="h-5 w-5 text-teal-500" weight="duotone" />
+                </div>
+                <h3 className="text-xl font-bold text-teal-500">Wegora Eigentümer</h3>
+              </div>
+              <div className="space-y-4">
+                {wegServicesEigentuemer.map((service) => {
+                  const IllustrationComponent = service.icon;
+                  return (
+                    <div
+                      key={service.id}
+                      className="border-2 border-teal-500/20 rounded-lg p-5 hover:shadow-lg transition-all duration-300 bg-white flex items-center gap-5"
+                    >
+                      <div className="w-[80px] h-[80px] flex-shrink-0 flex items-center justify-center">
+                        <IllustrationComponent className="w-full h-auto" />
+                      </div>
+                      <div>
+                        <h4 className="text-base font-bold mb-1">{service.title}</h4>
+                        <p className="text-sm text-muted-foreground">{service.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-6">
+                <Link to="/angebot-eigentuemer">
+                  <Button
+                    variant="outline"
+                    className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white"
+                  >
+                    Mehr zu Wegora Eigentümer
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -361,9 +473,9 @@ export function HomePage() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="grid grid-cols-2 gap-12 lg:gap-16">
+            <div className="flex justify-center gap-0">
               {/* Bestehende Lösungen */}
-              <div className="flex gap-4 items-start">
+              <div className="flex gap-0 items-start">
                 <div className="space-y-4 flex-shrink-0 w-[220px]">
                   <div>
                     <Badge
@@ -385,14 +497,14 @@ export function HomePage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex-1 flex items-center justify-center pt-2">
-                  <AllInOneProblemsIllustration className="w-[270px] h-auto" />
+                <div className="flex items-center pt-2">
+                  <AllInOneProblemsIllustration className="w-[280px] h-auto" />
                 </div>
               </div>
 
               {/* Wegora Ansatz */}
               <div className="flex gap-4 items-start">
-                <div className="space-y-4 flex-shrink-0 w-[220px]">
+                <div className="space-y-4 flex-shrink-0 w-[160px]">
                   <div>
                     <Badge
                       className="px-4 py-2 text-sm font-medium tracking-wide rounded-full"
@@ -405,7 +517,7 @@ export function HomePage() {
                     </p>
                   </div>
                   <div className="space-y-2 pt-2">
-                    {["Kosteneffizient & transparent", "Fokussierte Services", "Berücksichtigung von Edge Cases", "Einfache Nutzung"].map((item, i) => (
+                    {["Kosteneffizient & transparent", "Fokussierte Services", "Einfache Nutzung", "Berücksichtigung von Edge Cases"].map((item, i) => (
                       <div key={i} className="flex items-start gap-2">
                         <CheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-foreground whitespace-nowrap">{item}</span>
@@ -413,8 +525,8 @@ export function HomePage() {
                     ))}
                   </div>
                 </div>
-                <div className="flex-1 flex items-center justify-center pt-4">
-                  <WegoraModularIllustration className="w-[240px] h-auto" />
+                <div className="flex items-center justify-start pt-4">
+                  <WegoraModularIllustration className="w-[400px] h-auto" />
                 </div>
               </div>
             </div>
@@ -469,7 +581,7 @@ export function HomePage() {
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-10 sm:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -478,45 +590,39 @@ export function HomePage() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
               Typische Einstiege mit Wegora
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
               Flexibel starten – Wegora passt sich Ihren Bedürfnissen an.
             </p>
+            {/* Mini-Legende */}
+            <div className="flex justify-center items-center gap-6 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#2463eb]"></span>
+                <span>WEG = Gemeinschaftliche Nutzung</span>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+                <span>Eigentümer = Wohnungsebene</span>
+              </span>
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
-                title: "Start mit NK Manager",
-                description: "Wir starten mit dem NK Manager und erweitern später.",
-                color: "#8B5CF6",
-                icon: (
-                  <svg viewBox="0 0 80 80" className="w-full h-full">
-                    <circle cx="40" cy="40" r="35" fill="#8B5CF6" opacity="0.15" />
-                    <circle cx="40" cy="40" r="30" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="2" />
-                    <rect x="30" y="29" width="20" height="24" rx="2" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="1.5" />
-                    <rect x="33" y="33" width="14" height="2" rx="1" fill="#8B5CF6" opacity="0.4" />
-                    <rect x="33" y="37" width="10" height="2" rx="1" fill="#8B5CF6" opacity="0.4" />
-                    <rect x="33" y="41" width="12" height="2" rx="1" fill="#8B5CF6" opacity="0.4" />
-                    <path d="M25,36 L32,36" stroke="#8B5CF6" strokeWidth="1.5" opacity="0.6" />
-                    <path d="M25,41 L32,41" stroke="#8B5CF6" strokeWidth="1.5" opacity="0.6" />
-                  </svg>
-                ),
-              },
-              {
                 title: "Nur Versammlungen",
                 description: "Wir nutzen nur Versammlungen – alles andere macht die WEG selbst.",
-                color: "#3182CE",
+                context: "weg" as const,
                 icon: (
                   <svg viewBox="0 0 80 80" className="w-full h-full">
-                    <circle cx="40" cy="40" r="35" fill="#3182CE" opacity="0.15" />
-                    <circle cx="40" cy="40" r="30" fill="#FFFFFF" stroke="#3182CE" strokeWidth="2" />
+                    <circle cx="40" cy="40" r="35" fill="#2463eb" opacity="0.1" />
+                    <circle cx="40" cy="40" r="30" fill="#FFFFFF" stroke="#2463eb" strokeWidth="1.5" />
                     <g transform="translate(40, 40)">
-                      <circle cx="-7" cy="-4" r="3.5" fill="none" stroke="#3182CE" strokeWidth="1.5" />
-                      <path d="M-11,4 Q-7,1 -3,4" stroke="#3182CE" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                      <circle cx="0" cy="-5" r="4" fill="none" stroke="#3182CE" strokeWidth="1.5" />
-                      <path d="M-5,5 Q0,2 5,5" stroke="#3182CE" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                      <circle cx="7" cy="-4" r="3.5" fill="none" stroke="#3182CE" strokeWidth="1.5" />
-                      <path d="M3,4 Q7,1 11,4" stroke="#3182CE" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                      <circle cx="-7" cy="-4" r="3.5" fill="none" stroke="#2463eb" strokeWidth="1.5" />
+                      <path d="M-11,4 Q-7,1 -3,4" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                      <circle cx="0" cy="-5" r="4" fill="none" stroke="#2463eb" strokeWidth="1.5" />
+                      <path d="M-5,5 Q0,2 5,5" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                      <circle cx="7" cy="-4" r="3.5" fill="none" stroke="#2463eb" strokeWidth="1.5" />
+                      <path d="M3,4 Q7,1 11,4" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                     </g>
                   </svg>
                 ),
@@ -524,15 +630,32 @@ export function HomePage() {
               {
                 title: "Finanzen zuerst",
                 description: "Wir beginnen mit Finanzen und binden später Nebenkosten an.",
-                color: "#10B981",
+                context: "weg" as const,
                 icon: (
                   <svg viewBox="0 0 80 80" className="w-full h-full">
-                    <circle cx="40" cy="40" r="35" fill="#10B981" opacity="0.15" />
-                    <circle cx="40" cy="40" r="30" fill="#FFFFFF" stroke="#10B981" strokeWidth="2" />
-                    <rect x="27" y="37" width="5" height="10" rx="1" fill="#10B981" />
-                    <rect x="34" y="32" width="5" height="15" rx="1" fill="#10B981" />
-                    <rect x="41" y="34" width="5" height="13" rx="1" fill="#10B981" />
-                    <rect x="48" y="30" width="5" height="17" rx="1" fill="#10B981" />
+                    <circle cx="40" cy="40" r="35" fill="#2463eb" opacity="0.1" />
+                    <circle cx="40" cy="40" r="30" fill="#FFFFFF" stroke="#2463eb" strokeWidth="1.5" />
+                    <rect x="27" y="37" width="5" height="10" rx="1" fill="#2463eb" />
+                    <rect x="34" y="32" width="5" height="15" rx="1" fill="#2463eb" />
+                    <rect x="41" y="34" width="5" height="13" rx="1" fill="#2463eb" />
+                    <rect x="48" y="30" width="5" height="17" rx="1" fill="#2463eb" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Start mit NK Manager",
+                description: "Wir starten mit dem NK Manager und erweitern später.",
+                context: "eigentuemer" as const,
+                icon: (
+                  <svg viewBox="0 0 80 80" className="w-full h-full">
+                    <circle cx="40" cy="40" r="35" fill="#14B8A6" opacity="0.1" />
+                    <circle cx="40" cy="40" r="30" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="1.5" />
+                    <rect x="30" y="29" width="20" height="24" rx="2" fill="#FFFFFF" stroke="#14B8A6" strokeWidth="1.5" />
+                    <rect x="33" y="33" width="14" height="2" rx="1" fill="#14B8A6" opacity="0.5" />
+                    <rect x="33" y="37" width="10" height="2" rx="1" fill="#14B8A6" opacity="0.5" />
+                    <rect x="33" y="41" width="12" height="2" rx="1" fill="#14B8A6" opacity="0.5" />
+                    <path d="M25,36 L32,36" stroke="#14B8A6" strokeWidth="1.5" opacity="0.5" />
+                    <path d="M25,41 L32,41" stroke="#14B8A6" strokeWidth="1.5" opacity="0.5" />
                   </svg>
                 ),
               },
@@ -548,13 +671,34 @@ export function HomePage() {
                   delay: index * 0.1
                 }}
               >
-                <Card className="border-2 border-primary/10 shadow-md hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <div className="mx-auto mb-6 h-[100px] w-[100px] flex items-center justify-center">
+                <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow bg-white h-full">
+                  <CardContent className="p-6 text-center relative flex flex-col h-full">
+                    <div className="mx-auto mb-5 h-[100px] w-[100px] flex items-center justify-center">
                       {entry.icon}
                     </div>
                     <h3 className="font-bold text-lg mb-3 text-foreground">{entry.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{entry.description}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{entry.description}</p>
+                    {/* Kontext-Badge unten */}
+                    <div className="flex justify-center mt-4 pt-4 border-t border-gray-100">
+                      {entry.context === "weg" && (
+                        <Badge
+                          variant="outline"
+                          className="px-2.5 py-1 text-[11px] font-medium bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                        >
+                          <Buildings className="h-3 w-3 mr-1" weight="duotone" />
+                          WEG
+                        </Badge>
+                      )}
+                      {entry.context === "eigentuemer" && (
+                        <Badge
+                          variant="outline"
+                          className="px-2.5 py-1 text-[11px] font-medium bg-teal-500/10 text-teal-600 border-teal-500/20"
+                        >
+                          <House className="h-3 w-3 mr-1" weight="duotone" />
+                          Eigentümer
+                        </Badge>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -615,13 +759,16 @@ export function HomePage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
             >
-              <Button size="lg" className="px-10 py-6 h-auto bg-[#2463eb] hover:bg-[#1d4ed8] text-white text-base font-medium">
-                Jetzt registrieren
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Link to="/unser-angebot">
-                <Button size="lg" variant="outline" className="px-10 py-6 h-auto border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb] hover:text-white text-base">
-                  Alle Services ansehen
+              <Link to="/angebot-weg">
+                <Button size="lg" className="w-[300px] py-5 h-auto bg-[#2463eb] hover:bg-[#1d4ed8] hover:text-blue-50 text-white text-[15px] font-medium">
+                  <Buildings className="mr-2 h-5 w-5 flex-shrink-0" weight="fill" />
+                  Wegora für WEGs entdecken
+                </Button>
+              </Link>
+              <Link to="/angebot-eigentuemer">
+                <Button size="lg" className="w-[300px] py-5 h-auto bg-teal-500 hover:bg-teal-600 hover:text-teal-50 text-white text-[15px] font-medium">
+                  <House className="mr-2 h-5 w-5 flex-shrink-0" weight="fill" />
+                  Wegora für Eigentümer entdecken
                 </Button>
               </Link>
             </motion.div>

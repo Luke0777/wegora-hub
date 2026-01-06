@@ -216,6 +216,7 @@ export function KontaktPage() {
               ].map((faq, index) => (
                 <motion.div
                   key={index}
+                  className="h-full"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
@@ -225,8 +226,8 @@ export function KontaktPage() {
                     delay: index * 0.1
                   }}
                 >
-                  <Card className="border-2 border-muted shadow-md">
-                    <CardContent className="p-6">
+                  <Card className="border-2 border-muted shadow-md h-full">
+                    <CardContent className="p-6 h-full">
                       <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
                       <p className="text-sm text-muted-foreground">{faq.answer}</p>
                     </CardContent>

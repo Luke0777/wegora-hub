@@ -50,31 +50,11 @@ export function AllInOneProblemsIllustration({ className = "" }: AllInOneProblem
           </g>
         </g>
 
-        {/* Warning/alert symbols */}
-        <g transform="translate(35, 110)">
-          <circle cx="0" cy="0" r="10" fill="#E53E3E" opacity="0.2" />
-          <rect x="-1" y="-6" width="2" height="8" rx="1" fill="#E53E3E" />
-          <circle cx="0" cy="4" r="1.5" fill="#E53E3E" />
-        </g>
-
-        <g transform="translate(270, 95)">
-          <circle cx="0" cy="0" r="8" fill="#F97316" opacity="0.2" />
-          <rect x="-1" y="-5" width="2" height="6" rx="1" fill="#F97316" />
-          <circle cx="0" cy="3" r="1" fill="#F97316" />
-        </g>
-
-        {/* Complexity arrows pointing in all directions */}
-        <g opacity="0.3">
-          <path d="M150,40 L140,35 L145,38 L150,40" fill="#E53E3E" />
-          <path d="M150,160 L140,165 L145,162 L150,160" fill="#F97316" />
-          <path d="M70,100 L65,90 L68,95 L70,100" fill="#E53E3E" />
-          <path d="M230,100 L235,90 L232,95 L230,100" fill="#F97316" />
-        </g>
-
-        {/* Chaotic connecting lines in background */}
-        <g opacity="0.15">
-          <path d="M60 80 Q120 60 180 90" stroke="#E53E3E" strokeWidth="1" fill="none" strokeDasharray="2,2" />
-          <path d="M100 120 Q150 140 200 110" stroke="#F97316" strokeWidth="1" fill="none" strokeDasharray="2,2" />
+        {/* Warning indicator - same style as success checkmarks in Wegora boxes */}
+        <g transform="translate(150, 100)">
+          <circle cx="67" cy="-47" r="7" fill="#E53E3E" />
+          <rect x="66" y="-52" width="2" height="7" rx="1" fill="#FFFFFF" />
+          <circle cx="67" cy="-42" r="1.2" fill="#FFFFFF" />
         </g>
 
         {/* Label */}

@@ -1,6 +1,7 @@
 // WEGORA Hub Landing Page Illustrations
 export { HubHeroIllustration } from './HubHeroIllustration';
 export { ServiceFlowDiagram } from './ServiceFlowDiagram';
+export { EigentuemerFlowDiagram } from './EigentuemerFlowDiagram';
 export { AllInOneProblemsIllustration } from './AllInOneProblemsIllustration';
 export { WegoraModularIllustration } from './WegoraModularIllustration';
 export { ServiceAccountingIllustration } from './ServiceAccountingIllustration';

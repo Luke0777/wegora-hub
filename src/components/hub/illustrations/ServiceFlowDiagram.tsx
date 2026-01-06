@@ -94,7 +94,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
         <g transform="translate(500, 125)">
           {/* Circle for OBJEKT - scaled up proportionally */}
           <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="#2563EB" strokeWidth="4.5" />
-          
+
           {/* Wegora house icon - centered in circle - scaled proportionally */}
           <g transform="scale(3.15) translate(-9, -18.5)">
             {/* Simple House Base */}
@@ -146,21 +146,21 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#10B981" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#10B981" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
           {/* Chart icon - scaled proportionally */}
           <g transform="scale(2.25)">
-            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="#10B981" />
-            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="#10B981" />
-            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="#10B981" />
-            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="#10B981" />
+            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="#3182CE" />
+            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="#3182CE" />
+            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="#3182CE" />
+            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="#3182CE" />
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#10B981"
+            fill="#3182CE"
             fontSize="20"
             fontWeight="600"
           >
@@ -176,23 +176,23 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.65 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#8B5CF6" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
           {/* Document scanning icon - scaled proportionally */}
           <g transform="scale(2.25)">
-            <rect x="-8" y="-8.7" width="16" height="19.2" rx="1.6" fill="#FFFFFF" stroke="#8B5CF6" strokeWidth="1.3" />
-            <rect x="-5.6" y="-5.6" width="11.2" height="1.6" rx="0.8" fill="#8B5CF6" opacity="0.4" />
-            <rect x="-5.6" y="-2.4" width="8" height="1.6" rx="0.8" fill="#8B5CF6" opacity="0.4" />
-            <rect x="-5.6" y="0.8" width="9.6" height="1.6" rx="0.8" fill="#8B5CF6" opacity="0.4" />
-            <path d="M-12,-3.2 L-6.4,-3.2" stroke="#8B5CF6" strokeWidth="1.3" opacity="0.6" />
-            <path d="M-12,0.8 L-6.4,0.8" stroke="#8B5CF6" strokeWidth="1.3" opacity="0.6" />
+            <rect x="-8" y="-8.7" width="16" height="19.2" rx="1.6" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.3" />
+            <rect x="-5.6" y="-5.6" width="11.2" height="1.6" rx="0.8" fill="#3182CE" opacity="0.4" />
+            <rect x="-5.6" y="-2.4" width="8" height="1.6" rx="0.8" fill="#3182CE" opacity="0.4" />
+            <rect x="-5.6" y="0.8" width="9.6" height="1.6" rx="0.8" fill="#3182CE" opacity="0.4" />
+            <path d="M-12,-3.2 L-6.4,-3.2" stroke="#3182CE" strokeWidth="1.3" opacity="0.6" />
+            <path d="M-12,0.8 L-6.4,0.8" stroke="#3182CE" strokeWidth="1.3" opacity="0.6" />
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#8B5CF6"
+            fill="#3182CE"
             fontSize="20"
             fontWeight="600"
           >
@@ -208,21 +208,21 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.7 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#F97316" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#F97316" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
           {/* Magnifying glass icon - scaled proportionally */}
           <g transform="scale(2.25)">
-            <circle cx="-1.6" cy="-1.6" r="6.4" fill="none" stroke="#F97316" strokeWidth="1.6" />
-            <circle cx="-1.6" cy="-1.6" r="4" fill="#F97316" opacity="0.1" />
-            <path d="M3.2,3.2 L6.4,6.4" stroke="#F97316" strokeWidth="1.6" strokeLinecap="round" />
-            <text x="-1.6" y="0.8" textAnchor="middle" fill="#F97316" fontSize="5.5" fontWeight="bold">€</text>
+            <circle cx="-1.6" cy="-1.6" r="6.4" fill="none" stroke="#3182CE" strokeWidth="1.6" />
+            <circle cx="-1.6" cy="-1.6" r="4" fill="#3182CE" opacity="0.1" />
+            <path d="M3.2,3.2 L6.4,6.4" stroke="#3182CE" strokeWidth="1.6" strokeLinecap="round" />
+            <text x="-1.6" y="0.8" textAnchor="middle" fill="#3182CE" fontSize="5.5" fontWeight="bold">€</text>
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#F97316"
+            fill="#3182CE"
             fontSize="20"
             fontWeight="600"
           >

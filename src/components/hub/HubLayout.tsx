@@ -8,8 +8,23 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { UserCircle } from "@phosphor-icons/react";
+import {
+  UserCircle,
+  House,
+  Buildings,
+  Folder,
+  FileText,
+  ChartBar,
+  SignOut,
+  CaretDown,
+  User,
+  Lightbulb,
+  CurrencyEur,
+  Check,
+} from "@phosphor-icons/react";
 import { Footer } from "./Footer";
+import { useCockpitMode } from "@/context/CockpitModeContext";
+import { mockObjects, getMyOwnedUnits } from "@/data/mockCockpitData";
 
 interface HubLayoutProps {
   children: React.ReactNode;
@@ -17,9 +32,28 @@ interface HubLayoutProps {
 
 export function HubLayout({ children }: HubLayoutProps) {
   const location = useLocation();
+  const {
+    mode,
+    switchMode,
+    selectedObjectId,
+    setSelectedObjectId,
+    selectedUnitId,
+    setSelectedUnitId,
+  } = useCockpitMode();
+
+  // Check if we're in the cockpit area
+  const isCockpit = location.pathname.startsWith("/cockpit");
+
+  // Get data for dropdowns
+  const myOwnedUnits = getMyOwnedUnits();
+  const currentObject = mockObjects.find((obj) => obj.id === selectedObjectId);
+  const currentOwnedUnit = myOwnedUnits.find((u) => u.unitId === selectedUnitId);
 
   const isActive = (path: string) => {
-    return location.pathname === path;
+    if (path === "/cockpit") {
+      return location.pathname === "/cockpit";
+    }
+    return location.pathname === path || location.pathname.startsWith(path + "/");
   };
 
   // Scroll to top when navigating to a new page
@@ -35,73 +69,362 @@ export function HubLayout({ children }: HubLayoutProps) {
     }`;
   };
 
+  // Dynamic nav link class based on mode
+  const cockpitNavLinkClass = (path: string) => {
+    const activeColor = mode === "eigentuemer" ? "text-teal-600" : "text-[#2463eb]";
+    const activeBg = mode === "eigentuemer" ? "bg-teal-600/10" : "bg-[#2463eb]/10";
+    const hoverColor = mode === "eigentuemer" ? "hover:text-teal-600" : "hover:text-[#2463eb]";
+    const hoverBg = mode === "eigentuemer" ? "hover:bg-teal-600/10" : "hover:bg-[#2463eb]/10";
+
+    return `text-sm font-medium transition-all px-3 py-2 rounded-md flex items-center gap-2 ${
+      isActive(path)
+        ? `${activeColor} ${activeBg}`
+        : `text-foreground/80 ${hoverColor} ${hoverBg}`
+    }`;
+  };
+
+  // Get unique objects where user owns units (for Eigentümer mode)
+  const ownedObjectIds = [...new Set(myOwnedUnits.map((u) => u.objectId))];
+  const ownedObjects = mockObjects.filter((obj) => ownedObjectIds.includes(obj.id));
+
+  // Get units in currently selected object (for Wohnung dropdown)
+  const unitsInCurrentObject = myOwnedUnits.filter(
+    (u) => u.objectId === selectedObjectId
+  );
+
+  // WEG Navigation Items (no Finanzen - it's a dropdown)
+  const wegNavItems = [
+    { path: "/cockpit/objekte", label: "Objekte", icon: Buildings },
+    { path: "/cockpit/vorgaenge", label: "Vorgänge", icon: Folder },
+    { path: "/cockpit/dokumente", label: "Dokumente", icon: FileText },
+  ];
+
+  // Eigentümer Navigation Items (no Finanzen - it's a dropdown, no Objekte)
+  const eigentuemerNavItems = [
+    { path: "/cockpit/vorgaenge", label: "Vorgänge", icon: Folder },
+    { path: "/cockpit/dokumente", label: "Dokumente", icon: FileText },
+    { path: "/cockpit/mieter", label: "Mieter", icon: User },
+  ];
+
+  const navItems = mode === "eigentuemer" ? eigentuemerNavItems : wegNavItems;
+
+  // Handle object change with auto-select first unit in that object
+  const handleObjectChange = (objectId: string) => {
+    setSelectedObjectId(objectId);
+    if (mode === "eigentuemer") {
+      // Auto-select first owned unit in this object
+      const firstUnitInObject = myOwnedUnits.find((u) => u.objectId === objectId);
+      if (firstUnitInObject) {
+        setSelectedUnitId(firstUnitInObject.unitId);
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30 flex flex-col">
       {/* Navigation Header */}
       <header className="fixed top-4 left-4 right-4 z-50">
         <div className="h-16 px-6 border-0 shadow-lg bg-background/95 backdrop-blur-sm mx-auto max-w-screen-xl rounded-lg">
           <div className="flex items-center h-full w-full gap-8">
-            <Link to="/">
+            <Link to={isCockpit ? "/cockpit" : "/"}>
               <WegoraLogo variant="horizontal" size="md" />
             </Link>
-            
-            <nav className="flex-1 flex items-center gap-2">
-              <Link to="/unser-angebot" className={navLinkClass("/unser-angebot")}>
-                Unser Angebot
-              </Link>
-              <Link to="/vision" className={navLinkClass("/vision")}>
-                Vision
-              </Link>
-              <Link to="/neuigkeiten" className={navLinkClass("/neuigkeiten")}>
-                Neuigkeiten
-              </Link>
-              <Link to="/ueber-uns" className={navLinkClass("/ueber-uns")}>
-                Über uns
-              </Link>
-              <Link to="/kontakt" className={navLinkClass("/kontakt")}>
-                Kontakt
-              </Link>
-            </nav>
 
-            {/* Jetzt registrieren CTA */}
-            <Button
-              size="sm"
-              className="h-9 text-sm px-6 bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
-            >
-              Jetzt registrieren
-            </Button>
+            {isCockpit ? (
+              /* Cockpit Navigation */
+              <nav className="flex-1 flex items-center gap-1">
+                {/* 1. Objekt-Dropdown (always visible) */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className={`h-9 px-3 gap-2 font-medium ${
+                        mode === "eigentuemer"
+                          ? "text-teal-700 hover:bg-teal-600/10"
+                          : "text-[#2463eb] hover:bg-[#2463eb]/10"
+                      }`}
+                    >
+                      <Buildings className="h-4 w-4" />
+                      <span className="max-w-[120px] truncate">
+                        {currentObject?.name || "Objekt wählen"}
+                      </span>
+                      <CaretDown className="h-3 w-3" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-52">
+                    <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
+                      {mode === "eigentuemer" ? "Meine Objekte" : "Alle Objekte"}
+                    </div>
+                    {(mode === "eigentuemer" ? ownedObjects : mockObjects).map((obj) => (
+                      <DropdownMenuItem
+                        key={obj.id}
+                        onClick={() => handleObjectChange(obj.id)}
+                        className="cursor-pointer flex items-center justify-between"
+                      >
+                        <span>{obj.name}</span>
+                        {selectedObjectId === obj.id && (
+                          <Check className="h-4 w-4 text-teal-600" />
+                        )}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
 
-            {/* Login Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="h-9 text-sm px-4 gap-2"
-                >
-                  <UserCircle className="h-5 w-5" />
-                  <span>Login</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem asChild>
-                  <a
-                    href="#"
-                    className="cursor-pointer"
+                {/* 2. Wohnung-Dropdown (only in Eigentümer mode) */}
+                {mode === "eigentuemer" && (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-9 px-3 gap-2 font-medium text-teal-700 hover:bg-teal-600/10"
+                      >
+                        <House className="h-4 w-4" />
+                        <span className="max-w-[100px] truncate">
+                          {currentOwnedUnit?.unitName || "Wohnung wählen"}
+                        </span>
+                        <CaretDown className="h-3 w-3" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="w-48">
+                      <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
+                        Wohnungen in {currentObject?.name}
+                      </div>
+                      {unitsInCurrentObject.length > 0 ? (
+                        unitsInCurrentObject.map((unit) => (
+                          <DropdownMenuItem
+                            key={unit.unitId}
+                            onClick={() => setSelectedUnitId(unit.unitId)}
+                            className="cursor-pointer flex items-center justify-between"
+                          >
+                            <span>{unit.unitName}</span>
+                            {selectedUnitId === unit.unitId && (
+                              <Check className="h-4 w-4 text-teal-600" />
+                            )}
+                          </DropdownMenuItem>
+                        ))
+                      ) : (
+                        <div className="px-2 py-2 text-sm text-muted-foreground">
+                          Keine Wohnungen in diesem Objekt
+                        </div>
+                      )}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
+
+                {/* 3. Dynamic Navigation Links */}
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={cockpitNavLinkClass(item.path)}
                   >
-                    Anmelden
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a
-                    href="#"
-                    className="cursor-pointer"
+                    <item.icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                ))}
+
+                {/* 4. Finanzen-Dropdown */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className={`h-9 px-3 gap-2 font-medium ${
+                        isActive("/cockpit/finanzen") || isActive("/cockpit/optimierung")
+                          ? mode === "eigentuemer"
+                            ? "text-teal-600 bg-teal-600/10"
+                            : "text-[#2463eb] bg-[#2463eb]/10"
+                          : `text-foreground/80 ${
+                              mode === "eigentuemer"
+                                ? "hover:text-teal-600 hover:bg-teal-600/10"
+                                : "hover:text-[#2463eb] hover:bg-[#2463eb]/10"
+                            }`
+                      }`}
+                    >
+                      <CurrencyEur className="h-4 w-4" />
+                      Finanzen
+                      <CaretDown className="h-3 w-3" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-48">
+                    <DropdownMenuItem asChild>
+                      <Link
+                        to="/cockpit/finanzen"
+                        className="cursor-pointer flex items-center gap-2"
+                      >
+                        <ChartBar className="h-4 w-4" />
+                        Finanzen-Übersicht
+                      </Link>
+                    </DropdownMenuItem>
+                    {mode === "eigentuemer" && (
+                      <DropdownMenuItem asChild>
+                        <Link
+                          to="/cockpit/optimierung"
+                          className="cursor-pointer flex items-center gap-2"
+                        >
+                          <Lightbulb className="h-4 w-4" />
+                          Optimierung
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </nav>
+            ) : (
+              /* Marketing Site Navigation */
+              <nav className="flex-1 flex items-center gap-2">
+                {/* Angebot Dropdown with two equal entries */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className={`text-sm font-medium px-3 py-2 gap-1 ${
+                        (isActive("/angebot-weg") || isActive("/angebot-eigentuemer"))
+                          ? "text-[#2463eb] bg-[#2463eb]/10"
+                          : "text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10"
+                      }`}
+                    >
+                      Unser Angebot
+                      <CaretDown className="h-3 w-3" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-80">
+                    <DropdownMenuItem asChild>
+                      <Link to="/angebot-weg" className="cursor-pointer flex items-center gap-3 py-2">
+                        <div className="w-8 h-8 bg-[#2463eb]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Buildings className="h-4 w-4 text-[#2463eb]" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Wegora WEG</div>
+                          <div className="text-xs text-muted-foreground">Für WEGs, Selbstverwalter & kleine Verwaltungen</div>
+                        </div>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/angebot-eigentuemer" className="cursor-pointer flex items-center gap-3 py-2">
+                        <div className="w-8 h-8 bg-teal-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <House className="h-4 w-4 text-teal-500" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Wegora Eigentümer</div>
+                          <div className="text-xs text-muted-foreground">Für Eigentümer & Vermieter</div>
+                        </div>
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <Link to="/vision" className={navLinkClass("/vision")}>
+                  Vision
+                </Link>
+                <Link to="/neuigkeiten" className={navLinkClass("/neuigkeiten")}>
+                  Neuigkeiten
+                </Link>
+                <Link to="/ueber-uns" className={navLinkClass("/ueber-uns")}>
+                  Über uns
+                </Link>
+                <Link to="/kontakt" className={navLinkClass("/kontakt")}>
+                  Kontakt
+                </Link>
+              </nav>
+            )}
+
+            {isCockpit ? (
+              /* Cockpit: Mode Toggle + User Menu */
+              <div className="flex items-center gap-2">
+                {/* Mode Toggle */}
+                <div className="flex items-center bg-muted rounded-lg p-0.5">
+                  <button
+                    onClick={() => switchMode("weg")}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                      mode === "weg"
+                        ? "bg-white text-[#2463eb] shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
                   >
-                    Registrieren
-                  </a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                    Meine WEG
+                  </button>
+                  <button
+                    onClick={() => switchMode("eigentuemer")}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+                      mode === "eigentuemer"
+                        ? "bg-white text-teal-600 shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    Meine Wohnungen
+                  </button>
+                </div>
+
+                {/* User Menu */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="h-9 text-sm px-4 gap-2"
+                    >
+                      <UserCircle className="h-5 w-5" />
+                      <span className="hidden sm:inline">Max Mustermann</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem asChild>
+                      <Link to="/" className="cursor-pointer flex items-center gap-2">
+                        <SignOut className="h-4 w-4" />
+                        Abmelden
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            ) : (
+              /* Marketing Site Buttons */
+              <>
+                <Link to="/cockpit">
+                  <Button
+                    size="sm"
+                    className="h-9 text-sm px-6 bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
+                  >
+                    Jetzt registrieren
+                  </Button>
+                </Link>
+
+                {/* Login Dropdown */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="h-9 text-sm px-4 gap-2"
+                    >
+                      <UserCircle className="h-5 w-5" />
+                      <span>Login</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem asChild>
+                      <Link
+                        to="/cockpit"
+                        className="cursor-pointer"
+                      >
+                        Anmelden
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link
+                        to="/cockpit"
+                        className="cursor-pointer"
+                      >
+                        Registrieren
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -111,8 +434,8 @@ export function HubLayout({ children }: HubLayoutProps) {
         {children}
       </main>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer - hide in cockpit */}
+      {!isCockpit && <Footer />}
     </div>
   );
 }

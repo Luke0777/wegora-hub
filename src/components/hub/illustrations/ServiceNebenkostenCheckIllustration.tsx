@@ -28,9 +28,9 @@ export function ServiceNebenkostenCheckIllustration({ className }: { className?:
         cx="130"
         cy="95"
         r="18"
-        fill="#F97316"
+        fill="#10B981"
         fillOpacity="0.1"
-        stroke="#F97316"
+        stroke="#10B981"
         strokeWidth="2.5"
       />
       <circle
@@ -38,7 +38,7 @@ export function ServiceNebenkostenCheckIllustration({ className }: { className?:
         cy="95"
         r="12"
         fill="none"
-        stroke="#F97316"
+        stroke="#10B981"
         strokeWidth="2"
       />
       <line
@@ -46,7 +46,7 @@ export function ServiceNebenkostenCheckIllustration({ className }: { className?:
         y1="105"
         x2="148"
         y2="113"
-        stroke="#F97316"
+        stroke="#10B981"
         strokeWidth="2.5"
         strokeLinecap="round"
       />
@@ -73,14 +73,14 @@ export function ServiceNebenkostenCheckIllustration({ className }: { className?:
           width="30"
           height="20"
           rx="4"
-          fill="#F97316"
+          fill="#10B981"
           fillOpacity="0.15"
-          stroke="#F97316"
+          stroke="#10B981"
           strokeWidth="1.5"
         />
-        <circle cx="8" cy="10" r="2" fill="#F97316" />
-        <circle cx="22" cy="10" r="2" fill="#F97316" />
-        <line x1="12" y1="10" x2="18" y2="10" stroke="#F97316" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="8" cy="10" r="2" fill="#10B981" />
+        <circle cx="22" cy="10" r="2" fill="#10B981" />
+        <line x1="12" y1="10" x2="18" y2="10" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" />
       </g>
       
       {/* Checkmark - verification symbol */}

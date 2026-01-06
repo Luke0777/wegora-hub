@@ -1,24 +1,49 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { CockpitModeProvider } from './context/CockpitModeContext'
 import { HubLayout } from './components/hub/HubLayout'
 import { HomePage } from './components/hub/HomePage'
-import { UnserAngebotPage } from './components/hub/UnserAngebotPage'
+import { AngebotWEGPage } from './components/hub/AngebotWEGPage'
+import { AngebotEigentuemerPage } from './components/hub/AngebotEigentuemerPage'
 import { VisionPage } from './components/hub/VisionPage'
 import { NeuigkeitenPage } from './components/hub/NeuigkeitenPage'
 import { UeberUnsPage } from './components/hub/UeberUnsPage'
 import { KontaktPage } from './components/hub/KontaktPage'
+// Cockpit pages
+import { CockpitPage } from './components/cockpit/CockpitPage'
+import { ObjektePage } from './components/cockpit/ObjektePage'
+import { VorgaengePage } from './components/cockpit/VorgaengePage'
+import { DokumentePage } from './components/cockpit/DokumentePage'
+import { FinanzenPage } from './components/cockpit/FinanzenPage'
+import { MieterPage } from './components/cockpit/MieterPage'
+import { OptimierungPage } from './components/cockpit/OptimierungPage'
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HubLayout><HomePage /></HubLayout>} />
-        <Route path="/unser-angebot" element={<HubLayout><UnserAngebotPage /></HubLayout>} />
-        <Route path="/vision" element={<HubLayout><VisionPage /></HubLayout>} />
-        <Route path="/neuigkeiten" element={<HubLayout><NeuigkeitenPage /></HubLayout>} />
-        <Route path="/ueber-uns" element={<HubLayout><UeberUnsPage /></HubLayout>} />
-        <Route path="/kontakt" element={<HubLayout><KontaktPage /></HubLayout>} />
-      </Routes>
+      <CockpitModeProvider>
+        <Routes>
+          {/* Marketing Site Routes */}
+          <Route path="/" element={<HubLayout><HomePage /></HubLayout>} />
+          <Route path="/angebot-weg" element={<HubLayout><AngebotWEGPage /></HubLayout>} />
+          <Route path="/angebot-eigentuemer" element={<HubLayout><AngebotEigentuemerPage /></HubLayout>} />
+          {/* Redirect old route for compatibility */}
+          <Route path="/unser-angebot" element={<Navigate to="/angebot-weg" replace />} />
+          <Route path="/vision" element={<HubLayout><VisionPage /></HubLayout>} />
+          <Route path="/neuigkeiten" element={<HubLayout><NeuigkeitenPage /></HubLayout>} />
+          <Route path="/ueber-uns" element={<HubLayout><UeberUnsPage /></HubLayout>} />
+          <Route path="/kontakt" element={<HubLayout><KontaktPage /></HubLayout>} />
+
+          {/* Cockpit Routes */}
+          <Route path="/cockpit" element={<HubLayout><CockpitPage /></HubLayout>} />
+          <Route path="/cockpit/objekte" element={<HubLayout><ObjektePage /></HubLayout>} />
+          <Route path="/cockpit/vorgaenge" element={<HubLayout><VorgaengePage /></HubLayout>} />
+          <Route path="/cockpit/dokumente" element={<HubLayout><DokumentePage /></HubLayout>} />
+          <Route path="/cockpit/finanzen" element={<HubLayout><FinanzenPage /></HubLayout>} />
+          <Route path="/cockpit/mieter" element={<HubLayout><MieterPage /></HubLayout>} />
+          <Route path="/cockpit/optimierung" element={<HubLayout><OptimierungPage /></HubLayout>} />
+        </Routes>
+      </CockpitModeProvider>
     </BrowserRouter>
   )
 }
