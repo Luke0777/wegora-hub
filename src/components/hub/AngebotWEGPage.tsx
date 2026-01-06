@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CheckCircle, Database, UsersThree } from "@phosphor-icons/react";
 import {
   ServiceFlowDiagram,
@@ -271,17 +272,16 @@ export function AngebotWEGPage() {
                     </ul>
 
                     {/* CTA */}
-                    <div className={`mt-auto pt-4 ${service.badge === "Geplant" ? "text-center" : ""}`}>
+                    <div className="mt-auto pt-4 text-center">
                       {service.badge === "Geplant" ? (
                         <span className="text-sm text-muted-foreground">
                           Demnächst verfügbar
                         </span>
                       ) : (
-                        <Link
-                          to={`/angebot-weg/${service.id}`}
-                          className="text-sm font-medium text-[#2463eb] hover:text-blue-700 transition-colors"
-                        >
-                          Mehr erfahren →
+                        <Link to={`/angebot-weg/${service.id}`}>
+                          <Button variant="outline" size="sm" className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb]/10">
+                            Zum Service
+                          </Button>
                         </Link>
                       )}
                     </div>

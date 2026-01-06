@@ -46,34 +46,34 @@ export function TransitionVisualization({ className = "" }: TransitionVisualizat
         `}</style>
 
         {/* Scattered fragments (top section) */}
-        <g opacity="0.5">
+        <g opacity="var(--illustration-opacity-medium)">
           {/* Fragment 1 */}
-          <circle className="fragment float float-1" cx="120" cy="60" r="5" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-1" cx="120" cy="60" r="5" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 2 */}
-          <circle className="fragment float float-2" cx="280" cy="45" r="6" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-2" cx="280" cy="45" r="6" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 3 */}
-          <circle className="fragment float float-3" cx="190" cy="80" r="4" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-3" cx="190" cy="80" r="4" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 4 */}
-          <circle className="fragment float float-4" cx="480" cy="55" r="5.5" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-4" cx="480" cy="55" r="5.5" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 5 */}
-          <circle className="fragment float float-5" cx="520" cy="90" r="4.5" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-5" cx="520" cy="90" r="4.5" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 6 */}
-          <circle className="fragment float float-6" cx="610" cy="50" r="6" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-6" cx="610" cy="50" r="6" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 7 */}
-          <circle className="fragment float float-7" cx="680" cy="75" r="5" fill="none" stroke="#9CA3AF" strokeWidth="2" />
-          
+          <circle className="fragment float float-7" cx="680" cy="75" r="5" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
+
           {/* Fragment 8 */}
-          <circle className="fragment float float-8" cx="360" cy="70" r="4.5" fill="none" stroke="#9CA3AF" strokeWidth="2" />
+          <circle className="fragment float float-8" cx="360" cy="70" r="4.5" fill="none" stroke="hsl(var(--illustration-ink-muted))" strokeWidth="var(--illustration-stroke-default)" />
         </g>
 
         {/* Connection lines - subtle fade from fragments to center */}
-        <g opacity="0.15" stroke="#2463eb" strokeWidth="1.5" fill="none">
+        <g opacity="var(--illustration-opacity-light)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-thin)" fill="none">
           <path d="M 120 60 Q 200 180, 400 300" />
           <path d="M 280 45 Q 340 140, 400 300" />
           <path d="M 190 80 Q 260 170, 400 300" />
@@ -87,16 +87,16 @@ export function TransitionVisualization({ className = "" }: TransitionVisualizat
         {/* Central structured form (bottom) */}
         <g transform="translate(400, 320)">
           {/* Main circle - Wegora blue */}
-          <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="#2463eb" strokeWidth="4.5" />
-          
+          <circle cx="0" cy="0" r="42" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
+
           {/* Inner structure indicator - subtle grid/organization symbol */}
-          <g opacity="0.3" stroke="#2463eb" strokeWidth="1.5">
+          <g opacity="0.3" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-thin)">
             <line x1="-15" y1="0" x2="15" y2="0" />
             <line x1="0" y1="-15" x2="0" y2="15" />
           </g>
-          
+
           {/* Center dot */}
-          <circle cx="0" cy="0" r="3" fill="#2463eb" />
+          <circle cx="0" cy="0" r="3" fill="hsl(var(--illustration-weg))" />
         </g>
       </svg>
     </div>

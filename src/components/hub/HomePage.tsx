@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, House, CaretDown, WarningCircle, CheckCircle, Buildings } from "@phosphor-icons/react";
+import { ArrowRight, House, CaretDown, CheckCircle, Buildings } from "@phosphor-icons/react";
 // Illustrations removed from "Warum Wegora?" section - now using simple card-based comparison
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -296,8 +296,8 @@ export function HomePage() {
       {/* Warum Wegora? - Clean Comparison */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50/80">
         <div className="container mx-auto px-4 sm:px-6">
-          {/* Soft container wrapper */}
-          <div className="max-w-4xl mx-auto bg-white/60 backdrop-blur-sm border border-slate-200/60 rounded-3xl p-8 sm:p-12">
+          {/* Soft container wrapper - beruhigt: kein Border, subtiler */}
+          <div className="max-w-4xl mx-auto p-8 sm:p-12">
             <motion.div
               className="text-center mb-10"
               initial={{ opacity: 0, y: 20 }}
@@ -324,24 +324,24 @@ export function HomePage() {
               >
                 <Card className="h-full border border-slate-200 bg-slate-50/50 shadow-none">
                   <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center">
-                        <WarningCircle className="w-5 h-5 text-orange-500" weight="duotone" />
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-slate-200/60 flex items-center justify-center">
+                        <Buildings className="w-5 h-5 text-slate-400" weight="duotone" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-slate-700">Klassische Lösungen</h3>
-                        <p className="text-xs text-muted-foreground">teuer und komplex</p>
+                        <h3 className="font-semibold text-slate-600">Klassische Lösungen</h3>
+                        <p className="text-xs text-muted-foreground">oft starr und überdimensioniert</p>
                       </div>
                     </div>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2.5">
                       {[
                         "Hohe Kosten für Komplettsysteme",
                         "Starre All-in-One-Pakete",
                         "Wenig flexibel bei Sonderfällen",
                         "Lange Einarbeitungszeit"
                       ].map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-2 text-sm text-slate-500">
+                          <span className="w-1 h-1 rounded-full bg-slate-300 mt-2 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -357,10 +357,10 @@ export function HomePage() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               >
-                <Card className="h-full border-2 border-[#2463eb]/20 bg-gradient-to-br from-blue-50/50 to-teal-50/30 shadow-none">
+                <Card className="h-full border border-[#2463eb]/15 bg-gradient-to-br from-blue-50/30 to-white shadow-none">
                   <CardContent className="p-6">
                     <div className="flex items-center gap-3 mb-5">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2463eb]/10 to-teal-500/10 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-xl bg-[#2463eb]/8 flex items-center justify-center">
                         <CheckCircle className="w-5 h-5 text-[#2463eb]" weight="duotone" />
                       </div>
                       <div>
@@ -376,21 +376,21 @@ export function HomePage() {
                         "Schneller Einstieg möglich"
                       ].map((item, i) => (
                         <li key={i} className="flex items-start gap-2.5 text-sm text-slate-700">
-                          <CheckCircle className="w-4 h-4 text-[#2463eb] mt-0.5 flex-shrink-0" weight="fill" />
+                          <CheckCircle className="w-3.5 h-3.5 text-[#2463eb] mt-0.5 flex-shrink-0" weight="fill" />
                           {item}
                         </li>
                       ))}
                     </ul>
 
                     {/* Mini visual: WEG + Eigentümer split */}
-                    <div className="mt-6 pt-5 border-t border-slate-200/60">
-                      <div className="flex gap-2">
-                        <div className="flex-1 bg-[#2463eb]/10 rounded-lg p-3 text-center">
-                          <Buildings className="w-5 h-5 text-[#2463eb] mx-auto mb-1" weight="duotone" />
+                    <div className="mt-5 pt-4 border-t border-slate-200/50">
+                      <div className="flex gap-2.5">
+                        <div className="flex-1 bg-[#2463eb]/8 rounded-lg p-3 text-center">
+                          <Buildings className="w-4.5 h-4.5 text-[#2463eb] mx-auto mb-1" weight="duotone" />
                           <span className="text-xs font-medium text-[#2463eb]">WEG</span>
                         </div>
-                        <div className="flex-1 bg-teal-500/10 rounded-lg p-3 text-center">
-                          <House className="w-5 h-5 text-teal-500 mx-auto mb-1" weight="duotone" />
+                        <div className="flex-1 bg-teal-500/8 rounded-lg p-3 text-center">
+                          <House className="w-4.5 h-4.5 text-teal-500 mx-auto mb-1" weight="duotone" />
                           <span className="text-xs font-medium text-teal-600">Eigentümer</span>
                         </div>
                       </div>

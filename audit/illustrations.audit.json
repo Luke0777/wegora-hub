@@ -1,0 +1,575 @@
+{
+  "scannedDir": "/Users/lukassommerfeld/Desktop/wegora-hub/src/components/hub/illustrations",
+  "files": [
+    {
+      "file": "src/components/hub/illustrations/AllInOneProblemsIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1"
+      ],
+      "strokes": [
+        "hsl(var(--illustration-danger))",
+        "hsl(var(--illustration-warning))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-danger))",
+        "hsl(var(--illustration-warning))",
+        "none"
+      ],
+      "rxs": [
+        "1"
+      ],
+      "rys": [],
+      "opacities": []
+    },
+    {
+      "file": "src/components/hub/illustrations/DataIntegrationIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1"
+      ],
+      "strokes": [
+        "hsl(var(--illustration-purple))",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-purple))",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-weg))",
+        "none"
+      ],
+      "rxs": [
+        "0.5",
+        "0.75",
+        "1",
+        "38",
+        "45"
+      ],
+      "rys": [
+        "10",
+        "8"
+      ],
+      "opacities": [
+        "0.3",
+        "0.5",
+        "0.7"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/EigentuemerFlowDiagram.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1",
+        "1.1",
+        "1.2"
+      ],
+      "strokes": [
+        "hsl(var(--illustration-owner))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-ink-muted))",
+        "hsl(var(--illustration-owner))",
+        "none",
+        "white"
+      ],
+      "rxs": [
+        "0.5",
+        "0.8",
+        "1",
+        "1.2",
+        "2"
+      ],
+      "rys": [],
+      "opacities": [
+        "0",
+        "0.5",
+        "0.7",
+        "1"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/HubHeroIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1",
+        "1.3",
+        "1.6"
+      ],
+      "strokes": [
+        "hsl(var(--illustration-purple))",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-warning))",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-purple))",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-warning))",
+        "hsl(var(--illustration-weg))",
+        "none",
+        "white"
+      ],
+      "rxs": [
+        "0.5",
+        "0.8",
+        "1",
+        "1.6"
+      ],
+      "rys": [],
+      "opacities": [
+        "0",
+        "0.06",
+        "0.75",
+        "1"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceAccountingIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [],
+      "strokes": [
+        "#FFFFFF",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-weg))",
+        "none"
+      ],
+      "rxs": [
+        "1",
+        "1.5",
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.15",
+        "0.3",
+        "0.8",
+        "0.85",
+        "0.9"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceDokumenteIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "2.5"
+      ],
+      "strokes": [
+        "#FFFFFF",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-weg))",
+        "none"
+      ],
+      "rxs": [
+        "1",
+        "1.5",
+        "2",
+        "3",
+        "6"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.3"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceFlowDiagram.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1.2",
+        "1.3"
+      ],
+      "strokes": [
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-weg))",
+        "none",
+        "white"
+      ],
+      "rxs": [
+        "0.4",
+        "0.5",
+        "0.8",
+        "1",
+        "1.5",
+        "2"
+      ],
+      "rys": [],
+      "opacities": [
+        "0",
+        "0.5",
+        "1"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceNebenkostenCheckIllustration.tsx",
+      "colors": [
+        "#F9FAFB"
+      ],
+      "colorCategories": {
+        "gray": [
+          "#F9FAFB"
+        ]
+      },
+      "strokeWidths": [
+        "1.8",
+        "2.5"
+      ],
+      "strokes": [
+        "hsl(var(--illustration-ink-muted))",
+        "hsl(var(--illustration-owner))",
+        "hsl(var(--illustration-success))"
+      ],
+      "fills": [
+        "#F9FAFB",
+        "hsl(var(--illustration-owner))",
+        "hsl(var(--illustration-success))",
+        "none"
+      ],
+      "rxs": [
+        "4",
+        "8"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.15"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceNebenkostenIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1"
+      ],
+      "strokes": [
+        "#FFFFFF",
+        "hsl(var(--illustration-danger))",
+        "hsl(var(--illustration-owner))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-danger))",
+        "hsl(var(--illustration-owner))",
+        "hsl(var(--illustration-success))",
+        "none"
+      ],
+      "rxs": [
+        "1",
+        "1.5",
+        "3",
+        "4",
+        "6",
+        "7"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.3"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceVorgaengeIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "1"
+      ],
+      "strokes": [
+        "#FFFFFF",
+        "hsl(var(--illustration-purple))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-purple))",
+        "hsl(var(--illustration-success))",
+        "none"
+      ],
+      "rxs": [
+        "1",
+        "1.5",
+        "2",
+        "3",
+        "6"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.15",
+        "0.3"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/ServiceWEGIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "0.8",
+        "1"
+      ],
+      "strokes": [
+        "#FFFFFF",
+        "hsl(var(--illustration-danger))",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-danger))",
+        "hsl(var(--illustration-success))",
+        "hsl(var(--illustration-weg))",
+        "none"
+      ],
+      "rxs": [
+        "0.5",
+        "0.75",
+        "1",
+        "2",
+        "2.5",
+        "3",
+        "4",
+        "6"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.3"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/TransitionVisualization.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [],
+      "strokes": [
+        "hsl(var(--illustration-ink-muted))",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "#FFFFFF",
+        "hsl(var(--illustration-weg))",
+        "none"
+      ],
+      "rxs": [],
+      "rys": [],
+      "opacities": [
+        "0.3"
+      ]
+    },
+    {
+      "file": "src/components/hub/illustrations/WegoraModularIllustration.tsx",
+      "colors": [
+        "#FFFFFF"
+      ],
+      "colorCategories": {
+        "white": [
+          "#FFFFFF"
+        ]
+      },
+      "strokeWidths": [
+        "0.8",
+        "1",
+        "1.5"
+      ],
+      "strokes": [
+        "#FFFFFF",
+        "hsl(var(--illustration-owner))",
+        "hsl(var(--illustration-weg))"
+      ],
+      "fills": [
+        "hsl(var(--illustration-owner))",
+        "hsl(var(--illustration-weg))",
+        "none"
+      ],
+      "rxs": [
+        "0.5",
+        "1",
+        "1.5",
+        "3",
+        "8"
+      ],
+      "rys": [],
+      "opacities": [
+        "0.08"
+      ]
+    }
+  ],
+  "summary": {
+    "totalFiles": 13,
+    "uniqueColors": 2,
+    "uniqueStrokeWidths": 9,
+    "uniqueRx": 17,
+    "uniqueRy": 2,
+    "uniqueOpacities": 12,
+    "colorsByCategory": {
+      "gray": [
+        "#F9FAFB"
+      ],
+      "white": [
+        "#FFFFFF"
+      ]
+    },
+    "allColors": [
+      {
+        "color": "#F9FAFB",
+        "category": "gray",
+        "usedIn": [
+          "src/components/hub/illustrations/ServiceNebenkostenCheckIllustration.tsx"
+        ]
+      },
+      {
+        "color": "#FFFFFF",
+        "category": "white",
+        "usedIn": [
+          "src/components/hub/illustrations/AllInOneProblemsIllustration.tsx",
+          "src/components/hub/illustrations/DataIntegrationIllustration.tsx",
+          "src/components/hub/illustrations/EigentuemerFlowDiagram.tsx",
+          "src/components/hub/illustrations/HubHeroIllustration.tsx",
+          "src/components/hub/illustrations/ServiceAccountingIllustration.tsx",
+          "src/components/hub/illustrations/ServiceDokumenteIllustration.tsx",
+          "src/components/hub/illustrations/ServiceFlowDiagram.tsx",
+          "src/components/hub/illustrations/ServiceNebenkostenIllustration.tsx",
+          "src/components/hub/illustrations/ServiceVorgaengeIllustration.tsx",
+          "src/components/hub/illustrations/ServiceWEGIllustration.tsx",
+          "src/components/hub/illustrations/TransitionVisualization.tsx",
+          "src/components/hub/illustrations/WegoraModularIllustration.tsx"
+        ]
+      }
+    ],
+    "allStrokeWidths": [
+      "0.8",
+      "1",
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.5",
+      "1.6",
+      "1.8",
+      "2.5"
+    ],
+    "allRxs": [
+      "0.4",
+      "0.5",
+      "0.75",
+      "0.8",
+      "1",
+      "1.2",
+      "1.5",
+      "1.6",
+      "2",
+      "2.5",
+      "3",
+      "38",
+      "4",
+      "45",
+      "6",
+      "7",
+      "8"
+    ],
+    "allRys": [
+      "10",
+      "8"
+    ],
+    "allOpacities": [
+      "0",
+      "0.06",
+      "0.08",
+      "0.15",
+      "0.3",
+      "0.5",
+      "0.7",
+      "0.75",
+      "0.8",
+      "0.85",
+      "0.9",
+      "1"
+    ]
+  }
+}

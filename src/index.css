@@ -249,4 +249,77 @@
 
   /* Border radius applied throughout the UI for consistent shape language */
   --radius: 0.5rem;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     ILLUSTRATION TOKENS
+     Standardized values for SVG illustrations to ensure visual consistency
+
+     SEMANTIC COLOR RULE:
+     - Blau = WEG-Bereich (Hausverwaltung)
+     - Grün = Eigentümer-Bereich
+     - Use --illustration-area-accent which auto-switches based on data-area
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Stroke widths - use only these 3 levels */
+  --illustration-stroke-thin: 1.5;      /* Detail lines, secondary strokes */
+  --illustration-stroke-default: 2;     /* Primary strokes, main outlines */
+  --illustration-stroke-bold: 3;        /* Emphasis, connection lines */
+
+  /* Border radius for illustration elements */
+  --illustration-radius-sm: 2;          /* Small elements, badges */
+  --illustration-radius-md: 4;          /* Cards, buttons in illustrations */
+  --illustration-radius-lg: 8;          /* Large containers */
+
+  /* Opacity levels for decorative elements */
+  --illustration-opacity-subtle: 0.1;   /* Background decorations */
+  --illustration-opacity-light: 0.2;    /* Secondary elements */
+  --illustration-opacity-medium: 0.4;   /* Supporting elements */
+  --illustration-opacity-strong: 0.6;   /* Prominent decorations */
+
+  /* Base colors mapped to existing design tokens */
+  --illustration-ink: var(--foreground);
+  --illustration-ink-muted: var(--muted-foreground);
+  --illustration-surface: var(--background);
+  --illustration-border: var(--border);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     AREA-BASED COLORS (semantic)
+     These define the two main product areas
+     ───────────────────────────────────────────────────────────────────────────── */
+  --illustration-weg: var(--primary);               /* Blau - WEG/Hausverwaltung (#0066FF) */
+  --illustration-owner: 174 72% 38%;                /* Teal - Eigentümer (#14B8A6) */
+
+  /* Context-aware accent - DEFAULT is WEG (blue) */
+  --illustration-area-accent: var(--illustration-weg);
+
+  /* Secondary accent for contrast within same area */
+  --illustration-area-secondary: var(--illustration-owner);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     STATUS COLORS (non-semantic, purely functional)
+     These are for UI states, NOT for area identification
+     ───────────────────────────────────────────────────────────────────────────── */
+  --illustration-success: 160 84% 39%;              /* #10B981 - Success Green (NOT Eigentümer!) */
+  --illustration-warning: 24 95% 53%;               /* #F97316 - Orange */
+  --illustration-danger: 0 84% 60%;                 /* #E53E3E - Red */
+  --illustration-info: 207 90% 54%;                 /* #3182CE - Info Blue */
+  --illustration-purple: 258 90% 66%;               /* #8B5CF6 - Purple (Vorgänge) */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AREA CONTEXT OVERRIDES
+   Set data-area="weg" or data-area="owner" on parent containers
+   to automatically switch illustration accent colors
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* WEG-Bereich (Hausverwaltung) - Blau dominant */
+[data-area="weg"] {
+  --illustration-area-accent: var(--illustration-weg);
+  --illustration-area-secondary: var(--illustration-owner);
+}
+
+/* Eigentümer-Bereich - Grün dominant */
+[data-area="owner"] {
+  --illustration-area-accent: var(--illustration-owner);
+  --illustration-area-secondary: var(--illustration-weg);
 }

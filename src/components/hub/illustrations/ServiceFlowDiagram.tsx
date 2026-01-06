@@ -46,7 +46,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
         `}</style>
 
         {/* Connection lines - Pure single-curve Béziers with vertical entry */}
-        <g opacity="0.22" stroke="#2463eb" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <g opacity="var(--illustration-opacity-light)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" fill="none" strokeLinecap="round" strokeLinejoin="round">
           {/* Trunk: smooth curve into junction */}
           <motion.path
             d="M 500 192 C 500 194, 500 197, 500 200"
@@ -93,14 +93,14 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
         {/* Central OBJEKT - blue styling, centered between Finanzen & NK Manager */}
         <g transform="translate(500, 125)">
           {/* Circle for OBJEKT - scaled up proportionally */}
-          <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="#2563EB" strokeWidth="4.5" />
+          <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
 
           {/* Wegora house icon - unified branding */}
           <g transform="scale(3.15) translate(-9, -18.5)">
             {/* Haus-Basis */}
-            <rect x="2" y="16" width="14" height="12" rx="2" fill="#2563EB"/>
+            <rect x="2" y="16" width="14" height="12" rx="2" fill="hsl(var(--illustration-weg))"/>
             {/* Dach */}
-            <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="#2563EB"/>
+            <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="hsl(var(--illustration-weg))"/>
             {/* Single Window */}
             <rect x="5.75" y="19.75" width="2.5" height="2.5" rx="1" fill="white"/>
           </g>
@@ -114,23 +114,23 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.5 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
           {/* People icon - scaled proportionally */}
           <g transform="scale(2.25)">
-            <circle cx="-5.6" cy="-3.2" r="2.8" fill="none" stroke="#3182CE" strokeWidth="1.3" />
-            <path d="M-8.8,3.2 Q-5.6,0.8 -2.4,3.2" stroke="#3182CE" strokeWidth="1.3" fill="none" strokeLinecap="round" />
-            <circle cx="0" cy="-4" r="3.2" fill="none" stroke="#3182CE" strokeWidth="1.3" />
-            <path d="M-4,4 Q0,1.6 4,4" stroke="#3182CE" strokeWidth="1.3" fill="none" strokeLinecap="round" />
-            <circle cx="5.6" cy="-3.2" r="2.8" fill="none" stroke="#3182CE" strokeWidth="1.3" />
-            <path d="M2.4,3.2 Q5.6,0.8 8.8,3.2" stroke="#3182CE" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+            <circle cx="-5.6" cy="-3.2" r="2.8" fill="none" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" />
+            <path d="M-8.8,3.2 Q-5.6,0.8 -2.4,3.2" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+            <circle cx="0" cy="-4" r="3.2" fill="none" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" />
+            <path d="M-4,4 Q0,1.6 4,4" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+            <circle cx="5.6" cy="-3.2" r="2.8" fill="none" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" />
+            <path d="M2.4,3.2 Q5.6,0.8 8.8,3.2" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" fill="none" strokeLinecap="round" />
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#3182CE"
+            fill="hsl(var(--illustration-weg))"
             fontSize="20"
             fontWeight="600"
           >
@@ -146,21 +146,21 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
           {/* Chart icon - scaled proportionally */}
           <g transform="scale(2.25)">
-            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="#3182CE" />
-            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="#3182CE" />
-            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="#3182CE" />
-            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="#3182CE" />
+            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="hsl(var(--illustration-weg))" />
+            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="hsl(var(--illustration-weg))" />
+            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="hsl(var(--illustration-weg))" />
+            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="hsl(var(--illustration-weg))" />
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#3182CE"
+            fill="hsl(var(--illustration-weg))"
             fontSize="20"
             fontWeight="600"
           >
@@ -176,22 +176,22 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.65 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
           {/* Ordner Icon - with inner lines */}
           <g transform="scale(2.25)">
-            <path d="M-9,-3 L-9,7 Q-9,8 -8,8 L8,8 Q9,8 9,7 L9,-3 Q9,-4 8,-4 L2,-4 L0.5,-6.5 L-7,-6.5 Q-9,-6.5 -9,-5 Z" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.2" />
+            <path d="M-9,-3 L-9,7 Q-9,8 -8,8 L8,8 Q9,8 9,7 L9,-3 Q9,-4 8,-4 L2,-4 L0.5,-6.5 L-7,-6.5 Q-9,-6.5 -9,-5 Z" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="1.2" />
             {/* Inner lines */}
-            <rect x="-6" y="-1" width="12" height="1.1" rx="0.5" fill="#3182CE" opacity="0.4" />
-            <rect x="-6" y="2" width="8" height="1.1" rx="0.5" fill="#3182CE" opacity="0.4" />
-            <rect x="-6" y="5" width="10" height="1.1" rx="0.5" fill="#3182CE" opacity="0.4" />
+            <rect x="-6" y="-1" width="12" height="1.1" rx="0.5" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-medium)" />
+            <rect x="-6" y="2" width="8" height="1.1" rx="0.5" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-medium)" />
+            <rect x="-6" y="5" width="10" height="1.1" rx="0.5" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-medium)" />
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#3182CE"
+            fill="hsl(var(--illustration-weg))"
             fontSize="20"
             fontWeight="600"
           >
@@ -207,28 +207,28 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.7 }}
         >
           {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="#3182CE" opacity="0.15" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="#3182CE" strokeWidth="3" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
+          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
           {/* Clipboard/Task icon - scaled proportionally */}
           <g transform="scale(2.25)">
             {/* Clipboard base */}
-            <rect x="-7" y="-8" width="14" height="18" rx="1.5" fill="#FFFFFF" stroke="#3182CE" strokeWidth="1.3" />
+            <rect x="-7" y="-8" width="14" height="18" rx="1.5" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" />
             {/* Clipboard clip */}
-            <rect x="-3.5" y="-10" width="7" height="4" rx="1" fill="#3182CE" />
+            <rect x="-3.5" y="-10" width="7" height="4" rx="1" fill="hsl(var(--illustration-weg))" />
             {/* Checklist lines */}
-            <rect x="-4" y="-3" width="2" height="2" rx="0.4" fill="#3182CE" />
-            <rect x="0" y="-3" width="6" height="1.5" rx="0.5" fill="#3182CE" opacity="0.5" />
-            <rect x="-4" y="1" width="2" height="2" rx="0.4" fill="#3182CE" />
-            <rect x="0" y="1" width="5" height="1.5" rx="0.5" fill="#3182CE" opacity="0.5" />
-            <rect x="-4" y="5" width="2" height="2" rx="0.4" fill="#3182CE" />
-            <rect x="0" y="5" width="4" height="1.5" rx="0.5" fill="#3182CE" opacity="0.5" />
+            <rect x="-4" y="-3" width="2" height="2" rx="0.4" fill="hsl(var(--illustration-weg))" />
+            <rect x="0" y="-3" width="6" height="1.5" rx="0.5" fill="hsl(var(--illustration-weg))" opacity="0.5" />
+            <rect x="-4" y="1" width="2" height="2" rx="0.4" fill="hsl(var(--illustration-weg))" />
+            <rect x="0" y="1" width="5" height="1.5" rx="0.5" fill="hsl(var(--illustration-weg))" opacity="0.5" />
+            <rect x="-4" y="5" width="2" height="2" rx="0.4" fill="hsl(var(--illustration-weg))" />
+            <rect x="0" y="5" width="4" height="1.5" rx="0.5" fill="hsl(var(--illustration-weg))" opacity="0.5" />
           </g>
           {/* Label */}
           <text
             x="0"
             y="90"
             textAnchor="middle"
-            fill="#3182CE"
+            fill="hsl(var(--illustration-weg))"
             fontSize="20"
             fontWeight="600"
           >

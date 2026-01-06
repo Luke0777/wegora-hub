@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CheckCircle, Database, Wallet } from "@phosphor-icons/react";
 import {
   EigentuemerFlowDiagram,
@@ -254,17 +255,16 @@ export function AngebotEigentuemerPage() {
                     </ul>
 
                     {/* CTA */}
-                    <div className={`mt-auto pt-4 ${service.badge === "Geplant" ? "text-center" : ""}`}>
+                    <div className="mt-auto pt-4 text-center">
                       {service.badge === "Geplant" ? (
                         <span className="text-sm text-muted-foreground">
                           Demnächst verfügbar
                         </span>
                       ) : (
-                        <Link
-                          to={`/angebot-eigentuemer/${service.id}`}
-                          className="text-sm font-medium text-teal-500 hover:text-teal-600 transition-colors"
-                        >
-                          Mehr erfahren →
+                        <Link to={`/angebot-eigentuemer/${service.id}`}>
+                          <Button variant="outline" size="sm" className="border-teal-500 text-teal-500 hover:bg-teal-500/10">
+                            Zum Service
+                          </Button>
                         </Link>
                       )}
                     </div>
