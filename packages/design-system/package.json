@@ -1,5 +1,5 @@
 {
-  "name": "@wegora/design-system",
+  "name": "@luke0777/wegora-design-system",
   "version": "1.0.0",
   "description": "Wegora Design System - Style guides and component library",
   "main": "dist/index.js",
@@ -7,24 +7,24 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./hub": {
+      "types": "./dist/hub-styleguide.d.ts",
       "import": "./dist/hub-styleguide.mjs",
-      "require": "./dist/hub-styleguide.js",
-      "types": "./dist/hub-styleguide.d.ts"
+      "require": "./dist/hub-styleguide.js"
     },
     "./app": {
+      "types": "./dist/app-styleguide.d.ts",
       "import": "./dist/app-styleguide.mjs",
-      "require": "./dist/app-styleguide.js",
-      "types": "./dist/app-styleguide.d.ts"
+      "require": "./dist/app-styleguide.js"
     },
     "./components": {
+      "types": "./dist/component-library.d.ts",
       "import": "./dist/component-library.mjs",
-      "require": "./dist/component-library.js",
-      "types": "./dist/component-library.d.ts"
+      "require": "./dist/component-library.js"
     }
   },
   "files": [
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/wegora-design-system.git"
+    "url": "https://github.com/luke0777/wegora-design-system.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
