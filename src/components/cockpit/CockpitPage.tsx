@@ -79,7 +79,7 @@ export function CockpitPage() {
       case 'offen':
         return 'bg-orange-100 text-orange-700';
       case 'in_bearbeitung':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-[#2463eb]/10 text-[#2463eb]';
       case 'abgeschlossen':
         return 'bg-green-100 text-green-700';
       default:
@@ -497,7 +497,7 @@ export function CockpitPage() {
             <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
               Meine WEG
             </h1>
-            <p className="text-blue-700 mt-1 font-medium">
+            <p className="text-[#2463eb] mt-1 font-medium">
               Gemeinschafts-Übersicht
             </p>
           </div>
@@ -510,16 +510,16 @@ export function CockpitPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          <div className="rounded-xl p-4 border-2 bg-blue-50/80 border-blue-200">
+          <div className="rounded-xl p-4 border-2 bg-[#2463eb]/5 border-[#2463eb]/20">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-blue-100">
-                <Users className="h-5 w-5 text-blue-700" />
+              <div className="p-2 rounded-lg bg-[#2463eb]/10">
+                <Users className="h-5 w-5 text-[#2463eb]" />
               </div>
               <div className="flex-1">
                 <p className="font-semibold text-foreground">
                   {currentObject?.name}
                 </p>
-                <p className="text-sm text-blue-700">
+                <p className="text-sm text-[#2463eb]">
                   Gemeinschafts-Ansicht (WEG)
                 </p>
               </div>
@@ -531,7 +531,7 @@ export function CockpitPage() {
                     {currentObject.openCases} offene Vorgänge
                   </Badge>
                 )}
-                <Badge variant="outline" className="bg-white/80 text-blue-700 border-blue-200">
+                <Badge variant="outline" className="bg-white/80 text-[#2463eb] border-[#2463eb]/20">
                   <Clock className="h-3 w-3 mr-1" />
                   Abrechnung in Arbeit
                 </Badge>

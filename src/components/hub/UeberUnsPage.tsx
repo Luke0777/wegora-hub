@@ -51,50 +51,57 @@ export function UeberUnsPage() {
     },
   ];
 
-  const values = [
+  const principles = [
     {
-      title: "Transparenz",
-      description: "Klare Kommunikation, nachvollziehbare Prozesse, faire Preise – keine versteckten Kosten oder undurchsichtige Abläufe.",
+      title: "Klarheit vor Vollständigkeit",
+      description: "Wir zeigen, was wichtig ist — nicht alles, was möglich wäre.",
+      tradeoff: "Das bedeutet: weniger Features, mehr Fokus.",
     },
     {
-      title: "Nutzerzentrierung",
-      description: "Wir entwickeln Software für echte Menschen mit echten Problemen – nicht für abstrakte Anforderungslisten.",
+      title: "Verlässlichkeit vor Innovation",
+      description: "Wir ändern nichts, das funktioniert, nur um es neu zu nennen.",
+      tradeoff: "Das bedeutet: langsame, überlegte Weiterentwicklung.",
     },
     {
-      title: "Verlässlichkeit",
-      description: "Systeme müssen funktionieren – nicht nur am Anfang, sondern dauerhaft. Wir entwickeln für langfristige Stabilität.",
-    },
-    {
-      title: "Respekt",
-      description: "Wir behandeln Nutzerdaten und Entscheidungen mit der Sorgfalt, die sie verdienen – nicht als Experiment.",
+      title: "Ehrlichkeit vor Optimismus",
+      description: "Wir versprechen nur, was wir halten können.",
+      tradeoff: "Das bedeutet: keine Roadmap-Versprechen, die nie kommen.",
     },
   ];
 
   return (
     <>
-      {/* Hero Section - Editorial */}
+      {/* Hero Section - Editorial with subtle blue gradient */}
       <section
         style={{ "--nav-h": "72px" } as React.CSSProperties}
         className="min-h-[clamp(72vh,calc(100svh-var(--nav-h,72px)),92vh)] relative pt-[clamp(140px,18vh,200px)] pb-[clamp(100px,12vh,140px)]"
       >
+        {/* Subtle radial gradient background */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(36, 99, 235, 0.04) 0%, rgba(36, 99, 235, 0.01) 50%, transparent 100%)"
+          }}
+        />
+
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative">
           <div className="max-w-5xl mx-auto text-center pt-[34px]">
-            {/* Eyebrow Label - Wegora Blue */}
+            {/* Eyebrow Label - Wegora Blue, muted */}
             <motion.div
-              className="mb-4"
+              className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(12px,1.2vw,14px)] font-medium" style={{ color: "hsl(var(--text-tertiary))" }}>
                 Über uns
               </p>
             </motion.div>
 
-            {/* Main Headline - Outcome-focused */}
+            {/* Main Headline - grounded, confident */}
             <motion.h1
-              className="text-[clamp(36px,4.5vw,64px)] font-semibold tracking-tight text-[#1A1A1A]"
-              style={{ lineHeight: "1.15", fontWeight: 600 }}
+              className="text-[clamp(36px,4.5vw,56px)] font-semibold tracking-tight text-[#1A1A1A]"
+              style={{ lineHeight: "1.2", fontWeight: 600 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -102,32 +109,34 @@ export function UeberUnsPage() {
               Wer wir sind und woran wir glauben
             </motion.h1>
 
-            {/* Subline - Calm, forward-looking */}
+            {/* Subline - visually lighter, more breathing room */}
             <motion.p
-              className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto mt-8"
-              style={{ opacity: 0.6, color: "#1A1A1A" }}
+              className="text-[clamp(17px,1.8vw,20px)] leading-[1.7] max-w-2xl mx-auto mt-10"
+              style={{ color: "hsl(var(--text-secondary))" }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Wie wir Immobilienverwaltung neu denken – mit klaren Strukturen statt komplexer Software.
+              Immobilienverwaltung ist ein lösbares Problem.<br />
+              Nicht durch mehr Software — durch klarere Strukturen.
             </motion.p>
 
-            {/* Conviction Preview - Human & credible */}
+            {/* Conviction Preview - standalone philosophical statement */}
             <motion.div
-              className="mt-20 max-w-xl mx-auto text-center"
+              className="mt-24 max-w-lg mx-auto text-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
             >
-              {/* Label */}
-              <p className="text-sm text-muted-foreground/70 mb-5 tracking-wide font-medium">
+              {/* Label - sentence case, quieter */}
+              <p className="text-[13px] mb-6 tracking-wide font-medium" style={{ color: "hsl(var(--text-muted))" }}>
                 Unsere Überzeugung
               </p>
 
-              {/* Core belief statement */}
-              <p className="text-[16px] text-[#1A1A1A]/70 leading-relaxed">
-                Gute Entscheidungen entstehen aus Übersicht, nicht aus Komplexität.
+              {/* Core belief - slightly larger, stands alone */}
+              <p className="text-[17px] leading-[1.7]" style={{ color: "hsl(var(--text-secondary))" }}>
+                Wir glauben, dass Eigentümer nicht zu Verwaltern werden sollten,<br />
+                um ihr Eigentum im Griff zu haben.
               </p>
             </motion.div>
           </div>
@@ -164,40 +173,86 @@ export function UeberUnsPage() {
         </AnimatePresence>
       </section>
 
-      {/* Section 1: Wer wir sind */}
-      <section className="py-24 sm:py-32">
+      {/* Section 1: Wer wir sind - calm, intentional */}
+      <section className="py-28 sm:py-36">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-[#1A1A1A]">
+          <div className="max-w-3xl mx-auto">
+            {/* Section heading - grounded, not loud */}
+            <motion.h2
+              className="text-[clamp(24px,3vw,32px)] font-semibold mb-10 text-[#1A1A1A]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               Wer wir sind
-            </h2>
+            </motion.h2>
 
-            <div className="space-y-6">
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Über Jahre hinweg haben wir beobachtet, wie Immobilienverwaltung an strukturellen Grenzen scheitert. Nicht am Engagement der Beteiligten – sondern an fehlenden, durchgängigen Systemen, die Transparenz und Kontrolle möglich machen.
-              </p>
+            <div className="space-y-12">
+              {/* Shortened diagnosis - one paragraph, quieter */}
+              <motion.p
+                className="text-[17px] leading-[1.8]"
+                style={{ color: "hsl(var(--text-secondary))" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              >
+                Wir haben gesehen, wie Immobilienverwaltung an der falschen Stelle kompliziert wird. Nicht weil die Aufgaben schwer sind — sondern weil die Werkzeuge nicht passen. Wegora ist unser Versuch, das zu ändern. Nicht mit mehr Features, sondern mit weniger Reibung.
+              </motion.p>
 
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Die bestehenden Lösungen zwingen Nutzer in starre Prozesse. Software wird zum Selbstzweck, statt Menschen in ihrer Arbeit zu unterstützen. Komplexität wächst – Klarheit bleibt auf der Strecke.
-              </p>
-
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Wir sind überzeugt: Verwaltung braucht keine komplexeren Tools – sie braucht klarere Strukturen. Systeme, die sich an echte Arbeitsabläufe anpassen. Software, die Menschen hilft, Entscheidungen zu treffen, statt nur Daten zu verwalten.
-              </p>
+              {/* What we refuse - statement block, stands alone */}
+              <motion.div
+                className="pt-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              >
+                <p className="text-[13px] mb-8 tracking-wide font-medium" style={{ color: "hsl(var(--text-muted))" }}>
+                  Was wir nicht tun
+                </p>
+                <div className="space-y-4">
+                  <p className="text-[16px] leading-relaxed" style={{ color: "hsl(var(--text-secondary))" }}>
+                    Wir bauen keine Software, die Sie zum Experten zwingt.
+                  </p>
+                  <p className="text-[16px] leading-relaxed" style={{ color: "hsl(var(--text-secondary))" }}>
+                    Keine Prozesse, die nur wir verstehen.
+                  </p>
+                  <p className="text-[16px] leading-relaxed" style={{ color: "hsl(var(--text-secondary))" }}>
+                    Keine Preise, die Sie später überraschen.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Das Team */}
-      <section className="py-24 sm:py-32 bg-gray-50/30">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-12 text-center text-[#1A1A1A]">
-              Das Team
-            </h2>
+      {/* Section 2: Das Team - soft blue tint with fade in/out */}
+      <section className="py-28 sm:py-36 relative">
+        {/* Subtle blue-tinted background with long fade transitions */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(180deg, transparent 0%, rgba(36, 99, 235, 0.025) 15%, rgba(36, 99, 235, 0.04) 50%, rgba(36, 99, 235, 0.025) 85%, transparent 100%)"
+          }}
+        />
 
-            <div className="grid md:grid-cols-3 gap-12">
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <div className="max-w-5xl mx-auto">
+            {/* Section heading - centered, calm */}
+            <motion.h2
+              className="text-[clamp(24px,3vw,32px)] font-semibold mb-16 text-center text-[#1A1A1A]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              Das Team
+            </motion.h2>
+
+            <div className="grid md:grid-cols-3 gap-16">
               {teamMembers.map((member, idx) => (
                 <motion.div
                   key={idx}
@@ -207,30 +262,30 @@ export function UeberUnsPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                 >
-                  {/* Avatar Photo */}
+                  {/* Avatar Photo - slightly larger */}
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="mx-auto mb-4 w-24 h-24 rounded-full object-cover"
+                    className="mx-auto mb-5 w-28 h-28 rounded-full object-cover"
                   />
 
-                  {/* Name */}
-                  <h3 className="font-semibold text-lg text-[#1A1A1A] mb-1">
+                  {/* Name - grounded */}
+                  <h3 className="font-semibold text-[17px] text-[#1A1A1A] mb-1">
                     {member.name}
                   </h3>
 
-                  {/* Role */}
-                  <p className="text-sm text-[#2463eb] font-medium mb-1">
+                  {/* Role - subtle, not blue */}
+                  <p className="text-[14px] font-medium mb-1" style={{ color: "hsl(var(--text-secondary))" }}>
                     {member.role}
                   </p>
 
-                  {/* Subtitle */}
-                  <p className="text-xs text-muted-foreground mb-3">
+                  {/* Subtitle - quieter */}
+                  <p className="text-[13px] mb-4" style={{ color: "hsl(var(--text-muted))" }}>
                     {member.subtitle}
                   </p>
 
-                  {/* Bio */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  {/* Bio - readable */}
+                  <p className="text-[14px] leading-relaxed" style={{ color: "hsl(var(--text-secondary))" }}>
                     {member.bio}
                   </p>
                 </motion.div>
@@ -240,40 +295,43 @@ export function UeberUnsPage() {
         </div>
       </section>
 
-      {/* Section 3: Unsere Werte */}
-      <section className="py-24 sm:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
+      {/* Section 3: Unsere Prinzipien - philosophical statements */}
+      <section className="py-28 sm:py-40">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto">
+            {/* Section heading - left-aligned, grounded */}
+            <motion.h2
+              className="text-[clamp(24px,3vw,32px)] font-semibold mb-20 text-[#1A1A1A]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-[#1A1A1A]">
-                Unsere Werte
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground text-center mb-16">
-                Diese Prinzipien leiten unsere Arbeit und Produktentwicklung.
-              </p>
-            </motion.div>
+              Unsere Prinzipien
+            </motion.h2>
 
-            <div className="grid sm:grid-cols-2 gap-x-12 gap-y-16 max-w-4xl mx-auto">
-              {/* All 4 values in 2x2 grid */}
-              {values.map((value, idx) => (
+            {/* Principles as standalone statements with generous spacing */}
+            <div className="space-y-16">
+              {principles.map((principle, idx) => (
                 <motion.div
                   key={idx}
-                  className="space-y-3"
+                  className="space-y-4"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                 >
-                  <h4 className="font-semibold text-lg text-[#1A1A1A]">
-                    {value.title}
+                  {/* Principle title - statement-like */}
+                  <h4 className="font-semibold text-[18px] text-[#1A1A1A]">
+                    {principle.title}
                   </h4>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {value.description}
+                  {/* Description - clear, readable */}
+                  <p className="text-[16px] leading-[1.7]" style={{ color: "hsl(var(--text-secondary))" }}>
+                    {principle.description}
+                  </p>
+                  {/* Trade-off - quieter, smaller */}
+                  <p className="text-[14px] leading-relaxed" style={{ color: "hsl(var(--text-muted))" }}>
+                    {principle.tradeoff}
                   </p>
                 </motion.div>
               ))}

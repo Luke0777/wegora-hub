@@ -85,7 +85,7 @@ export function ObjektePage() {
                         </Badge>
                       )}
                       {vacantUnits > 0 && (
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                        <Badge variant="outline" className="bg-[#2463eb]/5 text-[#2463eb] border-[#2463eb]/20">
                           {vacantUnits} leer
                         </Badge>
                       )}

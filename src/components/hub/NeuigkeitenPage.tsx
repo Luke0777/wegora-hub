@@ -89,9 +89,9 @@ export function NeuigkeitenPage() {
             {/* Subline - Calm, forward-looking */}
             <motion.p
               className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto mt-8"
-              style={{ opacity: 0.6, color: "#1A1A1A" }}
+              style={{ color: "hsl(var(--text-secondary))" }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
               Updates, Verbesserungen und neue Möglichkeiten – Schritt für Schritt.
@@ -110,7 +110,7 @@ export function NeuigkeitenPage() {
               </p>
 
               {/* Latest update title */}
-              <p className="text-[18px] text-[#1A1A1A]/80 font-medium leading-relaxed">
+              <p className="text-[18px] font-medium leading-relaxed" style={{ color: "hsl(var(--text-secondary))" }}>
                 Nebenkosten einfacher vorbereiten – auch mobil
               </p>
             </motion.div>

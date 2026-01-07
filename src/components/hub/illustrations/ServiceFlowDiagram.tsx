@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface ServiceFlowDiagramProps {
@@ -46,7 +46,7 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
         `}</style>
 
         {/* Connection lines - Pure single-curve Béziers with vertical entry */}
-        <g opacity="var(--illustration-opacity-light)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <g opacity="0.5" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-default)" fill="none" strokeLinecap="round" strokeLinejoin="round">
           {/* Trunk: smooth curve into junction */}
           <motion.path
             d="M 500 192 C 500 194, 500 197, 500 200"
@@ -90,19 +90,17 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           />
         </g>
 
-        {/* Central OBJEKT - blue styling, centered between Finanzen & NK Manager */}
+        {/* Central Wegora House Icon - blue styling */}
         <g transform="translate(500, 125)">
-          {/* Circle for OBJEKT - scaled up proportionally */}
-          <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
+          {/* Circle background */}
+          <circle cx="0" cy="0" r="67" fill="hsl(var(--illustration-weg) / 0.04)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-default)" />
 
-          {/* Wegora house icon - unified branding */}
-          <g transform="scale(3.15) translate(-9, -18.5)">
-            {/* Haus-Basis */}
-            <rect x="2" y="16" width="14" height="12" rx="2" fill="hsl(var(--illustration-weg))"/>
-            {/* Dach */}
-            <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="hsl(var(--illustration-weg))"/>
-            {/* Single Window */}
-            <rect x="5.75" y="19.75" width="2.5" height="2.5" rx="1" fill="white"/>
+          {/* Wegora house icon - new logo style, centered */}
+          <g transform="translate(-25, -41) scale(2.8)">
+            {/* House Base */}
+            <rect x="2" y="12" width="14" height="12" rx="2" fill="hsl(var(--illustration-weg))"/>
+            {/* Roof */}
+            <path d="M1 13 L9 5 L17 13 L15 13 L9 7 L3 13 Z" fill="hsl(var(--illustration-weg))"/>
           </g>
         </g>
 
@@ -113,9 +111,9 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.5 }}
         >
-          {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
+          {/* Background circle - subtle outer glow */}
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-weg) / 0.03)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-default)" />
           {/* People icon - scaled proportionally */}
           <g transform="scale(2.25)">
             <circle cx="-5.6" cy="-3.2" r="2.8" fill="none" stroke="hsl(var(--illustration-weg))" strokeWidth="1.3" />
@@ -145,9 +143,9 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
         >
-          {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
+          {/* Background circle - subtle outer glow */}
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-weg) / 0.03)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Chart icon - scaled proportionally */}
           <g transform="scale(2.25)">
             <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="hsl(var(--illustration-weg))" />
@@ -175,9 +173,9 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.65 }}
         >
-          {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
+          {/* Background circle - subtle outer glow */}
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-weg) / 0.03)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Ordner Icon - with inner lines */}
           <g transform="scale(2.25)">
             <path d="M-9,-3 L-9,7 Q-9,8 -8,8 L8,8 Q9,8 9,7 L9,-3 Q9,-4 8,-4 L2,-4 L0.5,-6.5 L-7,-6.5 Q-9,-6.5 -9,-5 Z" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="1.2" />
@@ -206,9 +204,9 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.7 }}
         >
-          {/* Background circle */}
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-bold)" />
+          {/* Background circle - subtle outer glow */}
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-weg))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-weg) / 0.03)" stroke="hsl(var(--illustration-weg))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Clipboard/Task icon - scaled proportionally */}
           <g transform="scale(2.25)">
             {/* Clipboard base */}

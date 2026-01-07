@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Database, Wallet } from "@phosphor-icons/react";
+import { CheckCircle } from "@phosphor-icons/react";
 import {
   EigentuemerFlowDiagram,
   ServiceAccountingIllustration,
@@ -24,12 +24,11 @@ export function AngebotEigentuemerPage() {
       icon: ServiceNebenkostenIllustration,
       title: "Nebenkosten Manager",
       description:
-        "Nebenkostenabrechnungen in wenigen Schritten erstellen und versenden.",
+        "Nebenkostenabrechnungen erstellen\nund versenden — ganz ohne\nSteuerberater.",
       features: [
-        "Hausgeld hochladen",
-        "Kostenpunkte bestätigen",
-        "NK-Abrechnung vorbereiten",
-        "NK-Abrechnung versenden",
+        "Hausgeld importieren",
+        "Abrechnung vorbereiten",
+        "Digital versenden",
       ],
       availability: ["Mobile App", "Web-App"],
       badge: "Coming Soon",
@@ -40,12 +39,11 @@ export function AngebotEigentuemerPage() {
       icon: ServiceDokumenteIllustration,
       title: "Dokumente",
       description:
-        "Alle wichtigen Unterlagen\nzentral und sicher.",
+        "Alle Unterlagen zu Ihrer Wohnung\nan einem Ort — sicher und\njederzeit griffbereit.",
       features: [
-        "Dokumente ablegen",
-        "Automatisch sortieren",
-        "Schnell finden",
-        "Sicher teilen",
+        "Zentrale Ablage",
+        "Automatisch sortiert",
+        "Sicher gespeichert",
       ],
       availability: ["Web-App"],
       badge: "Coming Soon",
@@ -56,10 +54,9 @@ export function AngebotEigentuemerPage() {
       icon: ServiceAccountingIllustration,
       title: "Finanzen",
       description:
-        "Miete, Kosten und Rendite\nIhrer Wohnung im Blick.",
+        "Miete, Kosten und Rendite\nIhrer Wohnung — klar und\nübersichtlich dargestellt.",
       features: [
-        "Mieteinnahmen tracken",
-        "Kosten erfassen",
+        "Einnahmen & Ausgaben",
         "Rendite berechnen",
         "Steuerdaten exportieren",
       ],
@@ -87,12 +84,12 @@ export function AngebotEigentuemerPage() {
           <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
             {/* Label */}
             <motion.div
-              className="mb-4"
+              className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-teal-500 tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(12px,1.2vw,14px)] font-medium" style={{ color: "hsl(var(--text-tertiary))" }}>
                 Unser Angebot für Eigentümer
               </p>
             </motion.div>
@@ -105,18 +102,19 @@ export function AngebotEigentuemerPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              Ihre Wohnung. Ihre Finanzen.<br />Ihr Überblick.
+              Ihre Wohnung.<br />Ihre Entscheidungen.
             </motion.h1>
 
             {/* Subline */}
             <motion.p
               className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto"
-              style={{ opacity: 0.6, color: "#1A1A1A" }}
+              style={{ color: "hsl(var(--text-secondary))" }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Behalten Sie den Überblick über Ihre Immobilie – von Nebenkosten bis Rendite.
+              Behalten Sie den Überblick über das, was Ihnen gehört —<br />
+              ohne Verwaltungsaufwand.
             </motion.p>
 
             {/* Flow Diagram */}
@@ -137,7 +135,9 @@ export function AngebotEigentuemerPage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
             >
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Alle Services sind auf Ihre Wohnung ausgerichtet. Stammdaten, Mieter und Kosten werden einmal erfasst und stehen für NK-Abrechnungen, Finanzübersichten und Analysen jederzeit zur Verfügung.
+                Alle Services sind auf Ihre Wohnung ausgerichtet.<br />
+                Stammdaten, Mieter und Kosten werden einmal erfasst —<br />
+                und stehen Ihnen jederzeit zur Verfügung.
               </p>
             </motion.div>
           </div>
@@ -186,7 +186,7 @@ export function AngebotEigentuemerPage() {
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                       <Badge
                         variant="outline"
-                        className="text-[10px] px-3 py-1 bg-teal-100 text-teal-600 border-teal-200 shadow-sm"
+                        className="text-[10px] px-3 py-1 bg-[#ccfbf1] text-[#14B8A6] border-[#99f6e4] shadow-sm"
                       >
                         {service.badge}
                       </Badge>
@@ -199,7 +199,7 @@ export function AngebotEigentuemerPage() {
                       {IllustrationComponent && (
                         <IllustrationComponent
                           className="w-full max-w-[180px] h-auto"
-                          color={service.badge === "Geplant" ? "#9CA3AF" : service.color}
+                          color={service.badge === "Geplant" ? "hsl(215, 14%, 75%)" : service.color}
                         />
                       )}
                     </div>
@@ -218,8 +218,8 @@ export function AngebotEigentuemerPage() {
                           key={i}
                           variant="outline"
                           className={service.badge === "Geplant"
-                            ? "text-[10px] px-2 py-0.5 bg-gray-100 text-gray-400 border-gray-200"
-                            : "text-[10px] px-2 py-0.5 bg-teal-500/10 text-teal-500 border-teal-500/20"
+                            ? "text-[10px] px-2 py-0.5 bg-muted text-muted-foreground border-border"
+                            : "text-[10px] px-2 py-0.5 bg-[#14B8A6]/10 text-teal-500 border-[#14B8A6]/20"
                           }
                         >
                           {platform}
@@ -246,7 +246,7 @@ export function AngebotEigentuemerPage() {
                           <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                             <CheckCircle
                               className="w-4 h-4"
-                              style={{ color: service.badge === "Geplant" ? "#9CA3AF" : service.color }}
+                              style={{ color: service.badge === "Geplant" ? "hsl(215, 14%, 75%)" : service.color }}
                             />
                           </div>
                           <span className="leading-tight">{feature}</span>
@@ -255,14 +255,14 @@ export function AngebotEigentuemerPage() {
                     </ul>
 
                     {/* CTA */}
-                    <div className="mt-auto pt-4 text-center">
+                    <div className="mt-auto pt-4 text-center h-[32px] flex items-center justify-center">
                       {service.badge === "Geplant" ? (
                         <span className="text-sm text-muted-foreground">
                           Demnächst verfügbar
                         </span>
                       ) : (
                         <Link to={`/angebot-eigentuemer/${service.id}`}>
-                          <Button variant="outline" size="sm" className="border-teal-500 text-teal-500 hover:bg-teal-500/10">
+                          <Button variant="outline" size="sm" className="border-teal-500 text-teal-500 hover:bg-teal-500/10 transition-colors">
                             Zum Service
                           </Button>
                         </Link>
@@ -277,93 +277,21 @@ export function AngebotEigentuemerPage() {
         </div>
       </section>
 
-      {/* Modularity & Interplay */}
-      <section className="py-16 sm:py-24">
+      {/* Closing Statement */}
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-                Modularität & Zusammenspiel
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-                Jeder Service ist eigenständig nutzbar. Gemeinsam wachsen sie mit Ihren Anforderungen.
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Ihr Eigentum sollte nicht mehr Aufmerksamkeit fordern,<br />
+                als Sie ihm geben wollen.
               </p>
             </motion.div>
-
-            <div className="grid sm:grid-cols-2 gap-8 text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
-              >
-                <Card className="border-2 border-teal-500/20 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-teal-500/10 rounded-lg flex items-center justify-center">
-                      <Database className="h-5 w-5 text-teal-500" />
-                    </div>
-                    Einzeln stark
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span>Nutzen Sie nur, was Sie brauchen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span>Keine Verpflichtung zu großen Paketen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span>Einfacher Einstieg, überschaubare Kosten</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-              >
-                <Card className="border-2 border-teal-500/20 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-teal-500/10 rounded-lg flex items-center justify-center">
-                      <Wallet className="h-5 w-5 text-teal-500" />
-                    </div>
-                    Für Ihre Finanzen
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span>Alle Kosten im Überblick</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span>Rendite transparent berechnet</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                      <span>Steuerdaten jederzeit exportierbar</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>

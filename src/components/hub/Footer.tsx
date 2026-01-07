@@ -6,9 +6,9 @@ import { EnvelopeSimple, MapPin } from "@phosphor-icons/react";
 export function Footer() {
   return (
     <footer
-      className="border-t border-[#2463eb]/[0.06]"
+      className="border-t border-muted-foreground/10"
       style={{
-        background: "linear-gradient(to bottom, rgba(36, 99, 235, 0.04) 0%, rgba(36, 99, 235, 0.06) 100%)"
+        background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 0%, rgba(0, 0, 0, 0.025) 100%)"
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16">

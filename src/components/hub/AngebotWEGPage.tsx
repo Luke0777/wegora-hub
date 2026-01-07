@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Database, UsersThree } from "@phosphor-icons/react";
+import { CheckCircle } from "@phosphor-icons/react";
 import {
   ServiceFlowDiagram,
   ServiceWEGIllustration,
@@ -25,11 +25,10 @@ export function AngebotWEGPage() {
       icon: ServiceWEGIllustration,
       title: "Versammlungen",
       description:
-        "Versammlungen vorbereiten,\ndurchführen, dokumentieren\nund digital versenden.",
+        "Beschlüsse vorbereiten,\nabstimmen und dokumentieren —\ntransparent für alle.",
       features: [
-        "Einladungen versenden",
-        "Tagesordnung vorbereiten",
-        "Digital abstimmen",
+        "Einladungen & Tagesordnung",
+        "Digitale Abstimmung",
         "Protokolle erstellen",
       ],
       availability: ["Web-App"],
@@ -41,11 +40,10 @@ export function AngebotWEGPage() {
       icon: ServiceAccountingIllustration,
       title: "Finanzen",
       description:
-        "Hausgeld, Wirtschaftsplan\nund Gemeinschaftsfinanzen\nübersichtlich verwalten.",
+        "Hausgeld, Rücklagen und\nWirtschaftsplan — übersichtlich\nfür die ganze Gemeinschaft.",
       features: [
         "Hausgeld verwalten",
         "Wirtschaftsplan erstellen",
-        "Rücklagen überwachen",
         "Abrechnungen generieren",
       ],
       availability: ["Web-App"],
@@ -57,12 +55,11 @@ export function AngebotWEGPage() {
       icon: ServiceDokumenteIllustration,
       title: "Dokumente",
       description:
-        "Alle Dokumente der\nGemeinschaft zentral\nund sicher verwalten.",
+        "Alle Unterlagen der Gemeinschaft\nan einem Ort — sicher und\njederzeit abrufbar.",
       features: [
-        "Dokumente ablegen",
-        "Automatisch sortieren",
-        "Schnell finden",
-        "Sicher teilen",
+        "Zentrale Ablage",
+        "Automatisch sortiert",
+        "Sicher geteilt",
       ],
       availability: ["Web-App"],
       badge: "Coming Soon",
@@ -73,11 +70,10 @@ export function AngebotWEGPage() {
       icon: ServiceVorgaengeIllustration,
       title: "Vorgänge",
       description:
-        "Alle Vorgänge der\nGemeinschaft zentral\nverwalten und verfolgen.",
+        "Reparaturen, Anfragen und\nProjekte verfolgen — alle\nwissen, was läuft.",
       features: [
-        "Vorgänge erstellen",
+        "Vorgänge erfassen",
         "Status verfolgen",
-        "Dokumente anhängen",
         "Kommunikation bündeln",
       ],
       availability: ["Web-App"],
@@ -104,12 +100,12 @@ export function AngebotWEGPage() {
           <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
             {/* Label */}
             <motion.div
-              className="mb-4"
+              className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(12px,1.2vw,14px)] font-medium" style={{ color: "hsl(var(--text-tertiary))" }}>
                 Unser Angebot für WEGs
               </p>
             </motion.div>
@@ -122,18 +118,19 @@ export function AngebotWEGPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              Ein Objekt. Alles im Griff.
+              Gemeinsam entscheiden.<br />Gemeinsam vorankommen.
             </motion.h1>
 
             {/* Subline */}
             <motion.p
               className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto"
-              style={{ opacity: 0.6, color: "#1A1A1A" }}
+              style={{ color: "hsl(var(--text-secondary))" }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Alle Services greifen ineinander – für weniger Aufwand im Alltag und volle Kontrolle über Ihr Objekt.
+              Eine WEG funktioniert, wenn alle Beteiligten wissen,<br />
+              was passiert — und was als nächstes ansteht.
             </motion.p>
 
             {/* Flow Diagram */}
@@ -154,7 +151,9 @@ export function AngebotWEGPage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
             >
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Alle Services greifen auf dasselbe zentrale Objekt zu. Stammdaten, Eigentümer und Einheiten werden einmal erfasst und stehen für Versammlungen, Finanzen, Dokumente und Vorgänge jederzeit zur Verfügung.
+                Alle Services greifen auf dieselbe Basis zu.<br />
+                Stammdaten, Eigentümer und Einheiten werden einmal erfasst —<br />
+                und stehen der ganzen Gemeinschaft zur Verfügung.
               </p>
             </motion.div>
           </div>
@@ -203,7 +202,7 @@ export function AngebotWEGPage() {
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                       <Badge
                         variant="outline"
-                        className="text-[10px] px-3 py-1 bg-blue-100 text-blue-600 border-blue-200 shadow-sm"
+                        className="text-[10px] px-3 py-1 bg-[#dbeafe] text-[#2463eb] border-[#bfdbfe] shadow-sm"
                       >
                         {service.badge}
                       </Badge>
@@ -216,7 +215,7 @@ export function AngebotWEGPage() {
                       {IllustrationComponent && (
                         <IllustrationComponent
                           className="w-full max-w-[180px] h-auto"
-                          color={service.badge === "Geplant" ? "#9CA3AF" : service.color}
+                          color={service.badge === "Geplant" ? "hsl(215, 14%, 75%)" : service.color}
                         />
                       )}
                     </div>
@@ -235,7 +234,7 @@ export function AngebotWEGPage() {
                           key={i}
                           variant="outline"
                           className={service.badge === "Geplant"
-                            ? "text-[10px] px-2 py-0.5 bg-gray-100 text-gray-400 border-gray-200"
+                            ? "text-[10px] px-2 py-0.5 bg-muted text-muted-foreground border-border"
                             : "text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
                           }
                         >
@@ -263,7 +262,7 @@ export function AngebotWEGPage() {
                           <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                             <CheckCircle
                               className="w-4 h-4"
-                              style={{ color: service.badge === "Geplant" ? "#9CA3AF" : service.color }}
+                              style={{ color: service.badge === "Geplant" ? "hsl(215, 14%, 75%)" : service.color }}
                             />
                           </div>
                           <span className="leading-tight">{feature}</span>
@@ -272,14 +271,14 @@ export function AngebotWEGPage() {
                     </ul>
 
                     {/* CTA */}
-                    <div className="mt-auto pt-4 text-center">
+                    <div className="mt-auto pt-4 text-center h-[32px] flex items-center justify-center">
                       {service.badge === "Geplant" ? (
                         <span className="text-sm text-muted-foreground">
                           Demnächst verfügbar
                         </span>
                       ) : (
                         <Link to={`/angebot-weg/${service.id}`}>
-                          <Button variant="outline" size="sm" className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb]/10">
+                          <Button variant="outline" size="sm" className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb]/10 transition-colors">
                             Zum Service
                           </Button>
                         </Link>
@@ -294,93 +293,21 @@ export function AngebotWEGPage() {
         </div>
       </section>
 
-      {/* Modularity & Interplay */}
-      <section className="py-16 sm:py-24">
+      {/* Closing Statement */}
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-                Modularität & Zusammenspiel
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-                Jeder Service ist eigenständig nutzbar. Gemeinsam wachsen sie mit Ihren Anforderungen.
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Eine WEG braucht keinen Vollzeit-Verwalter, um zu funktionieren.<br />
+                Sie braucht Struktur, Transparenz und die richtigen Werkzeuge.
               </p>
             </motion.div>
-
-            <div className="grid sm:grid-cols-2 gap-8 text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
-              >
-                <Card className="border-2 border-[#2463eb]/20 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#2463eb]/10 rounded-lg flex items-center justify-center">
-                      <Database className="h-5 w-5 text-[#2463eb]" />
-                    </div>
-                    Einzeln stark
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Nutzen Sie nur, was Sie brauchen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Keine Verpflichtung zu großen Paketen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Einfacher Einstieg, überschaubare Kosten</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-              >
-                <Card className="border-2 border-[#3182CE]/20 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#3182CE]/10 rounded-lg flex items-center justify-center">
-                      <UsersThree className="h-5 w-5 text-[#3182CE]" />
-                    </div>
-                    Für die Gemeinschaft
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#3182CE] flex-shrink-0 mt-0.5" />
-                      <span>Transparenz für alle Eigentümer</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#3182CE] flex-shrink-0 mt-0.5" />
-                      <span>Gemeinsame Beschlüsse nachvollziehbar</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#3182CE] flex-shrink-0 mt-0.5" />
-                      <span>Strukturierte Kommunikation</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Brain, Database } from "@phosphor-icons/react";
+import { CheckCircle } from "@phosphor-icons/react";
 import {
   ServiceFlowDiagram,
   ServiceWEGIllustration,
@@ -23,11 +23,10 @@ export function UnserAngebotPage() {
       icon: ServiceWEGIllustration,
       title: "Wegora Versammlungen",
       description:
-        "Versammlungen vorbereiten, durchführen, dokumentieren und digital versenden.",
+        "Versammlungen vorbereiten,\ndurchführen und dokumentieren —\nan einem Ort.",
       features: [
-        "Einladungen versenden",
-        "Tagesordnung vorbereiten",
-        "Digital abstimmen",
+        "Einladungen & Tagesordnung",
+        "Digitale Abstimmung",
         "Protokolle erstellen",
       ],
       availability: ["Web-App"],
@@ -38,12 +37,11 @@ export function UnserAngebotPage() {
       icon: ServiceAccountingIllustration,
       title: "Wegora Finanzen",
       description:
-        "Finanzen übersichtlich verwalten – klar strukturiert pro Objekt und Gemeinschaft.",
+        "Alle Finanzen Ihrer Gemeinschaft\nan einem Ort — strukturiert\nund nachvollziehbar.",
       features: [
-        "Einnahmen überblicken",
-        "Ausgaben kontrollieren",
+        "Einnahmen & Ausgaben",
         "Abrechnungen erstellen",
-        "Wirtschaftspläne entwerfen",
+        "Wirtschaftspläne",
       ],
       availability: ["Web-App"],
       color: "#10B981",
@@ -53,12 +51,11 @@ export function UnserAngebotPage() {
       icon: ServiceNebenkostenIllustration,
       title: "Wegora NK Manager",
       description:
-        "Nebenkostenabrechnungen in wenigen Schritten erstellen und versenden.",
+        "Nebenkostenabrechnungen erstellen\nund versenden — in wenigen\nSchritten erledigt.",
       features: [
-        "Hausgeld hochladen",
-        "Kostenpunkte bestätigen",
-        "NK-Abrechnung vorbereiten",
-        "NK-Abrechnung versenden",
+        "Hausgeld importieren",
+        "Abrechnung vorbereiten",
+        "Digital versenden",
       ],
       availability: ["Mobile App", "Web-App (bald)"],
       recommended: true,
@@ -69,12 +66,11 @@ export function UnserAngebotPage() {
       icon: ServiceNebenkostenCheckIllustration,
       title: "Wegora Kostenanalyse",
       description:
-        "Kosten verstehen,\nEinsparpotenziale erkennen\nund fundiert entscheiden.",
+        "Verstehen, wohin Ihr Geld\nfließt — und wo Sie\nsparen können.",
       features: [
         "Kosten analysieren",
-        "Potenziale erkennen",
+        "Einsparpotenziale finden",
         "Angebote vergleichen",
-        "Planung optimieren",
       ],
       availability: ["Mobile App"],
       color: "#F97316",
@@ -90,19 +86,19 @@ export function UnserAngebotPage() {
       >
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="max-w-5xl mx-auto text-center space-y-8 pt-[34px]">
-            {/* Label "Unser Angebot" (small, not dominant) */}
+            {/* Label "Unser Angebot" (small, muted) */}
             <motion.div
-              className="mb-4"
+              className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(12px,1.2vw,14px)] font-medium" style={{ color: "hsl(var(--text-tertiary))" }}>
                 Unser Angebot
               </p>
             </motion.div>
 
-            {/* Main Headline - matches Home H1 exactly */}
+            {/* Main Headline */}
             <motion.h1
               className="text-[clamp(36px,4.5vw,64px)] font-semibold tracking-tight text-[#1A1A1A]"
               style={{ lineHeight: "1.15", fontWeight: 600 }}
@@ -110,18 +106,19 @@ export function UnserAngebotPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              Ein Objekt. Alles im Griff.
+              Was Wegora kann —<br />und was Sie davon nutzen
             </motion.h1>
 
-            {/* Subline - matches Home subline exactly */}
+            {/* Subline */}
             <motion.p
               className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto"
-              style={{ opacity: 0.6, color: "#1A1A1A" }}
+              style={{ color: "hsl(var(--text-secondary))" }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Alle Services greifen ineinander – für weniger Aufwand im Alltag und volle Kontrolle über Ihr Objekt.
+              Nicht alles muss sofort passieren.<br />
+              Beginnen Sie mit einem Service. Erweitern Sie, wenn Sie bereit sind.
             </motion.p>
 
             {/* Central Illustration - caption belongs visually to graphic */}
@@ -142,7 +139,9 @@ export function UnserAngebotPage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
             >
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Alle Services greifen auf dasselbe zentrale Objekt zu. Stammdaten, Eigentümer und Einheiten werden einmal erfasst und stehen für Finanzen, Versammlungen, Nebenkosten und Auswertungen jederzeit zur Verfügung.
+                Alle Services greifen auf dieselbe Basis zu.<br />
+                Was Sie einmal erfassen, steht überall zur Verfügung —<br />
+                ohne Doppelarbeit, ohne Widersprüche.
               </p>
             </motion.div>
           </div>
@@ -259,93 +258,40 @@ export function UnserAngebotPage() {
         </div>
       </section>
 
-      {/* Modularity & Interplay */}
-      <section className="py-16 sm:py-24">
+      {/* Modularity Section - Philosophical Message */}
+      <section className="py-16 sm:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-center"
             >
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
-                Modularität & Zusammenspiel
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">
+                Kein Paket. Kein Zwang.
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-                Jeder Service ist eigenständig nutzbar. Gemeinsam wachsen sie mit Ihren Anforderungen.
-              </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 gap-8 text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
-              >
-                <Card className="border-2 border-[#2463eb]/20 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#2463eb]/10 rounded-lg flex items-center justify-center">
-                      <Database className="h-5 w-5 text-[#2463eb]" />
-                    </div>
-                    Einzeln stark
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Nutzen Sie nur, was Sie brauchen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Keine Verpflichtung zu großen Paketen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#2463eb] flex-shrink-0 mt-0.5" />
-                      <span>Einfacher Einstieg, überschaubare Kosten</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-              >
-                <Card className="border-2 border-[#10B981]/20 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#10B981]/10 rounded-lg flex items-center justify-center">
-                      <Brain className="h-5 w-5 text-[#10B981]" />
-                    </div>
-                    Zusammen stärker
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                      <span>Services arbeiten nahtlos zusammen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                      <span>System wächst mit Ihren Anforderungen</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-[#10B981] flex-shrink-0 mt-0.5" />
-                      <span>Einmal erfasst, überall verfügbar</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+              className="space-y-6"
+            >
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Die meisten Plattformen wollen, dass Sie alles nutzen — egal, ob Sie es brauchen. Das ist bequem für den Anbieter, aber teuer für Sie.
+              </p>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Wegora funktioniert anders: Sie wählen einen Service. Wenn er Ihnen hilft, bleibt er. Wenn Sie mehr brauchen, ist der nächste Service schon vorbereitet.
+              </p>
+              <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">
+                Kein Wechselaufwand. Keine Doppelerfassung.<br />
+                Nur das, was Sie heute brauchen.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>

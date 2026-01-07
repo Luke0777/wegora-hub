@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Lightbulb, CheckCircle, Path, FileText, Rocket, CaretDown, ListChecks, Target, SquaresFour, Folder, Gavel, ArrowsClockwise } from "@phosphor-icons/react";
+import { CaretDown } from "@phosphor-icons/react";
 import { AnimatedWordReplacement } from "./AnimatedWordReplacement";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -38,8 +37,8 @@ export function VisionPage() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="max-w-5xl mx-auto text-center pt-[34px]">
             {/* Eyebrow "Unsere Vision" */}
-            <div className="mb-4">
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+            <div className="mb-8">
+              <p className="text-[clamp(12px,1.2vw,14px)] font-medium" style={{ color: "hsl(var(--text-tertiary))" }}>
                 Unsere Vision
               </p>
             </div>
@@ -52,38 +51,20 @@ export function VisionPage() {
               Immobilien<AnimatedWordReplacement from="verwaltung" to="steuerung" />
             </h1>
 
-            {/* Unified Text Block - Subline + Claim with staggered fade-in */}
-            <div className="max-w-3xl mx-auto mt-8 space-y-6">
-              {/* Subline - fades in first */}
-              <motion.p
-                className="text-[clamp(18px,2vw,22px)] leading-[1.6]"
-                style={{ color: "#1A1A1A" }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.6, y: 0 }}
-                transition={{
-                  delay: 1.7,
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-              >
-                Immer mehr WEGs finden keinen Verwalter mehr. Wir definieren Verwaltung neu.
-              </motion.p>
-
-              {/* Claim - fades in 200ms later */}
-              <motion.p
-                className="text-[clamp(18px,2vw,22px)] leading-[1.6]"
-                style={{ color: "#1A1A1A" }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 0.6, y: 0 }}
-                transition={{
-                  delay: 1.9,
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-              >
-                Mit Wegora treffen Menschen Entscheidungen für ihr Eigentum. Alles andere passiert im Hintergrund.
-              </motion.p>
-            </div>
+            {/* Core thesis - single confident statement */}
+            <motion.p
+              className="max-w-3xl mx-auto mt-8 text-[clamp(18px,2vw,22px)] leading-[1.6]"
+              style={{ color: "hsl(var(--text-secondary))" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 1.7,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              Mit Wegora treffen Menschen Entscheidungen für ihr Eigentum. Alles andere passiert im Hintergrund.
+            </motion.p>
           </div>
         </div>
 
@@ -130,311 +111,140 @@ export function VisionPage() {
         </AnimatePresence>
       </section>
 
-      {/* 2️⃣ Leitbegriffe - Was gute Immobiliensteuerung ausmacht */}
-      <section
-        className="py-16 sm:py-20"
+      {/* 2️⃣ + 3️⃣ Combined breathing section */}
+      <div
         style={{
-          background: "linear-gradient(to bottom, transparent 0%, rgba(36, 99, 235, 0.03) 100%)"
+          background: `radial-gradient(
+            50% 35% at 50% 30%,
+            rgba(80, 120, 255, 0.12) 0%,
+            rgba(80, 120, 255, 0.05) 50%,
+            rgba(80, 120, 255, 0.02) 75%,
+            #FFFFFF 100%
+          )`
         }}
       >
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            className="text-center mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "hsl(220 20% 20%)" }}>
-              Was gute Immobiliensteuerung ausmacht
-            </h2>
-            <p className="mt-3 text-base" style={{ color: "hsl(220 15% 50%)" }}>
-              Fünf Zustände, die zusammenwirken.
-            </p>
-          </motion.div>
-
-          {/* 5 Leitbegriffe - Micro-Cards */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          >
-            {[
-              { icon: Lightbulb, label: "Überblick" },
-              { icon: FileText, label: "Transparenz" },
-              { icon: CheckCircle, label: "Entlastung" },
-              { icon: Path, label: "Priorisierung" },
-              { icon: Rocket, label: "Entscheidungsfreiheit" }
-            ].map((item, idx) => {
-              const IconComponent = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="flex items-center gap-3 rounded-xl border border-[#2463eb]/[0.12] bg-[#2463eb]/[0.03] px-4 py-3"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/80">
-                    <IconComponent className="h-5 w-5 text-[#2463eb]/70" weight="regular" />
-                  </div>
-                  <span className="text-sm font-medium text-[#2463eb]/85">{item.label}</span>
-                </div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 3️⃣ Dashboard - Abstrakte Komposition */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#2463eb]/[0.04] to-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            className="text-center mb-14"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "hsl(220 20% 20%)" }}>
-              Ein Dashboard. Alles im Blick.
-            </h2>
-            <p className="mt-4 text-base sm:text-lg max-w-2xl mx-auto" style={{ color: "hsl(220 15% 45%)" }}>
-              Fokus oben. Kontext darunter. Der Rest läuft.
-            </p>
-          </motion.div>
-
-          {/* Abstrakte Dashboard-Komposition */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-          >
-            <div className="flex flex-col items-center">
-              {/* Ebene 1: FOKUS (~60% visuelles Gewicht) - dominant */}
-              <div className="grid grid-cols-3 gap-4 sm:gap-5 w-full mb-8">
-                {[
-                  { label: "Entscheidungen", icon: ListChecks },
-                  { label: "Prioritäten", icon: Target },
-                  { label: "Überblick", icon: SquaresFour }
-                ].map((item) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div
-                      key={item.label}
-                      className="rounded-2xl p-7 sm:p-10 text-center border border-[#2463eb]/[0.18] flex flex-col items-center gap-3"
-                      style={{
-                        background: "linear-gradient(180deg, rgba(36, 99, 235, 0.08) 0%, rgba(36, 99, 235, 0.02) 100%)"
-                      }}
-                    >
-                      <IconComponent className="w-6 h-6 text-[#2463eb]/70" weight="regular" />
-                      <span className="text-lg sm:text-xl font-medium" style={{ color: "hsl(220 15% 25%)" }}>
-                        {item.label}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Vertikale Achse */}
-              <div
-                className="w-px h-6 mb-4"
-                style={{
-                  background: "linear-gradient(to bottom, rgba(36, 99, 235, 0.25), rgba(36, 99, 235, 0.05))"
-                }}
-              />
-
-              {/* Ebene 2: KONTEXT (~30% visuelles Gewicht) - sekundär, enger */}
-              <div className="flex justify-center gap-2 sm:gap-3 mb-6">
-                {[
-                  { label: "Dokumente", icon: Folder },
-                  { label: "Beschlüsse", icon: Gavel },
-                  { label: "Vorgänge", icon: ArrowsClockwise }
-                ].map((item) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div
-                      key={item.label}
-                      className="bg-[#2463eb]/[0.06] rounded-lg px-4 py-2 border border-[#2463eb]/[0.15] flex items-center gap-2"
-                    >
-                      <IconComponent className="w-4 h-4 text-[#2463eb]/55" weight="regular" />
-                      <span className="text-sm font-medium text-[#2463eb]/75">
-                        {item.label}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Vertikale Achse */}
-              <div
-                className="w-px h-4 mb-4"
-                style={{
-                  background: "linear-gradient(to bottom, rgba(36, 99, 235, 0.15), rgba(36, 99, 235, 0.03))"
-                }}
-              />
-
-              {/* Ebene 3: HINTERGRUND (~10% visuelles Gewicht) - leise im Hintergrund */}
-              <div className="flex justify-center gap-2">
-                {["automatisch", "aktualisiert", "archiviert"].map((label) => (
-                  <span
-                    key={label}
-                    className="text-[0.8rem] px-3 py-1 rounded-full bg-[#2463eb]/[0.04] text-[#2463eb]/40 tracking-wide"
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 4️⃣ So entsteht dieser Überblick im Hintergrund - Technical Flow */}
-      <section className="mx-auto max-w-6xl px-6 py-20 sm:py-28 bg-gradient-to-b from-white to-gray-50/30">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#1A1A1A]">
-            So zeigt sich das im Alltag
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Entscheidungen sind klar. Abläufe laufen im Hintergrund.
-          </p>
-        </motion.div>
-
-        {/* 3 Zustandskarten - Desktop & Mobile */}
-        <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {[
-            {
-              icon: (
-                <svg viewBox="0 0 48 48" className="w-11 h-11">
-                  <circle cx="24" cy="24" r="20" fill="#2463eb" opacity="0.06" />
-                  <path d="M16 24l4 4 12-12" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-                  <path d="M16 32h16" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.4" />
-                  <path d="M16 36h12" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.25" />
-                </svg>
-              ),
-              title: "Alles vorbereitet",
-              text: "Finanzen, Dokumente und Beschlüsse sind vollständig erfasst, geprüft und strukturiert."
-            },
-            {
-              icon: (
-                <svg viewBox="0 0 48 48" className="w-11 h-11">
-                  <circle cx="24" cy="24" r="20" fill="#2463eb" opacity="0.06" />
-                  <circle cx="24" cy="20" r="6" stroke="#2463eb" strokeWidth="1.5" fill="none" opacity="0.8" />
-                  <path d="M14 36c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.8" />
-                  <circle cx="24" cy="20" r="2" fill="#2463eb" opacity="0.6" />
-                </svg>
-              ),
-              title: "Entscheidungen sind klar",
-              text: "Eigentümer sehen relevante Informationen, vergleichen und entscheiden digital."
-            },
-            {
-              icon: (
-                <svg viewBox="0 0 48 48" className="w-11 h-11">
-                  <circle cx="24" cy="24" r="20" fill="#2463eb" opacity="0.06" />
-                  <path d="M18 24h12" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.8" />
-                  <path d="M26 20l4 4-4 4" stroke="#2463eb" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-                  <circle cx="14" cy="24" r="2" fill="#2463eb" opacity="0.35" />
-                  <circle cx="34" cy="24" r="2" fill="#2463eb" opacity="0.6" />
-                </svg>
-              ),
-              title: "Abläufe laufen automatisch",
-              text: "Nach Freigaben werden Abrechnungen erstellt und Informationen ohne Aufwand verteilt."
-            }
-          ].map((card, idx) => (
+        {/* Was gute Steuerung ermöglicht - Prose Section */}
+        <section className="pt-24 sm:pt-32 pb-16 sm:pb-20">
+          <div className="max-w-3xl mx-auto px-6">
             <motion.div
-              key={idx}
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-16" style={{ color: "hsl(220 20% 20%)" }}>
+                Was gute Steuerung ermöglicht
+              </h2>
+            </motion.div>
+
+            <motion.div
+              className="space-y-10 text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-                delay: idx * 0.15
-              }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             >
-              <Card className="h-full bg-white/80 border border-slate-200/60 shadow-none hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
-                <CardContent className="p-6 text-center flex flex-col items-center">
-                  <div className="mb-5">
-                    {card.icon}
-                  </div>
-                  <h3 className="font-semibold text-lg text-[#1A1A1A] mb-3">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {card.text}
-                  </p>
-                </CardContent>
-              </Card>
+              <p className="text-[clamp(17px,1.8vw,20px)] leading-[1.8]" style={{ color: "hsl(220 12% 35%)" }}>
+                Wenn alles seinen Platz hat, entsteht Ruhe.<br />
+                Sie öffnen Wegora und sehen, was ansteht — nicht alles auf einmal,<br />
+                sondern das, was jetzt Aufmerksamkeit braucht.
+              </p>
+
+              {/* Subtle divider */}
+              <div className="w-12 h-px mx-auto" style={{ background: "hsl(220 15% 85%)" }} />
+
+              <p className="text-[clamp(17px,1.8vw,20px)] leading-[1.8]" style={{ color: "hsl(220 12% 42%)" }}>
+                Darunter liegt Kontext: Dokumente, Beschlüsse, Vorgänge.<br />
+                Abrufbar, wenn Sie sie brauchen. Unsichtbar, wenn nicht.
+              </p>
+
+              {/* Subtle divider */}
+              <div className="w-12 h-px mx-auto" style={{ background: "hsl(220 15% 88%)" }} />
+
+              <p className="text-[clamp(17px,1.8vw,20px)] leading-[1.8]" style={{ color: "hsl(220 12% 50%)" }}>
+                Und im Hintergrund läuft, was laufen kann:<br />
+                automatisch, aktualisiert, archiviert.
+              </p>
             </motion.div>
-          ))}
-        </div>
+          </div>
+        </section>
 
-        {/* Erklärender Satz unter den 3 Zuständen */}
-        <motion.div
-          className="mt-14 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
-        >
-          <p className="text-sm sm:text-base text-muted-foreground/80 leading-relaxed max-w-xl mx-auto">
-            Eigentümer priorisieren und entscheiden – Wegora übernimmt die Abläufe im Hintergrund.
-          </p>
-        </motion.div>
-      </section>
+        {/* Wie es sich anfühlt - Three Moments */}
+        <section className="pt-16 sm:pt-20 pb-24 sm:pb-32">
+          <div className="max-w-4xl mx-auto px-6">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "hsl(220 20% 20%)" }}>
+                Wie es sich anfühlt
+              </h2>
+            </motion.div>
 
-      {/* 7️⃣ Wegoras Rolle - Closing Band */}
-      <section
-        className="pt-28 md:pt-36 pb-24 md:pb-32"
-        style={{
-          background: "linear-gradient(to bottom, transparent 0%, rgba(36, 99, 235, 0.02) 40%, rgba(36, 99, 235, 0.04) 100%)"
-        }}
-      >
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              "Sie öffnen Wegora. Alles Wichtige ist vorbereitet.",
+              "Sie entscheiden.\nDie Informationen sind da.",
+              "Sie schließen Wegora. Der Rest passiert von selbst."
+            ].map((moment, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: idx * 0.15
+                }}
+                className="rounded-2xl p-8 sm:p-10 text-center"
+                style={{
+                  background: "linear-gradient(180deg, #F3F7FF 0%, #FFFFFF 70%)",
+                  border: "1px solid #E3EBFF",
+                  boxShadow: "0 12px 32px rgba(20, 40, 120, 0.06)"
+                }}
+              >
+                <p className="text-[clamp(16px,1.6vw,18px)] leading-[1.7] font-medium whitespace-pre-line" style={{ color: "hsl(220 12% 28%)" }}>
+                  {moment}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+          </div>
+        </section>
+      </div>
+
+      {/* 4️⃣ Closing Statement */}
+      <section className="pt-20 md:pt-24 pb-32 md:pb-44">
         <div className="max-w-3xl mx-auto px-6 text-center">
+          {/* Subtle horizontal line as visual signal */}
+          <motion.div
+            className="w-16 h-px mx-auto mb-20"
+            style={{ background: "hsl(220 15% 80%)" }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          />
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+            className="space-y-4"
           >
-            {/* Headline */}
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-5" style={{ color: "hsl(220 20% 18%)" }}>
-              Wegora ist die Assistenz hinter guter Immobiliensteuerung.
-            </h2>
-
-            {/* Subline */}
-            <p className="text-base sm:text-lg leading-relaxed mb-5 max-w-2xl mx-auto" style={{ color: "hsl(220 15% 45%)" }}>
-              Wegora hält Struktur, bündelt Kontext und bringt Entscheidungen dorthin, wo sie gebraucht werden.
+            <p className="text-[clamp(18px,1.9vw,20px)] leading-[1.65] font-medium" style={{ color: "rgba(0, 0, 0, 0.78)" }}>
+              Gute Immobiliensteuerung bedeutet, Entscheidungen treffen zu können —<br />
+              nicht, alles selbst im Blick behalten zu müssen.
             </p>
-
-            {/* Supporting Line */}
-            <p className="text-sm mb-14" style={{ color: "hsl(220 15% 60%)" }}>
-              Der Rest läuft im Hintergrund.
+            <p className="text-[clamp(16px,1.7vw,17px)] leading-[1.6]" style={{ color: "rgba(0, 0, 0, 0.58)" }}>
+              Das ist, wofür Wegora gebaut wird.
             </p>
-
-            {/* Soft CTA */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/registrieren"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#2463eb] text-white font-medium hover:bg-[#1d4ed8] transition-colors"
-              >
-                Jetzt registrieren
-              </a>
-              <a
-                href="/angebot"
-                className="text-sm font-medium text-[#2463eb]/70 hover:text-[#2463eb] transition-colors"
-              >
-                Unser Angebot ansehen →
-              </a>
-            </div>
           </motion.div>
         </div>
       </section>

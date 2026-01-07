@@ -247,6 +247,23 @@
   --input: 214 32% 91%;
   --ring: 214 100% 50%;
 
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TEXT GREY SYSTEM
+     Semantic grey tokens for consistent text hierarchy
+     Based on Slate palette with subtle blue undertone
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Primary text - use foreground (--foreground: 0 0% 4%) */
+
+  /* Secondary text - for subheadings, descriptions, body subtext */
+  --text-secondary: 215 16% 47%;        /* #64748b - Slate 500 */
+
+  /* Tertiary text - for eyebrow labels, hints, metadata */
+  --text-tertiary: 215 20% 65%;         /* #94a3b8 - Slate 400 */
+
+  /* Muted text - for disabled states, placeholders, very subtle text */
+  --text-muted: 215 14% 75%;            /* #b4bcc9 - Slate 300 */
+
   /* Border radius applied throughout the UI for consistent shape language */
   --radius: 0.5rem;
 
@@ -285,9 +302,13 @@
   /* ─────────────────────────────────────────────────────────────────────────────
      AREA-BASED COLORS (semantic)
      These define the two main product areas
+     Hero diagrams are conceptual/atmospheric, not UI-loud:
+     - Desaturated by ~30% from brand colors
+     - Lighter for "overview" feel
+     - Services below can be crisper
      ───────────────────────────────────────────────────────────────────────────── */
-  --illustration-weg: var(--primary);               /* Blau - WEG/Hausverwaltung (#0066FF) */
-  --illustration-owner: 174 72% 38%;                /* Teal - Eigentümer (#14B8A6) */
+  --illustration-weg: 214 60% 58%;                  /* Soft Blue - WEG/Hausverwaltung (conceptual) */
+  --illustration-owner: 174 72% 40%;                /* Teal - Eigentümer Branding (#14B8A6) */
 
   /* Context-aware accent - DEFAULT is WEG (blue) */
   --illustration-area-accent: var(--illustration-weg);

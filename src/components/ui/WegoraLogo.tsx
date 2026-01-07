@@ -1,4 +1,3 @@
-import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface WegoraLogoProps {
@@ -7,14 +6,24 @@ interface WegoraLogoProps {
   className?: string;
   onClick?: () => void;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  /** Context dot color - blue for WEG, green for Eigentümer */
+  dotContext?: 'weg' | 'eigentuemer' | 'none';
+  /**
+   * Dot weight context for perceptual balance.
+   * - 'compact': Navigation, footers, UI contexts (base size)
+   * - 'hero': Hero sections, brand statements (120% scale for visual weight)
+   */
+  dotWeight?: 'compact' | 'hero';
 }
 
-export function WegoraLogo({ 
-  variant = 'horizontal', 
+export function WegoraLogo({
+  variant = 'horizontal',
   colorMode = 'default',
   className,
   onClick,
-  size = 'md'
+  size = 'md',
+  dotContext = 'weg',
+  dotWeight = 'compact'
 }: WegoraLogoProps) {
   const sizeClasses = {
     sm: 'h-6',
@@ -24,53 +33,59 @@ export function WegoraLogo({
   };
 
   // For monochrome mode, we use currentColor
-  const logomarkColors = colorMode === 'monochrome' 
+  const logomarkColors = colorMode === 'monochrome'
     ? { primary: 'currentColor', accent: 'currentColor' }
     : colorMode === 'white'
     ? { primary: 'white', accent: 'white' }
-    : { primary: '#2563EB', accent: '#F97316' };
+    : { primary: '#2463eb', accent: '#F97316' };
 
-  const textColor = colorMode === 'monochrome' 
+  const textColor = colorMode === 'monochrome'
     ? 'currentColor'
     : colorMode === 'white'
     ? 'white'
     : '#0F172A';
 
-  const windowColor = colorMode === 'white' ? '#1f2937' : 'white';
-  const documentBg = colorMode === 'white' ? '#1f2937' : 'white';
-  const checkmarkStroke = colorMode === 'white' ? '#1f2937' : 'white';
+  const windowColor = colorMode === 'white' ? '#1f2937' : '#ffffff';
+
+  // Context dot colors - the dot that has "left" the house
+  const dotColor = colorMode === 'monochrome'
+    ? 'currentColor'
+    : colorMode === 'white'
+    ? 'white'
+    : dotContext === 'eigentuemer'
+    ? '#0d9488' // teal-600 for Eigentümer
+    : '#2463eb'; // blue for WEG (default)
+
+  // Dot sizes based on logo size - editorial fullstop feel
+  // Hero context scales up ~135% for perceptual balance in minimal layouts
+  const dotSizes = dotWeight === 'hero' ? {
+    sm: 'w-[3.2px] h-[3.2px]',
+    md: 'w-[4.5px] h-[4.5px]',
+    lg: 'w-[6.4px] h-[6.4px]',
+    xl: 'w-[9px] h-[9px]'
+  } : {
+    sm: 'w-[2.4px] h-[2.4px]',
+    md: 'w-[3.3px] h-[3.3px]',
+    lg: 'w-[4.75px] h-[4.75px]',
+    xl: 'w-[6.65px] h-[6.65px]'
+  };
 
   const LogomarkSVG = () => (
     <svg
-      viewBox="0 0 32 32"
+      viewBox="0 0 18 24"
       className={sizeClasses[size]}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <g id="logomark" transform="translate(1, 2)">
-        {/* Simple House Base with refined rounded corners */}
-        <rect x="2" y="16" width="14" height="12" rx="2" fill={logomarkColors.primary}/>
-        
-        {/* Simple House Roof */}
-        <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill={logomarkColors.primary}/>
-        
-        {/* Single Window with proper rounding */}
-        <rect x="6" y="20" width="2" height="2" rx="1" fill={windowColor}/>
-        
-        {/* Minimal Document/Checkmark Element */}
-        <g transform="translate(18, 14)">
-          {/* Simple Document with 2px stroke */}
-          <rect x="0" y="0" width="8" height="10" rx="2" fill={documentBg} stroke={logomarkColors.accent} strokeWidth="2"/>
-          
-          {/* Single Checkmark circle */}
-          <circle cx="2.5" cy="4" r="1.5" fill={logomarkColors.accent}/>
-          <path d="M1.8 4 L2.2 4.4 L3.2 3.4" stroke={checkmarkStroke} strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-          
-          {/* Simple line indicator */}
-          <rect x="4.5" y="3.5" width="2.5" height="1" rx="0.5" fill={logomarkColors.accent} opacity="0.4"/>
-        </g>
-      </g>
+      {/* House Base */}
+      <rect x="2" y="12" width="14" height="12" rx="2" fill={logomarkColors.primary}/>
+
+      {/* Roof - aligned to optical cap height */}
+      <path d="M1 13 L9 5 L17 13 L15 13 L9 7 L3 13 Z" fill={logomarkColors.primary}/>
+
+      {/* Window - temporarily hidden */}
+      {/* <rect x="4.9" y="15.7" width="2.6" height="2.6" rx="1.3" fill={windowColor}/> */}
     </svg>
   );
 
@@ -89,7 +104,7 @@ export function WegoraLogo({
 
   if (variant === 'stacked') {
     return (
-      <div 
+      <div
         className={cn(
           "flex flex-col items-center gap-2",
           onClick && "cursor-pointer hover:opacity-80 transition-opacity",
@@ -100,8 +115,8 @@ export function WegoraLogo({
         aria-label={onClick ? "Zur Startseite" : "Wegora Logo"}
       >
         <LogomarkSVG />
-        
-        <span 
+
+        <span
           className={cn(
             "font-semibold text-sm",
             size === 'sm' && "text-xs",
@@ -118,9 +133,9 @@ export function WegoraLogo({
 
   // Default horizontal variant
   return (
-    <div 
+    <div
       className={cn(
-        "flex items-center gap-3",
+        "flex items-center gap-1.5",
         onClick && "cursor-pointer hover:opacity-80 transition-opacity",
         className
       )}
@@ -128,13 +143,13 @@ export function WegoraLogo({
       role={onClick ? "button" : undefined}
       aria-label={onClick ? "Zur Startseite" : "Wegora Logo"}
     >
-      <div className="relative -translate-y-[6px]">
+      <div className="-translate-y-2 translate-x-0.5">
         <LogomarkSVG />
       </div>
-      
-      <span 
+
+      <span
         className={cn(
-          "font-semibold tracking-tight",
+          "font-semibold tracking-tight translate-y-px",
           size === 'sm' && "text-sm",
           size === 'md' && "text-xl md:text-2xl",
           size === 'lg' && "text-2xl md:text-3xl",
@@ -142,7 +157,15 @@ export function WegoraLogo({
         )}
         style={{ color: textColor }}
       >
-        Wegora
+        W<span style={{ letterSpacing: '0.01em' }}>e</span>gora
+        {/* Decision dot - like a fullstop after the 'a' */}
+        {dotContext !== 'none' && (
+          <span
+            className={cn("inline-block rounded-full ml-[0.15em] translate-y-[0.01em]", dotSizes[size])}
+            style={{ backgroundColor: dotColor }}
+            aria-hidden="true"
+          />
+        )}
       </span>
     </div>
   );

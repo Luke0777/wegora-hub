@@ -49,7 +49,7 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
           }
         `}</style>
 
-        {/* Dezenter innerer Kreis - sehr subtil für organisches Gefühl */}
+        {/* Dezenter innerer Kreis - very subtle for organic feel */}
         <g fill="none" strokeLinecap="round">
           <circle
             cx={CENTER.x}
@@ -58,22 +58,20 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
             stroke="hsl(var(--illustration-owner))"
             strokeWidth="var(--illustration-stroke-thin)"
             strokeDasharray="6 5"
-            opacity="var(--illustration-opacity-subtle)"
+            opacity="0.15"
           />
         </g>
 
-        {/* Zentrum: Haus-Icon */}
+        {/* Zentrum: Wegora House Icon */}
         <g transform={`translate(${CENTER.x}, ${CENTER.y})`}>
-          <circle cx="0" cy="0" r="67" fill="#FFFFFF" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-bold)" />
+          <circle cx="0" cy="0" r="67" fill="hsl(var(--illustration-owner) / 0.04)" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-default)" />
 
-          {/* Wohnungs-Icon - unified branding */}
-          <g transform="scale(3.15) translate(-9, -18.5)">
-            {/* Haus-Basis */}
-            <rect x="2" y="16" width="14" height="12" rx="2" fill="hsl(var(--illustration-owner))"/>
-            {/* Dach */}
-            <path d="M1 17 L9 9 L17 17 L15 17 L9 11 L3 17 Z" fill="hsl(var(--illustration-owner))"/>
-            {/* Single Window */}
-            <rect x="5.75" y="19.75" width="2.5" height="2.5" rx="1" fill="white"/>
+          {/* Wegora house icon - new logo style, centered */}
+          <g transform="translate(-25, -41) scale(2.8)">
+            {/* House Base */}
+            <rect x="2" y="12" width="14" height="12" rx="2" fill="hsl(var(--illustration-owner))"/>
+            {/* Roof */}
+            <path d="M1 13 L9 5 L17 13 L15 13 L9 7 L3 13 Z" fill="hsl(var(--illustration-owner))"/>
           </g>
         </g>
 
@@ -84,8 +82,8 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.5 }}
         >
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-owner))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-bold)" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-owner))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-owner) / 0.03)" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Dokument-Scan Icon - slightly bigger */}
           <g transform="scale(2.5)">
             <rect x="-6" y="-7" width="12" height="14" rx="1.2" fill="#FFFFFF" stroke="hsl(var(--illustration-owner))" strokeWidth="1.1" />
@@ -114,8 +112,8 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.55 }}
         >
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-owner))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-bold)" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-owner))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-owner) / 0.03)" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Balkendiagramm Icon - softer */}
           <g transform="scale(2.25)">
             <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.7" />
@@ -142,8 +140,8 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut", delay: 0.6 }}
         >
-          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-owner))" opacity="var(--illustration-opacity-light)" />
-          <circle cx="0" cy="0" r="54" fill="#FFFFFF" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-bold)" />
+          <circle cx="0" cy="0" r="60" fill="hsl(var(--illustration-owner))" opacity="0.08" />
+          <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-owner) / 0.03)" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Ordner Icon - with inner lines */}
           <g transform="scale(2.25)">
             <path d="M-9,-3 L-9,7 Q-9,8 -8,8 L8,8 Q9,8 9,7 L9,-3 Q9,-4 8,-4 L2,-4 L0.5,-6.5 L-7,-6.5 Q-9,-6.5 -9,-5 Z" fill="#FFFFFF" stroke="hsl(var(--illustration-owner))" strokeWidth="1.2" />

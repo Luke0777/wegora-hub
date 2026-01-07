@@ -22,7 +22,7 @@ export function VorgaengePage() {
       case 'offen':
         return 'bg-orange-100 text-orange-700 border-orange-200';
       case 'in_bearbeitung':
-        return 'bg-blue-100 text-blue-700 border-blue-200';
+        return 'bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20';
       case 'abgeschlossen':
         return 'bg-green-100 text-green-700 border-green-200';
       default:

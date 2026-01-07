@@ -218,15 +218,15 @@ export function OptimierungPage() {
                   </div>
 
                   {/* Recommendation 3: Modernization */}
-                  <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+                  <div className="p-4 rounded-lg bg-[#2463eb]/5 border border-[#2463eb]/20">
                     <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-blue-100">
-                        <Wrench className="h-5 w-5 text-blue-700" />
+                      <div className="p-2 rounded-lg bg-[#2463eb]/10">
+                        <Wrench className="h-5 w-5 text-[#2463eb]" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <p className="font-semibold">Modernisierungspotenzial</p>
-                          <Badge className="bg-blue-100 text-blue-700 border-0 text-xs">
+                          <Badge className="bg-[#2463eb]/10 text-[#2463eb] border-0 text-xs">
                             Langfristig
                           </Badge>
                         </div>
@@ -234,7 +234,7 @@ export function OptimierungPage() {
                           Energetische Sanierung oder Badmodernisierung können den Wert
                           steigern und höhere Mieten rechtfertigen.
                         </p>
-                        <Button variant="link" size="sm" className="text-blue-700 p-0 h-auto mt-2">
+                        <Button variant="link" size="sm" className="text-[#2463eb] p-0 h-auto mt-2">
                           Maßnahmen erkunden
                           <ArrowRight className="h-3 w-3 ml-1" />
                         </Button>

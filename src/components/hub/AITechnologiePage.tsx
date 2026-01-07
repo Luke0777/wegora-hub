@@ -64,7 +64,7 @@ export function AITechnologiePage() {
                   "Fehlerprävention",
                   "Zeitersparnis",
                 ],
-                color: "#10B981",
+                color: "#14B8A6",
               },
               {
                 icon: Lock,
@@ -148,7 +148,7 @@ export function AITechnologiePage() {
                   step: "2",
                   title: "Intelligent verknüpfen",
                   desc: "Alle Services greifen auf dieselbe Datenbasis zu. Keine Doppelungen, keine Inkonsistenzen.",
-                  color: "#10B981",
+                  color: "#14B8A6",
                 },
                 {
                   step: "3",
@@ -188,8 +188,8 @@ export function AITechnologiePage() {
                   Zugriff auf alle Services mit einem Account. Keine separaten Logins für verschiedene Tools.
                 </p>
               </div>
-              <div className="p-6 bg-[#10B981]/5 rounded-xl border-2 border-[#10B981]/10">
-                <h3 className="font-bold text-lg mb-3 text-[#10B981]">Eine Datenquelle</h3>
+              <div className="p-6 bg-[#14B8A6]/5 rounded-xl border-2 border-[#14B8A6]/10">
+                <h3 className="font-bold text-lg mb-3 text-[#14B8A6]">Eine Datenquelle</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Zentrale Verwaltung Ihrer Immobilien-Daten. Kein manuelles Übertragen zwischen Systemen.
                 </p>

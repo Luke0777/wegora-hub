@@ -236,7 +236,7 @@ export function WegoraHubPage() {
 
             {/* Partner Microline */}
             <p
-              className="text-sm leading-relaxed max-w-2xl mx-auto animate-fade-in text-gray-500"
+              className="text-sm leading-relaxed max-w-2xl mx-auto animate-fade-in text-muted-foreground"
               style={{
                 animationDelay: "0.4s",
                 animationFillMode: "forwards",
@@ -415,7 +415,7 @@ export function WegoraHubPage() {
             <h2 className="text-[clamp(32px,3.5vw,48px)] font-semibold mb-4 text-[#1A1A1A]" style={{ fontWeight: 600 }}>
               Ein System. Mehrere Services.
             </h2>
-            <p className="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" style={{ opacity: 0.6, color: "#1A1A1A" }}>
+            <p className="text-base sm:text-lg max-w-3xl mx-auto leading-relaxed" style={{ color: "hsl(var(--text-secondary))" }}>
               Starten Sie mit dem Service, den Sie heute brauchen.
             </p>
           </div>
@@ -503,7 +503,7 @@ export function WegoraHubPage() {
                     >
                       Bestehende Lösungen
                     </Badge>
-                    <p className="text-gray-600 text-sm font-semibold mt-2">
+                    <p className="text-sm font-semibold mt-2" style={{ color: "hsl(var(--text-secondary))" }}>
                       teuer und komplex
                     </p>
                   </div>
@@ -543,7 +543,7 @@ export function WegoraHubPage() {
                     >
                       Wegora Ansatz
                     </Badge>
-                    <p className="text-gray-600 text-sm font-semibold mt-2">
+                    <p className="text-sm font-semibold mt-2" style={{ color: "hsl(var(--text-secondary))" }}>
                       modular und effizient
                     </p>
                   </div>
@@ -559,7 +559,7 @@ export function WegoraHubPage() {
                         key={i}
                         className="flex items-start gap-3 text-sm text-foreground"
                       >
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                        <div className="w-2 h-2 bg-[#2463eb] rounded-full mt-1.5"></div>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -617,7 +617,7 @@ export function WegoraHubPage() {
                   "Einfache Nutzung",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5"></div>
+                    <div className="w-2 h-2 bg-[#2463eb] rounded-full mt-1.5"></div>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -781,7 +781,7 @@ export function WegoraHubPage() {
               </h3>
               <Button
                 size="lg"
-                className="text-sm sm:text-base px-6 sm:px-8 py-4 sm:py-6 h-auto bg-blue-600 hover:bg-blue-700 text-white"
+                className="text-sm sm:text-base px-6 sm:px-8 py-4 sm:py-6 h-auto bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
               >
                 <FileText className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Versammlung starten

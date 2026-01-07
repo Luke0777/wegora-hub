@@ -145,7 +145,7 @@ export function HubLayout({ children }: HubLayoutProps) {
         <div className="h-16 px-6 border-0 shadow-lg bg-background/95 backdrop-blur-sm mx-auto max-w-screen-xl rounded-lg">
           <div className="flex items-center h-full w-full gap-8">
             <Link to={isCockpit ? "/cockpit" : "/"}>
-              <WegoraLogo variant="horizontal" size="md" />
+              <WegoraLogo variant="horizontal" size="md" dotWeight="hero" />
             </Link>
 
             {isCockpit ? (

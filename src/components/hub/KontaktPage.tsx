@@ -32,14 +32,14 @@ export function KontaktPage() {
       >
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative">
           <div className="max-w-5xl mx-auto text-center pt-[34px]">
-            {/* Eyebrow Label - Wegora Blue */}
+            {/* Eyebrow Label - Wegora Blue, muted */}
             <motion.div
-              className="mb-4"
+              className="mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(12px,1.2vw,14px)] font-medium" style={{ color: "hsl(var(--text-tertiary))" }}>
                 Kontakt
               </p>
             </motion.div>
@@ -58,12 +58,12 @@ export function KontaktPage() {
             {/* Subline - Calm, forward-looking */}
             <motion.p
               className="text-[clamp(18px,2vw,22px)] leading-[1.6] max-w-3xl mx-auto mt-8"
-              style={{ opacity: 0.6, color: "#1A1A1A" }}
+              style={{ color: "hsl(var(--text-secondary))" }}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 0.6, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             >
-              Ob Fragen, Einordnung oder ein konkretes Anliegen – wir hören zu und melden uns, wenn wir etwas beitragen können.
+              Wir beantworten, was wir können. Und sagen ehrlich, wenn wir nicht die Richtigen sind.
             </motion.p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export function KontaktPage() {
             >
               <h2 className="text-2xl font-bold mb-3">Ihr Anliegen</h2>
               <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-                Beschreiben Sie kurz, wobei Sie Orientierung oder Unterstützung suchen.
+                Schildern Sie kurz Ihre Situation – wir melden uns.
               </p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -161,17 +161,17 @@ export function KontaktPage() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
+                      className="bg-[#2463eb]/90 hover:bg-[#2463eb] text-white px-5 py-2.5 text-[13px] font-medium"
                     >
-                      <EnvelopeSimple className="mr-2 h-5 w-5" />
-                      Nachricht senden
+                      <EnvelopeSimple className="mr-1.5 h-4 w-4" />
+                      Anfrage absenden
                     </Button>
                   </form>
                 </CardContent>
               </Card>
               </motion.div>
               <p className="text-sm text-muted-foreground text-center mt-6 leading-relaxed">
-                Wir lesen jede Anfrage sorgfältig und melden uns, wenn ein Austausch sinnvoll ist.
+                Wir melden uns innerhalb weniger Tage.
               </p>
             </motion.div>
           </div>
@@ -198,20 +198,20 @@ export function KontaktPage() {
             <div className="grid sm:grid-cols-2 gap-6 text-left">
               {[
                 {
-                  question: "Wie kann ich Wegora testen?",
-                  answer: "Jeder Service bietet unterschiedliche Testversionen an – von kostenlosen Testzeiträumen bis zu eingeschränkten Feature-Sets.",
+                  question: "Für wen ist Wegora gedacht?",
+                  answer: "Für Wohnungseigentümergemeinschaften, Einzeleigentümer und kleine Verwaltungen, die ihre Immobilienverwaltung strukturierter und transparenter gestalten möchten.",
                 },
                 {
-                  question: "Gibt es eine Demo?",
-                  answer: "Tutorial-Sessions sind in Planung. (Coming soon)",
+                  question: "Wie läuft eine Produktvorstellung ab?",
+                  answer: "Wir zeigen Ihnen in einem kurzen Termin, wie unsere Services funktionieren – unverbindlich und auf Ihre Situation zugeschnitten.",
                 },
                 {
-                  question: "Welche Preise bietet Wegora?",
-                  answer: "Informationen zu unseren Preismodellen finden Sie auf der Preise-Seite.",
+                  question: "Kann ich Services vorab testen?",
+                  answer: "Ja – über unsere Service-Seiten können Sie einzelne Angebote direkt ausprobieren.",
                 },
                 {
-                  question: "Ist technischer Support verfügbar?",
-                  answer: "Für technische Anfragen erreichen Sie uns unter support@wegora.de",
+                  question: "Wie schnell meldet ihr euch?",
+                  answer: "Sobald wir können. Wir lesen jede Anfrage und antworten, wenn wir etwas beitragen können.",
                 },
               ].map((faq, index) => (
                 <motion.div

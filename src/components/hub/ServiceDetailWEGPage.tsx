@@ -30,7 +30,7 @@ export function ServiceDetailWEGPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Service nicht gefunden</h1>
-          <Link to="/angebot-weg" className="text-[#2463eb] hover:text-blue-700">
+          <Link to="/angebot-weg" className="text-[#2463eb] hover:text-[#1d4ed8]">
             ← Zurück zur Übersicht
           </Link>
         </div>
@@ -61,7 +61,7 @@ export function ServiceDetailWEGPage() {
           >
             <Link
               to="/angebot-weg"
-              className="inline-flex items-center gap-2 text-[#2463eb] hover:text-blue-700 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-[#2463eb] hover:text-[#1d4ed8] transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm font-medium">Zurück zur Übersicht</span>
@@ -109,12 +109,12 @@ export function ServiceDetailWEGPage() {
       <section className="py-16 sm:py-24">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
-            className="bg-blue-50 border-2 border-blue-200 rounded-xl p-12 text-center"
+            className="bg-[#2463eb]/5 border-2 border-[#2463eb]/20 rounded-xl p-12 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
           >
-            <p className="text-blue-600 font-medium text-lg mb-2">
+            <p className="text-[#2463eb] font-medium text-lg mb-2">
               Detailseite in Arbeit
             </p>
             <p className="text-muted-foreground">
