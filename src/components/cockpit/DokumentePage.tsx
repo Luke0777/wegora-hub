@@ -47,7 +47,7 @@ export function DokumentePage() {
       case 'vertrag':
         return 'bg-purple-100 text-purple-700 border-purple-200';
       case 'protokoll':
-        return 'bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20';
+        return 'bg-weg-500/10 text-weg-500 border-weg-500/20';
       case 'beschluss':
         return 'bg-orange-100 text-orange-700 border-orange-200';
       default:
@@ -62,7 +62,7 @@ export function DokumentePage() {
   };
 
   const bgGradient = mode === 'eigentuemer'
-    ? 'from-teal-50/30 to-background'
+    ? 'from-owner-50/30 to-background'
     : 'from-background to-muted/30';
 
   return (
@@ -79,10 +79,10 @@ export function DokumentePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="rounded-xl p-3 border-2 bg-teal-50/80 border-teal-200">
+            <div className="rounded-xl p-3 border-2 bg-owner-50/80 border-owner-200">
               <div className="flex items-center gap-2">
-                <House className="h-4 w-4 text-teal-700" />
-                <span className="font-medium text-teal-800">
+                <House className="h-4 w-4 text-owner-700" />
+                <span className="font-medium text-owner-800">
                   {currentOwnedUnit.unitName} – {currentOwnedUnit.objectName}
                 </span>
               </div>
@@ -101,15 +101,15 @@ export function DokumentePage() {
             <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
               Dokumente
             </h1>
-            <p className={mode === 'eigentuemer' ? 'text-teal-700 mt-1' : 'text-muted-foreground mt-1'}>
+            <p className={mode === 'eigentuemer' ? 'text-owner-700 mt-1' : 'text-muted-foreground mt-1'}>
               {mode === 'eigentuemer'
                 ? `Dokumente für ${currentOwnedUnit?.unitName || 'Ihre Wohnung'}`
                 : `Dokumente für ${currentObject?.name || 'Objekt'}`}
             </p>
           </div>
           <Button className={mode === 'eigentuemer'
-            ? 'bg-teal-600 hover:bg-teal-700 text-white'
-            : 'bg-[#2463eb] hover:bg-[#1d4ed8] text-white'}>
+            ? 'bg-owner-600 hover:bg-owner-700 text-white'
+            : 'bg-weg-500 hover:bg-weg-600 text-white'}>
             <Upload className="h-4 w-4 mr-2" />
             Hochladen
           </Button>
@@ -127,7 +127,7 @@ export function DokumentePage() {
             <input
               type="text"
               placeholder="Dokumente durchsuchen..."
-              className="w-full pl-10 pr-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2463eb] focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-weg-500 focus:border-transparent"
             />
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -135,16 +135,16 @@ export function DokumentePage() {
               <FunnelSimple className="h-4 w-4" />
               Filter
             </Button>
-            <Badge variant="outline" className="cursor-pointer hover:bg-[#2463eb]/10 hover:border-[#2463eb]">
+            <Badge variant="outline" className="cursor-pointer hover:bg-weg-500/10 hover:border-weg-500">
               Alle Typen
             </Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-[#2463eb]/10 hover:border-[#2463eb]">
+            <Badge variant="outline" className="cursor-pointer hover:bg-weg-500/10 hover:border-weg-500">
               Abrechnungen
             </Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-[#2463eb]/10 hover:border-[#2463eb]">
+            <Badge variant="outline" className="cursor-pointer hover:bg-weg-500/10 hover:border-weg-500">
               Verträge
             </Badge>
-            <Badge variant="outline" className="cursor-pointer hover:bg-[#2463eb]/10 hover:border-[#2463eb]">
+            <Badge variant="outline" className="cursor-pointer hover:bg-weg-500/10 hover:border-weg-500">
               Protokolle
             </Badge>
           </div>
@@ -159,7 +159,7 @@ export function DokumentePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 + index * 0.03 }}
             >
-              <Card className="border-2 border-muted hover:border-[#2463eb]/30 transition-colors cursor-pointer">
+              <Card className="border-2 border-muted hover:border-weg-500/30 transition-colors cursor-pointer">
                 <CardContent className="p-4">
                   <div className="flex items-center gap-4">
                     <div className="p-2 rounded-lg bg-red-50">
@@ -209,8 +209,8 @@ export function DokumentePage() {
               Laden Sie Ihr erstes Dokument hoch.
             </p>
             <Button className={mode === 'eigentuemer'
-              ? 'bg-teal-600 hover:bg-teal-700 text-white'
-              : 'bg-[#2463eb] hover:bg-[#1d4ed8] text-white'}>
+              ? 'bg-owner-600 hover:bg-owner-700 text-white'
+              : 'bg-weg-500 hover:bg-weg-600 text-white'}>
               <Upload className="h-4 w-4 mr-2" />
               Dokument hochladen
             </Button>

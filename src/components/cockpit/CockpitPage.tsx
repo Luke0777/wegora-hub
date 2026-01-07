@@ -79,7 +79,7 @@ export function CockpitPage() {
       case 'offen':
         return 'bg-orange-100 text-orange-700';
       case 'in_bearbeitung':
-        return 'bg-[#2463eb]/10 text-[#2463eb]';
+        return 'bg-weg-500/10 text-weg-500';
       case 'abgeschlossen':
         return 'bg-green-100 text-green-700';
       default:
@@ -119,7 +119,7 @@ export function CockpitPage() {
   // ============================================
   if (mode === 'eigentuemer') {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-teal-50/30 to-background">
+      <div className="min-h-screen bg-gradient-to-b from-owner-50/30 to-background">
         {/* Spacer for fixed header */}
         <div className="h-24" />
 
@@ -130,7 +130,7 @@ export function CockpitPage() {
               <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
                 Meine Wohnungen
               </h1>
-              <p className="text-teal-700 mt-1 font-medium">
+              <p className="text-owner-700 mt-1 font-medium">
                 {myOwnedUnits.length} Einheiten im Eigentum
               </p>
             </div>
@@ -143,16 +143,16 @@ export function CockpitPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.05 }}
           >
-            <div className="rounded-xl p-4 border-2 bg-teal-50/80 border-teal-200">
+            <div className="rounded-xl p-4 border-2 bg-owner-50/80 border-owner-200">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-teal-100">
-                  <House className="h-5 w-5 text-teal-700" />
+                <div className="p-2 rounded-lg bg-owner-100">
+                  <House className="h-5 w-5 text-owner-700" />
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">
                     {currentOwnedUnit?.unitName} – {tenant?.name || 'Kein Mieter'}
                   </p>
-                  <p className="text-sm text-teal-700">
+                  <p className="text-sm text-owner-700">
                     {currentOwnedUnit?.objectName}
                   </p>
                 </div>
@@ -172,9 +172,9 @@ export function CockpitPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
-                <Card className="border-2 border-teal-100 bg-white">
+                <Card className="border-2 border-owner-100 bg-white">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-xl font-bold flex items-center gap-2 text-teal-800">
+                    <CardTitle className="text-xl font-bold flex items-center gap-2 text-owner-800">
                       <CurrencyEur className="h-6 w-6" />
                       Ihre Finanzen für {currentOwnedUnit?.unitName || 'Ihre Wohnung'} (2025)
                     </CardTitle>
@@ -199,15 +199,15 @@ export function CockpitPage() {
                         </div>
 
                         {/* Cashflow Highlight */}
-                        <div className="p-4 rounded-xl bg-teal-100 border border-teal-300">
+                        <div className="p-4 rounded-xl bg-owner-100 border border-owner-300">
                           <div className="flex items-center justify-between">
                             <div>
-                              <p className="text-sm text-teal-800 font-medium">Cashflow</p>
-                              <p className="text-3xl font-bold text-teal-900">
+                              <p className="text-sm text-owner-800 font-medium">Cashflow</p>
+                              <p className="text-3xl font-bold text-owner-900">
                                 + {eigentuemerFinance.cashflow.toLocaleString('de-DE')} €
                               </p>
                             </div>
-                            <TrendUp className="h-10 w-10 text-teal-600" weight="bold" />
+                            <TrendUp className="h-10 w-10 text-owner-600" weight="bold" />
                           </div>
                         </div>
 
@@ -227,7 +227,7 @@ export function CockpitPage() {
                           </div>
                         </div>
 
-                        <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
+                        <Button className="w-full bg-owner-600 hover:bg-owner-700 text-white">
                           Finanzen im Detail
                           <ArrowRight className="h-4 w-4 ml-2" />
                         </Button>
@@ -250,7 +250,7 @@ export function CockpitPage() {
                 <Card className="border-2 border-muted">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                      <User className="h-5 w-5 text-teal-600" />
+                      <User className="h-5 w-5 text-owner-600" />
                       Mieter
                     </CardTitle>
                   </CardHeader>
@@ -258,8 +258,8 @@ export function CockpitPage() {
                     {tenant ? (
                       <div className="space-y-4">
                         <div className="flex items-start gap-4">
-                          <div className="p-3 rounded-full bg-teal-100">
-                            <User className="h-6 w-6 text-teal-700" />
+                          <div className="p-3 rounded-full bg-owner-100">
+                            <User className="h-6 w-6 text-owner-700" />
                           </div>
                           <div className="flex-1">
                             <p className="font-semibold text-lg">{tenant.name}</p>
@@ -334,7 +334,7 @@ export function CockpitPage() {
                 <Card className="border-2 border-muted">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-teal-600" />
+                      <CheckCircle className="h-5 w-5 text-owner-600" />
                       Anstehend
                     </CardTitle>
                   </CardHeader>
@@ -346,14 +346,14 @@ export function CockpitPage() {
                           className={`flex items-start gap-3 p-3 rounded-lg transition-colors cursor-pointer ${
                             task.completed
                               ? 'bg-muted/50 opacity-60'
-                              : 'bg-teal-50/50 hover:bg-teal-50'
+                              : 'bg-owner-50/50 hover:bg-owner-50'
                           }`}
                           onClick={() => toggleTask(task.id)}
                         >
                           {task.completed ? (
                             <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" weight="fill" />
                           ) : (
-                            <Circle className="h-5 w-5 text-teal-400 flex-shrink-0 mt-0.5" />
+                            <Circle className="h-5 w-5 text-owner-400 flex-shrink-0 mt-0.5" />
                           )}
                           <div className="flex-1 min-w-0">
                             <p className={`text-sm font-medium ${task.completed ? 'line-through text-muted-foreground' : ''}`}>
@@ -418,7 +418,7 @@ export function CockpitPage() {
                 <Card className="border-2 border-muted">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-base font-semibold flex items-center gap-2">
-                      <FileText className="h-4 w-4 text-teal-600" />
+                      <FileText className="h-4 w-4 text-owner-600" />
                       Dokumente
                     </CardTitle>
                   </CardHeader>
@@ -439,7 +439,7 @@ export function CockpitPage() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="w-full mt-2 text-teal-700 hover:text-teal-800 hover:bg-teal-50 text-sm"
+                      className="w-full mt-2 text-owner-700 hover:text-owner-800 hover:bg-owner-50 text-sm"
                     >
                       Alle Dokumente
                       <ArrowRight className="h-3 w-3 ml-1" />
@@ -454,20 +454,20 @@ export function CockpitPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.35 }}
               >
-                <Card className="border-2 border-teal-200 bg-teal-50/50">
+                <Card className="border-2 border-owner-200 bg-owner-50/50">
                   <CardHeader className="pb-3">
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                      <Lightbulb className="h-5 w-5 text-teal-600" />
+                      <Lightbulb className="h-5 w-5 text-owner-600" />
                       Optimierung
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="p-3 rounded-lg bg-white border border-teal-200">
+                    <div className="p-3 rounded-lg bg-white border border-owner-200">
                       <p className="text-sm font-medium">Rendite verbessern</p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Die Nettomietrendite könnte um ca. 1,2% verbessert werden durch Optimierung der Nebenkosten.
                       </p>
-                      <p className="text-xs text-teal-700 mt-2 flex items-center gap-1">
+                      <p className="text-xs text-owner-700 mt-2 flex items-center gap-1">
                         <TrendUp className="h-3 w-3" />
                         Basierend auf: Ihre Finanzdaten
                       </p>
@@ -497,7 +497,7 @@ export function CockpitPage() {
             <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
               Meine WEG
             </h1>
-            <p className="text-[#2463eb] mt-1 font-medium">
+            <p className="text-weg-500 mt-1 font-medium">
               Gemeinschafts-Übersicht
             </p>
           </div>
@@ -510,16 +510,16 @@ export function CockpitPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}
         >
-          <div className="rounded-xl p-4 border-2 bg-[#2463eb]/5 border-[#2463eb]/20">
+          <div className="rounded-xl p-4 border-2 bg-weg-500/5 border-weg-500/20">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-[#2463eb]/10">
-                <Users className="h-5 w-5 text-[#2463eb]" />
+              <div className="p-2 rounded-lg bg-weg-500/10">
+                <Users className="h-5 w-5 text-weg-500" />
               </div>
               <div className="flex-1">
                 <p className="font-semibold text-foreground">
                   {currentObject?.name}
                 </p>
-                <p className="text-sm text-[#2463eb]">
+                <p className="text-sm text-weg-500">
                   Gemeinschafts-Ansicht (WEG)
                 </p>
               </div>
@@ -531,7 +531,7 @@ export function CockpitPage() {
                     {currentObject.openCases} offene Vorgänge
                   </Badge>
                 )}
-                <Badge variant="outline" className="bg-white/80 text-[#2463eb] border-[#2463eb]/20">
+                <Badge variant="outline" className="bg-white/80 text-weg-500 border-weg-500/20">
                   <Clock className="h-3 w-3 mr-1" />
                   Abrechnung in Arbeit
                 </Badge>
@@ -553,7 +553,7 @@ export function CockpitPage() {
               <Card className="border-2 border-muted">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-[#2463eb]" />
+                    <CheckCircle className="h-5 w-5 text-weg-500" />
                     Anstehendes
                   </CardTitle>
                 </CardHeader>
@@ -589,7 +589,7 @@ export function CockpitPage() {
                   </div>
                   <Button
                     variant="ghost"
-                    className="w-full mt-4 text-[#2463eb] hover:text-[#1d4ed8] hover:bg-[#2463eb]/10"
+                    className="w-full mt-4 text-weg-500 hover:text-weg-600 hover:bg-weg-500/10"
                   >
                     Neuen Vorgang anlegen
                     <ArrowRight className="h-4 w-4 ml-2" />
@@ -693,7 +693,7 @@ export function CockpitPage() {
                   </div>
                   <Button
                     variant="ghost"
-                    className="w-full mt-4 text-[#2463eb] hover:text-[#1d4ed8] hover:bg-[#2463eb]/10"
+                    className="w-full mt-4 text-weg-500 hover:text-weg-600 hover:bg-weg-500/10"
                   >
                     Alle Vorgänge anzeigen
                     <ArrowRight className="h-4 w-4 ml-2" />
@@ -715,7 +715,7 @@ export function CockpitPage() {
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                      <CurrencyEur className="h-5 w-5 text-[#2463eb]" />
+                      <CurrencyEur className="h-5 w-5 text-weg-500" />
                       Finanzen
                     </CardTitle>
                   </div>
@@ -756,7 +756,7 @@ export function CockpitPage() {
                   </div>
                   <Button
                     variant="ghost"
-                    className="w-full mt-4 text-[#2463eb] hover:text-[#1d4ed8] hover:bg-[#2463eb]/10"
+                    className="w-full mt-4 text-weg-500 hover:text-weg-600 hover:bg-weg-500/10"
                   >
                     Zu Finanzen
                     <ArrowRight className="h-4 w-4 ml-2" />
@@ -774,7 +774,7 @@ export function CockpitPage() {
               <Card className="border-2 border-muted">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base font-semibold flex items-center gap-2">
-                    <FileText className="h-4 w-4 text-[#2463eb]" />
+                    <FileText className="h-4 w-4 text-weg-500" />
                     Dokumente
                   </CardTitle>
                 </CardHeader>
@@ -798,7 +798,7 @@ export function CockpitPage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full mt-2 text-[#2463eb] hover:text-[#1d4ed8] hover:bg-[#2463eb]/10 text-sm"
+                    className="w-full mt-2 text-weg-500 hover:text-weg-600 hover:bg-weg-500/10 text-sm"
                   >
                     Alle Dokumente
                     <ArrowRight className="h-3 w-3 ml-1" />
@@ -813,7 +813,7 @@ export function CockpitPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.5 }}
             >
-              <Card className="border-2 border-[#2463eb]/20 bg-[#F8FAFF]">
+              <Card className="border-2 border-weg-500/20 bg-[#F8FAFF]">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg font-semibold flex items-center gap-2">
                     <Lightbulb className="h-5 w-5 text-[#F97316]" />
@@ -827,14 +827,14 @@ export function CockpitPage() {
                       <p className="text-xs text-muted-foreground mt-1">
                         Die Kosten für die Treppenhausreinigung sind deutlich gestiegen.
                       </p>
-                      <p className="text-xs text-[#2463eb] mt-2 flex items-center gap-1">
+                      <p className="text-xs text-weg-500 mt-2 flex items-center gap-1">
                         <CurrencyEur className="h-3 w-3" />
                         Basierend auf: Betriebskosten
                       </p>
                       <Button
                         variant="outline"
                         size="sm"
-                        className="mt-3 text-xs h-7 gap-1 border-[#2463eb]/30 text-[#2463eb] hover:bg-[#2463eb]/10"
+                        className="mt-3 text-xs h-7 gap-1 border-weg-500/30 text-weg-500 hover:bg-weg-500/10"
                       >
                         <Plus className="h-3 w-3" />
                         Vorgang anlegen

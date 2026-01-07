@@ -102,7 +102,7 @@ export function VisionPage() {
                 }}
               >
                 <CaretDown
-                  className="w-10 h-10 text-[#2463eb]/70 hover:text-[#2463eb] transition-colors"
+                  className="w-10 h-10 text-weg-500/70 hover:text-weg-500 transition-colors"
                   weight="bold"
                 />
               </motion.div>

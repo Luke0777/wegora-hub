@@ -70,7 +70,7 @@ export function NeuigkeitenPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-weg-500 tracking-wide" style={{ fontWeight: 600 }}>
                 Neuigkeiten
               </p>
             </motion.div>
@@ -139,7 +139,7 @@ export function NeuigkeitenPage() {
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <CaretDown
-                  className="w-10 h-10 text-[#2463eb]/70 hover:text-[#2463eb] transition-colors"
+                  className="w-10 h-10 text-weg-500/70 hover:text-weg-500 transition-colors"
                   weight="bold"
                 />
               </motion.div>
@@ -191,7 +191,7 @@ export function NeuigkeitenPage() {
                         <div className="flex-shrink-0">
                           <div className="w-14 h-14 rounded-lg bg-white border border-[rgba(47,102,255,0.2)] flex items-center justify-center">
                             <IconComponent
-                              className="w-7 h-7 text-[#2463eb]"
+                              className="w-7 h-7 text-weg-500"
                               weight="regular"
                             />
                           </div>
@@ -285,7 +285,7 @@ export function NeuigkeitenPage() {
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#F8FAFF] border border-[rgba(47,102,255,0.2)] flex items-center justify-center">
                         <IconComponent
-                          className="w-5 h-5 text-[#2463eb]"
+                          className="w-5 h-5 text-weg-500"
                           weight="regular"
                         />
                       </div>

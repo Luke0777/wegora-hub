@@ -26,7 +26,7 @@ export function ServiceDetailEigentuemerPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Service nicht gefunden</h1>
-          <Link to="/angebot-eigentuemer" className="text-teal-500 hover:text-teal-600">
+          <Link to="/angebot-eigentuemer" className="text-owner-500 hover:text-owner-600">
             ← Zurück zur Übersicht
           </Link>
         </div>
@@ -45,7 +45,7 @@ export function ServiceDetailEigentuemerPage() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse 80% 70% at 90% 15%, rgba(20, 184, 166, 0.11) 0%, transparent 70%)"
+            background: "radial-gradient(ellipse 80% 70% at 90% 15%, rgba(0, 128, 128, 0.11) 0%, transparent 70%)"
           }}
         />
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative">
@@ -57,7 +57,7 @@ export function ServiceDetailEigentuemerPage() {
           >
             <Link
               to="/angebot-eigentuemer"
-              className="inline-flex items-center gap-2 text-teal-500 hover:text-teal-600 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-owner-500 hover:text-owner-600 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm font-medium">Zurück zur Übersicht</span>
@@ -72,7 +72,7 @@ export function ServiceDetailEigentuemerPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-lg font-semibold text-teal-500 tracking-wide">
+              <p className="text-lg font-semibold text-owner-500 tracking-wide">
                 Wegora Eigentümer
               </p>
             </motion.div>
@@ -105,12 +105,12 @@ export function ServiceDetailEigentuemerPage() {
       <section className="py-16 sm:py-24">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
-            className="bg-teal-50 border-2 border-teal-200 rounded-xl p-12 text-center"
+            className="bg-owner-50 border-2 border-owner-200 rounded-xl p-12 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
           >
-            <p className="text-teal-600 font-medium text-lg mb-2">
+            <p className="text-owner-600 font-medium text-lg mb-2">
               Detailseite in Arbeit
             </p>
             <p className="text-muted-foreground">

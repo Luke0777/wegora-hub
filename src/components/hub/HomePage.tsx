@@ -103,7 +103,7 @@ export function HomePage() {
                 }}
               >
                 <CaretDown
-                  className="w-10 h-10 text-[#2463eb]/70 hover:text-[#2463eb] transition-colors"
+                  className="w-10 h-10 text-weg-500/70 hover:text-weg-500 transition-colors"
                   weight="bold"
                 />
               </motion.div>
@@ -192,12 +192,12 @@ export function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="flex flex-col"
             >
-              <div className="relative overflow-hidden rounded-2xl border-2 border-[#2463eb]/20 bg-gradient-to-br from-[#2463eb]/5 to-white p-8 shadow-sm hover:shadow-2xl hover:shadow-[#2463eb]/10 transition-all duration-300 flex-1 flex flex-col">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#2463eb]/5 rounded-full -mr-16 -mt-16" />
+              <div className="relative overflow-hidden rounded-2xl border-2 border-weg-500/20 bg-gradient-to-br from-weg-50 to-white p-8 shadow-sm hover:shadow-2xl hover:shadow-weg-500/10 transition-all duration-300 flex-1 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-weg-500/5 rounded-full -mr-16 -mt-16" />
 
                 <div className="relative flex flex-col flex-1">
-                  <div className="w-16 h-16 bg-[#2463eb]/10 rounded-xl flex items-center justify-center mb-6">
-                    <Buildings className="h-8 w-8 text-[#2463eb]" weight="duotone" />
+                  <div className="w-16 h-16 bg-weg-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <Buildings className="h-8 w-8 text-weg-500" weight="duotone" />
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-semibold text-[#1A1A1A] mb-4">
@@ -208,7 +208,7 @@ export function HomePage() {
                   </p>
 
                   <div className="mt-auto">
-                    <Link to="/angebot-weg" className="text-[#2463eb] hover:text-[#1d4ed8] font-medium inline-flex items-center group">
+                    <Link to="/angebot-weg" className="text-weg-500 hover:text-weg-600 font-medium inline-flex items-center group">
                       Versammlungen, Finanzen, Dokumente
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -225,12 +225,12 @@ export function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               className="flex flex-col"
             >
-              <div className="relative overflow-hidden rounded-2xl border-2 border-teal-500/20 bg-gradient-to-br from-teal-50 to-white p-8 shadow-sm hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 flex-1 flex flex-col">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full -mr-16 -mt-16" />
+              <div className="relative overflow-hidden rounded-2xl border-2 border-owner-500/20 bg-gradient-to-br from-owner-50 to-white p-8 shadow-sm hover:shadow-2xl hover:shadow-owner-500/10 transition-all duration-300 flex-1 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-owner-500/5 rounded-full -mr-16 -mt-16" />
 
                 <div className="relative flex flex-col flex-1">
-                  <div className="w-16 h-16 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
-                    <House className="h-8 w-8 text-teal-500" weight="duotone" />
+                  <div className="w-16 h-16 bg-owner-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <House className="h-8 w-8 text-owner-500" weight="duotone" />
                   </div>
 
                   <h3 className="text-2xl sm:text-3xl font-semibold text-[#1A1A1A] mb-4">
@@ -241,7 +241,7 @@ export function HomePage() {
                   </p>
 
                   <div className="mt-auto">
-                    <Link to="/angebot-eigentuemer" className="text-teal-600 hover:text-teal-700 font-medium inline-flex items-center group">
+                    <Link to="/angebot-eigentuemer" className="text-owner-600 hover:text-owner-700 font-medium inline-flex items-center group">
                       Nebenkosten, Dokumente, Finanzen
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -285,13 +285,13 @@ export function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
               <Link to="/angebot-weg">
-                <Button size="default" className="px-5 py-2.5 h-auto bg-[#2463eb]/90 hover:bg-[#2463eb] text-white hover:text-white text-[13px] font-medium">
+                <Button size="default" className="px-5 py-2.5 h-auto bg-weg-500/90 hover:bg-weg-500 text-white hover:text-white text-[13px] font-medium">
                   <Buildings className="mr-1.5 h-4 w-4" weight="duotone" />
                   WEG-Module
                 </Button>
               </Link>
               <Link to="/angebot-eigentuemer">
-                <Button size="default" className="px-5 py-2.5 h-auto bg-teal-500/90 hover:bg-teal-500 text-white hover:text-white text-[13px] font-medium">
+                <Button size="default" className="px-5 py-2.5 h-auto bg-owner-500/90 hover:bg-owner-500 text-white hover:text-white text-[13px] font-medium">
                   <House className="mr-1.5 h-4 w-4" weight="duotone" />
                   Eigentümer-Module
                 </Button>

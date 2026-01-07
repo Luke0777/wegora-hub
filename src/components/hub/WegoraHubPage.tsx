@@ -166,12 +166,12 @@ export function WegoraHubPage() {
           <div className="flex items-center h-full w-full gap-8">
             <WegoraLogo variant="horizontal" size="md" />
             <nav className="flex-1 flex items-center gap-2">
-              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Start</Link>
-              <Link to="/ueber-uns" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Über uns</Link>
-              <Link to="/vision" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Vision</Link>
-              <Link to="/unser-angebot" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Unser Angebot</Link>
-              <Link to="/services" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">Services</Link>
-              <Link to="/ai-technologie" className="text-sm font-medium text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10 transition-all px-3 py-2 rounded-md">AI & Technologie</Link>
+              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Start</Link>
+              <Link to="/ueber-uns" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Über uns</Link>
+              <Link to="/vision" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Vision</Link>
+              <Link to="/unser-angebot" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Unser Angebot</Link>
+              <Link to="/services" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Services</Link>
+              <Link to="/ai-technologie" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">AI & Technologie</Link>
             </nav>
             <Link to="/kontakt">
               <Button
@@ -202,7 +202,7 @@ export function WegoraHubPage() {
                 animationFillMode: "forwards",
               }}
             >
-              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-[#2463eb] tracking-wide" style={{ fontWeight: 600 }}>
+              <p className="text-[clamp(20px,2.5vw,28px)] font-semibold text-weg-500 tracking-wide" style={{ fontWeight: 600 }}>
                 Wegora
               </p>
             </div>
@@ -250,14 +250,14 @@ export function WegoraHubPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
               <Button
                 size="lg"
-                className="h-auto px-8 py-4 text-base font-medium rounded-xl bg-[#2463eb] hover:bg-[#1d4ed8] text-white transition-all duration-200"
+                className="h-auto px-8 py-4 text-base font-medium rounded-xl bg-weg-500 hover:bg-weg-600 text-white transition-all duration-200"
                 style={{ fontWeight: 500 }}
               >
                 Jetzt registrieren
               </Button>
               <a
                 href="#services"
-                className="text-base font-medium text-[#2463eb] hover:text-[#1d4ed8] transition-colors flex items-center gap-1"
+                className="text-base font-medium text-weg-500 hover:text-weg-600 transition-colors flex items-center gap-1"
               >
                 Unsere Services
                 <ArrowRight className="h-4 w-4" />
@@ -394,7 +394,7 @@ export function WegoraHubPage() {
                         <Badge
                           key={idx}
                           variant="outline"
-                          className="text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                          className="text-[10px] px-2 py-0.5 bg-weg-500/10 text-weg-500 border-weg-500/20"
                         >
                           {platform}
                         </Badge>
@@ -559,7 +559,7 @@ export function WegoraHubPage() {
                         key={i}
                         className="flex items-start gap-3 text-sm text-foreground"
                       >
-                        <div className="w-2 h-2 bg-[#2463eb] rounded-full mt-1.5"></div>
+                        <div className="w-2 h-2 bg-weg-500 rounded-full mt-1.5"></div>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -617,7 +617,7 @@ export function WegoraHubPage() {
                   "Einfache Nutzung",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
-                    <div className="w-2 h-2 bg-[#2463eb] rounded-full mt-1.5"></div>
+                    <div className="w-2 h-2 bg-weg-500 rounded-full mt-1.5"></div>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -781,7 +781,7 @@ export function WegoraHubPage() {
               </h3>
               <Button
                 size="lg"
-                className="text-sm sm:text-base px-6 sm:px-8 py-4 sm:py-6 h-auto bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
+                className="text-sm sm:text-base px-6 sm:px-8 py-4 sm:py-6 h-auto bg-weg-500 hover:bg-weg-600 text-white"
               >
                 <FileText className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Versammlung starten

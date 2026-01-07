@@ -42,7 +42,7 @@ export function AITechnologiePage() {
                   "Automatische Datenbelegung",
                   "Plausibilitätsprüfungen",
                 ],
-                color: "#2463eb",
+                color: "hsl(var(--weg-500))",
               },
               {
                 icon: Lightbulb,
@@ -64,7 +64,7 @@ export function AITechnologiePage() {
                   "Fehlerprävention",
                   "Zeitersparnis",
                 ],
-                color: "#14B8A6",
+                color: "hsl(var(--owner-500))",
               },
               {
                 icon: Lock,
@@ -148,7 +148,7 @@ export function AITechnologiePage() {
                   step: "2",
                   title: "Intelligent verknüpfen",
                   desc: "Alle Services greifen auf dieselbe Datenbasis zu. Keine Doppelungen, keine Inkonsistenzen.",
-                  color: "#14B8A6",
+                  color: "hsl(var(--owner-500))",
                 },
                 {
                   step: "3",
@@ -182,14 +182,14 @@ export function AITechnologiePage() {
 
             {/* Key Benefits */}
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-[#2463eb]/5 rounded-xl border-2 border-[#2463eb]/10">
-                <h3 className="font-bold text-lg mb-3 text-[#2463eb]">Ein einziges Login</h3>
+              <div className="p-6 bg-weg-500/5 rounded-xl border-2 border-weg-500/10">
+                <h3 className="font-bold text-lg mb-3 text-weg-500">Ein einziges Login</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Zugriff auf alle Services mit einem Account. Keine separaten Logins für verschiedene Tools.
                 </p>
               </div>
-              <div className="p-6 bg-[#14B8A6]/5 rounded-xl border-2 border-[#14B8A6]/10">
-                <h3 className="font-bold text-lg mb-3 text-[#14B8A6]">Eine Datenquelle</h3>
+              <div className="p-6 bg-owner-500/5 rounded-xl border-2 border-owner-500/10">
+                <h3 className="font-bold text-lg mb-3 text-owner-500">Eine Datenquelle</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Zentrale Verwaltung Ihrer Immobilien-Daten. Kein manuelles Übertragen zwischen Systemen.
                 </p>
@@ -268,7 +268,7 @@ export function AITechnologiePage() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
               Wir entwickeln unsere Technologie ständig weiter, um Ihnen die besten Lösungen zu bieten. Machine Learning, Natural Language Processing und fortschrittliche Datenanalyse sind nur einige der Bereiche, in denen wir aktiv forschen und entwickeln.
             </p>
-            <div className="p-8 bg-gradient-to-r from-[#2463eb]/10 to-[#10B981]/10 rounded-xl border-2 border-[#2463eb]/20">
+            <div className="p-8 bg-gradient-to-r from-weg-500/10 to-[#10B981]/10 rounded-xl border-2 border-weg-500/20">
               <p className="text-sm text-foreground/80">
                 <strong className="text-primary">Roadmap:</strong> Wir arbeiten kontinuierlich an neuen AI-Features, verbesserten Automatisierungen und smarteren Assistenten, um Ihre Verwaltungsarbeit noch effizienter zu machen.
               </p>

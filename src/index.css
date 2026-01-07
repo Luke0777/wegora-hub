@@ -300,6 +300,37 @@
   --illustration-border: var(--border);
 
   /* ─────────────────────────────────────────────────────────────────────────────
+     WEG COLOR PALETTE
+     Central definition - change here to update everywhere
+     ───────────────────────────────────────────────────────────────────────────── */
+  --weg-50: 214 100% 97%;                           /* #eff6ff - Backgrounds */
+  --weg-100: 214 95% 93%;                           /* #dbeafe */
+  --weg-200: 214 86% 85%;                           /* #bfdbfe - Borders */
+  --weg-300: 213 94% 68%;                           /* #93c5fd */
+  --weg-400: 213 94% 58%;                           /* #60a5fa */
+  --weg-500: 224 70% 44%;                           /* #2956b8 - Primary (softer) */
+  --weg-600: 224 76% 48%;                           /* #1d4ed8 - Hover/Dark */
+  --weg-700: 224 76% 40%;                           /* #1e40af */
+  --weg-800: 226 71% 31%;                           /* #1e3a8a */
+  --weg-900: 226 57% 21%;                           /* #172554 */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     OWNER COLOR PALETTE
+     Central definition - change here to update everywhere
+     Lightness progression aligned with WEG palette
+     ───────────────────────────────────────────────────────────────────────────── */
+  --owner-50: 180 60% 95%;                          /* #e6f7f7 - Backgrounds */
+  --owner-100: 180 55% 88%;                         /* #c4ecec */
+  --owner-200: 180 50% 78%;                         /* #9ad9d9 - Borders */
+  --owner-300: 180 55% 58%;                         /* #5abfbf */
+  --owner-400: 180 70% 42%;                         /* #20a3a3 */
+  --owner-500: 180 100% 25%;                        /* #008080 - Primary */
+  --owner-600: 180 100% 22%;                        /* #007070 - Hover/Dark */
+  --owner-700: 180 90% 18%;                         /* #055c5c */
+  --owner-800: 180 80% 14%;                         /* #074747 */
+  --owner-900: 180 70% 10%;                         /* #083333 */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
      AREA-BASED COLORS (semantic)
      These define the two main product areas
      Hero diagrams are conceptual/atmospheric, not UI-loud:
@@ -307,8 +338,8 @@
      - Lighter for "overview" feel
      - Services below can be crisper
      ───────────────────────────────────────────────────────────────────────────── */
-  --illustration-weg: 214 60% 58%;                  /* Soft Blue - WEG/Hausverwaltung (conceptual) */
-  --illustration-owner: 174 72% 40%;                /* Teal - Eigentümer Branding (#14B8A6) */
+  --illustration-weg: var(--weg-500);               /* Blue - WEG/Hausverwaltung */
+  --illustration-owner: var(--owner-500);           /* Teal - Eigentümer Branding */
 
   /* Context-aware accent - DEFAULT is WEG (blue) */
   --illustration-area-accent: var(--illustration-weg);

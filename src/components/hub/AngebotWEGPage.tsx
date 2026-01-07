@@ -202,7 +202,7 @@ export function AngebotWEGPage() {
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                       <Badge
                         variant="outline"
-                        className="text-[10px] px-3 py-1 bg-[#dbeafe] text-[#2463eb] border-[#bfdbfe] shadow-sm"
+                        className="text-[10px] px-3 py-1 bg-weg-100 text-weg-500 border-weg-200 shadow-sm"
                       >
                         {service.badge}
                       </Badge>
@@ -235,7 +235,7 @@ export function AngebotWEGPage() {
                           variant="outline"
                           className={service.badge === "Geplant"
                             ? "text-[10px] px-2 py-0.5 bg-muted text-muted-foreground border-border"
-                            : "text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                            : "text-[10px] px-2 py-0.5 bg-weg-500/10 text-weg-500 border-weg-500/20"
                           }
                         >
                           {platform}
@@ -278,7 +278,7 @@ export function AngebotWEGPage() {
                         </span>
                       ) : (
                         <Link to={`/angebot-weg/${service.id}`}>
-                          <Button variant="outline" size="sm" className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb]/10 transition-colors">
+                          <Button variant="outline" size="sm" className="border-weg-500 text-weg-500 hover:bg-weg-500/10 transition-colors">
                             Zum Service
                           </Button>
                         </Link>

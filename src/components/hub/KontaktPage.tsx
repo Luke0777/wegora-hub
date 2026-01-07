@@ -90,7 +90,7 @@ export function KontaktPage() {
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <CaretDown
-                  className="w-10 h-10 text-[#2463eb]/70 hover:text-[#2463eb] transition-colors"
+                  className="w-10 h-10 text-weg-500/70 hover:text-weg-500 transition-colors"
                   weight="bold"
                 />
               </motion.div>
@@ -130,7 +130,7 @@ export function KontaktPage() {
                       <input
                         type="text"
                         id="name"
-                        className="w-full px-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2463eb] focus:border-transparent"
+                        className="w-full px-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-weg-500 focus:border-transparent"
                         placeholder="Ihr Name"
                       />
                     </div>
@@ -142,7 +142,7 @@ export function KontaktPage() {
                       <input
                         type="email"
                         id="email"
-                        className="w-full px-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2463eb] focus:border-transparent"
+                        className="w-full px-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-weg-500 focus:border-transparent"
                         placeholder="ihre@email.de"
                       />
                     </div>
@@ -154,14 +154,14 @@ export function KontaktPage() {
                       <textarea
                         id="message"
                         rows={5}
-                        className="w-full px-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2463eb] focus:border-transparent resize-none"
+                        className="w-full px-4 py-2 border border-muted rounded-lg focus:outline-none focus:ring-2 focus:ring-weg-500 focus:border-transparent resize-none"
                         placeholder="Beschreiben Sie Ihr Anliegen..."
                       />
                     </div>
 
                     <Button
                       type="submit"
-                      className="bg-[#2463eb]/90 hover:bg-[#2463eb] text-white px-5 py-2.5 text-[13px] font-medium"
+                      className="bg-weg-500/90 hover:bg-weg-500 text-white px-5 py-2.5 text-[13px] font-medium"
                     >
                       <EnvelopeSimple className="mr-1.5 h-4 w-4" />
                       Anfrage absenden

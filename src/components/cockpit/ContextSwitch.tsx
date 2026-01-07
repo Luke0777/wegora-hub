@@ -66,7 +66,7 @@ export function ContextSwitch({
           onClick={() => onModeChange('weg')}
           className={`px-3 py-1.5 text-sm font-medium transition-all ${
             mode === 'weg'
-              ? 'bg-[#2463eb] text-white'
+              ? 'bg-weg-500 text-white'
               : 'bg-white text-muted-foreground hover:bg-muted/50'
           }`}
         >
@@ -83,7 +83,7 @@ export function ContextSwitch({
           }}
           className={`px-3 py-1.5 text-sm font-medium transition-all ${
             mode === 'eigentuemer'
-              ? 'bg-teal-600 text-white'
+              ? 'bg-owner-600 text-white'
               : 'bg-white text-muted-foreground hover:bg-muted/50'
           }`}
         >
@@ -99,9 +99,9 @@ export function ContextSwitch({
             className="h-9 px-3 gap-2 text-sm font-medium border-muted hover:bg-muted/50"
           >
             {mode === 'weg' ? (
-              <Buildings className="h-4 w-4 text-[#2463eb]" />
+              <Buildings className="h-4 w-4 text-weg-500" />
             ) : (
-              <House className="h-4 w-4 text-teal-600" />
+              <House className="h-4 w-4 text-owner-600" />
             )}
             <span className="max-w-[180px] truncate">{displayLabel}</span>
             <CaretDown className="h-4 w-4 text-muted-foreground" />
@@ -123,13 +123,13 @@ export function ContextSwitch({
                     setOpen(false);
                   }}
                 >
-                  <Buildings className="h-4 w-4 text-[#2463eb]" />
+                  <Buildings className="h-4 w-4 text-weg-500" />
                   <span className="flex-1">{obj.objectName}</span>
                   <span className="text-xs text-muted-foreground">
                     {obj.units.length} Whg.
                   </span>
                   {obj.objectId === currentObjectId && (
-                    <Check className="h-4 w-4 text-[#2463eb]" />
+                    <Check className="h-4 w-4 text-weg-500" />
                   )}
                 </DropdownMenuItem>
               ))}
@@ -151,10 +151,10 @@ export function ContextSwitch({
                     setOpen(false);
                   }}
                 >
-                  <House className="h-4 w-4 text-teal-600" />
+                  <House className="h-4 w-4 text-owner-600" />
                   <span className="flex-1">{unit.unitName}</span>
                   {unit.unitId === currentUnitId && (
-                    <Check className="h-4 w-4 text-teal-600" />
+                    <Check className="h-4 w-4 text-owner-600" />
                   )}
                 </DropdownMenuItem>
               ))}

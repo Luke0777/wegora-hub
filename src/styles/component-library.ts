@@ -74,7 +74,7 @@ export const BUTTON = {
    * Usage Examples
    */
   examples: {
-    primary: `<Button className="bg-[#2463eb] hover:bg-[#1d4ed8] text-white">
+    primary: `<Button className="bg-[weg-500] hover:bg-[weg-600] text-white">
   Jetzt registrieren
 </Button>`,
 
@@ -89,7 +89,7 @@ export const BUTTON = {
   <CaretDown className="h-3 w-3" />
 </Button>`,
 
-    teal: `<Button variant="outline" size="sm" className="border-teal-500 text-teal-500 hover:bg-teal-500/10">
+    teal: `<Button variant="outline" size="sm" className="border-owner-500 text-owner-500 hover:bg-owner-500/10">
   Zum Service
 </Button>`,
   },
@@ -168,7 +168,7 @@ export const CARD = {
 
     highlighted: `<Card
   className="border-2 hover:shadow-xl transition-all duration-300"
-  style={{ borderColor: "#14B8A620" }}
+  style={{ borderColor: "hsl(var(--owner-500) / 0.12)" }}
 >
   {/* Teal-highlighted card */}
 </Card>`,
@@ -184,7 +184,7 @@ export const CARD = {
   patterns: {
     serviceBadge: `{/* Badge positioned at top of card */}
 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-  <Badge variant="outline" className="text-[10px] px-3 py-1 bg-[#ccfbf1] text-[#14B8A6] border-[#99f6e4]">
+  <Badge variant="outline" className="text-[10px] px-3 py-1 bg-owner-50 text-owner-500 border-owner-200">
     Coming Soon
   </Badge>
 </div>`,
@@ -227,7 +227,7 @@ export const BADGE = {
   examples: {
     comingSoon: `<Badge
   variant="outline"
-  className="text-[10px] px-3 py-1 bg-[#ccfbf1] text-[#14B8A6] border-[#99f6e4] shadow-sm"
+  className="text-[10px] px-3 py-1 bg-owner-50 text-owner-500 border-owner-200 shadow-sm"
 >
   Coming Soon
 </Badge>`,
@@ -241,7 +241,7 @@ export const BADGE = {
 
     platform: `<Badge
   variant="outline"
-  className="text-[10px] px-2 py-0.5 bg-[#14B8A6]/10 text-teal-500 border-[#14B8A6]/20"
+  className="text-[10px] px-2 py-0.5 bg-owner-500/10 text-owner-500 border-owner-500/20"
 >
   Mobile App
 </Badge>`,
@@ -250,7 +250,7 @@ export const BADGE = {
       offen: `<Badge className="bg-orange-100 text-orange-700 border-orange-200">
   Offen
 </Badge>`,
-      inBearbeitung: `<Badge className="bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20">
+      inBearbeitung: `<Badge className="bg-[weg-500]/10 text-[weg-500] border-[weg-500]/20">
   In Bearbeitung
 </Badge>`,
       abgeschlossen: `<Badge className="bg-green-100 text-green-700 border-green-200">
@@ -351,7 +351,7 @@ export const DROPDOWN_MENU = {
         className="cursor-pointer flex items-center justify-between"
       >
         <span>{obj.name}</span>
-        {selected === obj.id && <Check className="h-4 w-4 text-teal-600" />}
+        {selected === obj.id && <Check className="h-4 w-4 text-owner-600" />}
       </DropdownMenuItem>
     ))}
   </DropdownMenuContent>
@@ -429,8 +429,8 @@ export const WEGORA_LOGO = {
    * Dot Context
    */
   dotContext: {
-    weg: '#2463eb (blue) - WEG/community pages',
-    eigentuemer: '#0d9488 (teal) - Individual owner pages',
+    weg: 'weg-500 (blue) - WEG/community pages',
+    eigentuemer: '#006666 (teal) - Individual owner pages',
     none: 'No dot - neutral contexts',
   },
 
@@ -520,8 +520,8 @@ export const HEADER = {
   navLinkClass: `const navLinkClass = (path: string) => {
   return \`text-sm font-medium transition-all px-3 py-2 rounded-md \${
     isActive(path)
-      ? "text-[#2463eb] bg-[#2463eb]/10"
-      : "text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10"
+      ? "text-[weg-500] bg-[weg-500]/10"
+      : "text-foreground/80 hover:text-[weg-500] hover:bg-[weg-500]/10"
   }\`;
 };`,
 
@@ -529,10 +529,10 @@ export const HEADER = {
    * Mode-Aware Cockpit Navigation
    */
   cockpitNavLinkClass: `const cockpitNavLinkClass = (path: string) => {
-  const activeColor = mode === "eigentuemer" ? "text-teal-600" : "text-[#2463eb]";
-  const activeBg = mode === "eigentuemer" ? "bg-teal-600/10" : "bg-[#2463eb]/10";
-  const hoverColor = mode === "eigentuemer" ? "hover:text-teal-600" : "hover:text-[#2463eb]";
-  const hoverBg = mode === "eigentuemer" ? "hover:bg-teal-600/10" : "hover:bg-[#2463eb]/10";
+  const activeColor = mode === "eigentuemer" ? "text-owner-600" : "text-[weg-500]";
+  const activeBg = mode === "eigentuemer" ? "bg-owner-600/10" : "bg-[weg-500]/10";
+  const hoverColor = mode === "eigentuemer" ? "hover:text-owner-600" : "hover:text-[weg-500]";
+  const hoverBg = mode === "eigentuemer" ? "hover:bg-owner-600/10" : "hover:bg-[weg-500]/10";
 
   return \`text-sm font-medium transition-all px-3 py-2 rounded-md flex items-center gap-2 \${
     isActive(path)
@@ -597,8 +597,8 @@ export const FOOTER = {
   /**
    * Link Styling
    */
-  linkClass: 'text-sm text-muted-foreground hover:text-[#2463eb] transition-colors',
-  tealLinkClass: 'text-sm text-muted-foreground hover:text-teal-500 transition-colors',
+  linkClass: 'text-sm text-muted-foreground hover:text-[weg-500] transition-colors',
+  tealLinkClass: 'text-sm text-muted-foreground hover:text-owner-500 transition-colors',
 
   /**
    * Section Heading
@@ -624,7 +624,7 @@ export const MODE_TOGGLE = {
     onClick={() => switchMode("weg")}
     className={\`px-3 py-1.5 text-xs font-medium rounded-md transition-all \${
       mode === "weg"
-        ? "bg-white text-[#2463eb] shadow-sm"
+        ? "bg-white text-[weg-500] shadow-sm"
         : "text-muted-foreground hover:text-foreground"
     }\`}
   >
@@ -634,7 +634,7 @@ export const MODE_TOGGLE = {
     onClick={() => switchMode("eigentuemer")}
     className={\`px-3 py-1.5 text-xs font-medium rounded-md transition-all \${
       mode === "eigentuemer"
-        ? "bg-white text-teal-600 shadow-sm"
+        ? "bg-white text-owner-600 shadow-sm"
         : "text-muted-foreground hover:text-foreground"
     }\`}
   >
@@ -646,8 +646,8 @@ export const MODE_TOGGLE = {
    * Styling
    */
   container: 'flex items-center bg-muted rounded-lg p-0.5',
-  activeWeg: 'bg-white text-[#2463eb] shadow-sm',
-  activeEigentuemer: 'bg-white text-teal-600 shadow-sm',
+  activeWeg: 'bg-white text-[weg-500] shadow-sm',
+  activeEigentuemer: 'bg-white text-owner-600 shadow-sm',
   inactive: 'text-muted-foreground hover:text-foreground',
 } as const;
 
@@ -691,7 +691,7 @@ export const LOGIN_DROPDOWN = {
   registerButton: `<Link to="/register">
   <Button
     size="sm"
-    className="h-9 text-sm px-6 bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
+    className="h-9 text-sm px-6 bg-[weg-500] hover:bg-[weg-600] text-white"
   >
     Jetzt registrieren
   </Button>

@@ -12,29 +12,60 @@
 
 export const COLORS = {
   /**
-   * BLUE - Primary brand color for WEG (Wohnungseigentümergemeinschaft) context
+   * WEG - Primary brand color for WEG (Wohnungseigentümergemeinschaft) context
    * Used for: primary actions, WEG-related highlights, navigation accents
+   *
+   * CENTRALIZED: All colors defined in index.css via --weg-* CSS variables
+   * Change colors ONCE in index.css, they update everywhere automatically.
+   * Tailwind: Use weg-50 through weg-900 (references CSS vars)
+   *
+   * Current HSL values (as of Jan 2026):
+   * --weg-50:  214 100% 97%  (#eff6ff)
+   * --weg-100: 214 95% 93%   (#dbeafe)
+   * --weg-200: 214 86% 85%   (#bfdbfe)
+   * --weg-300: 213 94% 68%   (#93c5fd)
+   * --weg-400: 213 94% 58%   (#60a5fa)
+   * --weg-500: 224 70% 44%   (#2956b8) - Primary (softer blue)
+   * --weg-600: 224 76% 48%   (#1d4ed8)
+   * --weg-700: 224 76% 40%   (#1e40af)
+   * --weg-800: 226 71% 31%   (#1e3a8a)
+   * --weg-900: 226 57% 21%   (#172554)
    */
-  blue: {
-    primary: '#2463eb',      // Main brand blue - buttons, links, primary actions
-    hover: '#1d4ed8',        // Hover state (blue-700)
-    light: '#3b82f6',        // Lighter variant (blue-500)
-    background: '#F8FAFF',   // Very light blue tint for card backgrounds
-    border: 'rgba(47, 102, 255, 0.25)',  // Subtle blue border
-    borderHover: 'rgba(47, 102, 255, 0.4)',
+  weg: {
+    primary: 'hsl(var(--weg-500))',      // #2956b8 - Main WEG color
+    dark: 'hsl(var(--weg-600))',         // #1d4ed8 - Darker variant - hover states
+    light: 'hsl(var(--weg-400))',        // #60a5fa - Lighter variant
+    background: 'hsl(var(--weg-50))',    // #eff6ff - Very light for backgrounds
+    border: 'hsl(var(--weg-200))',       // #bfdbfe - Light border
   },
 
   /**
-   * TEAL - Eigentümer (individual owner) context
+   * OWNER - Eigentümer (individual owner) context
    * Used for: Eigentümer-specific services, success states, secondary CTAs
+   *
+   * CENTRALIZED: All colors defined in index.css via --owner-* CSS variables
+   * Change colors ONCE in index.css, they update everywhere automatically.
+   * Tailwind: Use owner-50 through owner-900 (references CSS vars)
+   *
+   * Current HSL values (as of Jan 2026):
+   * --owner-50:  180 60% 95%   (#e6f7f7)
+   * --owner-100: 180 55% 88%   (#c4ecec)
+   * --owner-200: 180 50% 78%   (#9ad9d9)
+   * --owner-300: 180 55% 58%   (#5abfbf)
+   * --owner-400: 180 70% 42%   (#20a3a3)
+   * --owner-500: 180 100% 25%  (#008080) - Primary (classic teal)
+   * --owner-600: 180 100% 22%  (#007070)
+   * --owner-700: 180 90% 18%   (#055c5c)
+   * --owner-800: 180 80% 14%   (#074747)
+   * --owner-900: 180 70% 10%   (#083333)
    */
-  teal: {
-    primary: '#14B8A6',      // Main teal (teal-500) - service cards, badges
-    dark: '#0d9488',         // Darker variant (teal-600) - logo dot, hover states
-    light: '#2dd4bf',        // Lighter variant (teal-400)
-    background: '#ccfbf1',   // Very light teal for badge backgrounds
-    border: '#99f6e4',       // Light teal border
-    muted: '#5eead4',        // Muted teal accent
+  owner: {
+    primary: 'hsl(var(--owner-500))',      // #008080 - Main owner color
+    dark: 'hsl(var(--owner-600))',         // #007070 - Darker variant - hover states
+    light: 'hsl(var(--owner-300))',        // #5abfbf - Lighter variant
+    background: 'hsl(var(--owner-50))',    // #e6f7f7 - Very light for backgrounds
+    border: 'hsl(var(--owner-200))',       // #9ad9d9 - Light border
+    muted: 'hsl(var(--owner-300))',        // #5abfbf - Muted accent
   },
 
   /**
@@ -178,7 +209,7 @@ export const ICONS = {
  *
  * <CheckCircle
  *   className="w-4 h-4"
- *   style={{ color: COLORS.teal.primary }}
+ *   style={{ color: COLORS.owner.primary }}
  *   weight="regular"
  * />
  */
@@ -228,8 +259,8 @@ export const LOGO = {
    * The dot after "Wegora" indicates the current context:
    */
   dotContext: {
-    weg: '#2463eb (blue) - WEG/community pages',
-    eigentuemer: '#0d9488 (teal) - Individual owner pages',
+    weg: 'hsl(var(--weg-500)) (blue) - WEG/community pages',
+    eigentuemer: '#008080 (owner) - Individual owner pages',
     none: 'No dot - neutral contexts',
   },
 
@@ -271,9 +302,9 @@ export const CARD_STATES = {
    * Active/Coming Soon state - full color
    */
   active: {
-    illustrationColor: COLORS.teal.primary, // or COLORS.blue.primary for WEG
-    badgeClasses: 'bg-[#ccfbf1] text-[#14B8A6] border-[#99f6e4]',
-    checkIconColor: COLORS.teal.primary,
+    illustrationColor: COLORS.owner.primary, // or COLORS.blue.primary for WEG
+    badgeClasses: 'bg-owner-50 text-owner-500 border-owner-200',
+    checkIconColor: COLORS.owner.primary,
   },
 
   /**
@@ -408,14 +439,14 @@ export const CHIPS = {
    */
   platform: {
     weg: {
-      className: 'text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20',
-      usage: `<Badge variant="outline" className="text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20">
+      className: 'text-[10px] px-2 py-0.5 bg-[hsl(var(--weg-500))]/10 text-[hsl(var(--weg-500))] border-[hsl(var(--weg-500))]/20',
+      usage: `<Badge variant="outline" className="text-[10px] px-2 py-0.5 bg-[hsl(var(--weg-500))]/10 text-[hsl(var(--weg-500))] border-[hsl(var(--weg-500))]/20">
   Mobile App
 </Badge>`,
     },
     eigentuemer: {
-      className: 'text-[10px] px-2 py-0.5 bg-[#14B8A6]/10 text-teal-500 border-[#14B8A6]/20',
-      usage: `<Badge variant="outline" className="text-[10px] px-2 py-0.5 bg-[#14B8A6]/10 text-teal-500 border-[#14B8A6]/20">
+      className: 'text-[10px] px-2 py-0.5 bg-owner-500/10 text-owner-500 border-owner-500/20',
+      usage: `<Badge variant="outline" className="text-[10px] px-2 py-0.5 bg-owner-500/10 text-owner-500 border-owner-500/20">
   Web-App
 </Badge>`,
     },
@@ -438,7 +469,7 @@ export const CHIPS = {
    */
   status: {
     comingSoon: {
-      className: 'text-[10px] px-3 py-1 bg-[#ccfbf1] text-[#14B8A6] border-[#99f6e4] shadow-sm',
+      className: 'text-[10px] px-3 py-1 bg-owner-50 text-owner-500 border-owner-200 shadow-sm',
       label: 'Coming Soon',
     },
     planned: {
@@ -446,7 +477,7 @@ export const CHIPS = {
       label: 'Geplant',
     },
     beta: {
-      className: 'text-[10px] px-3 py-1 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20',
+      className: 'text-[10px] px-3 py-1 bg-[hsl(var(--weg-500))]/10 text-[hsl(var(--weg-500))] border-[hsl(var(--weg-500))]/20',
       label: 'Beta',
     },
   },
@@ -510,14 +541,14 @@ export const CTA = {
    */
   primary: {
     weg: {
-      className: 'bg-[#2463eb] hover:bg-[#1d4ed8] text-white',
-      usage: `<Button className="bg-[#2463eb] hover:bg-[#1d4ed8] text-white">
+      className: 'bg-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-600))] text-white',
+      usage: `<Button className="bg-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-600))] text-white">
   Jetzt registrieren
 </Button>`,
     },
     eigentuemer: {
-      className: 'bg-teal-500 hover:bg-teal-600 text-white',
-      usage: `<Button className="bg-teal-500 hover:bg-teal-600 text-white">
+      className: 'bg-owner-500 hover:bg-owner-600 text-white',
+      usage: `<Button className="bg-owner-500 hover:bg-owner-600 text-white">
   Zum Service
 </Button>`,
     },
@@ -529,14 +560,14 @@ export const CTA = {
    */
   secondary: {
     weg: {
-      className: 'border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb]/10',
-      usage: `<Button variant="outline" className="border-[#2463eb] text-[#2463eb] hover:bg-[#2463eb]/10">
+      className: 'border-[hsl(var(--weg-500))] text-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-500))]/10',
+      usage: `<Button variant="outline" className="border-[hsl(var(--weg-500))] text-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-500))]/10">
   Mehr erfahren
 </Button>`,
     },
     eigentuemer: {
-      className: 'border-teal-500 text-teal-500 hover:bg-teal-500/10',
-      usage: `<Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500/10">
+      className: 'border-owner-500 text-owner-500 hover:bg-owner-500/10',
+      usage: `<Button variant="outline" className="border-owner-500 text-owner-500 hover:bg-owner-500/10">
   Zum Service
 </Button>`,
     },
@@ -547,15 +578,15 @@ export const CTA = {
    */
   muted: {
     weg: {
-      className: 'bg-[#2463eb]/90 hover:bg-[#2463eb] text-white',
-      usage: `<Button className="px-5 py-2.5 h-auto bg-[#2463eb]/90 hover:bg-[#2463eb] text-white text-[13px] font-medium">
+      className: 'bg-[hsl(var(--weg-500))]/90 hover:bg-[hsl(var(--weg-500))] text-white',
+      usage: `<Button className="px-5 py-2.5 h-auto bg-[hsl(var(--weg-500))]/90 hover:bg-[hsl(var(--weg-500))] text-white text-[13px] font-medium">
   <Buildings className="mr-1.5 h-4 w-4" weight="duotone" />
   WEG-Module
 </Button>`,
     },
     eigentuemer: {
-      className: 'bg-teal-500/90 hover:bg-teal-500 text-white',
-      usage: `<Button className="px-5 py-2.5 h-auto bg-teal-500/90 hover:bg-teal-500 text-white text-[13px] font-medium">
+      className: 'bg-owner-500/90 hover:bg-owner-500 text-white',
+      usage: `<Button className="px-5 py-2.5 h-auto bg-owner-500/90 hover:bg-owner-500 text-white text-[13px] font-medium">
   <House className="mr-1.5 h-4 w-4" weight="duotone" />
   Eigentümer-Module
 </Button>`,
@@ -568,15 +599,15 @@ export const CTA = {
    */
   textLink: {
     weg: {
-      className: 'text-[#2463eb] hover:text-[#1d4ed8] font-medium inline-flex items-center group',
-      usage: `<Link to="/angebot-weg" className="text-[#2463eb] hover:text-[#1d4ed8] font-medium inline-flex items-center group">
+      className: 'text-[hsl(var(--weg-500))] hover:text-[hsl(var(--weg-600))] font-medium inline-flex items-center group',
+      usage: `<Link to="/angebot-weg" className="text-[hsl(var(--weg-500))] hover:text-[hsl(var(--weg-600))] font-medium inline-flex items-center group">
   Versammlungen, Finanzen, Dokumente
   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
 </Link>`,
     },
     eigentuemer: {
-      className: 'text-teal-600 hover:text-teal-700 font-medium inline-flex items-center group',
-      usage: `<Link to="/angebot-eigentuemer" className="text-teal-600 hover:text-teal-700 font-medium inline-flex items-center group">
+      className: 'text-owner-600 hover:text-owner-700 font-medium inline-flex items-center group',
+      usage: `<Link to="/angebot-eigentuemer" className="text-owner-600 hover:text-owner-700 font-medium inline-flex items-center group">
   Nebenkosten, Dokumente, Finanzen
   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
 </Link>`,
@@ -589,8 +620,8 @@ export const CTA = {
    */
   header: {
     register: {
-      className: 'h-9 text-sm px-6 bg-[#2463eb] hover:bg-[#1d4ed8] text-white',
-      usage: `<Button size="sm" className="h-9 text-sm px-6 bg-[#2463eb] hover:bg-[#1d4ed8] text-white">
+      className: 'h-9 text-sm px-6 bg-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-600))] text-white',
+      usage: `<Button size="sm" className="h-9 text-sm px-6 bg-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-600))] text-white">
   Jetzt registrieren
 </Button>`,
     },
@@ -608,8 +639,8 @@ export const CTA = {
    * Contact button in footer
    */
   footer: {
-    className: 'w-full bg-[#2463eb] hover:bg-[#1d4ed8] text-white',
-    usage: `<Button size="sm" className="w-full bg-[#2463eb] hover:bg-[#1d4ed8] text-white">
+    className: 'w-full bg-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-600))] text-white',
+    usage: `<Button size="sm" className="w-full bg-[hsl(var(--weg-500))] hover:bg-[hsl(var(--weg-600))] text-white">
   <EnvelopeSimple className="mr-2 h-4 w-4" />
   Kontakt aufnehmen
 </Button>`,
@@ -655,7 +686,7 @@ export const CTA = {
  * This ensures consistency across all diagrams and service illustrations.
  *
  * Core Principles:
- * 1. Context-aware coloring (WEG = blue, Eigentümer = teal)
+ * 1. Context-aware coloring (WEG = blue, Eigentümer = owner/teal)
  * 2. Consistent stroke widths (3 levels only)
  * 3. Standardized opacity levels for depth
  * 4. Unified border radius tokens
@@ -683,7 +714,7 @@ export const ILLUSTRATIONS = {
      * Fixed context colors (use when you need explicit control)
      */
     weg: 'hsl(var(--illustration-weg))',           // 214 60% 58% - Soft Blue
-    owner: 'hsl(var(--illustration-owner))',       // 174 72% 40% - Teal (#14B8A6)
+    owner: 'hsl(var(--illustration-owner))',       // 180 100% 25% - Teal (#008080)
 
     /**
      * Semantic colors (for UI states, NOT for area identification)

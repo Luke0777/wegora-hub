@@ -31,7 +31,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/angebot-weg"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Angebot für WEGs
                 </Link>
@@ -39,7 +39,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/angebot-eigentuemer"
-                  className="text-sm text-muted-foreground hover:text-teal-500 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-owner-500 transition-colors"
                 >
                   Angebot für Eigentümer
                 </Link>
@@ -47,7 +47,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/vision"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Vision
                 </Link>
@@ -55,7 +55,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/neuigkeiten"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Neuigkeiten
                 </Link>
@@ -63,7 +63,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/ueber-uns"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Über uns
                 </Link>
@@ -71,7 +71,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/kontakt"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Kontakt
                 </Link>
@@ -88,7 +88,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Impressum
                 </a>
@@ -96,7 +96,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Datenschutz
                 </a>
@@ -104,7 +104,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-muted-foreground hover:text-[#2463eb] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   AGB
                 </a>
@@ -119,16 +119,16 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 flex flex-col items-center">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <EnvelopeSimple className="h-4 w-4 flex-shrink-0 text-[#2463eb]" />
+                <EnvelopeSimple className="h-4 w-4 flex-shrink-0 text-weg-500" />
                 <a
                   href="mailto:info@wegora.de"
-                  className="hover:text-[#2463eb] transition-colors"
+                  className="hover:text-weg-500 transition-colors"
                 >
                   info@wegora.de
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 flex-shrink-0 text-[#2463eb]" />
+                <MapPin className="h-4 w-4 flex-shrink-0 text-weg-500" />
                 <span>
                   Eduardstraße 9
                   <br />
@@ -139,7 +139,7 @@ export function Footer() {
             <div className="mt-4 w-full max-w-[200px]">
               <Button
                 size="sm"
-                className="w-full bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
+                className="w-full bg-weg-500 hover:bg-weg-600 text-white"
               >
                 <EnvelopeSimple className="mr-2 h-4 w-4" />
                 Kontakt aufnehmen

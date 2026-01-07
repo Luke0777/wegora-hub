@@ -32,7 +32,7 @@ export function AngebotEigentuemerPage() {
       ],
       availability: ["Mobile App", "Web-App"],
       badge: "Coming Soon",
-      color: "#14B8A6",
+      color: "#008080",
     },
     {
       id: "dokumente",
@@ -47,7 +47,7 @@ export function AngebotEigentuemerPage() {
       ],
       availability: ["Web-App"],
       badge: "Coming Soon",
-      color: "#14B8A6",
+      color: "#008080",
     },
     {
       id: "finanzen",
@@ -62,7 +62,7 @@ export function AngebotEigentuemerPage() {
       ],
       availability: ["Web-App"],
       badge: "Geplant",
-      color: "#14B8A6",
+      color: "#008080",
     },
   ];
 
@@ -186,7 +186,7 @@ export function AngebotEigentuemerPage() {
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                       <Badge
                         variant="outline"
-                        className="text-[10px] px-3 py-1 bg-[#ccfbf1] text-[#14B8A6] border-[#99f6e4] shadow-sm"
+                        className="text-[10px] px-3 py-1 bg-owner-50 text-owner-500 border-owner-200 shadow-sm"
                       >
                         {service.badge}
                       </Badge>
@@ -219,7 +219,7 @@ export function AngebotEigentuemerPage() {
                           variant="outline"
                           className={service.badge === "Geplant"
                             ? "text-[10px] px-2 py-0.5 bg-muted text-muted-foreground border-border"
-                            : "text-[10px] px-2 py-0.5 bg-[#14B8A6]/10 text-teal-500 border-[#14B8A6]/20"
+                            : "text-[10px] px-2 py-0.5 bg-owner-500/10 text-owner-500 border-owner-500/20"
                           }
                         >
                           {platform}
@@ -262,7 +262,7 @@ export function AngebotEigentuemerPage() {
                         </span>
                       ) : (
                         <Link to={`/angebot-eigentuemer/${service.id}`}>
-                          <Button variant="outline" size="sm" className="border-teal-500 text-teal-500 hover:bg-teal-500/10 transition-colors">
+                          <Button variant="outline" size="sm" className="border-owner-500 text-owner-500 hover:bg-owner-500/10 transition-colors">
                             Zum Service
                           </Button>
                         </Link>

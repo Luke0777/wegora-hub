@@ -243,7 +243,7 @@ export function UnserAngebotPage() {
                         <Badge
                           key={idx}
                           variant="outline"
-                          className="text-[10px] px-2 py-0.5 bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20"
+                          className="text-[10px] px-2 py-0.5 bg-weg-500/10 text-weg-500 border-weg-500/20"
                         >
                           {platform}
                         </Badge>

@@ -37,7 +37,7 @@ export function WegoraLogo({
     ? { primary: 'currentColor', accent: 'currentColor' }
     : colorMode === 'white'
     ? { primary: 'white', accent: 'white' }
-    : { primary: '#2463eb', accent: '#F97316' };
+    : { primary: 'hsl(var(--weg-500))', accent: '#F97316' };
 
   const textColor = colorMode === 'monochrome'
     ? 'currentColor'

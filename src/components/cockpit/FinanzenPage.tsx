@@ -65,7 +65,7 @@ export function FinanzenPage() {
   const transactions = mode === 'eigentuemer' ? eigentuemerTransactions : wegTransactions;
 
   const bgGradient = mode === 'eigentuemer'
-    ? 'from-teal-50/30 to-background'
+    ? 'from-owner-50/30 to-background'
     : 'from-background to-muted/30';
 
   return (
@@ -82,10 +82,10 @@ export function FinanzenPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="rounded-xl p-3 border-2 bg-teal-50/80 border-teal-200">
+            <div className="rounded-xl p-3 border-2 bg-owner-50/80 border-owner-200">
               <div className="flex items-center gap-2">
-                <House className="h-4 w-4 text-teal-700" />
-                <span className="font-medium text-teal-800">
+                <House className="h-4 w-4 text-owner-700" />
+                <span className="font-medium text-owner-800">
                   {currentOwnedUnit.unitName} – {currentOwnedUnit.objectName}
                 </span>
               </div>
@@ -103,7 +103,7 @@ export function FinanzenPage() {
           <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
             Finanzen
           </h1>
-          <p className={mode === 'eigentuemer' ? 'text-teal-700 mt-1' : 'text-muted-foreground mt-1'}>
+          <p className={mode === 'eigentuemer' ? 'text-owner-700 mt-1' : 'text-muted-foreground mt-1'}>
             {mode === 'eigentuemer'
               ? `Finanzübersicht für ${currentOwnedUnit?.unitName || 'Ihre Wohnung'}`
               : `Finanzübersicht für ${currentObject?.name || 'Objekt'}`}
@@ -124,7 +124,7 @@ export function FinanzenPage() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm text-muted-foreground">Mieteinnahmen</span>
-                    <CurrencyEur className="h-4 w-4 text-teal-600" />
+                    <CurrencyEur className="h-4 w-4 text-owner-600" />
                   </div>
                   <p className="text-2xl font-bold text-green-600">
                     +{eigentuemerFinancialSummary.mieteinnahmen.toLocaleString('de-DE')} €
@@ -139,7 +139,7 @@ export function FinanzenPage() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm text-muted-foreground">Hausgeld</span>
-                    <Wallet className="h-4 w-4 text-teal-600" />
+                    <Wallet className="h-4 w-4 text-owner-600" />
                   </div>
                   <p className="text-2xl font-bold">
                     {eigentuemerFinancialSummary.totalHausgeld.toLocaleString('de-DE')} €
@@ -191,7 +191,7 @@ export function FinanzenPage() {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm text-muted-foreground">Hausgeld YTD</span>
-                    <Wallet className="h-4 w-4 text-[#2463eb]" />
+                    <Wallet className="h-4 w-4 text-weg-500" />
                   </div>
                   <p className="text-2xl font-bold">
                     {wegFinancialSummary.totalHausgeld.toLocaleString('de-DE')} €
@@ -266,7 +266,7 @@ export function FinanzenPage() {
             <Card className="border-2 border-muted">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                  <ChartBar className={mode === 'eigentuemer' ? 'h-5 w-5 text-teal-600' : 'h-5 w-5 text-[#2463eb]'} />
+                  <ChartBar className={mode === 'eigentuemer' ? 'h-5 w-5 text-owner-600' : 'h-5 w-5 text-weg-500'} />
                   Budgetübersicht
                 </CardTitle>
               </CardHeader>
@@ -307,7 +307,7 @@ export function FinanzenPage() {
                                 ? 'bg-red-500'
                                 : percentage > 80
                                 ? 'bg-orange-500'
-                                : mode === 'eigentuemer' ? 'bg-teal-600' : 'bg-[#2463eb]'
+                                : mode === 'eigentuemer' ? 'bg-owner-600' : 'bg-weg-500'
                             }`}
                             style={{ width: `${Math.min(percentage, 100)}%` }}
                           />
@@ -329,7 +329,7 @@ export function FinanzenPage() {
             <Card className="border-2 border-muted">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                  <CurrencyEur className={mode === 'eigentuemer' ? 'h-5 w-5 text-teal-600' : 'h-5 w-5 text-[#2463eb]'} />
+                  <CurrencyEur className={mode === 'eigentuemer' ? 'h-5 w-5 text-owner-600' : 'h-5 w-5 text-weg-500'} />
                   Letzte Buchungen
                 </CardTitle>
               </CardHeader>
@@ -359,8 +359,8 @@ export function FinanzenPage() {
                 </div>
                 <button className={`w-full mt-4 text-sm font-medium flex items-center justify-center gap-1 ${
                   mode === 'eigentuemer'
-                    ? 'text-teal-600 hover:text-teal-700'
-                    : 'text-[#2463eb] hover:text-[#1d4ed8]'
+                    ? 'text-owner-600 hover:text-owner-700'
+                    : 'text-weg-500 hover:text-weg-600'
                 }`}>
                   Alle Buchungen anzeigen
                   <ArrowRight className="h-4 w-4" />

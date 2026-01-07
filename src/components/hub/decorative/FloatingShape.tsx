@@ -55,7 +55,7 @@ export function FloatingShape({
           {dots.map((dot, index) => (
             <div
               key={index}
-              className="absolute rounded-full bg-[#2463eb]"
+              className="absolute rounded-full bg-weg-500"
               style={{
                 width: dot.size,
                 height: dot.size,
@@ -85,7 +85,7 @@ export function FloatingShape({
         transition={{ duration: 1.2, ease: "easeOut", delay }}
       >
         <div
-          className={`w-full h-full ${shapeClass} bg-[#2463eb]`}
+          className={`w-full h-full ${shapeClass} bg-weg-500`}
           style={{ opacity }}
         />
       </motion.div>
@@ -106,7 +106,7 @@ export function FloatingShape({
           transition={{ duration: 0.8, ease: "easeOut", delay }}
         >
           <div
-            className={`w-full h-full ${shapeClass} bg-[#2463eb]`}
+            className={`w-full h-full ${shapeClass} bg-weg-500`}
             style={{ opacity: mobileOpacity || opacity * 1.3 }}
           />
         </motion.div>

@@ -58,7 +58,7 @@ export function OptimierungPage() {
   const isGoodRendite = parseFloat(rendite) > 50;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-teal-50/30 to-background">
+    <div className="min-h-screen bg-gradient-to-b from-owner-50/30 to-background">
       <div className="h-24" />
 
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
@@ -70,10 +70,10 @@ export function OptimierungPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="rounded-xl p-3 border-2 bg-teal-50/80 border-teal-200">
+            <div className="rounded-xl p-3 border-2 bg-owner-50/80 border-owner-200">
               <div className="flex items-center gap-2">
-                <House className="h-4 w-4 text-teal-700" />
-                <span className="font-medium text-teal-800">
+                <House className="h-4 w-4 text-owner-700" />
+                <span className="font-medium text-owner-800">
                   {currentOwnedUnit.unitName} – {currentOwnedUnit.objectName}
                 </span>
               </div>
@@ -91,7 +91,7 @@ export function OptimierungPage() {
           <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
             Optimierung
           </h1>
-          <p className="text-teal-700 mt-1">
+          <p className="text-owner-700 mt-1">
             Rendite-Optimierung für {currentOwnedUnit?.unitName || 'Ihre Wohnung'}
           </p>
         </motion.div>
@@ -103,10 +103,10 @@ export function OptimierungPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
         >
-          <Card className="border-2 border-teal-200 bg-gradient-to-br from-teal-50/50 to-white">
+          <Card className="border-2 border-owner-200 bg-gradient-to-br from-owner-50/50 to-white">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                <ChartLineUp className="h-5 w-5 text-teal-600" />
+                <ChartLineUp className="h-5 w-5 text-owner-600" />
                 Rendite-Übersicht (2025)
               </CardTitle>
             </CardHeader>
@@ -124,9 +124,9 @@ export function OptimierungPage() {
                     {currentFinance?.yearlyCoststoDate?.toLocaleString('de-DE') || '0'} €
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-teal-100 border border-teal-300">
-                  <p className="text-sm text-teal-800">Cashflow (Jahr)</p>
-                  <p className="text-2xl font-bold text-teal-900">
+                <div className="p-4 rounded-xl bg-owner-100 border border-owner-300">
+                  <p className="text-sm text-owner-800">Cashflow (Jahr)</p>
+                  <p className="text-2xl font-bold text-owner-900">
                     {currentFinance?.cashflow?.toLocaleString('de-DE') || '0'} €
                   </p>
                 </div>
@@ -167,15 +167,15 @@ export function OptimierungPage() {
                 <div className="space-y-4">
                   {/* Recommendation 1: Rent adjustment */}
                   {currentTenant && (
-                    <div className="p-4 rounded-lg bg-teal-50 border border-teal-200">
+                    <div className="p-4 rounded-lg bg-owner-50 border border-owner-200">
                       <div className="flex items-start gap-3">
-                        <div className="p-2 rounded-lg bg-teal-100">
-                          <TrendUp className="h-5 w-5 text-teal-700" />
+                        <div className="p-2 rounded-lg bg-owner-100">
+                          <TrendUp className="h-5 w-5 text-owner-700" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
                             <p className="font-semibold">Mietanpassung prüfen</p>
-                            <Badge className="bg-teal-100 text-teal-700 border-0 text-xs">
+                            <Badge className="bg-owner-100 text-owner-700 border-0 text-xs">
                               +{Math.round(currentTenant.monthlyRent * 0.05 * 12)} €/Jahr
                             </Badge>
                           </div>
@@ -183,7 +183,7 @@ export function OptimierungPage() {
                             Die aktuelle Miete von {currentTenant.monthlyRent.toLocaleString('de-DE')} €/Monat
                             liegt möglicherweise unter dem Mietspiegel. Eine Anpassung könnte sinnvoll sein.
                           </p>
-                          <Button variant="link" size="sm" className="text-teal-700 p-0 h-auto mt-2">
+                          <Button variant="link" size="sm" className="text-owner-700 p-0 h-auto mt-2">
                             Mietspiegel vergleichen
                             <ArrowRight className="h-3 w-3 ml-1" />
                           </Button>
@@ -218,15 +218,15 @@ export function OptimierungPage() {
                   </div>
 
                   {/* Recommendation 3: Modernization */}
-                  <div className="p-4 rounded-lg bg-[#2463eb]/5 border border-[#2463eb]/20">
+                  <div className="p-4 rounded-lg bg-weg-500/5 border border-weg-500/20">
                     <div className="flex items-start gap-3">
-                      <div className="p-2 rounded-lg bg-[#2463eb]/10">
-                        <Wrench className="h-5 w-5 text-[#2463eb]" />
+                      <div className="p-2 rounded-lg bg-weg-500/10">
+                        <Wrench className="h-5 w-5 text-weg-500" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <p className="font-semibold">Modernisierungspotenzial</p>
-                          <Badge className="bg-[#2463eb]/10 text-[#2463eb] border-0 text-xs">
+                          <Badge className="bg-weg-500/10 text-weg-500 border-0 text-xs">
                             Langfristig
                           </Badge>
                         </div>
@@ -234,7 +234,7 @@ export function OptimierungPage() {
                           Energetische Sanierung oder Badmodernisierung können den Wert
                           steigern und höhere Mieten rechtfertigen.
                         </p>
-                        <Button variant="link" size="sm" className="text-[#2463eb] p-0 h-auto mt-2">
+                        <Button variant="link" size="sm" className="text-weg-500 p-0 h-auto mt-2">
                           Maßnahmen erkunden
                           <ArrowRight className="h-3 w-3 ml-1" />
                         </Button>
@@ -255,7 +255,7 @@ export function OptimierungPage() {
             <Card className="border-2 border-muted h-full">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                  <Percent className="h-5 w-5 text-teal-600" />
+                  <Percent className="h-5 w-5 text-owner-600" />
                   Kennzahlen & Benchmark
                 </CardTitle>
               </CardHeader>

@@ -53,7 +53,7 @@ export function MieterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-teal-50/30 to-background">
+    <div className="min-h-screen bg-gradient-to-b from-owner-50/30 to-background">
       <div className="h-24" />
 
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
@@ -65,10 +65,10 @@ export function MieterPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="rounded-xl p-3 border-2 bg-teal-50/80 border-teal-200">
+            <div className="rounded-xl p-3 border-2 bg-owner-50/80 border-owner-200">
               <div className="flex items-center gap-2">
-                <House className="h-4 w-4 text-teal-700" />
-                <span className="font-medium text-teal-800">
+                <House className="h-4 w-4 text-owner-700" />
+                <span className="font-medium text-owner-800">
                   {currentOwnedUnit.unitName} – {currentOwnedUnit.objectName}
                 </span>
               </div>
@@ -88,12 +88,12 @@ export function MieterPage() {
               <h1 className="text-2xl sm:text-3xl font-semibold text-foreground">
                 Mieter
               </h1>
-              <p className="text-teal-700 mt-1">
+              <p className="text-owner-700 mt-1">
                 Mieterverwaltung für {currentOwnedUnit?.unitName || 'Ihre Wohnung'}
               </p>
             </div>
             {!currentTenant && (
-              <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+              <Button className="bg-owner-600 hover:bg-owner-700 text-white">
                 <Plus className="h-4 w-4 mr-2" />
                 Mieter hinzufügen
               </Button>
@@ -110,11 +110,11 @@ export function MieterPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <Card className="border-2 border-teal-200 bg-white">
+              <Card className="border-2 border-owner-200 bg-white">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                      <User className="h-5 w-5 text-teal-600" />
+                      <User className="h-5 w-5 text-owner-600" />
                       Aktueller Mieter
                     </CardTitle>
                     <Badge className={
@@ -133,8 +133,8 @@ export function MieterPage() {
                   <div className="space-y-6">
                     {/* Tenant Info */}
                     <div className="flex items-start gap-4">
-                      <div className="p-4 rounded-full bg-teal-100">
-                        <User className="h-8 w-8 text-teal-700" />
+                      <div className="p-4 rounded-full bg-owner-100">
+                        <User className="h-8 w-8 text-owner-700" />
                       </div>
                       <div className="flex-1">
                         <p className="font-bold text-xl">{currentTenant.name}</p>
@@ -152,9 +152,9 @@ export function MieterPage() {
                       {currentTenant.email && (
                         <a
                           href={`mailto:${currentTenant.email}`}
-                          className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-teal-50 transition-colors"
+                          className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-owner-50 transition-colors"
                         >
-                          <EnvelopeSimple className="h-5 w-5 text-teal-600" />
+                          <EnvelopeSimple className="h-5 w-5 text-owner-600" />
                           <div>
                             <p className="text-xs text-muted-foreground">E-Mail</p>
                             <p className="text-sm font-medium">{currentTenant.email}</p>
@@ -164,9 +164,9 @@ export function MieterPage() {
                       {currentTenant.phone && (
                         <a
                           href={`tel:${currentTenant.phone}`}
-                          className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-teal-50 transition-colors"
+                          className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-owner-50 transition-colors"
                         >
-                          <Phone className="h-5 w-5 text-teal-600" />
+                          <Phone className="h-5 w-5 text-owner-600" />
                           <div>
                             <p className="text-xs text-muted-foreground">Telefon</p>
                             <p className="text-sm font-medium">{currentTenant.phone}</p>
@@ -200,7 +200,7 @@ export function MieterPage() {
               <Card className="border-2 border-muted">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                    <CurrencyEur className="h-5 w-5 text-teal-600" />
+                    <CurrencyEur className="h-5 w-5 text-owner-600" />
                     Mietübersicht
                   </CardTitle>
                 </CardHeader>
@@ -267,7 +267,7 @@ export function MieterPage() {
                     Für {currentOwnedUnit?.unitName || 'diese Wohnung'} ist noch kein Mieter erfasst.
                     Fügen Sie einen Mieter hinzu, um das Mietverhältnis zu verwalten.
                   </p>
-                  <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+                  <Button className="bg-owner-600 hover:bg-owner-700 text-white">
                     <Plus className="h-4 w-4 mr-2" />
                     Mieter hinzufügen
                   </Button>

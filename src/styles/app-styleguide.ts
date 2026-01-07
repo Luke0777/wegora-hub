@@ -13,40 +13,46 @@
 
 export const COLORS = {
   /**
-   * BLUE - WEG (Wohnungseigentümergemeinschaft) mode
+   * WEG - WEG (Wohnungseigentümergemeinschaft) mode
    * Used for: Community management, shared property contexts
+   *
+   * CENTRALIZED: All colors defined in index.css via --weg-* CSS variables
+   * Tailwind: Use weg-50 through weg-900 (references CSS vars)
    */
-  blue: {
-    primary: '#2463eb',           // Primary brand blue
-    hover: '#1d4ed8',             // Hover state (blue-700)
-    light: '#3b82f6',             // Lighter variant (blue-500)
-    background: 'bg-[#2463eb]/10', // Light background tint
-    backgroundSubtle: 'bg-[#2463eb]/5',
-    border: 'border-[#2463eb]/20',
-    text: 'text-[#2463eb]',
+  weg: {
+    primary: 'hsl(var(--weg-500))',           // Primary WEG color
+    dark: 'hsl(var(--weg-600))',              // Hover state
+    light: 'hsl(var(--weg-400))',             // Lighter variant
+    background: 'bg-weg-500/10', // Light background tint
+    backgroundSubtle: 'bg-weg-500/5',
+    border: 'border-weg-500/20',
+    text: 'text-weg-500',
   },
 
   /**
-   * TEAL - Eigentümer (Owner) mode
+   * OWNER - Eigentümer (Owner) mode
    * Used for: Individual property management, personal ownership contexts
+   *
+   * CENTRALIZED: All colors defined in index.css via --owner-* CSS variables
+   * Tailwind: Use owner-50 through owner-900 (references CSS vars)
    */
-  teal: {
-    primary: '#14B8A6',           // Teal-500
-    dark: '#0d9488',              // Teal-600 (darker states)
+  owner: {
+    primary: 'hsl(var(--owner-500))',     // Owner-500
+    dark: 'hsl(var(--owner-600))',        // Owner-600 (darker states)
     background: {
-      solid: 'bg-teal-50',
-      semiTransparent: 'bg-teal-50/80',
-      subtle: 'bg-teal-50/30',
-      strong: 'bg-teal-100',
+      solid: 'bg-owner-50',
+      semiTransparent: 'bg-owner-50/80',
+      subtle: 'bg-owner-50/30',
+      strong: 'bg-owner-100',
     },
     border: {
-      light: 'border-teal-200',
-      medium: 'border-teal-300',
+      light: 'border-owner-200',
+      medium: 'border-owner-300',
     },
     text: {
-      primary: 'text-teal-700',
-      secondary: 'text-teal-800',
-      strong: 'text-teal-900',
+      primary: 'text-owner-700',
+      secondary: 'text-owner-800',
+      strong: 'text-owner-900',
     },
   },
 
@@ -139,7 +145,7 @@ export const STATUS_COLORS = {
     label: 'Offen',
   },
   in_bearbeitung: {
-    className: 'bg-[#2463eb]/10 text-[#2463eb] border-[#2463eb]/20',
+    className: 'bg-[weg-500]/10 text-[weg-500] border-[weg-500]/20',
     label: 'In Bearbeitung',
   },
   abgeschlossen: {
@@ -200,7 +206,7 @@ export function getBudgetColor(percentage: number): string {
  */
 export const MODE_GRADIENTS = {
   weg: 'from-background to-muted/30',
-  eigentuemer: 'from-teal-50/30 to-background',
+  eigentuemer: 'from-owner-50/30 to-background',
 } as const;
 
 /**
@@ -209,18 +215,18 @@ export const MODE_GRADIENTS = {
  */
 export const MODE_ACCENTS = {
   weg: {
-    primary: '#2463eb',
-    background: 'bg-[#2463eb]/10',
-    text: 'text-[#2463eb]',
-    border: 'border-[#2463eb]/20',
-    hover: 'hover:bg-[#2463eb]/20',
+    primary: 'weg-500',
+    background: 'bg-[weg-500]/10',
+    text: 'text-[weg-500]',
+    border: 'border-[weg-500]/20',
+    hover: 'hover:bg-[weg-500]/20',
   },
   eigentuemer: {
-    primary: '#14B8A6',
-    background: 'bg-teal-50',
-    text: 'text-teal-700',
-    border: 'border-teal-200',
-    hover: 'hover:bg-teal-100',
+    primary: 'hsl(var(--owner-500))',
+    background: 'bg-owner-50',
+    text: 'text-owner-700',
+    border: 'border-owner-200',
+    hover: 'hover:bg-owner-100',
   },
 } as const;
 
@@ -389,8 +395,8 @@ export const CARD = {
    * Highlighted Card (Mode-aware)
    */
   highlighted: {
-    weg: 'border-2 border-[#2463eb]/20 bg-[#2463eb]/5',
-    eigentuemer: 'border-2 border-teal-200 bg-teal-50/80',
+    weg: 'border-2 border-[weg-500]/20 bg-[weg-500]/5',
+    eigentuemer: 'border-2 border-owner-200 bg-owner-50/80',
   },
 
   /**
@@ -408,14 +414,14 @@ export const CARD = {
  */
 export const INFO_BAR = {
   weg: {
-    container: 'rounded-xl p-3 border-2 bg-[#2463eb]/10 border-[#2463eb]/20',
-    icon: 'h-4 w-4 text-[#2463eb]',
-    text: 'font-medium text-[#2463eb]',
+    container: 'rounded-xl p-3 border-2 bg-[weg-500]/10 border-[weg-500]/20',
+    icon: 'h-4 w-4 text-[weg-500]',
+    text: 'font-medium text-[weg-500]',
   },
   eigentuemer: {
-    container: 'rounded-xl p-3 border-2 bg-teal-50/80 border-teal-200',
-    icon: 'h-4 w-4 text-teal-700',
-    text: 'font-medium text-teal-800',
+    container: 'rounded-xl p-3 border-2 bg-owner-50/80 border-owner-200',
+    icon: 'h-4 w-4 text-owner-700',
+    text: 'font-medium text-owner-800',
   },
 } as const;
 
@@ -427,8 +433,8 @@ export const TASK_ITEM = {
    * Pending Task
    */
   pending: {
-    weg: 'bg-[#2463eb]/5 hover:bg-[#2463eb]/10',
-    eigentuemer: 'bg-teal-50/50 hover:bg-teal-50',
+    weg: 'bg-[weg-500]/5 hover:bg-[weg-500]/10',
+    eigentuemer: 'bg-owner-50/50 hover:bg-owner-50',
     icon: 'text-muted-foreground',
   },
 
@@ -455,14 +461,14 @@ export const TASK_ITEM = {
  */
 export const FINANCIAL_CARD = {
   weg: {
-    container: 'p-4 rounded-xl bg-[#2463eb]/10 border border-[#2463eb]/20',
-    label: 'text-sm text-[#2463eb] font-medium',
-    value: 'text-3xl font-bold text-[#2463eb]',
+    container: 'p-4 rounded-xl bg-[weg-500]/10 border border-[weg-500]/20',
+    label: 'text-sm text-[weg-500] font-medium',
+    value: 'text-3xl font-bold text-[weg-500]',
   },
   eigentuemer: {
-    container: 'p-4 rounded-xl bg-teal-100 border border-teal-300',
-    label: 'text-sm text-teal-800 font-medium',
-    value: 'text-3xl font-bold text-teal-900',
+    container: 'p-4 rounded-xl bg-owner-100 border border-owner-300',
+    label: 'text-sm text-owner-800 font-medium',
+    value: 'text-3xl font-bold text-owner-900',
   },
 } as const;
 
@@ -602,8 +608,8 @@ export const INTERACTION = {
    */
   hover: {
     background: 'hover:bg-muted/50',
-    backgroundTeal: 'hover:bg-teal-50',
-    backgroundBlue: 'hover:bg-[#2463eb]/10',
+    backgroundTeal: 'hover:bg-owner-50',
+    backgroundBlue: 'hover:bg-[weg-500]/10',
     scale: 'hover:scale-[1.02]',
     shadow: 'hover:shadow-md',
   },
@@ -640,8 +646,8 @@ export const BORDER = {
   /**
    * Mode-specific borders
    */
-  weg: 'border-2 border-[#2463eb]/20',
-  eigentuemer: 'border-2 border-teal-200',
+  weg: 'border-2 border-[weg-500]/20',
+  eigentuemer: 'border-2 border-owner-200',
 
   /**
    * Dashed (empty states)

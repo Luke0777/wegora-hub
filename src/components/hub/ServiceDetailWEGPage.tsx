@@ -30,7 +30,7 @@ export function ServiceDetailWEGPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Service nicht gefunden</h1>
-          <Link to="/angebot-weg" className="text-[#2463eb] hover:text-[#1d4ed8]">
+          <Link to="/angebot-weg" className="text-weg-500 hover:text-weg-600">
             ← Zurück zur Übersicht
           </Link>
         </div>
@@ -61,7 +61,7 @@ export function ServiceDetailWEGPage() {
           >
             <Link
               to="/angebot-weg"
-              className="inline-flex items-center gap-2 text-[#2463eb] hover:text-[#1d4ed8] transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-weg-500 hover:text-weg-600 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm font-medium">Zurück zur Übersicht</span>
@@ -76,7 +76,7 @@ export function ServiceDetailWEGPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              <p className="text-lg font-semibold text-[#2463eb] tracking-wide">
+              <p className="text-lg font-semibold text-weg-500 tracking-wide">
                 Wegora WEG
               </p>
             </motion.div>
@@ -109,12 +109,12 @@ export function ServiceDetailWEGPage() {
       <section className="py-16 sm:py-24">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
-            className="bg-[#2463eb]/5 border-2 border-[#2463eb]/20 rounded-xl p-12 text-center"
+            className="bg-weg-500/5 border-2 border-weg-500/20 rounded-xl p-12 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
           >
-            <p className="text-[#2463eb] font-medium text-lg mb-2">
+            <p className="text-weg-500 font-medium text-lg mb-2">
               Detailseite in Arbeit
             </p>
             <p className="text-muted-foreground">

@@ -69,7 +69,7 @@ export function AnimatedWordReplacement({ from, to, className = "" }: AnimatedWo
           {/* Strikethrough line - Wegora blue, bold, snappier */}
           {(animationState === "strikethrough" || animationState === "strikethrough-hold" || animationState === "replacing") && (
             <motion.span
-              className="absolute left-0 top-1/2 w-full h-[5px] bg-[#2463eb] shadow-md"
+              className="absolute left-0 top-1/2 w-full h-[5px] bg-weg-500 shadow-md"
               style={{
                 transformOrigin: "left center",
                 transform: "translateY(-50%)",

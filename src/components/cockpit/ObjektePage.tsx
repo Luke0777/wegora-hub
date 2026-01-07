@@ -57,11 +57,11 @@ export function ObjektePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
               >
-                <Card className="border-2 border-muted hover:border-[#2463eb]/30 transition-colors cursor-pointer group">
+                <Card className="border-2 border-muted hover:border-weg-500/30 transition-colors cursor-pointer group">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className="p-2 rounded-lg bg-[#2463eb]/10">
-                        <Buildings className="h-6 w-6 text-[#2463eb]" />
+                      <div className="p-2 rounded-lg bg-weg-500/10">
+                        <Buildings className="h-6 w-6 text-weg-500" />
                       </div>
                       {obj.status === 'attention' && (
                         <Badge className="bg-orange-100 text-orange-700 border-0">
@@ -85,13 +85,13 @@ export function ObjektePage() {
                         </Badge>
                       )}
                       {vacantUnits > 0 && (
-                        <Badge variant="outline" className="bg-[#2463eb]/5 text-[#2463eb] border-[#2463eb]/20">
+                        <Badge variant="outline" className="bg-weg-500/5 text-weg-500 border-weg-500/20">
                           {vacantUnits} leer
                         </Badge>
                       )}
                     </div>
 
-                    <div className="flex items-center text-sm text-[#2463eb] font-medium group-hover:underline">
+                    <div className="flex items-center text-sm text-weg-500 font-medium group-hover:underline">
                       Objekt öffnen
                       <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
                     </div>

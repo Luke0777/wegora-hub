@@ -82,17 +82,17 @@ export function HubLayout({ children }: HubLayoutProps) {
   const navLinkClass = (path: string) => {
     return `text-sm font-medium transition-all px-3 py-2 rounded-md ${
       isActive(path)
-        ? "text-[#2463eb] bg-[#2463eb]/10"
-        : "text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10"
+        ? "text-weg-500 bg-weg-500/10"
+        : "text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10"
     }`;
   };
 
   // Dynamic nav link class based on mode
   const cockpitNavLinkClass = (path: string) => {
-    const activeColor = mode === "eigentuemer" ? "text-teal-600" : "text-[#2463eb]";
-    const activeBg = mode === "eigentuemer" ? "bg-teal-600/10" : "bg-[#2463eb]/10";
-    const hoverColor = mode === "eigentuemer" ? "hover:text-teal-600" : "hover:text-[#2463eb]";
-    const hoverBg = mode === "eigentuemer" ? "hover:bg-teal-600/10" : "hover:bg-[#2463eb]/10";
+    const activeColor = mode === "eigentuemer" ? "text-owner-600" : "text-weg-500";
+    const activeBg = mode === "eigentuemer" ? "bg-owner-600/10" : "bg-weg-500/10";
+    const hoverColor = mode === "eigentuemer" ? "hover:text-owner-600" : "hover:text-weg-500";
+    const hoverBg = mode === "eigentuemer" ? "hover:bg-owner-600/10" : "hover:bg-weg-500/10";
 
     return `text-sm font-medium transition-all px-3 py-2 rounded-md flex items-center gap-2 ${
       isActive(path)
@@ -159,8 +159,8 @@ export function HubLayout({ children }: HubLayoutProps) {
                       size="sm"
                       className={`h-9 px-3 gap-2 font-medium ${
                         mode === "eigentuemer"
-                          ? "text-teal-700 hover:bg-teal-600/10"
-                          : "text-[#2463eb] hover:bg-[#2463eb]/10"
+                          ? "text-owner-700 hover:bg-owner-600/10"
+                          : "text-weg-500 hover:bg-weg-500/10"
                       }`}
                     >
                       <Buildings className="h-4 w-4" />
@@ -182,7 +182,7 @@ export function HubLayout({ children }: HubLayoutProps) {
                       >
                         <span>{obj.name}</span>
                         {selectedObjectId === obj.id && (
-                          <Check className="h-4 w-4 text-teal-600" />
+                          <Check className="h-4 w-4 text-owner-600" />
                         )}
                       </DropdownMenuItem>
                     ))}
@@ -196,7 +196,7 @@ export function HubLayout({ children }: HubLayoutProps) {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-9 px-3 gap-2 font-medium text-teal-700 hover:bg-teal-600/10"
+                        className="h-9 px-3 gap-2 font-medium text-owner-700 hover:bg-owner-600/10"
                       >
                         <House className="h-4 w-4" />
                         <span className="max-w-[100px] truncate">
@@ -218,7 +218,7 @@ export function HubLayout({ children }: HubLayoutProps) {
                           >
                             <span>{unit.unitName}</span>
                             {selectedUnitId === unit.unitId && (
-                              <Check className="h-4 w-4 text-teal-600" />
+                              <Check className="h-4 w-4 text-owner-600" />
                             )}
                           </DropdownMenuItem>
                         ))
@@ -252,12 +252,12 @@ export function HubLayout({ children }: HubLayoutProps) {
                       className={`h-9 px-3 gap-2 font-medium ${
                         isActive("/cockpit/finanzen") || isActive("/cockpit/optimierung")
                           ? mode === "eigentuemer"
-                            ? "text-teal-600 bg-teal-600/10"
-                            : "text-[#2463eb] bg-[#2463eb]/10"
+                            ? "text-owner-600 bg-owner-600/10"
+                            : "text-weg-500 bg-weg-500/10"
                           : `text-foreground/80 ${
                               mode === "eigentuemer"
-                                ? "hover:text-teal-600 hover:bg-teal-600/10"
-                                : "hover:text-[#2463eb] hover:bg-[#2463eb]/10"
+                                ? "hover:text-owner-600 hover:bg-owner-600/10"
+                                : "hover:text-weg-500 hover:bg-weg-500/10"
                             }`
                       }`}
                     >
@@ -304,8 +304,8 @@ export function HubLayout({ children }: HubLayoutProps) {
                       <span
                         className={`text-sm font-medium transition-all px-3 py-2 rounded-md cursor-pointer flex items-center gap-1 ${
                           (isActive("/angebot-weg") || isActive("/angebot-eigentuemer"))
-                            ? "text-[#2463eb] bg-[#2463eb]/10"
-                            : "text-foreground/80 hover:text-[#2463eb] hover:bg-[#2463eb]/10"
+                            ? "text-weg-500 bg-weg-500/10"
+                            : "text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10"
                         }`}
                       >
                         Unser Angebot
@@ -319,24 +319,24 @@ export function HubLayout({ children }: HubLayoutProps) {
                       onMouseEnter={handleAngebotMouseEnter}
                       onMouseLeave={handleAngebotMouseLeave}
                     >
-                      <DropdownMenuItem asChild className="group hover:bg-[#2463eb]/10 focus:bg-[#2463eb]/10">
+                      <DropdownMenuItem asChild className="group hover:bg-weg-500/10 focus:bg-weg-500/10">
                         <Link to="/angebot-weg" className="cursor-pointer flex items-center gap-3 py-2">
-                          <div className="w-8 h-8 bg-[#2463eb]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Buildings className="h-4 w-4 text-[#2463eb]" />
+                          <div className="w-8 h-8 bg-weg-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Buildings className="h-4 w-4 text-weg-500" />
                           </div>
                           <div>
-                            <div className="font-medium text-sm group-hover:text-[#2463eb] transition-colors whitespace-nowrap">Wegora WEG</div>
+                            <div className="font-medium text-sm group-hover:text-weg-500 transition-colors whitespace-nowrap">Wegora WEG</div>
                             <div className="text-xs text-muted-foreground whitespace-nowrap">Für WEGs, Selbstverwalter & kleine Verwaltungen</div>
                           </div>
                         </Link>
                       </DropdownMenuItem>
-                      <DropdownMenuItem asChild className="group hover:bg-teal-500/10 focus:bg-teal-500/10">
+                      <DropdownMenuItem asChild className="group hover:bg-owner-500/10 focus:bg-owner-500/10">
                         <Link to="/angebot-eigentuemer" className="cursor-pointer flex items-center gap-3 py-2">
-                          <div className="w-8 h-8 bg-teal-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <House className="h-4 w-4 text-teal-500" />
+                          <div className="w-8 h-8 bg-owner-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <House className="h-4 w-4 text-owner-500" />
                           </div>
                           <div>
-                            <div className="font-medium text-sm group-hover:text-teal-500 transition-colors whitespace-nowrap">Wegora Eigentümer</div>
+                            <div className="font-medium text-sm group-hover:text-owner-500 transition-colors whitespace-nowrap">Wegora Eigentümer</div>
                             <div className="text-xs text-muted-foreground whitespace-nowrap">Für Eigentümer & Vermieter</div>
                           </div>
                         </Link>
@@ -365,7 +365,7 @@ export function HubLayout({ children }: HubLayoutProps) {
                     onClick={() => switchMode("weg")}
                     className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
                       mode === "weg"
-                        ? "bg-white text-[#2463eb] shadow-sm"
+                        ? "bg-white text-weg-500 shadow-sm"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -375,7 +375,7 @@ export function HubLayout({ children }: HubLayoutProps) {
                     onClick={() => switchMode("eigentuemer")}
                     className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
                       mode === "eigentuemer"
-                        ? "bg-white text-teal-600 shadow-sm"
+                        ? "bg-white text-owner-600 shadow-sm"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -411,7 +411,7 @@ export function HubLayout({ children }: HubLayoutProps) {
                 <Link to="/cockpit">
                   <Button
                     size="sm"
-                    className="h-9 text-sm px-6 bg-[#2463eb] hover:bg-[#1d4ed8] text-white"
+                    className="h-9 text-sm px-6 bg-weg-500 hover:bg-weg-600 text-white"
                   >
                     Jetzt registrieren
                   </Button>
