@@ -1,0 +1,57 @@
+{
+  "name": "@wegora/design-system",
+  "version": "1.0.0",
+  "description": "Wegora Design System - Style guides and component library",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./hub": {
+      "import": "./dist/hub-styleguide.mjs",
+      "require": "./dist/hub-styleguide.js",
+      "types": "./dist/hub-styleguide.d.ts"
+    },
+    "./app": {
+      "import": "./dist/app-styleguide.mjs",
+      "require": "./dist/app-styleguide.js",
+      "types": "./dist/app-styleguide.d.ts"
+    },
+    "./components": {
+      "import": "./dist/component-library.mjs",
+      "require": "./dist/component-library.js",
+      "types": "./dist/component-library.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts src/hub-styleguide.ts src/app-styleguide.ts src/component-library.ts --format cjs,esm --dts",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/wegora-design-system.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "wegora",
+    "design-system",
+    "styleguide",
+    "components"
+  ],
+  "author": "Wegora",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
