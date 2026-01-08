@@ -11,6 +11,8 @@ export function AllInOneProblemsIllustration({ className = "" }: AllInOneProblem
         className="w-full h-full max-w-xl max-h-96"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Probleme herkoemmlicher Verwaltung"
       >
         {/* Large bloated monolithic box */}
         <g transform="translate(150, 100)">

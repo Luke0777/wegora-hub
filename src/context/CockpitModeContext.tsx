@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useSyncExternalStore, type ReactNode } from 'react';
 import { getMyOwnedUnits } from '@/data/mockCockpitData';
 
 export type CockpitMode = 'weg' | 'eigentuemer';
@@ -26,59 +26,91 @@ interface StoredState {
   selectedUnitId: string | null;
 }
 
-function loadFromStorage(): StoredState {
+const DEFAULT_STATE: StoredState = {
+  mode: 'weg',
+  selectedObjectId: 'obj-1',
+  selectedUnitId: null,
+};
+
+// Store for syncing with localStorage
+let listeners: Array<() => void> = [];
+let cachedState: StoredState | null = null;
+
+function getStoredState(): StoredState {
+  if (cachedState) return cachedState;
+  if (typeof window === 'undefined') return DEFAULT_STATE;
+
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      return {
-        mode: parsed.mode || 'weg',
-        selectedObjectId: parsed.selectedObjectId || 'obj-1',
-        selectedUnitId: parsed.selectedUnitId || null,
+      cachedState = {
+        mode: parsed.mode || DEFAULT_STATE.mode,
+        selectedObjectId: parsed.selectedObjectId || DEFAULT_STATE.selectedObjectId,
+        selectedUnitId: parsed.selectedUnitId ?? DEFAULT_STATE.selectedUnitId,
       };
+      return cachedState;
     }
   } catch {
     // Ignore parse errors
   }
-  return {
-    mode: 'weg',
-    selectedObjectId: 'obj-1',
-    selectedUnitId: null,
-  };
+  cachedState = DEFAULT_STATE;
+  return cachedState;
 }
 
 function saveToStorage(state: StoredState) {
+  if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    cachedState = state;
+    listeners.forEach(listener => listener());
   } catch {
     // Ignore storage errors
   }
 }
 
-export function CockpitModeProvider({ children }: { children: ReactNode }) {
-  const [mode, setModeState] = useState<CockpitMode>(() => loadFromStorage().mode);
-  const [selectedObjectId, setSelectedObjectIdState] = useState<string>(() => loadFromStorage().selectedObjectId);
-  const [selectedUnitId, setSelectedUnitIdState] = useState<string | null>(() => loadFromStorage().selectedUnitId);
+function subscribe(listener: () => void) {
+  listeners.push(listener);
+  return () => {
+    listeners = listeners.filter(l => l !== listener);
+  };
+}
 
-  // Save to localStorage whenever state changes
+function getSnapshot() {
+  return getStoredState();
+}
+
+function getServerSnapshot() {
+  return DEFAULT_STATE;
+}
+
+export function CockpitModeProvider({ children }: { children: ReactNode }) {
+  // Use useSyncExternalStore to properly handle hydration
+  const storedState = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  const [mode, setModeState] = useState<CockpitMode>(storedState.mode);
+  const [selectedObjectId, setSelectedObjectIdState] = useState<string>(storedState.selectedObjectId);
+  const [selectedUnitId, setSelectedUnitIdState] = useState<string | null>(storedState.selectedUnitId);
+
+  // Sync state with localStorage on changes
   useEffect(() => {
     saveToStorage({ mode, selectedObjectId, selectedUnitId });
   }, [mode, selectedObjectId, selectedUnitId]);
 
-  const setMode = (newMode: CockpitMode) => {
+  const setMode = useCallback((newMode: CockpitMode) => {
     setModeState(newMode);
-  };
+  }, []);
 
-  const setSelectedObjectId = (id: string) => {
+  const setSelectedObjectId = useCallback((id: string) => {
     setSelectedObjectIdState(id);
-  };
+  }, []);
 
-  const setSelectedUnitId = (id: string | null) => {
+  const setSelectedUnitId = useCallback((id: string | null) => {
     setSelectedUnitIdState(id);
-  };
+  }, []);
 
   // Helper to switch mode with automatic unit/object selection
-  const switchMode = (newMode: CockpitMode) => {
+  const switchMode = useCallback((newMode: CockpitMode) => {
     setModeState(newMode);
 
     if (newMode === 'eigentuemer') {
@@ -99,7 +131,7 @@ export function CockpitModeProvider({ children }: { children: ReactNode }) {
       // When switching to WEG, clear unit selection
       setSelectedUnitIdState(null);
     }
-  };
+  }, [selectedObjectId]);
 
   return (
     <CockpitModeContext.Provider

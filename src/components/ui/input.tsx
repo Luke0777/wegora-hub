@@ -34,6 +34,9 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, variant, inputSize, type, startIcon, endIcon, ...props }, ref) => {
+    // Auto-apply aria-invalid when variant is "error"
+    const ariaInvalid = variant === "error" || props["aria-invalid"] || undefined;
+
     if (startIcon || endIcon) {
       return (
         <div className="relative">
@@ -45,6 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <input
             type={type}
             data-slot="input"
+            aria-invalid={ariaInvalid}
             className={cn(
               inputVariants({ variant, inputSize }),
               startIcon && "pl-9",
@@ -67,6 +71,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         data-slot="input"
+        aria-invalid={ariaInvalid}
         className={cn(inputVariants({ variant, inputSize, className }))}
         ref={ref}
         {...props}

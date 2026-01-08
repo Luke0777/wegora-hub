@@ -14,6 +14,8 @@ export function ServiceWEGIllustration({ className = "", color }: ServiceWEGIllu
         className="w-full h-full max-w-xs max-h-xs"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: WEG-Verwaltung"
       >
         {/* Main meeting/calendar card */}
         <g transform="translate(100, 90)">

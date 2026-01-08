@@ -14,6 +14,8 @@ export function ServiceNebenkostenIllustration({ className = "", color }: Servic
         className="w-full h-full max-w-xs max-h-xs"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Nebenkostenabrechnung"
       >
         {/* Invoice/Document being scanned */}
         <g transform="translate(100, 90)">

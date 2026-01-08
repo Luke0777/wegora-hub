@@ -62,6 +62,8 @@ export function HubHeroIllustration({ className = "" }: HubHeroIllustrationProps
         viewBox="0 0 400 300"
         className="w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Wegora Plattform mit verbundenen Services"
       >
         {/* Connection lines - drawn FIRST (behind everything) */}
         <g className="hero-lines">

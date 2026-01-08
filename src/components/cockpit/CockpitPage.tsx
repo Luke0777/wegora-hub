@@ -343,9 +343,12 @@ export function CockpitPage() {
                   <CardContent>
                     <div className="space-y-2">
                       {eigentuemerTasks.map((task: CockpitTask) => (
-                        <div
+                        <button
                           key={task.id}
-                          className={`flex items-start gap-3 p-3 rounded-lg transition-colors cursor-pointer ${
+                          type="button"
+                          aria-pressed={task.completed}
+                          aria-label={`Aufgabe "${task.title}" als ${task.completed ? 'unerledigt' : 'erledigt'} markieren`}
+                          className={`flex items-start gap-3 p-3 rounded-lg transition-colors cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 ${
                             task.completed
                               ? 'bg-muted/50 opacity-60'
                               : 'bg-owner-50/50 hover:bg-owner-50'
@@ -365,7 +368,7 @@ export function CockpitPage() {
                               Fällig: {new Date(task.dueDate).toLocaleDateString('de-DE')}
                             </p>
                           </div>
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </CardContent>
@@ -389,9 +392,11 @@ export function CockpitPage() {
                     <CardContent>
                       <div className="space-y-2">
                         {unitCases.filter(c => c.status !== 'abgeschlossen').map((caseItem: CockpitCase) => (
-                          <div
+                          <button
                             key={caseItem.id}
-                            className={`flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer ${
+                            type="button"
+                            aria-label={`Vorgang "${caseItem.title}" öffnen`}
+                            className={`flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 ${
                               caseItem.status === 'offen'
                                 ? 'bg-orange-50 border-l-4 border-orange-500'
                                 : 'bg-[#F8FAFF]'
@@ -403,7 +408,7 @@ export function CockpitPage() {
                             <Badge className={`${getStatusColor(caseItem.status)} border-0`}>
                               {getStatusLabel(caseItem.status)}
                             </Badge>
-                          </div>
+                          </button>
                         ))}
                       </div>
                     </CardContent>
@@ -427,15 +432,17 @@ export function CockpitPage() {
                   <CardContent className="pt-0">
                     <div className="space-y-1">
                       {mockEigentuemerDocuments.slice(0, 4).map((doc: CockpitDocument) => (
-                        <div
+                        <button
                           key={doc.id}
-                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                          type="button"
+                          aria-label={`Dokument "${doc.name}" öffnen`}
+                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
                         >
                           <FileText className="h-4 w-4 text-muted-foreground" />
                           <div className="flex-1 min-w-0">
                             <p className="text-sm truncate">{doc.name}</p>
                           </div>
-                        </div>
+                        </button>
                       ))}
                     </div>
                     <Button
@@ -564,9 +571,12 @@ export function CockpitPage() {
                     {tasks
                       .filter(t => t.objectId === selectedObjectId && !t.unitId)
                       .map((task: CockpitTask) => (
-                        <div
+                        <button
                           key={task.id}
-                          className={`flex items-start gap-3 p-3 rounded-lg transition-colors cursor-pointer ${
+                          type="button"
+                          aria-pressed={task.completed}
+                          aria-label={`Aufgabe "${task.title}" als ${task.completed ? 'unerledigt' : 'erledigt'} markieren`}
+                          className={`flex items-start gap-3 p-3 rounded-lg transition-colors cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 ${
                             task.completed
                               ? 'bg-muted/50 opacity-60'
                               : 'bg-[#F8FAFF] hover:bg-[#EEF4FF]'
@@ -586,7 +596,7 @@ export function CockpitPage() {
                               Fällig: {new Date(task.dueDate).toLocaleDateString('de-DE')}
                             </p>
                           </div>
-                        </div>
+                        </button>
                       ))}
                   </div>
                   <Button
@@ -628,9 +638,11 @@ export function CockpitPage() {
                         </div>
                         <div className="space-y-2">
                           {offeneCases.slice(0, 2).map((caseItem: CockpitCase) => (
-                            <div
+                            <button
                               key={caseItem.id}
-                              className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 border-l-4 border-orange-500 hover:bg-orange-100/80 transition-colors cursor-pointer shadow-sm"
+                              type="button"
+                              aria-label={`Vorgang "${caseItem.title}" öffnen`}
+                              className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 border-l-4 border-orange-500 hover:bg-orange-100/80 transition-colors cursor-pointer shadow-sm w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
                             >
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm font-medium truncate">{caseItem.title}</p>
@@ -646,7 +658,7 @@ export function CockpitPage() {
                                   {caseItem.cost.toLocaleString('de-DE')} €
                                 </span>
                               )}
-                            </div>
+                            </button>
                           ))}
                         </div>
                       </div>
@@ -663,9 +675,11 @@ export function CockpitPage() {
                         )}
                         <div className="space-y-2">
                           {inBearbeitungCases.slice(0, 2).map((caseItem: CockpitCase) => (
-                            <div
+                            <button
                               key={caseItem.id}
-                              className="flex items-center gap-3 p-3 rounded-lg bg-[#F8FAFF] hover:bg-[#EEF4FF] transition-colors cursor-pointer"
+                              type="button"
+                              aria-label={`Vorgang "${caseItem.title}" öffnen`}
+                              className="flex items-center gap-3 p-3 rounded-lg bg-[#F8FAFF] hover:bg-[#EEF4FF] transition-colors cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
                             >
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm font-medium truncate">{caseItem.title}</p>
@@ -681,7 +695,7 @@ export function CockpitPage() {
                                   {caseItem.cost.toLocaleString('de-DE')} €
                                 </span>
                               )}
-                            </div>
+                            </button>
                           ))}
                         </div>
                       </div>
@@ -786,15 +800,17 @@ export function CockpitPage() {
                       .filter(d => d.objectId === selectedObjectId && !d.unitId)
                       .slice(0, 3)
                       .map((doc: CockpitDocument) => (
-                        <div
+                        <button
                           key={doc.id}
-                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                          type="button"
+                          aria-label={`Dokument "${doc.name}" öffnen`}
+                          className="flex items-center gap-2 p-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
                         >
                           <FileText className="h-4 w-4 text-muted-foreground" />
                           <div className="flex-1 min-w-0">
                             <p className="text-sm truncate">{doc.name}</p>
                           </div>
-                        </div>
+                        </button>
                       ))}
                   </div>
                   <Button

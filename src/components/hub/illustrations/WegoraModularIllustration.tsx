@@ -15,6 +15,8 @@ export function WegoraModularIllustration({ className = "" }: WegoraModularIllus
         style={{ minWidth: '400px', minHeight: '200px' }}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Modulare Services"
       >
         {/* Module 1: Wegora WEG */}
         <g transform="translate(140, 90)">

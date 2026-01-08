@@ -1,31 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import { CaretDown } from "@phosphor-icons/react";
+import { motion } from "framer-motion";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 
 export function UeberUnsPage() {
-  const [showScrollArrow, setShowScrollArrow] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const hasEnoughHeight = window.innerHeight >= 700;
-      if (window.scrollY > 100 || !hasEnoughHeight) {
-        setShowScrollArrow(false);
-      } else {
-        setShowScrollArrow(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, []);
   const teamMembers = [
     {
       name: "Tobias Klüppel",
@@ -145,34 +123,7 @@ export function UeberUnsPage() {
         </div>
 
         {/* Scroll Indicator */}
-        <AnimatePresence>
-          {showScrollArrow && (
-            <motion.div
-              className="fixed left-1/2 -translate-x-1/2 cursor-pointer z-20"
-              style={{ bottom: "2rem" }}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              onClick={() => {
-                window.scrollTo({
-                  top: window.innerHeight,
-                  behavior: 'smooth'
-                });
-              }}
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <CaretDown
-                  className="w-10 h-10 text-weg-500/70 hover:text-weg-500 transition-colors"
-                  weight="bold"
-                />
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <ScrollIndicator />
       </section>
 
       {/* Section 1: Wer wir sind - calm, intentional */}
@@ -324,9 +275,9 @@ export function UeberUnsPage() {
                   transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                 >
                   {/* Principle title - statement-like */}
-                  <h4 className="font-semibold text-[18px] text-[#1A1A1A]">
+                  <h3 className="font-semibold text-[18px] text-[#1A1A1A]">
                     {principle.title}
-                  </h4>
+                  </h3>
                   {/* Description - clear, readable */}
                   <p className="text-[16px] leading-[1.7]" style={{ color: "hsl(var(--text-secondary))" }}>
                     {principle.description}

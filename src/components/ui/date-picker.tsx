@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react"
 import { format } from "date-fns"
 import { de } from "date-fns/locale"
 import { CalendarBlank } from "@phosphor-icons/react"
@@ -20,6 +21,12 @@ export interface DatePickerProps {
   disabled?: boolean
   className?: string
   dateFormat?: string
+  /** Accessible label for the trigger button */
+  label?: string
+  /** Whether the field has an error */
+  error?: boolean
+  /** Whether the field is required */
+  required?: boolean
 }
 
 function DatePicker({
@@ -29,16 +36,27 @@ function DatePicker({
   disabled = false,
   className,
   dateFormat = "dd.MM.yyyy",
+  label,
+  error,
+  required,
 }: DatePickerProps) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
           disabled={disabled}
+          aria-label={label || placeholder}
+          aria-expanded={open}
+          aria-haspopup="dialog"
+          aria-invalid={error || undefined}
+          aria-required={required || undefined}
           className={cn(
             "w-full justify-start text-left font-normal",
             !value && "text-muted-foreground",
+            error && "border-destructive focus-visible:ring-destructive/20",
             className
           )}
         >
@@ -50,11 +68,19 @@ function DatePicker({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent
+        className="w-auto p-0"
+        align="start"
+        role="dialog"
+        aria-label="Kalender"
+      >
         <Calendar
           mode="single"
           selected={value}
-          onSelect={onChange}
+          onSelect={(date) => {
+            onChange?.(date);
+            setOpen(false);
+          }}
           initialFocus
         />
       </PopoverContent>

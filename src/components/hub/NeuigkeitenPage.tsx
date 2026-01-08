@@ -1,10 +1,8 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
-  CaretDown,
   FileText,
   CheckCircle,
   ChartBar,
@@ -12,29 +10,9 @@ import {
   Rocket,
   Layout
 } from "@phosphor-icons/react";
+import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 
 export function NeuigkeitenPage() {
-  const [showScrollArrow, setShowScrollArrow] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const hasEnoughHeight = window.innerHeight >= 700;
-      if (window.scrollY > 100 || !hasEnoughHeight) {
-        setShowScrollArrow(false);
-      } else {
-        setShowScrollArrow(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, []);
   const updatesData = [
     {
       title: "Nebenkosten einfacher vorbereiten – auch mobil",
@@ -120,34 +98,7 @@ export function NeuigkeitenPage() {
         </div>
 
         {/* Scroll Indicator */}
-        <AnimatePresence>
-          {showScrollArrow && (
-            <motion.div
-              className="fixed left-1/2 -translate-x-1/2 cursor-pointer z-20"
-              style={{ bottom: "2rem" }}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              onClick={() => {
-                window.scrollTo({
-                  top: window.innerHeight,
-                  behavior: 'smooth'
-                });
-              }}
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <CaretDown
-                  className="w-10 h-10 text-weg-500/70 hover:text-weg-500 transition-colors"
-                  weight="bold"
-                />
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <ScrollIndicator />
       </section>
 
       {/* News/Updates Section - Outcome-Focused */}

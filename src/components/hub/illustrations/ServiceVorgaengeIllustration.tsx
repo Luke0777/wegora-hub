@@ -14,6 +14,8 @@ export function ServiceVorgaengeIllustration({ className = "", color }: ServiceV
         className="w-full h-full max-w-xs max-h-xs"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Vorgangsverwaltung"
       >
         {/* Main clipboard/task board */}
         <g transform="translate(100, 95)">

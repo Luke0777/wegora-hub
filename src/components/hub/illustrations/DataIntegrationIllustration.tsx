@@ -11,6 +11,8 @@ export function DataIntegrationIllustration({ className = "" }: DataIntegrationI
         className="w-full h-full max-w-sm max-h-48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Datenintegration"
       >
         {/* Background circles for depth */}
         <circle cx="80" cy="50" r="35" fill="hsl(var(--illustration-weg))" opacity="var(--illustration-opacity-subtle)" />

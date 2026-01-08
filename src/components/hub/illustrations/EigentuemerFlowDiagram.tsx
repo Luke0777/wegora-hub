@@ -39,6 +39,8 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
         viewBox="-50 50 1100 550"
         className="w-full h-full wegora-flow-eigentuemer"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Eigentuemer Service-Ablauf"
       >
         <style>{`
           @media (prefers-reduced-motion: reduce) {

@@ -14,6 +14,8 @@ export function ServiceAccountingIllustration({ className = "", color }: Service
         className="w-full h-full max-w-xs max-h-xs"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Finanzverwaltung"
       >
         {/* Main calculator/financial dashboard */}
         <g transform="translate(100, 80)">

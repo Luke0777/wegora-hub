@@ -5,6 +5,8 @@ export function ServiceNebenkostenCheckIllustration({ className }: { className?:
       viewBox="0 0 200 160"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Illustration: Nebenkostenpruefung"
     >
       {/* Document/Invoice */}
       <rect

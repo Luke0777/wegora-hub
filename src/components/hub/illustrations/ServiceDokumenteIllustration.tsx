@@ -14,6 +14,8 @@ export function ServiceDokumenteIllustration({ className = "", color }: ServiceD
         className="w-full h-full max-w-xs max-h-xs"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Dokumentenverwaltung"
       >
         {/* Main document box/container */}
         <g transform="translate(100, 88)">

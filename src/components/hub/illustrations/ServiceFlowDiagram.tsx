@@ -34,6 +34,8 @@ export function ServiceFlowDiagram({ className = "" }: ServiceFlowDiagramProps) 
         viewBox="-50 50 1100 520"
         className="w-full h-full wegora-flow"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: WEG Service-Ablauf von Daten zu Entscheidungen"
       >
         <style>{`
           /* Respect motion preferences */

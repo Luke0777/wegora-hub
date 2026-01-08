@@ -10,6 +10,8 @@ export function TransitionVisualization({ className = "" }: TransitionVisualizat
         viewBox="0 0 800 400"
         className="w-full h-full transition-visual"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Illustration: Transformationsprozess"
       >
         <style>{`
           .transition-visual .fragment {
