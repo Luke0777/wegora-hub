@@ -1,6 +1,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CockpitModeProvider } from './context/CockpitModeContext'
+import { TooltipProvider } from './components/ui/tooltip'
+import { Toaster } from './components/ui/sonner'
 import { HubLayout } from './components/hub/HubLayout'
 import { HomePage } from './components/hub/HomePage'
 import { AngebotWEGPage } from './components/hub/AngebotWEGPage'
@@ -19,12 +21,15 @@ import { DokumentePage } from './components/cockpit/DokumentePage'
 import { FinanzenPage } from './components/cockpit/FinanzenPage'
 import { MieterPage } from './components/cockpit/MieterPage'
 import { OptimierungPage } from './components/cockpit/OptimierungPage'
+// Test page for @acme/ui integration
+import { AcmeUiTestPage } from './components/hub/AcmeUiTestPage'
 
 function App() {
   return (
     <BrowserRouter>
-      <CockpitModeProvider>
-        <Routes>
+      <TooltipProvider>
+        <CockpitModeProvider>
+          <Routes>
           {/* Marketing Site Routes */}
           <Route path="/" element={<HubLayout><HomePage /></HubLayout>} />
           <Route path="/angebot-weg" element={<HubLayout><AngebotWEGPage /></HubLayout>} />
@@ -46,8 +51,13 @@ function App() {
           <Route path="/cockpit/finanzen" element={<HubLayout><FinanzenPage /></HubLayout>} />
           <Route path="/cockpit/mieter" element={<HubLayout><MieterPage /></HubLayout>} />
           <Route path="/cockpit/optimierung" element={<HubLayout><OptimierungPage /></HubLayout>} />
-        </Routes>
-      </CockpitModeProvider>
+
+          {/* Test route for @acme/ui integration */}
+          <Route path="/test-acme-ui" element={<AcmeUiTestPage />} />
+          </Routes>
+          <Toaster />
+        </CockpitModeProvider>
+      </TooltipProvider>
     </BrowserRouter>
   )
 }

@@ -45,8 +45,6 @@ export function WegoraLogo({
     ? 'white'
     : '#0F172A';
 
-  const windowColor = colorMode === 'white' ? '#1f2937' : '#ffffff';
-
   // Context dot colors - the dot that has "left" the house
   const dotColor = colorMode === 'monochrome'
     ? 'currentColor'

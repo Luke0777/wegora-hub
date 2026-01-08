@@ -15,7 +15,6 @@ import {
   ArrowRight,
   House,
   ChartBar,
-  Receipt,
   Brain,
   CheckCircle,
   Database,
