@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -16,7 +18,7 @@ import {
   ServiceVorgaengeIllustration,
 } from "./illustrations";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export function AngebotWEGPage() {
   const services = [
@@ -277,7 +279,7 @@ export function AngebotWEGPage() {
                           Demnächst verfügbar
                         </span>
                       ) : (
-                        <Link to={`/angebot-weg/${service.id}`}>
+                        <Link href={`/angebot-weg/${service.id}`}>
                           <Button variant="outline" size="sm" className="border-weg-500 text-weg-500 hover:bg-weg-500/10 transition-colors">
                             Zum Service
                           </Button>

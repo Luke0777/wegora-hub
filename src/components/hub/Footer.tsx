@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { WegoraLogo } from "@/components/ui/WegoraLogo";
 import { Button } from "@/components/ui/button";
 import { EnvelopeSimple, MapPin } from "@phosphor-icons/react";
@@ -30,7 +32,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/angebot-weg"
+                  href="/angebot-weg"
                   className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Angebot für WEGs
@@ -38,7 +40,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/angebot-eigentuemer"
+                  href="/angebot-eigentuemer"
                   className="text-sm text-muted-foreground hover:text-owner-500 transition-colors"
                 >
                   Angebot für Eigentümer
@@ -46,7 +48,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/vision"
+                  href="/vision"
                   className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Vision
@@ -54,7 +56,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/neuigkeiten"
+                  href="/neuigkeiten"
                   className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Neuigkeiten
@@ -62,7 +64,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/ueber-uns"
+                  href="/ueber-uns"
                   className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Über uns
@@ -70,7 +72,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/kontakt"
+                  href="/kontakt"
                   className="text-sm text-muted-foreground hover:text-weg-500 transition-colors"
                 >
                   Kontakt

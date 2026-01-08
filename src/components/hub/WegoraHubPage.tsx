@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -165,14 +167,14 @@ export function WegoraHubPage() {
           <div className="flex items-center h-full w-full gap-8">
             <WegoraLogo variant="horizontal" size="md" />
             <nav className="flex-1 flex items-center gap-2">
-              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Start</Link>
-              <Link to="/ueber-uns" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Über uns</Link>
-              <Link to="/vision" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Vision</Link>
-              <Link to="/unser-angebot" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Unser Angebot</Link>
-              <Link to="/services" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Services</Link>
-              <Link to="/ai-technologie" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">AI & Technologie</Link>
+              <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Start</Link>
+              <Link href="/ueber-uns" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Über uns</Link>
+              <Link href="/vision" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Vision</Link>
+              <Link href="/unser-angebot" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Unser Angebot</Link>
+              <Link href="/services" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">Services</Link>
+              <Link href="/ai-technologie" className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md">AI & Technologie</Link>
             </nav>
-            <Link to="/kontakt">
+            <Link href="/kontakt">
               <Button
                 size="sm"
                 className="h-9 text-sm px-4"

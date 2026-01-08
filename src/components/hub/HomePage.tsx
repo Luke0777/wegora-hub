@@ -1,5 +1,7 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, House, CaretDown, Buildings } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -208,7 +210,7 @@ export function HomePage() {
                   </p>
 
                   <div className="mt-auto">
-                    <Link to="/angebot-weg" className="text-weg-500 hover:text-weg-600 font-medium inline-flex items-center group">
+                    <Link href="/angebot-weg" className="text-weg-500 hover:text-weg-600 font-medium inline-flex items-center group">
                       Versammlungen, Finanzen, Dokumente
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -241,7 +243,7 @@ export function HomePage() {
                   </p>
 
                   <div className="mt-auto">
-                    <Link to="/angebot-eigentuemer" className="text-owner-600 hover:text-owner-700 font-medium inline-flex items-center group">
+                    <Link href="/angebot-eigentuemer" className="text-owner-600 hover:text-owner-700 font-medium inline-flex items-center group">
                       Nebenkosten, Dokumente, Finanzen
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -284,13 +286,13 @@ export function HomePage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
-              <Link to="/angebot-weg">
+              <Link href="/angebot-weg">
                 <Button size="default" className="px-5 py-2.5 h-auto bg-weg-500/90 hover:bg-weg-500 text-white hover:text-white text-[13px] font-medium">
                   <Buildings className="mr-1.5 h-4 w-4" weight="duotone" />
                   WEG-Module
                 </Button>
               </Link>
-              <Link to="/angebot-eigentuemer">
+              <Link href="/angebot-eigentuemer">
                 <Button size="default" className="px-5 py-2.5 h-auto bg-owner-500/90 hover:bg-owner-500 text-white hover:text-white text-[13px] font-medium">
                   <House className="mr-1.5 h-4 w-4" weight="duotone" />
                   Eigentümer-Module

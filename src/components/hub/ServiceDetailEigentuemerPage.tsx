@@ -1,4 +1,7 @@
-import { useParams, Link } from "react-router-dom";
+"use client";
+
+import { useParams } from "next/navigation";
+import Link from "next/link";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 
@@ -18,7 +21,8 @@ const serviceData: Record<string, { title: string; description: string }> = {
 };
 
 export function ServiceDetailEigentuemerPage() {
-  const { serviceId } = useParams<{ serviceId: string }>();
+  const params = useParams();
+  const serviceId = params.serviceId as string;
   const service = serviceId ? serviceData[serviceId] : null;
 
   if (!service) {
@@ -26,7 +30,7 @@ export function ServiceDetailEigentuemerPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Service nicht gefunden</h1>
-          <Link to="/angebot-eigentuemer" className="text-owner-500 hover:text-owner-600">
+          <Link href="/angebot-eigentuemer" className="text-owner-500 hover:text-owner-600">
             ← Zurück zur Übersicht
           </Link>
         </div>
@@ -56,7 +60,7 @@ export function ServiceDetailEigentuemerPage() {
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <Link
-              to="/angebot-eigentuemer"
+              href="/angebot-eigentuemer"
               className="inline-flex items-center gap-2 text-owner-500 hover:text-owner-600 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />

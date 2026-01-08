@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -15,7 +17,7 @@ import {
   ServiceDokumenteIllustration,
 } from "./illustrations";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export function AngebotEigentuemerPage() {
   const services = [
@@ -261,7 +263,7 @@ export function AngebotEigentuemerPage() {
                           Demnächst verfügbar
                         </span>
                       ) : (
-                        <Link to={`/angebot-eigentuemer/${service.id}`}>
+                        <Link href={`/angebot-eigentuemer/${service.id}`}>
                           <Button variant="outline" size="sm" className="border-owner-500 text-owner-500 hover:bg-owner-500/10 transition-colors">
                             Zum Service
                           </Button>

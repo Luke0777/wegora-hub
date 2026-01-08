@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from '@/lib/utils';
 
 interface WegoraLogoProps {
@@ -68,7 +70,8 @@ export function WegoraLogo({
     xl: 'w-[6.65px] h-[6.65px]'
   };
 
-  const LogomarkSVG = () => (
+  // Inline SVG element
+  const logomarkSvg = (
     <svg
       viewBox="0 0 18 24"
       className={sizeClasses[size]}
@@ -81,9 +84,6 @@ export function WegoraLogo({
 
       {/* Roof - aligned to optical cap height */}
       <path d="M1 13 L9 5 L17 13 L15 13 L9 7 L3 13 Z" fill={logomarkColors.primary}/>
-
-      {/* Window - temporarily hidden */}
-      {/* <rect x="4.9" y="15.7" width="2.6" height="2.6" rx="1.3" fill={windowColor}/> */}
     </svg>
   );
 
@@ -95,7 +95,7 @@ export function WegoraLogo({
         role={onClick ? "button" : undefined}
         aria-label={onClick ? "Zur Startseite" : "Wegora Logo"}
       >
-        <LogomarkSVG />
+        {logomarkSvg}
       </div>
     );
   }
@@ -112,7 +112,7 @@ export function WegoraLogo({
         role={onClick ? "button" : undefined}
         aria-label={onClick ? "Zur Startseite" : "Wegora Logo"}
       >
-        <LogomarkSVG />
+        {logomarkSvg}
 
         <span
           className={cn(
@@ -142,7 +142,7 @@ export function WegoraLogo({
       aria-label={onClick ? "Zur Startseite" : "Wegora Logo"}
     >
       <div className="-translate-y-2 translate-x-0.5">
-        <LogomarkSVG />
+        {logomarkSvg}
       </div>
 
       <span

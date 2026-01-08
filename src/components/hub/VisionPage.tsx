@@ -1,3 +1,5 @@
+"use client";
+
 import { CaretDown } from "@phosphor-icons/react";
 import { AnimatedWordReplacement } from "./AnimatedWordReplacement";
 import { motion, AnimatePresence } from "framer-motion";
