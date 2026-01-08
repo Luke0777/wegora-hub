@@ -35,7 +35,7 @@ export function AngebotWEGPage() {
       ],
       availability: ["Web-App"],
       badge: "Coming Soon",
-      color: "#3182CE",
+      color: "hsl(var(--weg-500))",
     },
     {
       id: "finanzen",
@@ -50,7 +50,7 @@ export function AngebotWEGPage() {
       ],
       availability: ["Web-App"],
       badge: "Coming Soon",
-      color: "#3182CE",
+      color: "hsl(var(--weg-500))",
     },
     {
       id: "dokumente",
@@ -65,7 +65,7 @@ export function AngebotWEGPage() {
       ],
       availability: ["Web-App"],
       badge: "Coming Soon",
-      color: "#3182CE",
+      color: "hsl(var(--weg-500))",
     },
     {
       id: "vorgaenge",
@@ -80,7 +80,7 @@ export function AngebotWEGPage() {
       ],
       availability: ["Web-App"],
       badge: "Geplant",
-      color: "#3182CE",
+      color: "hsl(var(--weg-500))",
     },
   ];
 
@@ -196,8 +196,7 @@ export function AngebotWEGPage() {
                   }}
                 >
                   <Card
-                    className="border-2 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col relative"
-                    style={{ borderColor: `${service.color}20` }}
+                    className="border-2 border-weg-200 hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col relative"
                   >
                   {/* Service Badge */}
                   {service.badge && (

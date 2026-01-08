@@ -98,7 +98,7 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
             y="78"
             textAnchor="middle"
             fill="hsl(var(--illustration-owner))"
-            fontSize="16"
+            fontSize="18"
             fontWeight="600"
           >
             Nebenkosten
@@ -116,17 +116,17 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
           <circle cx="0" cy="0" r="54" fill="hsl(var(--illustration-owner) / 0.03)" stroke="hsl(var(--illustration-owner))" strokeWidth="var(--illustration-stroke-default)" />
           {/* Balkendiagramm Icon - softer */}
           <g transform="scale(2.25)">
-            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.7" />
-            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.7" />
-            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.7" />
-            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.7" />
+            <rect x="-10.4" y="-2.2" width="4" height="8" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.85" />
+            <rect x="-4.8" y="-6.4" width="4" height="12" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.85" />
+            <rect x="0.8" y="-4.8" width="4" height="10.4" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.85" />
+            <rect x="6.4" y="-8" width="4" height="13.6" rx="0.8" fill="hsl(var(--illustration-owner))" opacity="0.85" />
           </g>
           <text
             x="0"
             y="78"
             textAnchor="middle"
             fill="hsl(var(--illustration-owner))"
-            fontSize="16"
+            fontSize="18"
             fontWeight="600"
           >
             Finanzen
@@ -155,7 +155,7 @@ export function EigentuemerFlowDiagram({ className = "" }: EigentuemerFlowDiagra
             y="78"
             textAnchor="middle"
             fill="hsl(var(--illustration-owner))"
-            fontSize="16"
+            fontSize="18"
             fontWeight="600"
           >
             Dokumente
