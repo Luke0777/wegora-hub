@@ -141,7 +141,7 @@ export function WegoraLogo({
       role={onClick ? "button" : undefined}
       aria-label={onClick ? "Zur Startseite" : "Wegora Logo"}
     >
-      <div className="-translate-y-2 translate-x-0.5">
+      <div className="-translate-y-1 translate-x-0.5">
         {logomarkSvg}
       </div>
 
