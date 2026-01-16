@@ -12,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-  UserCircle,
   House,
   Buildings,
   CaretDown,
@@ -126,47 +125,21 @@ export function MarketingHeader() {
             </Link>
           </nav>
 
-          {/* Marketing Site Buttons */}
+          {/* Auth Buttons */}
+          <Link
+            href="/cockpit"
+            className="text-sm font-medium text-foreground/80 hover:text-weg-500 hover:bg-weg-500/10 transition-all px-3 py-2 rounded-md"
+          >
+            Anmelden
+          </Link>
           <Link href="/cockpit">
             <Button
               size="sm"
-              className="h-9 text-sm px-6 bg-weg-500 hover:bg-weg-600 text-white"
+              className="h-10 text-sm px-6 bg-weg-500 hover:bg-weg-600 text-white rounded-lg"
             >
-              Jetzt registrieren
+              Registrieren
             </Button>
           </Link>
-
-          {/* Login Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 text-sm px-4 gap-2"
-              >
-                <UserCircle className="h-5 w-5" />
-                <span>Login</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              <DropdownMenuItem asChild>
-                <Link
-                  href="/cockpit"
-                  className="cursor-pointer"
-                >
-                  Anmelden
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link
-                  href="/cockpit"
-                  className="cursor-pointer"
-                >
-                  Registrieren
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
     </header>
