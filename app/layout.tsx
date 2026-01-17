@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@luke0777/ui/styles.css";
 
 export const metadata: Metadata = {
   title: "Wegora Hub",

@@ -1,15 +1,9 @@
-import { MarketingLayoutClient } from "@/components/layout/MarketingLayoutClient";
-import { Footer } from "@/components/hub/Footer";
+import { MarketingShellClient } from "./MarketingShellClient";
 
 export default function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <MarketingLayoutClient>
-      {children}
-      <Footer />
-    </MarketingLayoutClient>
-  );
+  return <MarketingShellClient>{children}</MarketingShellClient>;
 }
